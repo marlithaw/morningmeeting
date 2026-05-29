@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchbook Morning Meeting Playbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --spark-red: #E21C24;
+            --ember: #C8161D;
+            --mb-yellow: #F9DC7C;
+            --ink: #1A1A1A;
+            --charcoal: #232323;
+            --slate: #4A4A4A;
+            --muted: #94a3b8;
+            --hairline: #e2e8f0;
+            --font-display: 'Oswald', sans-serif;
+            --font-cond: 'Oswald', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #f8fafc;
+            color: var(--ink);
+        }
+
+        /* Matchbook Typography */
+        .font-display { font-family: var(--font-display); text-transform: uppercase; }
+        .font-cond { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Matchbook Components */
+        .mb-card { padding: 30px; box-sizing: border-box; border-radius: 0; }
+        .mb-card-dark { background: var(--charcoal); color: #fff; }
+        .mb-card-yellow { background: var(--mb-yellow); color: var(--ink); }
+        .mb-card-white { background: #fff; color: var(--ink); border: 1px solid var(--hairline); }
+        .mb-card-red { background: var(--spark-red); color: #fff; border: 1px solid var(--ember); }
+        
+        .mb-card-title { font-family: var(--font-cond); font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 12px; }
+        .mb-card-dark .mb-card-title, .mb-card-red .mb-card-title { color: #fff; }
+        .mb-card-yellow .mb-card-title, .mb-card-white .mb-card-title { color: var(--ink); }
+        
+        .mb-uline { height: 3px; width: 46px; background: var(--spark-red); margin: 0 0 18px; }
+        
+        .mb-btn { 
+            background: var(--spark-red); color: #fff; padding: 10px 24px; border-radius: 50px; 
+            font-family: var(--font-cond); font-weight: 600; font-size: 14px; letter-spacing: 0.05em; 
+            text-transform: uppercase; border: 2px solid var(--spark-red); cursor: pointer; transition: all 0.2s; 
+        }
+        .mb-btn:hover { background: var(--ember); border-color: var(--ember); }
+        
+        .mb-kicker { font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+        .mb-gradient-warm { background: linear-gradient(135deg, #d98a5a, #c8161d); }
+        
+        nav button { border-radius: 0 !important; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Table Styling */
+        table { border-collapse: collapse; }
+        th { font-family: var(--font-cond); letter-spacing: 0.05em; text-transform: uppercase; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="bg-white border-b border-[var(--hairline)] z-10 relative">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-fire text-[var(--spark-red)] text-4xl"></i>
+                    <div class="leading-none">
+                        <div class="font-display text-[var(--spark-red)] text-[26px] tracking-[0.01em]">Matchbook Learning</div>
+                        <div class="font-display text-[var(--ink)] text-[15px] tracking-[0.03em] mt-1">Schools of Indiana</div>
+                    </div>
+                </div>
+                <div class="border-l border-[var(--hairline)] pl-6 ml-2 hidden sm:block">
+                    <div class="font-cond text-[12px] tracking-[0.07em] text-[var(--muted)] uppercase font-semibold">
+                        Tier 1 Culture Anchor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 flex overflow-hidden">
+        
+        <nav class="w-64 bg-white border-r border-[var(--hairline)] overflow-y-auto custom-scrollbar flex-shrink-0 flex flex-col">
+            <div class="p-6 pb-2">
+                <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mb-4">Operating Protocol</h2>
+                <ul class="space-y-1">
+                    <li><button onclick="switchTab('overview')" id="tab-btn-overview" class="nav-btn bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]"><span class="flex items-center"><i class="fa-solid fa-compass w-5"></i> Overview</span><i class="fa-solid fa-chevron-right text-[10px]"></i></button></li>
+                    <li><button onclick="switchTab('run-of-show')" id="tab-btn-run-of-show" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-stopwatch w-5"></i> Run of Show</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('weekly-arc')" id="tab-btn-weekly-arc" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-calendar-week w-5"></i> Weekly Cycle</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('culture-camp')" id="tab-btn-culture-camp" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-campground w-5"></i> Culture Camp</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                </ul>
+
+                <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Classroom Tools</h2>
+                <ul class="space-y-1">
+                    <li><button onclick="switchTab('message-board')" id="tab-btn-message-board" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-chalkboard w-5"></i> Message Boards</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('practice-moves')" id="tab-btn-practice-moves" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-person-running w-5"></i> Practice Moves</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('adaptations')" id="tab-btn-adaptations" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-layer-group w-5"></i> Adaptations</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('student-roles')" id="tab-btn-student-roles" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-id-badge w-5"></i> Student Roles</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('share-prompts')" id="tab-btn-share-prompts" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-comments w-5"></i> Share Prompts</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('harm-vs-error')" id="tab-btn-harm-vs-error" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-scale-balanced w-5"></i> Harm vs. Error</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                </ul>
+
+                <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Culture Ecosystem</h2>
+                <ul class="space-y-1">
+                    <li><button onclick="switchTab('friday-cypher')" id="tab-btn-friday-cypher" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-microphone-lines w-5 text-purple-600"></i> Friday Cypher</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('family-connection')" id="tab-btn-family-connection" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-house-chimney-user w-5 text-orange-500"></i> Family Connection</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('de-escalation')" id="tab-btn-de-escalation" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-heart-pulse w-5 text-blue-500"></i> Live De-Escalation</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                </ul>
+
+                <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Tracking & Observation</h2>
+                <ul class="space-y-1 pb-6">
+                    <li><button onclick="switchTab('data-tracking')" id="tab-btn-data-tracking" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-chart-line w-5"></i> Data & Conversion</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('observation')" id="tab-btn-observation" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-clipboard-check w-5"></i> Observation Tool</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('rubric-crosswalk')" id="tab-btn-rubric-crosswalk" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-map w-5"></i> Rubric Crosswalk</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('scenario-bank')" id="tab-btn-scenario-bank" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-users-gear w-5"></i> Scenario Bank</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                </ul>
+            </div>
+            
+            <div class="mt-auto p-6 border-t border-[var(--hairline)] bg-slate-50">
+                 <div class="text-xs text-[var(--slate)] text-center">
+                    <p class="font-cond font-semibold tracking-wider text-[var(--charcoal)] mb-1 uppercase">Safe. Respectful. Responsible.</p>
+                    <p>Matchbook Learning K-8</p>
+                 </div>
+            </div>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto custom-scrollbar p-8 bg-[#f8fafc]">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- SHARED DYNAMIC HEADER -->
+                <div class="mb-10 flex flex-wrap items-center gap-4">
+                    <h1 class="font-display text-[26px] sm:text-[30px] text-[var(--ink)] m-0 leading-none">Matchbook Morning Meeting Playbook</h1>
+                    <svg class="h-[34px] flex-1 min-w-[40px] max-w-[100px] text-[var(--spark-red)]" viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 10 L20 0 L40 20 L60 0 L80 20 L100 10" /></svg>
+                    <h1 id="page-title" class="font-display text-[26px] sm:text-[30px] text-[var(--spark-red)] m-0 leading-none">Overview</h1>
+                </div>
+
+                <!-- 1. OVERVIEW TAB -->
+                <div id="overview" class="tab-content active">
+                    <!-- Video Placeholder -->
+                    <div class="mb-10 mb-gradient-warm shadow-md relative aspect-[16/10] flex items-center justify-center group cursor-pointer w-full max-w-3xl mx-auto border border-black/10">
+                        <div class="z-10 text-center p-6 w-full flex flex-col items-center">
+                            <button class="mb-btn mb-6 group-hover:scale-105 shadow-xl flex items-center gap-2">
+                                <i class="fa-solid fa-play"></i> Watch Overview
+                            </button>
+                            <span class="font-cond text-white tracking-[0.05em] text-[13px] bg-black/35 px-3 py-1 font-semibold uppercase">Warm · Candid · Color</span>
+                            <div class="font-cond text-[11px] tracking-[0.05em] uppercase text-white/80 mt-3">An introduction to the Matchbook Morning Meeting Playbook</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <!-- Why It Matters -->
+                        <div class="mb-card mb-card-dark shadow-sm flex flex-col">
+                            <h4 class="mb-card-title">The Matchbook Way</h4>
+                            <div class="mb-uline"></div>
+                            <div class="space-y-4 text-[14px] leading-[1.55] flex-1 text-[#D8D8D8]">
+                                <p>At Matchbook Learning, we believe that <strong class="text-white font-semibold">culture is practiced before pressure.</strong> Traditional, unstructured check-ins often spiral into lost instructional minutes. We are moving away from that reality.</p>
+                                <p>The Morning Meeting is our <strong class="text-white font-semibold">daily Tier 1 culture anchor</strong>. It is a highly strategic, 15-minute routine designed to engineer a productive, regulated classroom environment from the minute the bell rings.</p>
+                                <p>We ask students to be <strong class="text-white font-semibold">Safe, Respectful, and Responsible</strong> all day long. The Morning Meeting is where we explicitly teach them <em>how</em>.</p>
+                            </div>
+                            <div class="border-t border-white/10 pt-5 mt-6">
+                                <p class="mb-kicker text-[var(--spark-red)] mb-2">The sequence is the intervention.</p>
+                                <p class="text-[#D8D8D8] text-[13px] leading-snug">Every day, we move through six predictable steps: Regulate, Orient, Connect, Practice, Commit, and Transition. This 15-minute operational shield reclaims hours of preventable disruption later in the day.</p>
+                            </div>
+                        </div>
+
+                        <!-- How to Use -->
+                        <div class="mb-card mb-card-yellow shadow-sm flex flex-col">
+                            <h4 class="mb-card-title">How to Use This Guide</h4>
+                            <div class="mb-uline !bg-[var(--charcoal)]"></div>
+                            <p class="text-[14px] text-[var(--ink)] leading-[1.55] mb-6">To make this system frictionless, we've converted the operating protocol into this digital playbook. Use the left-hand menu to access exactly what you need, when you need it:</p>
+                            
+                            <ul class="space-y-5 flex-1 text-[14px]">
+                                <li class="flex items-start">
+                                    <div class="bg-[var(--ink)] text-[var(--mb-yellow)] p-2 mr-4 w-8 h-8 flex items-center justify-center shrink-0"><i class="fa-solid fa-compass fa-fw text-sm"></i></div>
+                                    <div>
+                                        <strong class="font-cond tracking-wider text-[15px] block text-[var(--ink)] leading-none mt-1 mb-1">Operating Protocol</strong>
+                                        <span class="text-[var(--ink)] text-[13px] leading-relaxed block opacity-90">The 15-minute Run of Show, the Weekly Cycle, and Culture Camp.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-[var(--ink)] text-[var(--mb-yellow)] p-2 mr-4 w-8 h-8 flex items-center justify-center shrink-0"><i class="fa-solid fa-chalkboard-user fa-fw text-sm"></i></div>
+                                    <div>
+                                        <strong class="font-cond tracking-wider text-[15px] block text-[var(--ink)] leading-none mt-1 mb-1">Classroom Tools</strong>
+                                        <span class="text-[var(--ink)] text-[13px] leading-relaxed block opacity-90">Message Boards, Practice Moves, Prompts, and Student Roles.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-[var(--ink)] text-[var(--mb-yellow)] p-2 mr-4 w-8 h-8 flex items-center justify-center shrink-0"><i class="fa-solid fa-chart-line fa-fw text-sm"></i></div>
+                                    <div>
+                                        <strong class="font-cond tracking-wider text-[15px] block text-[var(--ink)] leading-none mt-1 mb-1">Culture Ecosystem</strong>
+                                        <span class="text-[var(--ink)] text-[13px] leading-relaxed block opacity-90">Friday Cypher, Family Connection, and Live De-Escalation.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. RUN OF SHOW TAB -->
+                <div id="run-of-show" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">A 15-minute minute-by-minute guide to maintain pace and fidelity. Adjust times slightly based on class needs.</p>
+                    </div>
+
+                    <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[2px] before:bg-[var(--hairline)]">
+                        
+                        <!-- Segment 1 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">0-2</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--charcoal)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Regulate</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-[var(--hairline)] text-[var(--ink)] uppercase">2 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--slate)]">Lead breathing or mindfulness; model calm posture.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--slate)]">Participate in breathing; focus on breathing.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-4 font-medium bg-slate-50 px-3 py-2 border-l-2 border-[var(--mb-yellow)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: Use a timer; choose a new technique weekly.</p>
+                            </div>
+                        </div>
+
+                        <!-- Segment 2 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2-4</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--spark-red)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Orient</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-[var(--hairline)] text-[var(--ink)] uppercase">2 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--slate)]">State the day’s value & objective; connect to yesterday.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--slate)]">Listen; share definitions or examples.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-4 font-medium bg-slate-50 px-3 py-2 border-l-2 border-[var(--mb-yellow)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: "Culture is practiced before pressure".</p>
+                            </div>
+                        </div>
+
+                        <!-- Segment 3 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4-7</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--charcoal)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Connect</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-[var(--hairline)] text-[var(--ink)] uppercase">3 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--slate)]">Present share prompt; facilitate turn‑taking; protect voice.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--slate)]">Share responses; use sentence frames; listen actively.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-4 font-medium bg-slate-50 px-3 py-2 border-l-2 border-[var(--mb-yellow)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: Use talking piece; encourage volunteers.</p>
+                            </div>
+                        </div>
+
+                        <!-- Segment 4 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">7-10</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--spark-red)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Practice</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-[var(--hairline)] text-[var(--ink)] uppercase">3 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--slate)]">Demonstrate practice move; facilitate partner practice.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--slate)]">Practice move; give feedback.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-4 font-medium bg-slate-50 px-3 py-2 border-l-2 border-[var(--mb-yellow)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: Walk around; note evidence for Friday Cypher.</p>
+                            </div>
+                        </div>
+
+                        <!-- Segment 5 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">10-13</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--charcoal)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Commit</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-[var(--hairline)] text-[var(--ink)] uppercase">3 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--slate)]">Invite commitments; record them; emphasise specificity.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--hairline)] pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--slate)]">Stand and state commitments.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-4 font-medium bg-slate-50 px-3 py-2 border-l-2 border-[var(--mb-yellow)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: Use commitment board; celebrate specificity.</p>
+                            </div>
+                        </div>
+
+                        <!-- Segment 6 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">13-15</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-yellow border-l-4 border-l-[var(--spark-red)] shadow-sm p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase">Transition</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-white text-[var(--ink)] uppercase">2 Min</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-[13px]">
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--charcoal)]/10 pb-1 mb-2 uppercase">Teacher Actions</p><p class="text-[var(--ink)]">Signal transition; summarise; connect to academics.</p></div>
+                                    <div><p class="font-cond font-semibold text-[var(--spark-red)] tracking-wider border-b border-[var(--charcoal)]/10 pb-1 mb-2 uppercase">Student Actions</p><p class="text-[var(--ink)]">Respond to call/response; move to seats.</p></div>
+                                </div>
+                                <p class="text-[12px] text-[var(--ink)] mt-4 font-medium bg-white/50 px-3 py-2 border-l-2 border-[var(--spark-red)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] mr-2"></i> Tip: Stand on the one. Move.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. WEEKLY ARC TAB -->
+                <div id="weekly-arc" class="tab-content">
+                     <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">How to structure each week around a value (Safe, Respectful, or Responsible) and a practice move.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl border border-[var(--hairline)] shadow-sm overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-[var(--hairline)]">
+                            <div class="p-6 flex flex-col">
+                                <h3 class="font-cond text-[var(--ink)] font-bold text-xl mb-1 uppercase">Monday</h3>
+                                <div class="mb-uline mb-2 !w-8"></div>
+                                <p class="text-[13px] font-cond text-[var(--spark-red)] uppercase tracking-widest mb-2 mt-2 font-semibold">Launch</p>
+                                <p class="text-[13px] text-[var(--slate)] mb-4 flex-1">Introduce the value and practice move; set the tone.</p>
+                                <div class="space-y-3 mt-4 border-t border-[var(--hairline)] pt-4">
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Teacher</span><p class="text-[12px] text-[var(--slate)]">Explain value; model practice move; ask orient question.</p></div>
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Student</span><p class="text-[12px] text-[var(--slate)]">Listen; practice move; ask clarifying questions.</p></div>
+                                </div>
+                            </div>
+
+                             <div class="p-6 flex flex-col">
+                                <h3 class="font-cond text-[var(--ink)] font-bold text-xl mb-1 uppercase">Tuesday</h3>
+                                <div class="mb-uline mb-2 !w-8 !bg-[var(--charcoal)]"></div>
+                                <p class="text-[13px] font-cond text-[var(--charcoal)] uppercase tracking-widest mb-2 mt-2 font-semibold">Practice</p>
+                                <p class="text-[13px] text-[var(--slate)] mb-4 flex-1">Deepen understanding of the practice move.</p>
+                                <div class="space-y-3 mt-4 border-t border-[var(--hairline)] pt-4">
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Teacher</span><p class="text-[12px] text-[var(--slate)]">Facilitate extended practice; provide feedback.</p></div>
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Student</span><p class="text-[12px] text-[var(--slate)]">Practice; give feedback to partners; reflect on use.</p></div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex flex-col">
+                                <h3 class="font-cond text-[var(--ink)] font-bold text-xl mb-1 uppercase">Wednesday</h3>
+                                <div class="mb-uline mb-2 !w-8"></div>
+                                <p class="text-[13px] font-cond text-[var(--spark-red)] uppercase tracking-widest mb-2 mt-2 font-semibold">Notice</p>
+                                <p class="text-[13px] text-[var(--slate)] mb-4 flex-1">Encourage students to notice when peers demonstrate the value.</p>
+                                <div class="space-y-3 mt-4 border-t border-[var(--hairline)] pt-4">
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Teacher</span><p class="text-[12px] text-[var(--slate)]">Prompt students to look for evidence; collect examples.</p></div>
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Student</span><p class="text-[12px] text-[var(--slate)]">Observe peers; nominate evidence; share positive ops.</p></div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex flex-col">
+                                <h3 class="font-cond text-[var(--ink)] font-bold text-xl mb-1 uppercase">Thursday</h3>
+                                <div class="mb-uline mb-2 !w-8 !bg-[var(--charcoal)]"></div>
+                                <p class="text-[13px] font-cond text-[var(--charcoal)] uppercase tracking-widest mb-2 mt-2 font-semibold">Prepare</p>
+                                <p class="text-[13px] text-[var(--slate)] mb-4 flex-1">Collect nominations for Friday Cypher; refine commitments.</p>
+                                <div class="space-y-3 mt-4 border-t border-[var(--hairline)] pt-4">
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Teacher</span><p class="text-[12px] text-[var(--slate)]">Review nominations; invite students to prepare statements.</p></div>
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Student</span><p class="text-[12px] text-[var(--slate)]">Share nominations; prepare to speak; refine commitments.</p></div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 bg-[var(--mb-yellow)] flex flex-col">
+                                <h3 class="font-cond text-[var(--ink)] font-bold text-xl mb-1 uppercase">Friday</h3>
+                                <div class="mb-uline mb-2 !w-8 !bg-[var(--spark-red)]"></div>
+                                <p class="text-[13px] font-cond text-[var(--spark-red)] uppercase tracking-widest mb-2 mt-2 font-semibold">Celebrate</p>
+                                <p class="text-[13px] text-[var(--ink)] mb-4 flex-1">Connect to Friday Cypher; celebrate evidence; set preview.</p>
+                                <div class="space-y-3 mt-4 border-t border-[var(--charcoal)]/10 pt-4">
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Teacher</span><p class="text-[12px] text-[var(--ink)]">Facilitate Morning Meeting; finalise nominations.</p></div>
+                                    <div><span class="text-[11px] font-cond uppercase font-bold text-[var(--charcoal)] tracking-widest block mb-1">Student</span><p class="text-[12px] text-[var(--ink)]">Participate; celebrate peers; reflect on progress.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 10-DAY CULTURE CAMP TAB -->
+                <div id="culture-camp" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">The detailed, day-by-day playbook for explicitly teaching the Morning Meeting routine during the first two weeks of school. <strong class="text-[var(--charcoal)]">Culture is practiced before pressure.</strong></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="mb-card mb-card-dark shadow-sm">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-clock text-[var(--spark-red)] mr-3"></i> The Time Shift</h4>
+                            <div class="mb-uline"></div>
+                            <p class="text-[13px] text-[#D8D8D8] mb-4">At mastery, Morning Meeting is a crisp 15-minute routine. However, you cannot teach a new system in 15 minutes.</p>
+                            <ul class="text-[13px] text-[#D8D8D8] space-y-3 list-none p-0 m-0">
+                                <li class="flex items-start"><i class="fa-solid fa-arrow-right text-[var(--spark-red)] mt-1 mr-2 text-[10px]"></i> <span><strong>Days 1–5 (40-50 min):</strong> Explicitly teaching the "why," modelling the moves, and practice do-overs.</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-arrow-right text-[var(--spark-red)] mt-1 mr-2 text-[10px]"></i> <span><strong>Days 6–8 (25-30 min):</strong> Students take on roles and refine transitions.</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-arrow-right text-[var(--spark-red)] mt-1 mr-2 text-[10px]"></i> <span><strong>Days 9–10 (15-20 min):</strong> The system carries the routine. Evaluating readiness.</span></li>
+                            </ul>
+                        </div>
+                        <div class="mb-card mb-card-yellow shadow-sm">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-fire text-[var(--spark-red)] mr-3"></i> All-Day Integration</h4>
+                            <div class="mb-uline !bg-[var(--charcoal)]"></div>
+                            <p class="text-[13px] text-[var(--ink)] mb-4">Morning Meeting isn't a silo. It is the anchor for the entire day. Tie academic blocks back to the morning:</p>
+                            <ul class="text-[13px] text-[var(--ink)] space-y-3 list-none p-0 m-0">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-[var(--charcoal)] mt-1 mr-2 text-[10px]"></i> <span><em>"At Matchbook, we correct the routine, not the child. Let's reset this transition just like we practiced this morning."</em></span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-[var(--charcoal)] mt-1 mr-2 text-[10px]"></i> <span><em>"The Matchbook way is Safe, Respectful, and Responsible. Which one do we need to focus on right now?"</em></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- CULTURE CAMP: 10 DAYS OF SCRIPTS -->
+                    <div class="space-y-6">
+                        
+                        <!-- Day 1 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 1: Welcome & The Matchbook Way</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 45 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: SAFE</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Introduce the <em>Regulate</em> and <em>Orient</em> moves. Lead box breathing. State clearly: "At Matchbook, we believe culture is practiced before pressure. This is our practice field."</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day1-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <!-- Day 1 Script -->
+                                <div id="day1-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th><th class="px-4 py-3 text-left">If / Then Coaching</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:05</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE</span><em>"Find your spot. Eyes to the board. We are starting on the one. Let's take three breaths."</em></td><td class="px-4 py-4">Sits in assigned spot, participates in breathing.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> talking, <strong>Then</strong> use a quiet hand signal. Do not stop breathing to issue a public correction.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:05-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">ORIENT</span><em>"Culture is practiced before pressure. Today's focus is Safe: keeping ourselves/others from harm."</em></td><td class="px-4 py-4">Reads the board.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> confused, <strong>Then</strong> give concrete example: <em>"We protect feelings, like not laughing at mistakes."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:15-0:25</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT</span><em>"Partner A, answer: What helps you feel safe at school? Partner B listens. You have 30 seconds."</em></td><td class="px-4 py-4">Partner shares. Practices active listening.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> too loud, <strong>Then</strong> reset volume. <em>"The volume is too high. Let's bring it to a level 2."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:25-0:35</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">PRACTICE</span><em>"Safe means keeping hands to ourselves. Let's practice standing up safely without touching a desk. Go."</em></td><td class="px-4 py-4">Practices standing and pushing in chair safely.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> sloppy, <strong>Then</strong> run a do-over. <em>"My bad, I didn't explain clearly. Sit down. Try again."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:35-0:40</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT</span><em>"Make a commitment: 'Today I will be Safe by...' Whisper it to your partner."</em></td><td class="px-4 py-4">Whispers a specific commitment.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> vague ("I'll be good"), <strong>Then</strong> coach: <em>"Make it specific. 'I will keep my hands to myself'."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:40-0:45</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">TRANSITION</span><em>"Our value is Safe. Our first task is Do Now. Stand on the one."</em></td><td class="px-4 py-4">Replies <em>"On the one!"</em> and moves silently.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> it takes >60 sec, <strong>Then</strong> note it for tomorrow's practice. Don't hold back academics now.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 2 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 2: Listening & Speaking Norms</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 45 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: RESPECTFUL</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Introduce the <em>Connect</em> move. Teach sentence frames (Agree, Add On, Disagree, Ask). Emphasize: "Questions belong here when they help learning move forward, but we protect dignity."</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day2-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day2-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th><th class="px-4 py-3 text-left">If / Then Coaching</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:05</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE</span><em>"Let's ground ourselves. Feet flat, hands resting. Deep breath in..."</em></td><td class="px-4 py-4">Settles bodies and focuses.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> high energy, <strong>Then</strong> extend breathing. Don't rush if unsettled.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:05-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">ORIENT</span><em>"Today is Respectful. It means protecting dignity and voice. We don't talk over each other."</em></td><td class="px-4 py-4">Repeats definition.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> an interruption occurs, <strong>Then</strong> correct routine: <em>"Hold it. Respectful protects voice. Wait for the pause."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:15-0:25</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT</span><em>"Use the frame 'I agree with [Name] because...'. What does respect look like silently?"</em></td><td class="px-4 py-4">Uses the sentence frame during share.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> they drop the frame, <strong>Then</strong> pause them: <em>"Great thought, lock it into the frame."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:25-0:35</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">PRACTICE</span><em>"Practice respectful body language. Square shoulders, make eye contact. Partner A tells a story, Partner B listens."</em></td><td class="px-4 py-4">Practices turning body and maintaining eye contact.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> bodies are turned away, <strong>Then</strong> do-over: <em>"Reset. Check your shoulders. Try again."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:35-0:40</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT</span><em>"Write on a sticky note: 'Today I will be Respectful by...'"</em></td><td class="px-4 py-4">Writes and posts commitment.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> short on time, <strong>Then</strong> point to board and commit silently instead.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:40-0:45</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">TRANSITION</span><em>"Moving into ELA. Take your respectful body language with you. Stand on the one."</em></td><td class="px-4 py-4">Transitions to academic block.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> chatting starts, <strong>Then</strong> callback: <em>"Just like we practiced, respectful transition."</em></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 3 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 3: Body Language & Ownership</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 45 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: RESPONSIBLE</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Introduce the <em>Practice</em> move in depth. Focus on ownership. "The Matchbook way means we show respect with bodies, and we are responsible for our next step after a mistake."</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day3-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day3-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th><th class="px-4 py-3 text-left">If / Then Coaching</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:05</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE</span><em>"Let's do 5-finger breathing today. Trace your fingers as we breathe."</em></td><td class="px-4 py-4">Follows the 5-finger breathing.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> rushing, <strong>Then</strong> pace them: <em>"Slow down. Match my speed."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:05-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">ORIENT</span><em>"Responsible means owning your next step after a mistake. Fixing the routine."</em></td><td class="px-4 py-4">Reads the board definition.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> confused, <strong>Then</strong> clarify: <em>"Mistakes happen. It's about what you do *after*."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:15-0:25</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT</span><em>"What is one mistake students make, and what is the responsible next step? Partner share."</em></td><td class="px-4 py-4">Discusses common routine errors (forgetting a pencil) and fixes.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> they share major behavior issues, <strong>Then</strong> redirect back to *routine errors* to keep it low-stakes.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:25-0:35</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">PRACTICE</span><em>"We are practicing repair language. Repeat: 'My bad. I'll fix it.' Try it with a neutral tone."</em></td><td class="px-4 py-4">Practices phrase without sarcasm.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> sarcastic, <strong>Then</strong> call it out: <em>"Words are right, tone is wrong. Try neutral."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:35-0:40</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT</span><em>"Commit: 'I will own my next step by...'"</em></td><td class="px-4 py-4">Shares commitment verbally.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> "I won't make mistakes", <strong>Then</strong> correct: <em>"Mistakes happen. Commit to how to fix it."</em></td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:40-0:45</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">TRANSITION</span><em>"Transition to independent reading. Stand on the one."</em></td><td class="px-4 py-4">Moves to desk for reading.</td><td class="px-4 py-4 bg-slate-50"><strong>If</strong> a student forgets a book, <strong>Then</strong> callback: <em>"Routine error. 'My bad, I'll fix it.' Go get it."</em></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 4 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 4: Voice Tone & Roles</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 40 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: PRACTICE</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Continue <em>Practice</em> with voice tone. Show how exact same words can be respectful/disrespectful based on tone. Introduce the Student Roles (Speaker, Listener).</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day4-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day4-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:05</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE</span><em>"Settle in. Deep breath."</em></td><td class="px-4 py-4">Regulates bodies.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:05-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">ORIENT</span><em>"Today we introduce roles. We will have a Speaker and a Listener."</em></td><td class="px-4 py-4">Reviews Role Cards for Speaker and Listener.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:15-0:25</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT</span><em>"Who would like to be our first Speaker? You will read the share prompt."</em></td><td class="px-4 py-4">Student Speaker reads prompt. Class answers.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:25-0:35</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">PRACTICE</span><em>"Let's practice tone. Say 'Can you help me?' in a demanding tone, then respectful."</em></td><td class="px-4 py-4">Role-plays scenarios using neutral tones.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:35-0:40</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Commit to using neutral tone. Stand on the one."</em></td><td class="px-4 py-4">Transitions to academic work.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 5 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 5: The Power of Commitments</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 40 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: COMMIT</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Explain the difference between a vague wish ("I'll be good") and a Matchbook commitment ("I will raise my hand before speaking"). "At Matchbook, we own our next step."</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day5-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day5-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:10</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE & ORIENT</span><em>"Today we focus on Commitments. A commitment is a promise to yourself."</em></td><td class="px-4 py-4">Breathes and tracks the board.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:10-0:25</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT & PRACTICE</span><em>"What is the difference between 'I will be good' and 'I will raise my hand'?"</em></td><td class="px-4 py-4">Discusses how specificity creates accountability.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:25-0:40</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Write a specific, observable commitment. Then, transition on the one."</em></td><td class="px-4 py-4">Writes commitments on sticky notes; places on board.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day 6 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 6: Expanding the Toolbox</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 30 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: REGULATE / TRANSITION</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Teach two new regulation tools (e.g., 5-senses grounding). Introduce the <em>Transition</em> move. "The sequence is the intervention. How we leave the meeting is how we enter the learning."</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day6-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day6-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:10</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE & ORIENT</span><em>"Let's practice the 5-senses grounding tool. Find 5 things you can see, 4 you can touch..."</em></td><td class="px-4 py-4">Practices grounding technique. Learns options.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:10-0:20</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT & PRACTICE</span><em>"Which regulation tool works best for you? Let's talk about how we transition to desks."</em></td><td class="px-4 py-4">Shares favorite tool. Practices standing up silently.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:20-0:30</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Commit to a smooth transition. You have 60 seconds to get to your seat and start Do Now. Go."</em></td><td class="px-4 py-4">Transitions to desks under 60 seconds. Do-over if loud.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 7 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 7: Repair Language (R³)</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 30 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: REPAIR</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Teach that mistakes happen. "At Matchbook, repair happens after regulation." Teach the difference between a routine error ("My bad, I'll fix it") and relational harm.</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day7-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day7-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:10</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE & ORIENT</span><em>"We all make mistakes. Today we learn how to fix them using Regulate, Relate, Reason."</em></td><td class="px-4 py-4">Listens to the difference between routine error and harm.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:10-0:20</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT & PRACTICE</span><em>"Routine error is forgetting a pencil. Harm is hurting a feeling. Let's role-play a quick 'My bad'."</em></td><td class="px-4 py-4">Role-plays a routine error and a quick, neutral reset.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:20-0:30</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Commit to using repair language instead of arguing today. Stand on the one."</em></td><td class="px-4 py-4">Transitions. Uses "My bad" if they stumble during transition.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 8 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 8: Full Student Leadership</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 30 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: STUDENT VOICE</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Hand over the reins. Fully introduce all roles: Speaker, Listener, Practice Partner, Reporter. Step back and facilitate the facilitators.</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day8-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day8-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:10</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE & ORIENT</span><em>"I am stepping back today. Student Speaker, take the mic for our orientation."</em></td><td class="px-4 py-4">Student reads the board. Class responds.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:10-0:20</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT & PRACTICE</span><em>"Practice Partner, show us the move. Reporter, take notes on commitments."</em></td><td class="px-4 py-4">Students physically hold role cards and run the practice section.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:20-0:30</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Reporter, summarize what we committed to. Transition Captain, call the one."</em></td><td class="px-4 py-4">Student calls the transition cue. Class moves.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 9 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm">
+                            <div class="bg-[var(--charcoal)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 9: Friday Cypher Intro</h3>
+                                <span class="font-cond text-[11px] font-bold bg-[var(--spark-red)] text-white px-2 py-1 tracking-widest uppercase">Teaching Time: 20 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--spark-red)] uppercase tracking-widest mb-2">Focus: RECOGNITION</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Introduce how Morning Meeting connects to the end of the week. "At Matchbook, recognition is evidence, not popularity." Show them the nomination tracker.</p>
+                                    </div>
+                                    <div class="bg-slate-50 p-4 border border-[var(--hairline)] flex flex-col justify-center">
+                                        <button class="mb-btn w-full flex items-center justify-center gap-2" onclick="toggleLesson('day9-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day9-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:05</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE & ORIENT</span><em>"Regulate. Orient. Today we talk about how we celebrate each other on Fridays."</em></td><td class="px-4 py-4">Breathes and listens.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:05-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT & PRACTICE</span><em>"Cypher is based on evidence. Write a nomination for a peer based on an action you actually saw."</em></td><td class="px-4 py-4">Practices writing an evidence-based nomination for a peer.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:15-0:20</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT & TRANSITION</span><em>"Commit to catching someone being Safe, Respectful, or Responsible today."</em></td><td class="px-4 py-4">Transitions with a focus on observing peers.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 10 -->
+                        <div class="bg-white border-2 border-[var(--spark-red)] shadow-sm">
+                            <div class="bg-[var(--spark-red)] px-6 py-4 flex justify-between items-center">
+                                <h3 class="font-cond font-bold text-white text-lg tracking-wide uppercase">Day 10: Full Routine Check</h3>
+                                <span class="font-cond text-[11px] font-bold bg-white text-[var(--spark-red)] px-2 py-1 tracking-widest uppercase">Target Time: 15 Min</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                                    <div class="md:col-span-2">
+                                        <p class="font-cond text-[13px] font-semibold text-[var(--charcoal)] uppercase tracking-widest mb-2">Focus: MASTERY</p>
+                                        <p class="text-[14px] text-[var(--slate)]">Run the meeting in real-time. Start the timer. Do not stop to explicitly teach. Observe using the Readiness Review checklist.</p>
+                                    </div>
+                                    <div class="bg-[var(--mb-yellow)] p-4 border border-[var(--ink)]/10 flex flex-col justify-center">
+                                        <button class="mb-btn w-full !bg-[var(--charcoal)] !border-[var(--charcoal)] flex items-center justify-center gap-2" onclick="toggleLesson('day10-script', this)"><i class="fa-solid fa-bolt toggle-icon"></i> TAKE IT LIVE!</button>
+                                    </div>
+                                </div>
+                                <div id="day10-script" class="hidden mt-6 pt-6 border-t border-[var(--hairline)] overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px] border border-[var(--hairline)]">
+                                        <thead class="bg-slate-50"><tr class="text-[var(--charcoal)]"><th class="px-4 py-3 text-left w-20">Time</th><th class="px-4 py-3 text-left w-1/3">Teacher Script & Action</th><th class="px-4 py-3 text-left">Student Action</th></tr></thead>
+                                        <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:00-0:02</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">REGULATE</span><em>"On the one. Begin breathing."</em></td><td class="px-4 py-4">Self-regulates with zero prompting.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:02-0:04</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">ORIENT</span><em>Points to Student Reader.</em></td><td class="px-4 py-4">Reads the board.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:04-0:07</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">CONNECT</span><em>Passes talking piece.</em></td><td class="px-4 py-4">Shares in under 30 seconds using frames.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:07-0:10</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">PRACTICE</span><em>Signals Student Practice Partner.</em></td><td class="px-4 py-4">Demonstrates move. Partners practice.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:10-0:13</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">COMMIT</span><em>Records commitments.</em></td><td class="px-4 py-4">Provides specific commitments.</td></tr>
+                                            <tr><td class="px-4 py-4 font-bold text-[var(--ink)]">0:13-0:15</td><td class="px-4 py-4"><span class="font-bold text-[var(--spark-red)] block mb-1">TRANSITION</span><em>"Stand on the one."</em></td><td class="px-4 py-4">Transitions cleanly. Culture Camp Launch complete.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 5. MESSAGE BOARD TEMPLATES TAB -->
+                <div id="message-board" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Template layouts to design boards that fit your classroom environment. <strong class="text-[var(--charcoal)]">Maintained in the order of Safe, Respectful, and Responsible.</strong></p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <!-- Template 1: SAFE -->
+                        <div class="mb-card mb-card-white shadow-sm border-[var(--hairline)] p-0 flex flex-col">
+                            <h3 class="mb-card-title text-[var(--ink)] border-b border-[var(--hairline)] p-6 mb-0 bg-slate-50">Template 1: Classic Horizontal (Safe)</h3>
+                            <div class="p-6 border-2 border-dashed border-[var(--muted)] m-6 mt-4">
+                                <div class="bg-white border-2 border-[var(--charcoal)] p-5 shadow-inner">
+                                    <div class="flex gap-4 mb-4">
+                                        <div class="w-1/3 bg-[var(--spark-red)] border border-red-700 p-4 text-center text-white">
+                                            <i class="fa-solid fa-shield-heart text-3xl text-white mb-3"></i>
+                                            <div class="font-cond font-bold text-white uppercase tracking-wider">Safe</div>
+                                            <div class="text-[11px] text-white/80 mt-2">Keeping ourselves and others from harm.</div>
+                                        </div>
+                                        <div class="w-2/3 bg-slate-50 border border-[var(--hairline)] p-4 flex flex-col justify-center">
+                                            <div class="font-cond text-[11px] font-bold text-[var(--muted)] tracking-widest uppercase mb-2">Share Prompt</div>
+                                            <div class="font-medium text-[var(--ink)] text-lg">"What helps you feel safe at school?"</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="w-1/2 bg-[var(--charcoal)] border border-[var(--charcoal)] p-4 text-white">
+                                            <div class="font-cond text-[11px] font-bold text-white/70 tracking-widest uppercase mb-2">Practice Move</div>
+                                            <div class="text-[14px]">Use calming breaths. Keep hands and feet to yourself.</div>
+                                        </div>
+                                        <div class="w-1/2 bg-slate-50 border border-[var(--hairline)] p-4">
+                                            <div class="font-cond text-[11px] font-bold text-[var(--muted)] tracking-widest uppercase mb-2">Commitments: "I will..."</div>
+                                            <div class="border-b border-dashed border-slate-300 h-6"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 2: RESPECTFUL -->
+                        <div class="mb-card mb-card-dark shadow-sm border-[var(--hairline)] p-0 flex flex-col">
+                            <h3 class="mb-card-title text-white border-b border-white/10 p-6 mb-0 bg-black/20">Template 2: Vertical Flow (Respectful)</h3>
+                            <div class="p-6 border-2 border-dashed border-white/20 m-6 mt-4">
+                                <div class="bg-[var(--charcoal)] border-2 border-white/30 p-5 shadow-inner flex flex-col min-h-[300px]">
+                                    <div class="flex flex-1 gap-4">
+                                        <div class="w-1/3 flex flex-col gap-3">
+                                            <div class="bg-[var(--mb-yellow)] border border-yellow-500 p-3 text-center flex-1 flex flex-col justify-center">
+                                                <i class="fa-regular fa-handshake text-3xl text-[var(--charcoal)] mb-2"></i>
+                                                <div class="font-cond font-bold text-[var(--ink)] uppercase tracking-wider text-xl">Respectful</div>
+                                            </div>
+                                            <div class="bg-[#1a1a1a] border border-white/10 p-3 flex-1 text-white">
+                                                <div class="font-cond text-[10px] font-bold text-[var(--muted)] tracking-widest uppercase">Practice</div>
+                                                <div class="text-[13px] leading-tight mt-2">Use body language to show you are listening.</div>
+                                            </div>
+                                        </div>
+                                        <div class="w-1/3 bg-[#1a1a1a] border border-white/10 p-4 text-white">
+                                             <div class="font-cond text-[10px] font-bold text-[var(--muted)] tracking-widest uppercase mb-3">Prompt & Frames</div>
+                                             <div class="text-[14px] font-medium mb-3 leading-snug">"How do you show respect with your words?"</div>
+                                             <div class="text-[11px] text-[var(--muted)] italic border-l-2 border-[var(--spark-red)] pl-3">"I show respect by..."</div>
+                                        </div>
+                                        <div class="w-1/3 bg-[var(--spark-red)] border border-red-700 p-4 text-white">
+                                            <div class="font-cond text-[10px] font-bold text-white/70 tracking-widest uppercase mb-3">Call to Action</div>
+                                            <div class="font-cond font-bold text-xl tracking-wider mb-3">"I will..."</div>
+                                            <div class="bg-black/20 h-16 border border-white/10"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 3: RESPONSIBLE -->
+                        <div class="mb-card mb-card-yellow shadow-sm border-[var(--hairline)] p-0 flex flex-col">
+                            <h3 class="mb-card-title text-[var(--ink)] border-b border-[var(--charcoal)]/10 p-6 mb-0 bg-yellow-100">Template 3: Digital Board (Responsible)</h3>
+                            <div class="p-6 border-2 border-dashed border-[var(--charcoal)]/20 m-6 mt-4 bg-white">
+                                <div class="bg-white border-2 border-[var(--charcoal)] p-0 shadow-inner flex flex-col min-h-[300px]">
+                                    <div class="bg-[var(--charcoal)] text-white px-5 py-3 flex items-center justify-between border-b-4 border-[var(--spark-red)]">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-list-check text-2xl text-[var(--spark-red)]"></i>
+                                            <h4 class="font-cond font-bold text-xl tracking-wider uppercase m-0">Responsible</h4>
+                                        </div>
+                                        <div class="text-[11px] font-cond tracking-widest uppercase opacity-70">Interactive Smart Board</div>
+                                    </div>
+                                    <div class="p-5 flex flex-1 gap-5">
+                                        <div class="w-1/2 flex flex-col gap-4">
+                                            <div class="bg-slate-50 border border-[var(--hairline)] p-4 flex-1">
+                                                <div class="font-cond text-[11px] font-bold text-[var(--muted)] tracking-widest uppercase mb-2">Share Prompt</div>
+                                                <div class="font-medium text-[var(--ink)] text-[15px] leading-snug">"What do you do when you make a mistake?"</div>
+                                            </div>
+                                            <div class="bg-slate-50 border border-[var(--hairline)] p-4 flex-1">
+                                                <div class="font-cond text-[11px] font-bold text-[var(--spark-red)] tracking-widest uppercase mb-2">Practice Move</div>
+                                                <div class="text-[13px] text-[var(--slate)] leading-snug font-medium">Admit mistakes and repair them. <br><span class="font-normal italic mt-1 block">("My bad, I'll fix it.")</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="w-1/2 bg-[var(--mb-yellow)]/20 border border-[var(--mb-yellow)] p-4 flex flex-col">
+                                            <div class="font-cond text-[11px] font-bold text-[var(--charcoal)] tracking-widest uppercase mb-3">Commitments: "Today I will be Responsible by..."</div>
+                                            <div class="grid grid-cols-2 gap-3 flex-1">
+                                                <div class="bg-[var(--mb-yellow)] p-3 shadow-sm text-[12px] text-[var(--ink)] border border-[var(--charcoal)]/10 font-medium">Bringing my materials.</div>
+                                                <div class="bg-[var(--mb-yellow)] p-3 shadow-sm text-[12px] text-[var(--ink)] border border-[var(--charcoal)]/10 font-medium">Fixing my routine errors.</div>
+                                                <div class="bg-white p-3 shadow-sm text-[11px] font-cond tracking-wider uppercase text-[var(--charcoal)] border border-dashed border-[var(--charcoal)]/30 flex items-center justify-center opacity-60 cursor-pointer hover:opacity-100 transition-opacity">
+                                                    <i class="fa-solid fa-plus mr-1"></i> Add Sticky
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 6. PRACTICE MOVES TAB -->
+                <div id="practice-moves" class="tab-content">
+                     <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Specific, observable behaviours to use during the 'Practice' move and to collect evidence for nominations.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="mb-card mb-card-yellow shadow-sm p-0 flex flex-col">
+                            <div class="px-6 py-5 border-b border-[var(--ink)]/10 flex items-center bg-[var(--mb-yellow)]">
+                                <i class="fa-solid fa-shield-heart text-[var(--charcoal)] text-2xl mr-4 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-[var(--ink)] text-xl tracking-wider uppercase leading-tight break-words">Safe Moves</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1 border border-[var(--hairline)] border-t-0">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--mb-yellow)] mt-1 mr-3 w-4 shrink-0"></i><span>Use calming breaths when you feel upset.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--mb-yellow)] mt-1 mr-3 w-4 shrink-0"></i><span>Keep hands and feet to yourself.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--mb-yellow)] mt-1 mr-3 w-4 shrink-0"></i><span>Look both ways before moving in the classroom.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mb-card shadow-sm p-0 flex flex-col border border-[var(--spark-red)]">
+                            <div class="px-6 py-5 border-b border-red-700 flex items-center bg-[var(--spark-red)] text-white">
+                                <i class="fa-regular fa-handshake text-white text-2xl mr-4 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-white text-xl tracking-wider uppercase leading-tight break-words">Respectful Moves</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--spark-red)] mt-1 mr-3 w-4 shrink-0"></i><span>Use body language to show you are listening.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--spark-red)] mt-1 mr-3 w-4 shrink-0"></i><span>Respond to peers using sentence frames.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--spark-red)] mt-1 mr-3 w-4 shrink-0"></i><span>Use positive tone even when disagreeing.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mb-card mb-card-dark shadow-sm p-0 flex flex-col">
+                            <div class="px-6 py-5 border-b border-[#1a1a1a] flex items-center bg-[var(--charcoal)] text-white">
+                                <i class="fa-solid fa-list-check text-[var(--muted)] text-2xl mr-4 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-white text-xl tracking-wider uppercase leading-tight break-words">Responsible Moves</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1 border border-[var(--hairline)] border-t-0">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--charcoal)] mt-1 mr-3 w-4 shrink-0"></i><span>Bring materials prepared and organised.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--charcoal)] mt-1 mr-3 w-4 shrink-0"></i><span>Help a peer without doing the work for them.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-check text-[var(--charcoal)] mt-1 mr-3 w-4 shrink-0"></i><span>Admit mistakes and repair them.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. ADAPTATIONS TAB -->
+                <div id="adaptations" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Adjustments for lower elementary, upper elementary, and middle school to ensure the routine is developmentally appropriate.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="mb-card mb-card-white shadow-sm flex overflow-hidden p-0 border-[var(--hairline)]">
+                            <div class="bg-[var(--mb-yellow)] w-24 flex items-center justify-center flex-shrink-0"><span class="font-cond text-3xl font-bold tracking-wider text-[var(--charcoal)]">K-2</span></div>
+                            <div class="p-6 flex-1">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--mb-yellow)] mt-1 mr-3 shrink-0"></i><span>Use shorter regulation techniques (e.g., belly breathing).</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--mb-yellow)] mt-1 mr-3 shrink-0"></i><span>Provide visual cues for each move.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--mb-yellow)] mt-1 mr-3 shrink-0"></i><span>Choose simpler share prompts ("What is your favourite colour?") before moving to deeper questions.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--mb-yellow)] mt-1 mr-3 shrink-0"></i><span>Incorporate movement during Practice (e.g., role‑play with stuffed animals).</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--mb-yellow)] mt-1 mr-3 shrink-0"></i><span>Model commitments verbally and allow drawing instead of writing.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-card mb-card-white shadow-sm flex overflow-hidden p-0 border-[var(--hairline)]">
+                            <div class="bg-[var(--spark-red)] w-24 flex items-center justify-center flex-shrink-0"><span class="font-cond text-3xl font-bold tracking-wider text-white">3-5</span></div>
+                            <div class="p-6 flex-1">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--spark-red)] mt-1 mr-3 shrink-0"></i><span>Increase length of share prompts.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--spark-red)] mt-1 mr-3 shrink-0"></i><span>Encourage students to create their own practice moves.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--spark-red)] mt-1 mr-3 shrink-0"></i><span>Integrate simple academic connections (e.g., recall skills).</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--spark-red)] mt-1 mr-3 shrink-0"></i><span>Have students write commitments on sticky notes.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--spark-red)] mt-1 mr-3 shrink-0"></i><span>Introduce basic data entry (e.g., recording nominations).</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-card mb-card-white shadow-sm flex overflow-hidden p-0 border-[var(--hairline)]">
+                            <div class="bg-[var(--charcoal)] w-24 flex items-center justify-center flex-shrink-0"><span class="font-cond text-3xl font-bold tracking-wider text-white">6-8</span></div>
+                            <div class="p-6 flex-1">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--charcoal)] mt-1 mr-3 shrink-0"></i><span>Use complex share prompts that connect to identity and community.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--charcoal)] mt-1 mr-3 shrink-0"></i><span>Allow students to lead entire moves.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--charcoal)] mt-1 mr-3 shrink-0"></i><span>Integrate digital tools for commitments (e.g., Google Forms).</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--charcoal)] mt-1 mr-3 shrink-0"></i><span>Encourage peer feedback during practice.</span></li>
+                                    <li class="flex items-start text-[14px] text-[var(--slate)]"><i class="fa-solid fa-caret-right text-[var(--charcoal)] mt-1 mr-3 shrink-0"></i><span>Explore restorative concepts in greater depth.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. STUDENT ROLES TAB -->
+                <div id="student-roles" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Empowers students to lead and fosters accountability during the Morning Meeting.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="mb-card mb-card-white shadow-sm flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-red-50 text-[var(--spark-red)] rounded-full flex items-center justify-center mb-5 border border-red-100">
+                                <i class="fa-solid fa-bullhorn text-2xl"></i>
+                            </div>
+                            <h4 class="mb-card-title text-[var(--ink)] !mb-3">Speaker</h4>
+                            <div class="mb-uline !bg-[var(--charcoal)] !w-8 !mx-auto"></div>
+                            <p class="text-[14px] text-[var(--slate)] mt-2">Shares responses first; models sentence frames; encourages others.</p>
+                        </div>
+                        <div class="mb-card mb-card-white shadow-sm flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-yellow-50 text-[var(--mb-yellow)] rounded-full flex items-center justify-center mb-5 border border-yellow-100">
+                                <i class="fa-solid fa-ear-listen text-2xl text-[var(--charcoal)]"></i>
+                            </div>
+                            <h4 class="mb-card-title text-[var(--ink)] !mb-3">Listener</h4>
+                            <div class="mb-uline !w-8 !mx-auto"></div>
+                            <p class="text-[14px] text-[var(--slate)] mt-2">Demonstrates active listening; summarises peers' responses; monitors tone.</p>
+                        </div>
+                        <div class="mb-card mb-card-white shadow-sm flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-slate-50 text-[var(--charcoal)] rounded-full flex items-center justify-center mb-5 border border-[var(--hairline)]">
+                                <i class="fa-solid fa-handshake-angle text-2xl"></i>
+                            </div>
+                            <h4 class="mb-card-title text-[var(--ink)] !mb-3">Practice Partner</h4>
+                            <div class="mb-uline !bg-[var(--mb-yellow)] !w-8 !mx-auto"></div>
+                            <p class="text-[14px] text-[var(--slate)] mt-2">Leads the practice move demonstration; supports peers during practice.</p>
+                        </div>
+                        <div class="mb-card mb-card-white shadow-sm flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-red-50 text-[var(--spark-red)] rounded-full flex items-center justify-center mb-5 border border-red-100">
+                                <i class="fa-solid fa-pen-nib text-2xl"></i>
+                            </div>
+                            <h4 class="mb-card-title text-[var(--ink)] !mb-3">Reporter</h4>
+                            <div class="mb-uline !bg-[var(--charcoal)] !w-8 !mx-auto"></div>
+                            <p class="text-[14px] text-[var(--slate)] mt-2">Summarises the meeting's key takeaways; records commitments/evidence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. SHARE PROMPTS TAB -->
+                <div id="share-prompts" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Prompts for each value and grade band. Choose prompts that invite reflection, sharing, and connection.</p>
+                    </div>
+                    
+                    <!-- NEW: Trauma-Informed Guardrail -->
+                    <div class="mb-8 bg-blue-50 border-l-4 border-blue-500 p-6 shadow-sm rounded-r-xl">
+                        <h4 class="font-cond font-bold text-blue-900 uppercase tracking-widest mb-2 flex items-center"><i class="fa-solid fa-shield-halved mr-2"></i> Healing-Centered Guardrail</h4>
+                        <p class="text-blue-800 text-[14px]"><strong>Respecting Student Silence:</strong> Silence is a valid coping strategy for trauma. Invite participation, but <em>never</em> force a student to speak or demand an explanation for passing. We protect psychological safety first. The sequence itself is the intervention, even if a student is only observing.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="mb-card mb-card-yellow p-0 shadow-sm overflow-hidden flex flex-col">
+                            <div class="px-6 py-5 border-b border-[var(--charcoal)]/10 flex items-center bg-[var(--mb-yellow)]">
+                                <i class="fa-solid fa-shield-heart text-[var(--charcoal)] text-xl mr-3 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-[var(--charcoal)] text-xl tracking-wider uppercase leading-tight break-words">Safe Prompts</h3>
+                            </div>
+                            <div class="p-6 space-y-5 text-[14px] bg-white flex-1 border border-[var(--hairline)] border-t-0">
+                                <div><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">K-2</span><p class="text-[var(--ink)] italic font-medium">"What makes you feel safe in our classroom?"</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">3-5</span><p class="text-[var(--ink)] italic font-medium">"Tell about a time you helped keep someone safe."</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">6-8</span><p class="text-[var(--ink)] italic font-medium">"What does safety mean to you beyond physical safety?"</p></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-card p-0 shadow-sm overflow-hidden flex flex-col border border-[var(--spark-red)]">
+                            <div class="px-6 py-5 border-b border-red-700 flex items-center bg-[var(--spark-red)] text-white">
+                                <i class="fa-regular fa-handshake text-white text-xl mr-3 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-white text-xl tracking-wider uppercase leading-tight break-words">Respectful Prompts</h3>
+                            </div>
+                            <div class="p-6 space-y-5 text-[14px] bg-white flex-1">
+                                <div><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">K-2</span><p class="text-[var(--ink)] italic font-medium">"How do you show respect with your words?"</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">3-5</span><p class="text-[var(--ink)] italic font-medium">"When have you felt respected by a classmate?"</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">6-8</span><p class="text-[var(--ink)] italic font-medium">"How can you disagree respectfully with someone’s opinion?"</p></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-card mb-card-dark p-0 shadow-sm overflow-hidden flex flex-col">
+                            <div class="px-6 py-5 border-b border-[#1a1a1a] flex items-center bg-[var(--charcoal)] text-white">
+                                <i class="fa-solid fa-list-check text-[var(--muted)] text-xl mr-3 shrink-0"></i>
+                                <h3 class="font-cond font-bold text-white text-xl tracking-wider uppercase leading-tight break-words">Responsible Prompts</h3>
+                            </div>
+                            <div class="p-6 space-y-5 text-[14px] bg-white flex-1 border border-[var(--hairline)] border-t-0">
+                                <div><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">K-2</span><p class="text-[var(--ink)] italic font-medium">"What is one classroom job you are responsible for?"</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">3-5</span><p class="text-[var(--ink)] italic font-medium">"Describe a time you completed a task when no one watched."</p></div>
+                                <div class="border-t border-[var(--hairline)] pt-4"><span class="font-cond text-[11px] font-bold text-[var(--spark-red)] uppercase tracking-widest block mb-2">6-8</span><p class="text-[var(--ink)] italic font-medium">"How do you take responsibility for your learning?"</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. HARM VS ERROR MATRIX TAB -->
+                <div id="harm-vs-error" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Clarify the difference between minor routine mistakes and relational harm requiring restorative dialogue to avoid conflating compliance with accountability.</p>
+                    </div>
+
+                    <div class="mb-card mb-card-white shadow-sm overflow-hidden mb-8 p-0 border-[var(--hairline)]">
+                         <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-[var(--hairline)] text-[14px]">
+                                <thead class="bg-[var(--charcoal)] text-white">
+                                    <tr>
+                                        <th class="px-5 py-4 text-left font-cond font-bold tracking-wider uppercase">Type</th>
+                                        <th class="px-5 py-4 text-left font-cond font-bold tracking-wider uppercase">Examples</th>
+                                        <th class="px-5 py-4 text-left font-cond font-bold tracking-wider uppercase">Adult Response</th>
+                                        <th class="px-5 py-4 text-left font-cond font-bold tracking-wider uppercase">Repair Approach</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-5 py-5 font-cond font-bold text-[var(--ink)] bg-slate-50 tracking-wider uppercase">Routine Error</td>
+                                        <td class="px-5 py-5 text-[13px]">Forgetting to raise a hand, talking out of turn, missing a practice cue.</td>
+                                        <td class="px-5 py-5 text-[13px]">Use a non-verbal cue or quiet reminder; reset the routine.</td>
+                                        <td class="px-5 py-5 text-[13px]">Quick reset. "My bad." <span class="font-semibold text-[var(--charcoal)]">No apology required.</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-5 py-5 font-cond font-bold text-[var(--spark-red)] bg-red-50 tracking-wider uppercase">Relational Harm</td>
+                                        <td class="px-5 py-5 text-[13px]">Teasing, excluding someone, disrespectful language, damaging belongings.</td>
+                                        <td class="px-5 py-5 text-[13px]">Stop behaviour; regulate parties; schedule restorative conversation.</td>
+                                        <td class="px-5 py-5 text-[13px]">Use Restorative Repair Framework; involve affected parties.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- 11. FRIDAY CYPHER TAB (NEW) -->
+                <div id="friday-cypher" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">The weekly broadcast ritual where the spotlight rotates classroom to classroom. The Cypher is the public-facing recognition layer of the Safe, Respectful, Responsible system.</p>
+                    </div>
+
+                    <!-- Cypher Run of Show -->
+                    <div class="mb-card mb-card-dark shadow-sm border-[var(--hairline)] mb-8">
+                        <h3 class="mb-card-title text-white">15-Minute Broadcast Run of Show</h3>
+                        <div class="mb-uline !bg-[var(--mb-yellow)]"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                            <div class="bg-[#1a1a1a] p-4 border-l-4 border-[var(--spark-red)]">
+                                <div class="font-cond font-bold text-[var(--mb-yellow)] uppercase tracking-wider mb-1">0:00 - Hype & Orient</div>
+                                <div class="text-[13px] text-[#D8D8D8]">MC opens with regulation (breathing/clap) and states the week's S/R/R focus value.</div>
+                            </div>
+                            <div class="bg-[#1a1a1a] p-4 border-l-4 border-[var(--spark-red)]">
+                                <div class="font-cond font-bold text-[var(--mb-yellow)] uppercase tracking-wider mb-1">3:00 - Nominations</div>
+                                <div class="text-[13px] text-[#D8D8D8]">The Walk-In Six. Team enters classrooms, reads evidence, class cheers, photo taken.</div>
+                            </div>
+                            <div class="bg-[#1a1a1a] p-4 border-l-4 border-[var(--spark-red)]">
+                                <div class="font-cond font-bold text-[var(--mb-yellow)] uppercase tracking-wider mb-1">10:00 - Performances</div>
+                                <div class="text-[13px] text-[#D8D8D8]">Student groups perform (rap, poem, chant) demonstrating the focus value.</div>
+                            </div>
+                            <div class="bg-[#1a1a1a] p-4 border-l-4 border-[var(--spark-red)]">
+                                <div class="font-cond font-bold text-[var(--mb-yellow)] uppercase tracking-wider mb-1">13:00 - Awards & Close</div>
+                                <div class="text-[13px] text-[#D8D8D8]">Certificates handed out. MC closes the loop: "Culture is what we practice."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Student Scripts -->
+                        <div class="mb-card mb-card-yellow shadow-sm border-[var(--hairline)] p-6">
+                            <h3 class="mb-card-title text-[var(--ink)] !mb-3">Student Broadcast Scripts</h3>
+                            <div class="mb-uline !bg-[var(--charcoal)] !mb-5"></div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="font-cond font-bold text-[var(--spark-red)] uppercase tracking-widest text-[11px] mb-1">The MC Script</div>
+                                    <div class="text-[13px] italic bg-white p-3 border border-[var(--charcoal)]/10 text-[var(--ink)]">"Good afternoon, Matchbook! I’m [Name], your MC. We’re celebrating our value: [Value]. Remember, recognition is evidence, not popularity. Let’s start with a quick breath to get regulated…"</div>
+                                </div>
+                                <div>
+                                    <div class="font-cond font-bold text-[var(--spark-red)] uppercase tracking-widest text-[11px] mb-1">Nomination Reader Script</div>
+                                    <div class="text-[13px] italic bg-white p-3 border border-[var(--charcoal)]/10 text-[var(--ink)]">"I’m [Name]. [Student], please stand. This week you demonstrated [Value] by [Specific Evidence from Tracker]. Thank you for being a role model!"</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nomination Protocol -->
+                        <div class="mb-card mb-card-white shadow-sm border-[var(--hairline)] p-6">
+                            <h3 class="mb-card-title text-[var(--ink)] !mb-3">The Nomination Protocol</h3>
+                            <div class="mb-uline !bg-[var(--spark-red)] !mb-5"></div>
+                            <p class="text-[13px] text-[var(--ink)] mb-4 font-bold bg-slate-100 p-2 border-l-2 border-[var(--spark-red)]">Recognition is evidence, not popularity.</p>
+                            <p class="text-[13px] text-[var(--slate)] mb-3">To be eligible for Friday Cypher, a student must meet objective criteria tracked in the Morning Meeting app/tracker:</p>
+                            <ul class="text-[13px] text-[var(--slate)] space-y-2 list-disc pl-5">
+                                <li><strong>Participation:</strong> Participated at least 4 days this week.</li>
+                                <li><strong>Practice Fidelity:</strong> Average practice score ≥ 2 (Partial or Full).</li>
+                                <li><strong>Recorded Evidence:</strong> Teacher has logged at least one specific, observable action tied to S/R/R.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. FAMILY CONNECTION TAB (NEW) -->
+                <div id="family-connection" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">A structured system for making calls to families that emphasises partnership, growth, and dignity. The classroom-home channel must be bidirectional.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Shout-Out Call -->
+                        <div class="mb-card mb-card-white shadow-sm p-0 flex flex-col border-[var(--hairline)]">
+                            <div class="px-6 py-5 border-b border-[var(--hairline)] flex items-center bg-teal-50">
+                                <i class="fa-solid fa-bullhorn text-teal-600 text-xl mr-3"></i>
+                                <h3 class="font-cond font-bold text-teal-900 text-xl tracking-wider uppercase">Shout-Out Call</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1 text-[13px] text-[var(--slate)]">
+                                <p class="mb-3"><strong>Purpose:</strong> To celebrate specific evidence collected during Morning Meeting.</p>
+                                <p class="font-cond font-bold text-[var(--charcoal)] tracking-widest uppercase text-[11px] mb-1">Teacher Script:</p>
+                                <div class="bg-slate-50 p-3 italic border border-[var(--hairline)] rounded">"This week, [Student] demonstrated [Value] by [Evidence]. For example, during Morning Meeting, they [specific action]. We’d love for you to celebrate this with them at home!"</div>
+                            </div>
+                        </div>
+
+                        <!-- Growth Call -->
+                        <div class="mb-card mb-card-white shadow-sm p-0 flex flex-col border-[var(--hairline)]">
+                            <div class="px-6 py-5 border-b border-[var(--hairline)] flex items-center bg-blue-50">
+                                <i class="fa-solid fa-seedling text-blue-600 text-xl mr-3"></i>
+                                <h3 class="font-cond font-bold text-blue-900 text-xl tracking-wider uppercase">Growth Call</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1 text-[13px] text-[var(--slate)]">
+                                <p class="mb-3"><strong>Purpose:</strong> To identify a specific skill to practice, framing behavior as an opportunity.</p>
+                                <p class="font-cond font-bold text-[var(--charcoal)] tracking-widest uppercase text-[11px] mb-1">Teacher Script:</p>
+                                <div class="bg-slate-50 p-3 italic border border-[var(--hairline)] rounded">"I'm calling to talk about how we can support [Student's] growth in [Value]. We're working on [practice move]. What strategies work best for your child at home?"</div>
+                            </div>
+                        </div>
+
+                        <!-- Partnership Call -->
+                        <div class="mb-card mb-card-white shadow-sm p-0 flex flex-col border-[var(--hairline)]">
+                            <div class="px-6 py-5 border-b border-[var(--hairline)] flex items-center bg-orange-50">
+                                <i class="fa-solid fa-handshake-angle text-orange-600 text-xl mr-3"></i>
+                                <h3 class="font-cond font-bold text-orange-900 text-xl tracking-wider uppercase">Partnership Call</h3>
+                            </div>
+                            <div class="p-6 bg-white flex-1 text-[13px] text-[var(--slate)]">
+                                <p class="mb-3"><strong>Purpose:</strong> For sustained concerns. Co-create a plan outside of public channels.</p>
+                                <p class="font-cond font-bold text-[var(--charcoal)] tracking-widest uppercase text-[11px] mb-1">Teacher Script:</p>
+                                <div class="bg-slate-50 p-3 italic border border-[var(--hairline)] rounded">"Over the past few weeks, we've noticed [Evidence]. We need a collaborative approach. I want to understand how [Student] behaves at home so we can co-create a plan together."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. LIVE DE-ESCALATION TAB (NEW) -->
+                <div id="de-escalation" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">A teacher-facing response system (R³ Integration) that reduces improvisation in high-stress classroom moments. <strong class="text-[var(--charcoal)]">The adult response is the intervention.</strong></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <!-- Warm Demander -->
+                        <div class="mb-card mb-card-dark shadow-sm">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-fire text-[var(--spark-red)] mr-3"></i> The Warm Demander Stance</h4>
+                            <div class="mb-uline"></div>
+                            <p class="text-[14px] text-[#D8D8D8] mb-4">Culturally responsive classroom management balances high personal warmth with high expectations.</p>
+                            <ul class="text-[13px] text-[#D8D8D8] space-y-3 list-none p-0 m-0">
+                                <li class="flex items-start"><i class="fa-solid fa-arrow-right text-[var(--spark-red)] mt-1 mr-2 text-[10px]"></i> <span><strong>Proximity Control (Proxemics):</strong> Move near a disruptive student calmly. Do not stand over them or violate personal space, which triggers amygdala hijack.</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-arrow-right text-[var(--spark-red)] mt-1 mr-2 text-[10px]"></i> <span><strong>Non-Verbal Cues (Kinesics):</strong> Use a neutral facial expression. Avoid pointing fingers or aggressive postures.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Walk Away Strategy -->
+                        <div class="mb-card mb-card-yellow shadow-sm">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-person-walking-arrow-right text-[var(--spark-red)] mr-3"></i> Engagement & Walk-Away</h4>
+                            <div class="mb-uline !bg-[var(--charcoal)]"></div>
+                            <p class="text-[14px] text-[var(--ink)] mb-4">When a student is in a "freeze" state or passively disengaged, do not force a public compliance test.</p>
+                            <div class="bg-white/50 p-4 border-l-4 border-[var(--spark-red)] text-[13px] text-[var(--ink)] italic">
+                                "Quietly place a sticky note on the student's desk with a simple instruction ('Start when you can'). Immediately turn and walk away without waiting for them to look up or speak. This provides psychological safety and gives the student's freeze response time to thaw."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Private Check In Protocol -->
+                    <div class="mb-card mb-card-white shadow-sm border-[var(--hairline)]">
+                        <h3 class="mb-card-title text-[var(--ink)] border-b border-[var(--hairline)] pb-3 mb-5">Private Check-In Protocol (R³)</h3>
+                        <p class="text-[14px] text-[var(--slate)] mb-6">When a student uses the break/reset spot, the intervention is not over once they return. A private, caring check-in using the <strong>Regulate-Relate-Reason</strong> framework validates their experience and restores the relationship.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-5 rounded border border-blue-100">
+                                <div class="font-cond font-bold text-blue-900 text-lg uppercase tracking-wider mb-2">1. Regulate</div>
+                                <div class="text-[13px] text-blue-800">Calm the nervous system before talking. <br><br><em>"Let's take a breath together. I'm right here with you."</em></div>
+                            </div>
+                            <div class="bg-teal-50 p-5 rounded border border-teal-100">
+                                <div class="font-cond font-bold text-teal-900 text-lg uppercase tracking-wider mb-2">2. Relate</div>
+                                <div class="text-[13px] text-teal-800">Empathize and validate their feelings. <br><br><em>"I see you're frustrated. It makes sense that you felt that way when that happened."</em></div>
+                            </div>
+                            <div class="bg-orange-50 p-5 rounded border border-orange-100">
+                                <div class="font-cond font-bold text-orange-900 text-lg uppercase tracking-wider mb-2">3. Reason</div>
+                                <div class="text-[13px] text-orange-800">Collaboratively decide how to repair. <br><br><em>"What do you need right now? How do we make this right?"</em></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. DATA TRACKING TAB -->
+                <div id="data-tracking" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Track participation, practice fidelity, commitments, and nomination evidence.</p>
+                    </div>
+
+                    <!-- NEW: Evidence Conversion Logic -->
+                    <div class="mb-card mb-card-red shadow-sm border-[var(--ember)] mb-8">
+                        <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-bolt text-[var(--mb-yellow)] mr-3"></i> Evidence Conversion Logic</h4>
+                        <div class="mb-uline !bg-[var(--mb-yellow)]"></div>
+                        <p class="text-[14px] text-white mb-4">Why do we track this? Because qualitative evidence directly feeds our culture systems.</p>
+                        <ul class="text-[13px] text-white space-y-3 list-disc pl-5">
+                            <li><strong>Practice Fidelity (Score of 3)</strong> ➡️ Automatically flags student as eligible for a <strong>Friday Cypher Nomination</strong>.</li>
+                            <li><strong>Consistent Commitment Quality</strong> ➡️ Generates a <strong>Family Shout-Out Call</strong> prompt for the teacher.</li>
+                            <li><strong>Low Participation (Score 1)</strong> ➡️ Flags student for a <strong>Private Check-In (Regulate-Relate-Reason)</strong> or a Growth Call.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-card mb-card-white shadow-sm overflow-hidden mb-8 p-0 border-[var(--hairline)]">
+                        <div class="px-6 py-4 bg-[var(--charcoal)] border-b border-[var(--hairline)] flex justify-between items-center text-white">
+                            <h3 class="font-cond font-bold tracking-wider uppercase m-0">Participation Tracker</h3>
+                            <span class="font-cond text-[11px] tracking-widest uppercase text-[var(--muted)]"><i class="fa-solid fa-info-circle mr-1"></i> 1=Needs Support, 2=Partial, 3=Full</span>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-[var(--hairline)] text-[13px]">
+                                <thead class="bg-slate-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-[var(--ink)]">Student Name</th>
+                                        <th class="px-4 py-3 text-left text-[var(--ink)]">Date</th>
+                                        <th class="px-4 py-3 text-center text-[var(--ink)]">Present</th>
+                                        <th class="px-4 py-3 text-center text-[var(--ink)]">Practiced Move (1-3)</th>
+                                        <th class="px-4 py-3 text-center text-[var(--ink)]">Commitment Quality</th>
+                                        <th class="px-4 py-3 text-center text-[var(--ink)]">Follow-Up Needed?</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[var(--hairline)] bg-white">
+                                    <tr><td class="px-4 py-4 border-r border-[var(--hairline)]"></td><td class="px-4 py-4 border-r border-[var(--hairline)]"></td><td class="px-4 py-4 border-r border-[var(--hairline)]"></td><td class="px-4 py-4 border-r border-[var(--hairline)]"></td><td class="px-4 py-4 border-r border-[var(--hairline)]"></td><td class="px-4 py-4"></td></tr>
+                                    <tr><td class="px-4 py-4 border-r border-[var(--hairline)] bg-slate-50"></td><td class="px-4 py-4 border-r border-[var(--hairline)] bg-slate-50"></td><td class="px-4 py-4 border-r border-[var(--hairline)] bg-slate-50"></td><td class="px-4 py-4 border-r border-[var(--hairline)] bg-slate-50"></td><td class="px-4 py-4 border-r border-[var(--hairline)] bg-slate-50"></td><td class="px-4 py-4 bg-slate-50"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. OBSERVATION TAB -->
+                <div id="observation" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Guides observers through a Morning Meeting and provides structured feedback based on the 6 moves.</p>
+                    </div>
+
+                    <div class="mb-card mb-card-white shadow-sm overflow-hidden mb-8 p-0 border-[var(--hairline)]">
+                        <table class="min-w-full divide-y divide-[var(--hairline)] text-[14px]">
+                            <thead class="bg-[var(--charcoal)] text-white">
+                                <tr>
+                                    <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Category</th>
+                                    <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Indicators to Look For</th>
+                                    <th class="px-6 py-4 text-center font-cond font-bold tracking-wider uppercase w-32">Strength / Growth</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Regulate</td><td class="px-6 py-5">Teacher models regulation; students participate; calm environment.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Orient</td><td class="px-6 py-5">Value introduced clearly; connects to academic goals; identity lines used.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Connect</td><td class="px-6 py-5">Students use sentence frames; teacher protects voice.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Practice</td><td class="px-6 py-5">Practice move demonstrated; students practice; feedback given.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Commit</td><td class="px-6 py-5">Students articulate specific commitments; teacher records them.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-5 font-cond font-bold text-[var(--ink)] tracking-wider uppercase">Transition</td><td class="px-6 py-5">Clear signal; smooth shift into academics; positive tone.</td><td class="px-6 py-5 text-center"><div class="flex justify-center gap-3"><div class="w-5 h-5 border border-[var(--slate)]"></div><div class="w-5 h-5 border border-[var(--slate)]"></div></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 16. RUBRIC CROSSWALK TAB -->
+                <div id="rubric-crosswalk" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Aligns Morning Meeting moves with the Balance Period rubric and R³ Agency Practice.</p>
+                    </div>
+
+                    <div class="mb-card mb-card-white shadow-sm overflow-hidden mb-8 p-0 border-[var(--hairline)]">
+                         <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-[var(--hairline)] text-[14px]">
+                                <thead class="bg-[var(--charcoal)] text-white">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Balance Period Rubric Domain</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">MM Move</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Observable Evidence</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Self‑Regulation & Calm</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Regulate</td>
+                                        <td class="px-6 py-4 text-[13px]">Students demonstrate control of breath/body. Aligns with R³ Regulate.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Positive Orientation & Goal Setting</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Orient / Commit</td>
+                                        <td class="px-6 py-4 text-[13px]">Teacher connects values to goals. Aligns with CASEL Self-Awareness.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Interpersonal Respect & Empathy</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Connect / Practice</td>
+                                        <td class="px-6 py-4 text-[13px]">Students practice listening/body language. Matches BP relationship skills.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- 17. SCENARIO BANK TAB -->
+                <div id="scenario-bank" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Use these scenarios to practice leading Morning Meetings and applying the Warm Demander stance during PD.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 border border-[var(--hairline)] shadow-sm flex gap-5 items-start group hover:border-[var(--spark-red)] transition-colors relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[var(--spark-red)] transition-colors"></div>
+                            <div class="bg-slate-100 text-[var(--charcoal)] w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-users-rays text-lg"></i></div>
+                            <div>
+                                <h3 class="font-cond font-bold text-xl text-[var(--ink)] mb-2 tracking-wider uppercase">1. Student Disagreement</h3>
+                                <p class="text-[14px] text-[var(--slate)] mb-4">Two students disagree during <em>Connect</em> about a value definition. Voices rise.</p>
+                                <div class="bg-slate-50 p-4 border border-[var(--hairline)] text-[14px] text-[var(--ink)]">
+                                    <span class="font-cond font-bold text-[var(--spark-red)] text-[11px] uppercase tracking-widest block mb-2">Warm Demander Coaching Prompt</span>
+                                    How do you protect voice and guide respectful disagreement? What sentence frames can you introduce while maintaining a neutral, non-escalating kinesic stance?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 border border-[var(--hairline)] shadow-sm flex gap-5 items-start group hover:border-[var(--spark-red)] transition-colors relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[var(--spark-red)] transition-colors"></div>
+                            <div class="bg-slate-100 text-[var(--charcoal)] w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-heart-pulse text-lg"></i></div>
+                            <div>
+                                <h3 class="font-cond font-bold text-xl text-[var(--ink)] mb-2 tracking-wider uppercase">2. Dysregulated Student</h3>
+                                <p class="text-[14px] text-[var(--slate)] mb-4">A student is dysregulated and frozen at their desk before the meeting starts.</p>
+                                <div class="bg-slate-50 p-4 border border-[var(--hairline)] text-[14px] text-[var(--ink)]">
+                                    <span class="font-cond font-bold text-[var(--spark-red)] text-[11px] uppercase tracking-widest block mb-2">Warm Demander Coaching Prompt</span>
+                                    How do you use the 'Engagement and Walk-Away' strategy to support their regulation without forcing a public compliance test?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Map tab IDs to Header Titles
+        const titles = {
+            'overview': 'Overview',
+            'run-of-show': 'Run of Show',
+            'weekly-arc': 'Weekly Cycle',
+            'culture-camp': 'Culture Camp',
+            'message-board': 'Message Boards',
+            'practice-moves': 'Practice Moves',
+            'adaptations': 'Adaptations',
+            'student-roles': 'Student Roles',
+            'share-prompts': 'Share Prompts',
+            'harm-vs-error': 'Harm vs. Error',
+            'friday-cypher': 'Friday Cypher',
+            'family-connection': 'Family Connection',
+            'de-escalation': 'Live De-Escalation',
+            'data-tracking': 'Data & Conversion',
+            'observation': 'Observation',
+            'rubric-crosswalk': 'Rubric Alignment',
+            'scenario-bank': 'Scenario Bank'
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('page-title').innerText = titles[tabId];
+            
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.className = 'w-full text-left px-3 py-2 text-sm font-medium text-[var(--slate)] hover:bg-slate-50 transition-colors flex items-center justify-between group';
+                btn.querySelector('i:first-child').className = 'fa-solid ' + btn.querySelector('i:first-child').className.split(' ')[1] + ' w-5 group-hover:text-[var(--ink)] transition-colors';
+                btn.querySelector('i:last-child').className = 'fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-opacity';
+            });
+            
+            const activeBtn = document.getElementById('tab-btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]';
+                activeBtn.querySelector('i:first-child').className = 'fa-solid ' + activeBtn.querySelector('i:first-child').className.split(' ')[1] + ' w-5 transition-colors';
+                activeBtn.querySelector('i:last-child').className = 'fa-solid fa-chevron-right text-[10px] opacity-100 transition-opacity';
+            }
+        }
+
+        function toggleLesson(id, btn) {
+            const content = document.getElementById(id);
+            const icon = btn.querySelector('.toggle-icon');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btn.classList.add('!bg-[var(--charcoal)]', '!border-[var(--charcoal)]');
+                btn.innerHTML = '<i class="fa-solid fa-times mr-2 toggle-icon"></i> CLOSE SCRIPT';
+            } else {
+                content.classList.add('hidden');
+                btn.classList.remove('!bg-[var(--charcoal)]', '!border-[var(--charcoal)]');
+                btn.innerHTML = '<i class="fa-solid fa-bolt mr-2 toggle-icon"></i> TAKE IT LIVE!';
+            }
+        }
+    </script>
+</body>
+</html>
