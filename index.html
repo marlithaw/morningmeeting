@@ -75,9 +75,28 @@
         /* Table Styling */
         table { border-collapse: collapse; }
         th { font-family: var(--font-cond); letter-spacing: 0.05em; text-transform: uppercase; }
+
+        /* Modal transition */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modal-overlay.open .modal-content {
+            transform: scale(1) translateY(0);
+        }
     </style>
 </head>
-<body class="h-screen flex flex-col overflow-hidden">
+<body class="h-screen flex flex-col overflow-hidden relative">
 
     <header class="bg-white border-b border-[var(--hairline)] z-10 relative">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -122,6 +141,7 @@
 
                 <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Culture Ecosystem</h2>
                 <ul class="space-y-1">
+                    <li><button onclick="switchTab('equity-guardrails')" id="tab-btn-equity-guardrails" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-scale-unbalanced w-5 text-indigo-600"></i> Equity Guardrails</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('friday-cypher')" id="tab-btn-friday-cypher" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-microphone-lines w-5 text-purple-600"></i> Friday Cypher</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('family-connection')" id="tab-btn-family-connection" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-house-chimney-user w-5 text-orange-500"></i> Family Connection</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('de-escalation')" id="tab-btn-de-escalation" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-heart-pulse w-5 text-blue-500"></i> Live De-Escalation</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
@@ -132,7 +152,7 @@
                     <li><button onclick="switchTab('data-tracking')" id="tab-btn-data-tracking" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-chart-line w-5"></i> Data & Conversion</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('observation')" id="tab-btn-observation" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-clipboard-check w-5"></i> Observation Tool</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('rubric-crosswalk')" id="tab-btn-rubric-crosswalk" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-map w-5"></i> Rubric Crosswalk</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
-                    <li><button onclick="switchTab('scenario-bank')" id="tab-btn-scenario-bank" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-users-gear w-5"></i> Scenario Bank</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('scenario-bank')" id="tab-btn-scenario-bank" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-users-gear w-5 text-[var(--spark-red)]"></i> Scenario Bank</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                 </ul>
             </div>
             
@@ -208,7 +228,7 @@
                                     <div class="bg-[var(--ink)] text-[var(--mb-yellow)] p-2 mr-4 w-8 h-8 flex items-center justify-center shrink-0"><i class="fa-solid fa-chart-line fa-fw text-sm"></i></div>
                                     <div>
                                         <strong class="font-cond tracking-wider text-[15px] block text-[var(--ink)] leading-none mt-1 mb-1">Culture Ecosystem</strong>
-                                        <span class="text-[var(--ink)] text-[13px] leading-relaxed block opacity-90">Friday Cypher, Family Connection, and Live De-Escalation.</span>
+                                        <span class="text-[var(--ink)] text-[13px] leading-relaxed block opacity-90">Equity Guardrails, Friday Cypher, Family Connection, and Live De-Escalation.</span>
                                     </div>
                                 </li>
                             </ul>
@@ -224,6 +244,20 @@
 
                     <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[2px] before:bg-[var(--hairline)]">
                         
+                        <!-- PRE-MEETING: Clear the Fog (Added via Audit) -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--spark-red)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">0:00</div>
+                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] mb-card mb-card-white border-l-4 border-l-[var(--spark-red)] shadow-sm p-5 bg-red-50/50">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="font-cond font-bold text-[var(--spark-red)] text-xl tracking-wider uppercase"><i class="fa-solid fa-battery-half mr-2"></i> Clear the Fog</h3>
+                                    <span class="text-xs font-cond tracking-widest px-2 py-1 bg-white border border-red-200 text-[var(--spark-red)] uppercase">Before Bell</span>
+                                </div>
+                                <p class="text-[13px] text-[var(--ink)] font-semibold mb-2">Educator Wellness Check</p>
+                                <p class="text-[13px] text-[var(--slate)] leading-relaxed mb-3">A dysregulated adult cannot regulate a child. Before students enter the room, pause and identify what may be clouding your perception (stress, fatigue, a prior incident).</p>
+                                <p class="text-[12px] text-[var(--charcoal)] mt-2 font-medium bg-white px-3 py-2 border-l-2 border-[var(--spark-red)]">Tip: Take 3 deep breaths. Consciously separate your raw truth from emotional noise.</p>
+                            </div>
+                        </div>
+
                         <!-- Segment 1 -->
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
                             <div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[#f8fafc] bg-[var(--charcoal)] text-white font-cond font-bold text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">0-2</div>
@@ -1045,13 +1079,13 @@
                                 </thead>
                                 <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
                                     <tr class="hover:bg-slate-50">
-                                        <td class="px-5 py-5 font-cond font-bold text-[var(--ink)] bg-slate-50 tracking-wider uppercase">Routine Error</td>
+                                        <td class="px-5 py-5 font-cond font-bold text-[var(--ink)] bg-slate-50 tracking-wider uppercase">Routine Error<br><span class="text-[11px] font-normal text-[var(--slate)] tracking-normal normal-case">(Within Window of Tolerance)</span></td>
                                         <td class="px-5 py-5 text-[13px]">Forgetting to raise a hand, talking out of turn, missing a practice cue.</td>
                                         <td class="px-5 py-5 text-[13px]">Use a non-verbal cue or quiet reminder; reset the routine.</td>
                                         <td class="px-5 py-5 text-[13px]">Quick reset. "My bad." <span class="font-semibold text-[var(--charcoal)]">No apology required.</span></td>
                                     </tr>
                                     <tr class="hover:bg-slate-50">
-                                        <td class="px-5 py-5 font-cond font-bold text-[var(--spark-red)] bg-red-50 tracking-wider uppercase">Relational Harm</td>
+                                        <td class="px-5 py-5 font-cond font-bold text-[var(--spark-red)] bg-red-50 tracking-wider uppercase">Relational Harm<br><span class="text-[11px] font-normal text-[var(--slate)] tracking-normal normal-case">(Triggers Amygdala Hijack)</span></td>
                                         <td class="px-5 py-5 text-[13px]">Teasing, excluding someone, disrespectful language, damaging belongings.</td>
                                         <td class="px-5 py-5 text-[13px]">Stop behaviour; regulate parties; schedule restorative conversation.</td>
                                         <td class="px-5 py-5 text-[13px]">Use Restorative Repair Framework; involve affected parties.</td>
@@ -1062,7 +1096,62 @@
                     </div>
                 </div>
 
-                <!-- 11. FRIDAY CYPHER TAB (NEW) -->
+                <!-- 11. EQUITY GUARDRAILS TAB (NEW) -->
+                <div id="equity-guardrails" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Structural safeguards to ensure trauma-informed practices are not weaponized as compliance-coded harm. True safety requires cultural responsiveness.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Adultification Bias -->
+                        <div class="mb-card mb-card-dark shadow-sm">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-eye-slash text-[var(--spark-red)] mr-3"></i> Adultification Bias Check</h4>
+                            <div class="mb-uline"></div>
+                            <p class="text-[14px] text-[#D8D8D8] mb-4">Adultification bias is a form of implicit bias where Black and Brown children, particularly girls, are perceived as older, more mature, or more aggressive than their White peers.</p>
+                            <div class="bg-[#1a1a1a] p-4 border-l-2 border-[var(--spark-red)]">
+                                <p class="text-[13px] text-white font-semibold mb-2">Before correcting a behavior, ask yourself:</p>
+                                <ul class="text-[13px] text-[#D8D8D8] space-y-2 list-none p-0 m-0">
+                                    <li class="flex items-start"><i class="fa-solid fa-question text-[var(--muted)] mt-1 mr-2 text-[10px]"></i> <span>Am I punishing this student for a "routine error" that I would forgive as a "mistake" in another child?</span></li>
+                                    <li class="flex items-start"><i class="fa-solid fa-question text-[var(--muted)] mt-1 mr-2 text-[10px]"></i> <span>Am I interpreting passion or volume as defiance?</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Language Interrogation -->
+                        <div class="mb-card mb-card-white shadow-sm border-[var(--hairline)]">
+                            <h4 class="mb-card-title flex items-center"><i class="fa-solid fa-language text-[var(--mb-yellow)] mr-3"></i> Language Interrogation Tool</h4>
+                            <div class="mb-uline !bg-[var(--mb-yellow)]"></div>
+                            <p class="text-[14px] text-[var(--slate)] mb-4">Ensure your framing of "Safe" and "Respectful" does not simply mean "compliant and silent."</p>
+                            <div class="bg-slate-50 p-4 border border-[var(--hairline)] text-[13px]">
+                                <table class="min-w-full">
+                                    <tr class="border-b border-[var(--hairline)]">
+                                        <td class="py-2 text-[var(--spark-red)] font-semibold w-1/2">Instead of saying...</td>
+                                        <td class="py-2 text-[var(--charcoal)] font-semibold w-1/2">Try reframing as...</td>
+                                    </tr>
+                                    <tr class="border-b border-[var(--hairline)]">
+                                        <td class="py-2 pr-2 text-[var(--slate)]">"You are being disrespectful."</td>
+                                        <td class="py-2 pl-2 text-[var(--slate)]">"Your tone is making it hard for us to hear your point."</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 pr-2 text-[var(--slate)]">"This class is out of control."</td>
+                                        <td class="py-2 pl-2 text-[var(--slate)]">"We need to reset our volume so everyone can learn."</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Warm Demander Stance -->
+                    <div class="mb-card mb-card-yellow shadow-sm p-6">
+                        <h4 class="mb-card-title text-[var(--ink)]">The Warm Demander (Deep Culture vs. Surface Culture)</h4>
+                        <div class="mb-uline !bg-[var(--charcoal)]"></div>
+                        <p class="text-[14px] text-[var(--ink)] mb-4">Culturally responsive teaching (as defined by Zaretta Hammond) goes beyond surface-level inclusion (flags and food). It requires operating at the level of "Deep Culture"—understanding tacit knowledge, worldviews, and how the brain processes trust.</p>
+                        <p class="text-[14px] text-[var(--ink)] font-semibold">The Pedagogy of Poverty vs. Productive Struggle</p>
+                        <p class="text-[13px] text-[var(--charcoal)] leading-relaxed">Lowering expectations out of a misguided desire to be "nice" to students facing hardship stalls cognitive development. The Warm Demander balances high personal warmth with active demandingness. You earn the right to demand high standards by proving you are a reliable, consistent anchor in the room.</p>
+                    </div>
+                </div>
+
+                <!-- 12. FRIDAY CYPHER TAB (NEW) -->
                 <div id="friday-cypher" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">The weekly broadcast ritual where the spotlight rotates classroom to classroom. The Cypher is the public-facing recognition layer of the Safe, Respectful, Responsible system.</p>
@@ -1125,7 +1214,7 @@
                     </div>
                 </div>
 
-                <!-- 12. FAMILY CONNECTION TAB (NEW) -->
+                <!-- 13. FAMILY CONNECTION TAB -->
                 <div id="family-connection" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">A structured system for making calls to families that emphasises partnership, growth, and dignity. The classroom-home channel must be bidirectional.</p>
@@ -1173,7 +1262,7 @@
                     </div>
                 </div>
 
-                <!-- 13. LIVE DE-ESCALATION TAB (NEW) -->
+                <!-- 14. LIVE DE-ESCALATION TAB -->
                 <div id="de-escalation" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">A teacher-facing response system (R³ Integration) that reduces improvisation in high-stress classroom moments. <strong class="text-[var(--charcoal)]">The adult response is the intervention.</strong></p>
@@ -1224,7 +1313,7 @@
                     </div>
                 </div>
 
-                <!-- 14. DATA TRACKING TAB -->
+                <!-- 15. DATA TRACKING TAB -->
                 <div id="data-tracking" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">Track participation, practice fidelity, commitments, and nomination evidence.</p>
@@ -1268,7 +1357,7 @@
                     </div>
                 </div>
 
-                <!-- 15. OBSERVATION TAB -->
+                <!-- 16. OBSERVATION TAB -->
                 <div id="observation" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">Guides observers through a Morning Meeting and provides structured feedback based on the 6 moves.</p>
@@ -1295,7 +1384,7 @@
                     </div>
                 </div>
 
-                <!-- 16. RUBRIC CROSSWALK TAB -->
+                <!-- 17. RUBRIC CROSSWALK TAB -->
                 <div id="rubric-crosswalk" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">Aligns Morning Meeting moves with the Balance Period rubric and R³ Agency Practice.</p>
@@ -1306,26 +1395,48 @@
                             <table class="min-w-full divide-y divide-[var(--hairline)] text-[14px]">
                                 <thead class="bg-[var(--charcoal)] text-white">
                                     <tr>
-                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Balance Period Rubric Domain</th>
-                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">MM Move</th>
-                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase">Observable Evidence</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase w-1/4">Rubric Domain</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase w-1/4">MM Move</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase w-1/4">Observable Evidence</th>
+                                        <th class="px-6 py-4 text-left font-cond font-bold tracking-wider uppercase w-1/4">Notes</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-[var(--hairline)] bg-white text-[var(--slate)]">
                                     <tr class="hover:bg-slate-50">
                                         <td class="px-6 py-4 font-semibold text-[var(--ink)]">Self‑Regulation & Calm</td>
                                         <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Regulate</td>
-                                        <td class="px-6 py-4 text-[13px]">Students demonstrate control of breath/body. Aligns with R³ Regulate.</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Students demonstrate control of breath and body; classroom atmosphere is calm.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">Aligns with R³ Agency Practice (Regulate)</td>
                                     </tr>
                                     <tr class="hover:bg-slate-50">
                                         <td class="px-6 py-4 font-semibold text-[var(--ink)]">Positive Orientation & Goal Setting</td>
                                         <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Orient / Commit</td>
-                                        <td class="px-6 py-4 text-[13px]">Teacher connects values to goals. Aligns with CASEL Self-Awareness.</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Teacher connects values to academic goals; students articulate specific commitments.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">Embeds agency and orientation</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Student Voice & Agency</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Connect / Commit</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Students share using sentence frames; commitments reflect personal responsibility.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">R³: Agency and Connection</td>
                                     </tr>
                                     <tr class="hover:bg-slate-50">
                                         <td class="px-6 py-4 font-semibold text-[var(--ink)]">Interpersonal Respect & Empathy</td>
                                         <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Connect / Practice</td>
-                                        <td class="px-6 py-4 text-[13px]">Students practice listening/body language. Matches BP relationship skills.</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Students practice listening and respectful body language; teacher models empathy.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">Matches Balance Period’s relationship skills</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Accountability & Follow‑Through</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Commit / Transition</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Students state commitments and follow up; evidence is collected for recognition and repair.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">Reinforces responsible decision‑making</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="px-6 py-4 font-semibold text-[var(--ink)]">Restorative Response</td>
+                                        <td class="px-6 py-4 text-[var(--spark-red)] font-cond font-bold tracking-wider uppercase">Regulate / Repair</td>
+                                        <td class="px-6 py-4 text-[13px] leading-relaxed">Teacher facilitates regulation first; uses restorative language for harm repair.</td>
+                                        <td class="px-6 py-4 text-[13px] text-[var(--muted)] italic">Complements responsive behaviour plan</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1333,43 +1444,237 @@
                     </div>
                 </div>
 
-                <!-- 17. SCENARIO BANK TAB -->
+                <!-- 18. SCENARIO BANK TAB (INTERACTIVE POP-OUTS) -->
                 <div id="scenario-bank" class="tab-content">
                     <div class="mb-8">
-                        <p class="text-[var(--slate)] text-lg">Use these scenarios to practice leading Morning Meetings and applying the Warm Demander stance during PD.</p>
+                        <p class="text-[var(--slate)] text-lg">Use these scenarios to practice applying the Warm Demander stance. Tap each scenario to open the coaching breakdown.</p>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="bg-white p-6 border border-[var(--hairline)] shadow-sm flex gap-5 items-start group hover:border-[var(--spark-red)] transition-colors relative overflow-hidden">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[var(--spark-red)] transition-colors"></div>
-                            <div class="bg-slate-100 text-[var(--charcoal)] w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-users-rays text-lg"></i></div>
-                            <div>
-                                <h3 class="font-cond font-bold text-xl text-[var(--ink)] mb-2 tracking-wider uppercase">1. Student Disagreement</h3>
-                                <p class="text-[14px] text-[var(--slate)] mb-4">Two students disagree during <em>Connect</em> about a value definition. Voices rise.</p>
-                                <div class="bg-slate-50 p-4 border border-[var(--hairline)] text-[14px] text-[var(--ink)]">
-                                    <span class="font-cond font-bold text-[var(--spark-red)] text-[11px] uppercase tracking-widest block mb-2">Warm Demander Coaching Prompt</span>
-                                    How do you protect voice and guide respectful disagreement? What sentence frames can you introduce while maintaining a neutral, non-escalating kinesic stance?
+                        
+                        <!-- Scenario 1 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md cursor-pointer group" onclick="openModal('SCENARIO 1: Assigned Seat / Entry Routine', 'content-s1')">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[var(--spark-red)] group-hover:w-2 transition-all"></div>
+                            <div class="p-5 sm:p-6 flex gap-4 sm:gap-5 items-center">
+                                <div class="bg-slate-100 text-[var(--charcoal)] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-chair text-md sm:text-lg"></i></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-cond font-bold text-lg sm:text-xl text-[var(--ink)] tracking-wider uppercase">1. Assigned Seat / Entry Routine</h3>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[var(--spark-red)] opacity-50 group-hover:opacity-100"></i>
+                                    </div>
+                                    <p class="text-[13px] sm:text-[14px] text-[var(--slate)] font-medium line-clamp-2">It’s the start of class. One student walks to a seat that isn’t his and says loudly, “I’m sitting with Jayden today.” He stays standing by the wrong desk.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Hidden Modal Content -->
+                            <div id="content-s1" class="hidden">
+                                <p class="text-[14px] text-[var(--slate)] mb-6"><strong>The Situation:</strong> It’s the start of class. One student walks to a seat that isn’t his and says loudly, “I’m sitting with Jayden today.” He stays standing by the wrong desk.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <!-- What Backfires -->
+                                    <div class="bg-white p-5 border border-red-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+                                        <div class="flex items-center gap-2 text-red-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-xmark text-sm"></i> What Backfires (Punitive)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed">"We’ve already talked about this. Move to your seat or I’ll call home."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Threatens a consequence rather than restating the routine. It invites a power struggle and escalates publicly. The peer audience now watches the conflict, not the task.</p>
+                                    </div>
+                                    <!-- What Lands -->
+                                    <div class="bg-white p-5 border border-green-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                        <div class="flex items-center gap-2 text-green-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-check text-sm"></i> What Lands (Warm Demander)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed font-medium">"Assigned seat, then Do Now."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Returns the student to the routine without argument. Uses the exact taught language (Name + Expected Action + Anchor). Protects the room without public debate.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white p-6 border border-[var(--hairline)] shadow-sm flex gap-5 items-start group hover:border-[var(--spark-red)] transition-colors relative overflow-hidden">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[var(--spark-red)] transition-colors"></div>
-                            <div class="bg-slate-100 text-[var(--charcoal)] w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-heart-pulse text-lg"></i></div>
-                            <div>
-                                <h3 class="font-cond font-bold text-xl text-[var(--ink)] mb-2 tracking-wider uppercase">2. Dysregulated Student</h3>
-                                <p class="text-[14px] text-[var(--slate)] mb-4">A student is dysregulated and frozen at their desk before the meeting starts.</p>
-                                <div class="bg-slate-50 p-4 border border-[var(--hairline)] text-[14px] text-[var(--ink)]">
-                                    <span class="font-cond font-bold text-[var(--spark-red)] text-[11px] uppercase tracking-widest block mb-2">Warm Demander Coaching Prompt</span>
-                                    How do you use the 'Engagement and Walk-Away' strategy to support their regulation without forcing a public compliance test?
+                        <!-- Scenario 2 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md cursor-pointer group" onclick="openModal('SCENARIO 2: The Wandering Helper', 'content-s2')">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[var(--spark-red)] group-hover:w-2 transition-all"></div>
+                            <div class="p-5 sm:p-6 flex gap-4 sm:gap-5 items-center">
+                                <div class="bg-slate-100 text-[var(--charcoal)] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-person-walking text-md sm:text-lg"></i></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-cond font-bold text-lg sm:text-xl text-[var(--ink)] tracking-wider uppercase">2. The Wandering Helper</h3>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[var(--spark-red)] opacity-50 group-hover:opacity-100"></i>
+                                    </div>
+                                    <p class="text-[13px] sm:text-[14px] text-[var(--slate)] font-medium line-clamp-2">During independent work, a student gets up and walks to a friend to help with the assignment. "I was just helping her, she didn’t get it."</p>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Modal Content -->
+                            <div id="content-s2" class="hidden">
+                                <p class="text-[14px] text-[var(--slate)] mb-6"><strong>The Situation:</strong> During independent work, a student gets up and walks to a friend across the room to help with the assignment. Student says: “I was just helping her, she didn’t get it.”</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-5 border border-red-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+                                        <div class="flex items-center gap-2 text-red-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-xmark text-sm"></i> What Backfires (Punitive)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed">"Are you the teacher? No. Get back to your seat."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Sarcasm damages trust. It publicly humiliates a student for an act of kindness, even if the act broke the routine.</p>
+                                    </div>
+                                    <div class="bg-white p-5 border border-green-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                        <div class="flex items-center gap-2 text-green-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-check text-sm"></i> What Lands (Warm Demander)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed font-medium">"Return to your learning space. Use the class signal if you need me, and I’ll come to you."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Redirects to the routine without shaming the impulse to help. Restates how support works in this classroom, preserving dignity and structure.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Scenario 3 -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md cursor-pointer group" onclick="openModal('SCENARIO 3: Language Reset', 'content-s3')">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[var(--spark-red)] group-hover:w-2 transition-all"></div>
+                            <div class="p-5 sm:p-6 flex gap-4 sm:gap-5 items-center">
+                                <div class="bg-slate-100 text-[var(--charcoal)] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-comment-slash text-md sm:text-lg"></i></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-cond font-bold text-lg sm:text-xl text-[var(--ink)] tracking-wider uppercase">3. Language Reset</h3>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[var(--spark-red)] opacity-50 group-hover:opacity-100"></i>
+                                    </div>
+                                    <p class="text-[13px] sm:text-[14px] text-[var(--slate)] font-medium line-clamp-2">A student uses profanity, saying loudly, “This class is so f***ing dumb,” making eye contact and testing the boundary.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Modal Content -->
+                            <div id="content-s3" class="hidden">
+                                <p class="text-[14px] text-[var(--slate)] mb-6"><strong>The Situation:</strong> A student has used profanity multiple times this period. This time, he says loudly, “This class is so f***ing dumb,” and makes eye contact, testing the boundary.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-5 border border-red-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+                                        <div class="flex items-center gap-2 text-red-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-xmark text-sm"></i> What Backfires (Punitive)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed">"That’s it. You’re out. Go to the office."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Office removal without intermediate steps skips the entire pathway and removes all opportunity for repair in the classroom. It communicates that the student isn’t welcome.</p>
+                                    </div>
+                                    <div class="bg-white p-5 border border-green-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                        <div class="flex items-center gap-2 text-green-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-check text-sm"></i> What Lands (Warm Demander)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed font-medium">"Pause. We’ll reset this privately after class. Right now, silence and work until the bell."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> It doesn’t ignore the pattern, but it refuses to continue the public fight. The student is disengaged from the audience and told when the repair conversation will happen.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 4: Freeze / Loop Closure -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md cursor-pointer group" onclick="openModal('SCENARIO 4: Trauma / Shutdown (The Freeze)', 'content-s4')">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[var(--spark-red)] group-hover:w-2 transition-all"></div>
+                            <div class="p-5 sm:p-6 flex gap-4 sm:gap-5 items-center">
+                                <div class="bg-slate-100 text-[var(--charcoal)] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-heart-pulse text-md sm:text-lg"></i></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-cond font-bold text-lg sm:text-xl text-[var(--ink)] tracking-wider uppercase">4. Trauma / Shutdown & Closing the Loop</h3>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[var(--spark-red)] opacity-50 group-hover:opacity-100"></i>
+                                    </div>
+                                    <p class="text-[13px] sm:text-[14px] text-[var(--slate)] font-medium line-clamp-2">A student sits at a desk with their head dropped heavily onto folded arms, looking completely shut down after a redirection.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Modal Content -->
+                            <div id="content-s4" class="hidden">
+                                <p class="text-[14px] text-[var(--slate)] mb-6"><strong>The Situation:</strong> A student sits at a desk with their head dropped heavily onto folded arms, looking completely shut down and silent after a redirection.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-5 border border-red-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+                                        <div class="flex items-center gap-2 text-red-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-xmark text-sm"></i> What Backfires (Punitive)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed">Standing directly over the student's desk, pointing a finger, and demanding: "Head up. I said get to work."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> Standing over a shut-down student violates personal space and acts as a severe threat. This authoritarian demand triggers an intense amygdala hijack, forcefully pushing the student from a passive "freeze" state into an aggressive "fight or flight" reaction.</p>
+                                    </div>
+
+                                    <div class="bg-white p-5 border border-green-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                        <div class="flex items-center gap-2 text-green-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-check text-sm"></i> What Lands (Warm Demander + Loop Closure)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed font-medium">Quietly place a sticky note on the desk ("Start when you can"). Turn and walk away. <br><br><strong class="text-[var(--spark-red)] uppercase text-[11px] tracking-widest block mb-1">Closing the Loop:</strong><br>Return 10 minutes later. If they started, whisper, "I see you working, thank you." If still frozen, whisper, "I'm going to check in with you during our transition." Follow up privately later using the Regulate-Relate-Reason protocol.</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> The initial drop-and-walk provides unconditional positive regard, giving the "freeze" response time to thaw. <em>Closing the loop</em> ensures the student isn't abandoned and accountability is maintained privately.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 5: Applying Consequences -->
+                        <div class="bg-white border border-[var(--hairline)] shadow-sm relative overflow-hidden transition-all duration-200 hover:shadow-md cursor-pointer group" onclick="openModal('SCENARIO 5: Applying a Necessary Consequence', 'content-s5')">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[var(--spark-red)] group-hover:w-2 transition-all"></div>
+                            <div class="p-5 sm:p-6 flex gap-4 sm:gap-5 items-center">
+                                <div class="bg-slate-100 text-[var(--charcoal)] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-scale-unbalanced text-md sm:text-lg"></i></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-cond font-bold text-lg sm:text-xl text-[var(--ink)] tracking-wider uppercase">5. Applying a Necessary Consequence</h3>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[var(--spark-red)] opacity-50 group-hover:opacity-100"></i>
+                                    </div>
+                                    <p class="text-[13px] sm:text-[14px] text-[var(--slate)] font-medium line-clamp-2">A student deliberately knocks over a desk in frustration, breaking a major safety rule that requires a formal consequence per school policy.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Modal Content -->
+                            <div id="content-s5" class="hidden">
+                                <p class="text-[14px] text-[var(--slate)] mb-6"><strong>The Situation:</strong> A student blatantly violates a major classroom rule (e.g., knocking over a desk in frustration), which requires an automatic consequence (like a detention or office referral) per school policy. Trauma-informed care does not mean an absence of consequences; it means applying them with dignity.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-5 border border-red-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-red-400"></div>
+                                        <div class="flex items-center gap-2 text-red-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-xmark text-sm"></i> What Backfires (Punitive Shaming)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed">Confronting the student loudly: "That’s a detention! You know the rules. Pick that up immediately!"</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> It wields the consequence as a weapon. This publicly shames the student, guarantees a power struggle, and escalates their dysregulation into a fight response.</p>
+                                    </div>
+
+                                    <div class="bg-white p-5 border border-green-200 shadow-sm rounded-sm relative">
+                                        <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                        <div class="flex items-center gap-2 text-green-700 font-cond font-bold tracking-widest uppercase text-[11px] mb-3">
+                                            <i class="fa-solid fa-check text-sm"></i> What Lands (Warm Demander Accountability)
+                                        </div>
+                                        <p class="italic text-[13px] text-[var(--ink)] mb-3 leading-relaxed font-medium">Approach calmly, maintaining a supportive stance. "Are you okay? [Pause]. Knocking over furniture breaks our safety rule, so that is a detention. I'll write the pass, you take a breath, and we will talk at lunch about how to repair this."</p>
+                                        <p class="text-[12px] text-[var(--slate)]"><strong>Why:</strong> It applies the consequence neutrally and factually as a boundary, not a personal attack. It immediately pivots to regulation ("take a breath") and closes the loop by scheduling a restorative repair conversation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </main>
+    </div>
+
+    <!-- MODAL OVERLAY (NEW) -->
+    <div id="scenario-modal" class="modal-overlay fixed z-50 flex items-center justify-center p-4 sm:p-6" onclick="closeModal(event)">
+        <div class="modal-content bg-white w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-[var(--hairline)]" onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="bg-[var(--charcoal)] text-white p-4 sm:p-6 flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chalkboard-user text-[var(--mb-yellow)] text-xl"></i>
+                    <h2 id="modal-title" class="font-cond font-bold text-lg sm:text-xl tracking-wider uppercase m-0">Scenario Title</h2>
+                </div>
+                <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[var(--spark-red)] transition-colors">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div id="modal-body" class="p-4 sm:p-8 overflow-y-auto custom-scrollbar bg-slate-50 flex-1">
+                <!-- Content injected via JS -->
+            </div>
+            <!-- Footer -->
+            <div class="bg-white p-4 sm:p-6 border-t border-[var(--hairline)] flex justify-end shrink-0">
+                <button onclick="closeModal()" class="mb-btn !bg-[var(--charcoal)] !border-[var(--charcoal)]">Close Scenario</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1385,6 +1690,7 @@
             'student-roles': 'Student Roles',
             'share-prompts': 'Share Prompts',
             'harm-vs-error': 'Harm vs. Error',
+            'equity-guardrails': 'Equity Guardrails',
             'friday-cypher': 'Friday Cypher',
             'family-connection': 'Family Connection',
             'de-escalation': 'Live De-Escalation',
@@ -1410,7 +1716,15 @@
             
             const activeBtn = document.getElementById('tab-btn-' + tabId);
             if(activeBtn) {
-                activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]';
+                // Determine if it's the equity guardrails or scenario bank (special colors) or normal
+                if (tabId === 'equity-guardrails') {
+                    activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-indigo-50 text-indigo-600 border-r-4 border-indigo-600';
+                } else if (tabId === 'scenario-bank') {
+                    activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]';
+                } else {
+                    activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]';
+                }
+                
                 activeBtn.querySelector('i:first-child').className = 'fa-solid ' + activeBtn.querySelector('i:first-child').className.split(' ')[1] + ' w-5 transition-colors';
                 activeBtn.querySelector('i:last-child').className = 'fa-solid fa-chevron-right text-[10px] opacity-100 transition-opacity';
             }
@@ -1428,6 +1742,38 @@
                 btn.classList.remove('!bg-[var(--charcoal)]', '!border-[var(--charcoal)]');
                 btn.innerHTML = '<i class="fa-solid fa-bolt mr-2 toggle-icon"></i> TAKE IT LIVE!';
             }
+        }
+
+        // New functions for the Mobile-Optimized Modal Pop-out
+        function openModal(title, contentId) {
+            const modal = document.getElementById('scenario-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const contentSource = document.getElementById(contentId);
+            
+            // Set content
+            modalTitle.innerText = title;
+            modalBody.innerHTML = contentSource.innerHTML;
+            
+            // Show modal
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(event) {
+            // If event is passed, check if we clicked outside the modal content
+            if (event && event.target !== document.getElementById('scenario-modal')) {
+                return; 
+            }
+            
+            const modal = document.getElementById('scenario-modal');
+            modal.classList.remove('open');
+            document.body.style.overflow = ''; // Restore background scrolling
+            
+            // Clear content after animation
+            setTimeout(() => {
+                document.getElementById('modal-body').innerHTML = '';
+            }, 300);
         }
     </script>
 </body>
