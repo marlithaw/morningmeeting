@@ -56,6 +56,97 @@
         
         .mb-kicker { font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
         .mb-gradient-warm { background: linear-gradient(135deg, #d98a5a, #c8161d); }
+
+        /* Branded frame for the portrait overview video */
+        .overview-video-stage {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            width: 100%;
+            height: 100%;
+            background: var(--ink);
+        }
+        .overview-video-stage.hidden { display: none; }
+        .overview-video-panel {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(12px, 2.5vw, 30px);
+            text-align: center;
+            overflow: hidden;
+        }
+        .overview-video-brand {
+            background: linear-gradient(180deg, var(--charcoal), #111);
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .overview-video-brand img {
+            width: clamp(52px, 9vw, 104px);
+            height: auto;
+            margin-bottom: clamp(12px, 2vw, 22px);
+            filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.28));
+        }
+        .overview-brand-name {
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: clamp(17px, 2.7vw, 31px);
+            font-weight: 600;
+            line-height: 0.95;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+        .overview-brand-name span {
+            display: block;
+            margin-top: 7px;
+            color: var(--spark-red);
+            font-size: 0.62em;
+            letter-spacing: 0.18em;
+        }
+        .overview-video-promise {
+            background: linear-gradient(180deg, var(--ember), var(--spark-red));
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .overview-promise-kicker {
+            margin-bottom: clamp(13px, 2.4vw, 24px);
+            color: var(--mb-yellow);
+            font-family: var(--font-cond);
+            font-size: clamp(9px, 1.15vw, 13px);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .overview-pillar {
+            width: 100%;
+            padding: clamp(7px, 1.2vw, 12px) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.32);
+            font-family: var(--font-display);
+            font-size: clamp(15px, 2.45vw, 29px);
+            font-weight: 600;
+            letter-spacing: 0.055em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .overview-pillar:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.32); }
+        #overview-video {
+            display: block;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            aspect-ratio: 406 / 720;
+            object-fit: contain;
+            background: #000;
+            box-shadow: 0 0 34px rgba(0, 0, 0, 0.42);
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 640px) {
+            .overview-video-panel { padding: 8px 5px; }
+            .overview-brand-name { font-size: clamp(10px, 3.2vw, 17px); }
+            .overview-brand-name span { margin-top: 4px; letter-spacing: 0.09em; }
+            .overview-promise-kicker { display: none; }
+            .overview-pillar { font-size: clamp(8px, 2.7vw, 14px); letter-spacing: 0.02em; }
+        }
         
         nav button { border-radius: 0 !important; }
 
@@ -178,10 +269,22 @@
                 <div id="overview" class="tab-content active">
                     <!-- Morning Meeting Overview Video -->
                     <div id="overview-video-shell" class="mb-10 mb-gradient-warm shadow-md relative aspect-[16/10] flex items-center justify-center group w-full max-w-3xl mx-auto border border-black/10 overflow-hidden bg-black">
-                        <video id="overview-video" class="hidden w-full h-full object-contain bg-black" controls preload="metadata" playsinline>
-                            <source src="./assets/morning-meeting-overview.mp4" type="video/mp4">
-                            Your browser does not support embedded video. <a href="./assets/morning-meeting-overview.mp4">Open the overview video directly.</a>
-                        </video>
+                        <div id="overview-video-stage" class="overview-video-stage hidden">
+                            <div class="overview-video-panel overview-video-brand" aria-label="Matchbook Learning">
+                                <img src="./assets/matchbook-flame.png" alt="Matchbook Learning flame logo">
+                                <div class="overview-brand-name">Matchbook<span>Learning</span></div>
+                            </div>
+                            <video id="overview-video" controls preload="metadata" playsinline>
+                                <source src="./assets/morning-meeting-overview.mp4" type="video/mp4">
+                                Your browser does not support embedded video. <a href="./assets/morning-meeting-overview.mp4">Open the overview video directly.</a>
+                            </video>
+                            <div class="overview-video-panel overview-video-promise" aria-label="Safe, Respectful, and Responsible">
+                                <div class="overview-promise-kicker">Our Culture Promise</div>
+                                <div class="overview-pillar">Safe</div>
+                                <div class="overview-pillar">Respectful</div>
+                                <div class="overview-pillar">Responsible</div>
+                            </div>
+                        </div>
                         <div id="overview-video-cover" class="absolute inset-0 z-10 text-center p-6 w-full flex flex-col items-center justify-center">
                             <button type="button" onclick="playOverviewVideo()" aria-controls="overview-video" aria-label="Play the Morning Meeting overview video" class="mb-btn mb-6 group-hover:scale-105 shadow-xl flex items-center gap-2">
                                 <i class="fa-solid fa-play"></i> Watch Overview
@@ -1706,10 +1809,11 @@
 
         function playOverviewVideo() {
             const video = document.getElementById('overview-video');
+            const stage = document.getElementById('overview-video-stage');
             const cover = document.getElementById('overview-video-cover');
 
             cover.classList.add('hidden');
-            video.classList.remove('hidden');
+            stage.classList.remove('hidden');
             video.controls = true;
 
             const playback = video.play();
