@@ -227,6 +227,7 @@
                     <li><button onclick="switchTab('run-of-show')" id="tab-btn-run-of-show" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-stopwatch w-5"></i> Run of Show</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('weekly-arc')" id="tab-btn-weekly-arc" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-calendar-week w-5"></i> Weekly Cycle</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('culture-camp')" id="tab-btn-culture-camp" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-campground w-5"></i> Culture Camp</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('instructional-units')" id="tab-btn-instructional-units" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-book-open-reader w-5"></i> Instructional Units</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                 </ul>
 
                 <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Classroom Tools</h2>
@@ -980,7 +981,53 @@
                     </div>
                 </div>
 
-                <!-- 5. MESSAGE BOARD TEMPLATES TAB -->
+                <!-- 5. INSTRUCTIONAL UNITS TAB -->
+                <div id="instructional-units" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">The next ready-to-teach Morning Meeting sequence after Culture Camp. Every lesson includes grade-band student slides, private presenter notes, a timed teacher script, and printable practice materials.</p>
+                    </div>
+
+                    <section class="mb-8 bg-white border border-[var(--hairline)] shadow-sm">
+                        <div class="bg-[var(--charcoal)] text-white p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+                            <div>
+                                <div class="font-cond text-[12px] font-bold text-[var(--mb-yellow)] tracking-[0.12em] uppercase mb-2">Five-Lesson Instructional Unit</div>
+                                <h2 class="font-cond text-3xl font-bold uppercase tracking-wide">Bullying Prevention</h2>
+                                <p class="text-sm text-slate-300 mt-2 max-w-2xl">Name it. Know it. Act as an upstander. Speak up. Make it right. Built for K–2, 3–5, and 6–8 in the Matchbook four-part Morning Meeting rhythm.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <a class="mb-btn inline-flex items-center gap-2 no-underline" href="./resources/bullying-prevention/index.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Unit</a>
+                                <a class="mb-btn inline-flex items-center gap-2 no-underline !bg-white !border-white !text-[var(--spark-red)]" href="./resources/bullying-prevention/teacher-guide.html"><i class="fa-solid fa-book-open"></i> Teacher Guide</a>
+                                <a class="mb-btn inline-flex items-center gap-2 no-underline !bg-[var(--mb-yellow)] !border-[var(--mb-yellow)] !text-[var(--ink)]" href="./resources/bullying-prevention/bullying-prevention-offline.zip" download><i class="fa-solid fa-download"></i> Offline ZIP</a>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-[var(--mb-yellow)] text-[var(--ink)] text-sm">
+                            <strong>Corrected schedule:</strong> Lesson 1 is Tuesday, August 11, 2026. Lessons 2–5 run Monday–Thursday, August 17–20. Friday, August 21 is the Friday Cypher application and celebration—not a sixth lesson.
+                        </div>
+                    </section>
+
+                    <div class="overflow-x-auto border border-[var(--hairline)] bg-white shadow-sm mb-8">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-[var(--charcoal)] text-white">
+                                <tr><th class="px-5 py-3 text-left">Lesson + Date</th><th class="px-5 py-3 text-left">Weekly Move</th><th class="px-5 py-3 text-left">Focus</th><th class="px-3 py-3 text-center">K–2</th><th class="px-3 py-3 text-center">3–5</th><th class="px-3 py-3 text-center">6–8</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-[var(--hairline)]">
+                                <tr><td class="px-5 py-4"><strong>1 · Tue Aug 11</strong></td><td class="px-5 py-4">Pre-Unit Launch</td><td class="px-5 py-4"><strong>Name It</strong><br><span class="text-[var(--slate)]">Power + pattern + harm; conflict vs. possible bullying.</span></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-1-k2-student-deck.html" target="_blank">K–2</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-1-35-student-deck.html" target="_blank">3–5</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-1-68-student-deck.html" target="_blank">6–8</a></td></tr>
+                                <tr class="bg-slate-50"><td class="px-5 py-4"><strong>2 · Mon Aug 17</strong></td><td class="px-5 py-4">Launch</td><td class="px-5 py-4"><strong>Know It</strong><br><span class="text-[var(--slate)]">Physical, verbal, social/relational, and cyber.</span></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-2-k2-student-deck.html" target="_blank">K–2</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-2-35-student-deck.html" target="_blank">3–5</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-2-68-student-deck.html" target="_blank">6–8</a></td></tr>
+                                <tr><td class="px-5 py-4"><strong>3 · Tue Aug 18</strong></td><td class="px-5 py-4">Practice</td><td class="px-5 py-4"><strong>Upstander, Not Bystander</strong><br><span class="text-[var(--slate)]">Interrupt, redirect, support, document, or report safely.</span></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-3-k2-student-deck.html" target="_blank">K–2</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-3-35-student-deck.html" target="_blank">3–5</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-3-68-student-deck.html" target="_blank">6–8</a></td></tr>
+                                <tr class="bg-slate-50"><td class="px-5 py-4"><strong>4 · Wed Aug 19</strong></td><td class="px-5 py-4">Notice</td><td class="px-5 py-4"><strong>Speak Up</strong><br><span class="text-[var(--slate)]">Who, what, when, where, pattern, evidence, and safety now.</span></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-4-k2-student-deck.html" target="_blank">K–2</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-4-35-student-deck.html" target="_blank">3–5</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-4-68-student-deck.html" target="_blank">6–8</a></td></tr>
+                                <tr><td class="px-5 py-4"><strong>5 · Thu Aug 20</strong></td><td class="px-5 py-4">Prepare</td><td class="px-5 py-4"><strong>Make It Right</strong><br><span class="text-[var(--slate)]">Accountability, repair, boundaries, pledge, and Cypher evidence.</span></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-5-k2-student-deck.html" target="_blank">K–2</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-5-35-student-deck.html" target="_blank">3–5</a></td><td class="px-3 py-4 text-center"><a class="mb-btn inline-block !px-4 !py-2 no-underline" href="./resources/bullying-prevention/decks/lesson-5-68-student-deck.html" target="_blank">6–8</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <a class="mb-card mb-card-white shadow-sm no-underline hover:border-[var(--spark-red)]" href="./resources/bullying-prevention/printables-k2.html"><div class="font-cond text-[12px] font-bold text-[var(--spark-red)] tracking-widest uppercase">Print Toolkit</div><h3 class="mb-card-title mt-2">Grades K–2</h3><p class="text-[13px] text-[var(--slate)]">Scenario cards, four kinds, Stop-Support-Tell, report frame, repair steps, and pledge.</p></a>
+                        <a class="mb-card mb-card-white shadow-sm no-underline hover:border-[var(--spark-red)]" href="./resources/bullying-prevention/printables-35.html"><div class="font-cond text-[12px] font-bold text-[var(--spark-red)] tracking-widest uppercase">Print Toolkit</div><h3 class="mb-card-title mt-2">Grades 3–5</h3><p class="text-[13px] text-[var(--slate)]">Scenario sort, 3S upstander plan, reporting card, repair ladder, and pledge builder.</p></a>
+                        <a class="mb-card mb-card-dark shadow-sm no-underline" href="./resources/bullying-prevention/printables-68.html"><div class="font-cond text-[12px] font-bold text-[var(--mb-yellow)] tracking-widest uppercase">Print Toolkit</div><h3 class="mb-card-title mt-2">Grades 6–8</h3><p class="text-[13px] text-[#D8D8D8]">Analysis cards, upstander strategy menu, precise reporting frame, accountability test, and pledge builder.</p></a>
+                    </div>
+                </div>
+
+                <!-- 6. MESSAGE BOARD TEMPLATES TAB -->
                 <div id="message-board" class="tab-content">
                     <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">Template layouts to design boards that fit your classroom environment. <strong class="text-[var(--charcoal)]">Maintained in the order of Safe, Respectful, and Responsible.</strong></p>
@@ -1903,6 +1950,7 @@
             'run-of-show': 'Run of Show',
             'weekly-arc': 'Weekly Cycle',
             'culture-camp': 'Culture Camp',
+            'instructional-units': 'Instructional Units',
             'message-board': 'Message Boards',
             'practice-moves': 'Practice Moves',
             'adaptations': 'Adaptations',
