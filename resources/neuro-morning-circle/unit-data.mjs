@@ -60,6 +60,7 @@ export const lessons = [
     step: 'Emotional Temperature Check',
     value: 'Safe',
     summary: 'Name the body’s internal weather and build a felt sense of safety in the circle.',
+    clip: { url: 'https://www.youtube.com/watch?v=YCe-WQbMWhw', title: 'GoNoodle · Weather the Storm (calming breathing for kids)' },
     bands: {
       k2: {
         focus: 'Body Weather Report',
@@ -99,7 +100,7 @@ export const lessons = [
           orient: { teacher: '“Welcome to the Culture Lab. At Matchbook, we are Safe. Safe means checking our biometric signals before instruction starts.”', student: 'Reads the biometric chart on the board (Heart Rate, Muscle Tension, Breath).', ifThen: 'If a student is oppositional or defiant, then use a Warm Demander script: “Assigned seat, body scan, then we begin. Settle in.”' },
           connect: { teacher: '“Where is stress sitting in your body today? What’s one environmental ‘glimmer’ in this room that brings you safety?”', student: 'Discusses body stress points and room safety anchors with a partner.', ifThen: 'If a student shares deep traumatic events, then pivot to a soft check-in: “Thank you for sharing your truth. Let’s talk privately later.”' },
           practice: { teacher: '“Let’s practice localized muscle release. Tense your shoulders up to your ears… hold for 5s… now drop them completely. Feel the melt.”', student: 'Tenses shoulders, neck, and jaw, then releases them on cue.', ifThen: 'If a student refuses to participate, then respect the silence: “Silence is a valid coping strategy. I see you, you are safe here.”' },
-          commit: { teacher: '“Scan the QR code to post your commitment on our digital board: ‘Today I will protect my safety by [specific action].’”', student: 'Uses a Chromebook or tablet to submit a specific regulatory commitment.', ifThen: 'If technology fails or is absent, then write the commitment on a paper strip and tape it to the desk to preserve transition pace.' },
+          commit: { teacher: '“On your commitment card, write: ‘Today I will protect my safety by [specific action].’ Post it on our circle board.”', student: 'Writes a specific regulatory commitment on a card and posts it.', ifThen: 'If a student rushes a vague commitment, then prompt: “Name the exact action, then commit to it.”' },
           transition: { teacher: '“Take your somatic focus into math. Stand on the one.”', student: 'Stands and transitions to the math block, carrying focused energy.', ifThen: 'If lingering or wandering occurs, then callback neutrally: “Assigned math seat, then ELA book out. Keep the rhythm.”' }
         }
       }
@@ -112,6 +113,7 @@ export const lessons = [
     step: 'Mindful Breathing',
     value: 'Safe',
     summary: 'Stabilize autonomic arousal with a portable breathing tool the body can carry all day.',
+    clip: { url: 'https://www.youtube.com/watch?v=O29e4rRMrV4', title: 'GoNoodle · Rainbow Breath (calming breathing for kids)' },
     bands: {
       k2: {
         focus: 'Five-Finger Breathing Beats',
@@ -128,17 +130,17 @@ export const lessons = [
         }
       },
       '35': {
-        focus: 'Tibetan Singing Bowl · Sound Decay',
-        iCan: 'I can use an auditory anchor to stretch my exhale and quiet my brain’s smoke detector.',
-        somaticGoal: 'Use auditory-decay tracking to extend exhalations and calm hyperaroused brain activity (amygdala).',
-        somatic: 'Strike a Tibetan singing bowl. Close eyes and listen intently, tracing the sound’s decay. Raise a hand in the air the exact second you can no longer hear it.',
+        focus: 'Calm-Down Sound Anchor',
+        iCan: 'I can use a calming sound to stretch my exhale and quiet my brain’s smoke detector.',
+        somaticGoal: 'Use a calming auditory anchor to extend exhalations and settle hyperaroused brain activity (amygdala).',
+        somatic: 'Play a short calming, kid-friendly clip (soft music or nature sounds — see the linked clip). Close eyes and listen, letting each exhale grow longer as the sound plays. When it ends, raise a hand and notice how your body feels.',
         phases: {
-          regulate: { teacher: '“Close your eyes. Listen to the resonance of the bowl. Track the sound as it fades. Inhale rise… exhale fade.”', student: 'Sits in absolute silence, listening to the sound decay with eyes closed.', ifThen: 'If a student is sensitive to or irritated by the sound, then adjust immediately. Permit them to focus on breathing sways instead.' },
-          orient: { teacher: '“Our value is Safe. The bowl is our auditory anchor. When we focus on the sound, we quiet our brain’s smoke detector.”', student: 'Looks at the brain diagram on the board showing the Amygdala.', ifThen: 'If students are hyperactive or talkative, then extend the silence before striking the bowl. Let the silence co-regulate first.' },
-          connect: { teacher: '“With your partner, share: what helped you stay focused on the sound? ‘The [vibration / silence / volume] helped me stay anchored.’”', student: 'Discusses sensory-motor focus strategies with a circle partner.', ifThen: 'If they drop the sentence frame, then pause and re-model: “Great thought — let’s lock it into the frame.”' },
-          practice: { teacher: '“Now we match the sound. We inhale, and on the exhale we hum a matching tone to match the bowl’s resonance. Breathe in… hum.”', student: 'Vocalizes a matching tone, creating a synchronized classroom frequency.', ifThen: 'If vocalization turns into silly yelling, then stop: “My bad, I didn’t model a soft hum. Stop. Settle. Match my soft frequency. Go.”' },
-          commit: { teacher: '“Write on a sticky note: ‘Today I will stay in my Window of Tolerance by…’ and post it on our circle board.”', student: 'Writes a specific commitment incorporating a breathing or auditory anchor.', ifThen: 'If short on time, then skip writing and do a verbal circle commitment to preserve pacing and transition.' },
-          transition: { teacher: '“Transition to science. Move silently like the fading sound of our bowl. Stand on the one.”', student: 'Stands and transitions silently, carrying a calm physical posture.', ifThen: 'If clattering or noise occurs, then callback the bowl: “Just like the fading tone… let’s sit in absolute silence. Ready.”' }
+          regulate: { teacher: '“Close your eyes. Listen to our calming sound. Let each breath out grow longer than the one before. Inhale rise… exhale slow.”', student: 'Sits in calm silence, listening to the clip with eyes closed.', ifThen: 'If a student is sensitive to the sound, then lower the volume or let them focus on breathing sways instead.' },
+          orient: { teacher: '“Our value is Safe. A calming sound is our anchor. When we focus on it, we quiet our brain’s smoke detector.”', student: 'Looks at the brain diagram on the board showing the Amygdala.', ifThen: 'If students are hyperactive or talkative, then sit in silence for a moment before the clip. Let the quiet co-regulate first.' },
+          connect: { teacher: '“With your partner, share: what helped you stay focused on the sound? ‘The [music / quiet / slow beat] helped me stay anchored.’”', student: 'Discusses sensory-motor focus strategies with a circle partner.', ifThen: 'If they drop the sentence frame, then pause and re-model: “Great thought — let’s lock it into the frame.”' },
+          practice: { teacher: '“Now we breathe with the sound. Inhale as it rises, and stretch a long, quiet exhale as it fades. No talking—just breath.”', student: 'Matches slow breathing to the rise and fall of the calming clip.', ifThen: 'If breathing turns into silly noises, then stop: “My bad, I didn’t model the quiet breath. Stop. Settle. Slow exhale with me. Go.”' },
+          commit: { teacher: '“Write on a sticky note: ‘Today I will stay in my Window of Tolerance by…’ and post it on our circle board.”', student: 'Writes a specific commitment incorporating a breathing or listening anchor.', ifThen: 'If short on time, then skip writing and do a verbal circle commitment to preserve pacing and transition.' },
+          transition: { teacher: '“Transition to science. Move silently, like the last of our calming sound fading out. Stand on the one.”', student: 'Stands and transitions silently, carrying a calm physical posture.', ifThen: 'If clattering or noise occurs, then callback the sound: “Just like the sound faded to quiet… let’s move in silence. Ready.”' }
         }
       },
       '68': {
@@ -151,7 +153,7 @@ export const lessons = [
           orient: { teacher: '“Our focus is Safe. We are building a locked-in classroom brick by brick, beat by beat, to stay cool in the heat.”', student: 'Faces the board, tracking the visual box-breathing diagram.', ifThen: 'If high energy is felt, then extend the breathing cycles. Do not rush into social connection if the room is unsettled.' },
           connect: { teacher: '“How did syncing your breath to the beat impact your somatic state? ‘Syncing my breath made my body feel [steady / quiet / cool].’”', student: 'Shares breath experiences using sentence frames with a partner.', ifThen: 'If students mock the frame, then reframe: “This is our practice field. Rehearsing values makes them real. Use the frame.”' },
           practice: { teacher: '“Let’s practice the Self-Check. Place your fingers on your pulse. Breathe with the metronome, feel your heartbeat slow.”', student: 'Practices biometric self-awareness, monitoring heart-rate drops.', ifThen: 'If students get restless, then modify: “Hold a fist-squeeze on the inhale, and open on the exhale. Keep the rhythm.”' },
-          commit: { teacher: '“Submit your digital commitment: ‘I will use box breathing if I feel hyperaroused today.’ Clear specificity.”', student: 'Types a specific, observable commitment into the digital form.', ifThen: 'If a student writes a joke commitment, then delete it and hand a paper slip: “At Matchbook we own our commitments. Settle and write it here.”' },
+          commit: { teacher: '“On your commitment slip, write: ‘I will use box breathing if I feel hyperaroused today.’ Be specific.”', student: 'Writes a specific, observable commitment on a slip and posts it.', ifThen: 'If a student writes a joke commitment, then hand a fresh slip: “At Matchbook we own our commitments. Settle and write it here.”' },
           transition: { teacher: '“We are ready to learn. Smooth steps, ready materials, bright minds. Stand on the one.”', student: 'Moves instantly to seats. Quick transition under 45 seconds.', ifThen: 'If transitions take >60s, then do-over: “Reset. Spacing was poor, too much chatter. Try again. Settle.”' }
         }
       }
@@ -164,6 +166,7 @@ export const lessons = [
     step: 'Cultural Wisdom & Shared Stories',
     value: 'Respectful',
     summary: 'Settle the social-emotional nervous system and build relational capital through respect.',
+    clip: { url: 'https://www.youtube.com/watch?v=wf5K3pP2IUQ', title: 'Cosmic Kids Zen Den · Be the Pond (mindfulness for kids)' },
     bands: {
       k2: {
         focus: 'The Kindness Echo',
@@ -203,7 +206,7 @@ export const lessons = [
           orient: { teacher: '“At Matchbook, we are Respectful. Respectful protects dignity. Today we explore how our cultural stories shape our respect.”', student: 'Tracks the circle diagram showing “Belonging” and “Relational Capital.”', ifThen: 'If a student interrupts, then correct the routine: “Hold it. Respectful protects voice. Settle and wait for the pause.”' },
           connect: { teacher: '“How do you disagree respectfully with someone’s opinion? Share with your partner: ‘I protect dignity by…’”', student: 'Discusses values and disagreeing sentence frames (Agree, Add On, Disagree).', ifThen: 'If students raise voices, then reset volume: “Our tone is too high. Let’s bring it back to a level 2. Protect voice.”' },
           practice: { teacher: '“Let’s practice the Value-Check. Partner A tells a story; Partner B listens with square shoulders and a silent nod. Echo back.”', student: 'Practices respectful body alignment and reflective listening.', ifThen: 'If bodies are slouched or turned away, then do-over: “My bad, I didn’t emphasize shoulder squares. Reset. Try again.”' },
-          commit: { teacher: '“Enter your Respectful commitment on our digital board: ‘I will use sentence frames during our debate today.’”', student: 'Types an observable commitment to show empathy during academics.', ifThen: 'If vague (“I’ll be respectful”), then prompt: “What exact move will you use? Commit to that specific frame.”' },
+          commit: { teacher: '“Write your Respectful commitment on a card: ‘I will use sentence frames during our debate today.’”', student: 'Writes an observable commitment on a card to show empathy during academics.', ifThen: 'If vague (“I’ll be respectful”), then prompt: “What exact move will you use? Commit to that specific frame.”' },
           transition: { teacher: '“Take your respectful focus to the ELA block. Stand on the one.”', student: 'Transitions with rapid, silent steps on the transition captain’s call.', ifThen: 'If running occurs, then pivot to a Warm Demander cue: “Assigned seats, then independent reading begins. Settle immediately.”' }
         }
       }
@@ -216,6 +219,7 @@ export const lessons = [
     step: 'Daily Intention Setting',
     value: 'Responsible',
     summary: 'Restore agency and own the next step by choosing a tool and a specific, observable intention.',
+    clip: { url: 'https://www.youtube.com/watch?v=m-CYBzxulsM', title: 'Cosmic Kids · Space Breathing (guided calm for kids)' },
     bands: {
       k2: {
         focus: 'My Learning Superpowers',
@@ -255,7 +259,7 @@ export const lessons = [
           orient: { teacher: '“At Matchbook, we are Responsible. Responsible means owning our next step. Today we create our Executive Function Blueprint.”', student: 'Gazes at the executive-function slide showing organization & focus.', ifThen: 'If a student has a complete shutdown (head on desk), then use the drop-and-walk protocol: place a note, walk away, check in privately later.' },
           connect: { teacher: '“Which cognitive tool is most compromised under stress? ‘When stressed, I lose my ability to [organize / listen / focus].’ Share.”', student: 'Discusses personal academic stressors and a blueprint fix with a partner.', ifThen: 'If anxiety arises, then validate: “A dysregulated brain cannot learn. Normalizing the struggle is how we build toolkits.”' },
           practice: { teacher: '“Let’s practice the Private Reset. If you feel stuck today, write ‘My bad, I’ll fix it’ on your blueprint. Rehearse.”', student: 'Practices writing down the reset protocol on their academic sheet.', ifThen: 'If a student is frozen, then close the loop: “I’m going to check in during our transition. Take 10 seconds to breathe first.”' },
-          commit: { teacher: '“Submit your blueprint commitment: ‘Today I will own my next step by checking off small wins in ELA.’”', student: 'Types an exact blueprint commitment on their digital device.', ifThen: 'If the commitment is too general, then prompt: “What’s your exact small win? Complete task 1? Commit to that.”' },
+          commit: { teacher: '“Write your blueprint commitment: ‘Today I will own my next step by checking off small wins in ELA.’”', student: 'Writes an exact blueprint commitment on their blueprint sheet.', ifThen: 'If the commitment is too general, then prompt: “What’s your exact small win? Complete task 1? Commit to that.”' },
           transition: { teacher: '“Transition to independent writing. Bring your blueprint with you. Stand on the one.”', student: 'Transitions to desks seamlessly. Classroom rhythm is locked-in.', ifThen: 'If students clump or chat, then use a quiet hand cue. Do not start a public power struggle. Transition cleanly.' }
         }
       }

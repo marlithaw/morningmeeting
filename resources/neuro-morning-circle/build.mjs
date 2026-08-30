@@ -34,7 +34,8 @@ const noteAttr = (html) => `data-note="${esc(html)}"`;
 
 function buildDeck(lesson, band) {
   const data = lesson.bands[band];
-  const titleNote = `<strong>0:00 setup</strong> Open in full screen. The 15-minute arc is Regulate (2) · Orient (2) · Connect (3) · Practice (3) · Commit (3) · Transition (2).<br><strong>Core somatic goal:</strong> ${data.somaticGoal}<br><strong>Somatic set-up:</strong> ${data.somatic}<br><strong>I can:</strong> ${data.iCan}`;
+  const clipNote = lesson.clip ? `<br><strong>Optional calming clip:</strong> <a href="${lesson.clip.url}" target="_blank" rel="noreferrer">${lesson.clip.title}</a>` : '';
+  const titleNote = `<strong>0:00 setup</strong> Open in full screen. The 15-minute arc is Regulate (2) · Orient (2) · Connect (3) · Practice (3) · Commit (3) · Transition (2).<br><strong>Core somatic goal:</strong> ${data.somaticGoal}<br><strong>Somatic set-up:</strong> ${data.somatic}<br><strong>I can:</strong> ${data.iCan}${clipNote}`;
 
   const phaseSlides = PHASES.map((phase, i) => {
     const p = data.phases[phase.key];
@@ -73,7 +74,7 @@ const bandCards = (lesson) => bandOrder.map((band) => `<a class="btn small" href
 
 function buildIndex() {
   const scheduleRows = lessons.map((lesson) => `<tr><td><strong>Lesson ${lesson.day}</strong></td><td>${esc(lesson.date)}</td><td>${esc(lesson.step)}</td><td>${esc(lesson.summary)}</td><td>${esc(lesson.value)}</td></tr>`).join('');
-  const dayCards = lessons.map((lesson) => `<article class="card"><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.date)}</p><p>${esc(lesson.summary)}</p><div class="actions">${bandCards(lesson)}</div></article>`).join('');
+  const dayCards = lessons.map((lesson) => `<article class="card"><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.date)}</p><p>${esc(lesson.summary)}</p><div class="actions">${bandCards(lesson)}${lesson.clip ? `<a class="btn small yellow" href="${esc(lesson.clip.url)}" target="_blank" rel="noreferrer">▶ Calming clip</a>` : ''}</div></article>`).join('');
   const pathwayCards = bandOrder.map((band) => `<article class="card"><div class="meta">${esc(bands[band].engine)}</div><h3>${esc(bands[band].label)}</h3><p>${esc(bands[band].focusSystem)} focus.</p></article>`).join('');
   return `${head(unitMeta.title, unitMeta.subtitle)}
 <header class="hero"><div class="shell"><div class="brand"><img src="./shared/matchbook-flame.png" alt=""> Matchbook Learning · Morning Meeting</div><div class="kicker">Instructional Unit · Student-Facing</div><h1>${esc(unitMeta.title)}</h1><p>${esc(unitMeta.subtitle)} Every 15-minute lesson runs the same six-step arc: Regulate, Orient, Connect, Practice, Commit, and Transition.</p><div class="actions"><a class="btn" href="./teacher-guide.html">Teacher guide + scripts</a><a class="btn light" href="#slides">Open student slides</a><a class="btn yellow" href="./neuro-morning-circle-offline.zip" download>Download offline ZIP</a></div></div></header>
@@ -82,7 +83,7 @@ function buildIndex() {
   <section class="section"><h2>Design pathway</h2><p class="section-intro">Quarter 1 is mapped to physiological regulation and expanding the Window of Tolerance. Each grade band regulates a different part of the nervous system.</p><div class="grid three">${pathwayCards}</div></section>
   <section class="section"><h2>Weekly-cycle alignment</h2><div class="cycle">${lessons.map((lesson) => `<div><strong>${esc(lesson.step)}</strong><div class="date">${esc(lesson.date)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.summary)}</p></div>`).join('')}</div></section>
   <section class="section"><h2>Unit at a glance</h2><div class="table-wrap"><table><thead><tr><th>Lesson</th><th>Date</th><th>Daily step</th><th>Focus + regulation</th><th>Value</th></tr></thead><tbody>${scheduleRows}</tbody></table></div></section>
-  <section id="slides" class="section"><h2>Student slides</h2><p class="section-intro">Each deck includes seven student-facing screens and a private teacher-notes drawer. Use the arrow keys to advance and press N to show or hide notes. K–2 decks add student-friendly picture supports on every screen.</p><div class="grid three">${dayCards}</div></section>
+  <section id="slides" class="section"><h2>Student slides</h2><p class="section-intro">Each deck includes seven student-facing screens and a private teacher-notes drawer. Use the arrow keys to advance and press N to show or hide notes. K–2 decks add student-friendly picture supports on every screen, and each lesson links an optional calming, kid-friendly video clip for co-regulation.</p><div class="grid three">${dayCards}</div></section>
   <section class="section"><h2>Teacher + print resources</h2><div class="grid three"><article class="card dark"><div class="meta">Complete delivery guide</div><h3>Teacher scripts</h3><p>Exact six-phase timing, grade-band language, somatic set-ups, student actions, and If/Then Warm Demander coaching.</p><div class="actions"><a class="btn small" href="./teacher-guide.html">Open guide</a></div></article>${bandOrder.map((band) => `<article class="card"><div class="meta">Print toolkit</div><h3>${bands[band].label}</h3><p>Somatic set-ups, the six-phase student checklist, sentence frames, and daily commitment cards.</p><div class="actions"><a class="btn small" href="./printables-${band}.html">Open printables</a></div></article>`).join('')}</div></section>
   <section class="section"><h2>Regulation guardrails</h2><div class="notice"><strong>Regulate before you reason.</strong> ${esc(common.warmDemander)} ${esc(common.disclosure)}</div></section>
   <section class="section"><p class="section-intro" style="margin:0">${esc(imageCredit)}</p></section>
@@ -91,7 +92,7 @@ function buildIndex() {
 
 function buildTeacherGuide() {
   const nav = lessons.map((lesson) => `<a class="btn small dark" href="#lesson-${lesson.day}">Lesson ${lesson.day}: ${esc(lesson.step)}</a>`).join('');
-  const lessonBlocks = lessons.map((lesson) => `<section class="day-block" id="lesson-${lesson.day}"><div class="day-head"><div><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)} · Value: ${esc(lesson.value)}</div><h2>${esc(lesson.summary)}</h2></div><div>${esc(lesson.date)}</div></div>${bandOrder.map((band) => {
+  const lessonBlocks = lessons.map((lesson) => `<section class="day-block" id="lesson-${lesson.day}"><div class="day-head"><div><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)} · Value: ${esc(lesson.value)}</div><h2>${esc(lesson.summary)}</h2></div><div>${esc(lesson.date)}${lesson.clip ? `<br><a class="btn small yellow" style="margin-top:8px" href="${esc(lesson.clip.url)}" target="_blank" rel="noreferrer">▶ Calming clip</a>` : ''}</div></div>${bandOrder.map((band) => {
     const info = bands[band];
     const data = lesson.bands[band];
     const rows = PHASES.map((phase) => {
