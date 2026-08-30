@@ -1,0 +1,263 @@
+:root {
+  --spark-red: #e21c24;
+  --ember: #c8161d;
+  --yellow: #f9dc7c;
+  --ink: #1a1a1a;
+  --charcoal: #232323;
+  --slate: #4a4a4a;
+  --paper: #f8fafc;
+  --line: #dbe2ea;
+  --white: #ffffff;
+}
+
+@font-face {
+  font-family: "Matchbook Display";
+  src: url("./matchbook-display.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Matchbook Body";
+  src: url("./matchbook-body.woff2") format("woff2");
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #0e0e0e;
+  color: var(--ink);
+  font-family: "Matchbook Body", Arial, sans-serif;
+}
+
+.deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: clamp(26px, 4vw, 64px);
+  background: var(--white);
+  color: var(--ink);
+}
+.slide.active { display: flex; }
+.slide.red { background: var(--spark-red); color: var(--white); }
+.slide.dark { background: var(--charcoal); color: var(--white); }
+.slide.yellow { background: var(--yellow); color: var(--ink); }
+.slide.paper { background: var(--paper); }
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: clamp(12px, 1.8vw, 24px);
+  font: 700 clamp(12px, 1.2vw, 16px)/1 "Matchbook Display", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.topline .phase { color: var(--spark-red); }
+.red .topline .phase,
+.dark .topline .phase { color: var(--yellow); }
+
+.body { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr); gap: clamp(28px, 5vw, 84px); align-items: center; }
+.hero-mark {
+  justify-self: center;
+  width: clamp(170px, 24vw, 330px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: clamp(7px, 1vw, 14px) solid currentColor;
+  border-radius: 50%;
+  font: 700 clamp(64px, 10vw, 142px)/1 "Matchbook Display", Impact, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: "Matchbook Display", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+}
+h1 { margin: 0; font-size: clamp(44px, 7vw, 104px); line-height: .95; }
+h2 { margin: 0; font-size: clamp(36px, 5.3vw, 78px); line-height: 1; }
+h3 { margin: 0; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.06; }
+.lede { margin: clamp(14px, 2vw, 26px) 0 0; max-width: 45ch; font-size: clamp(18px, 2vw, 30px); line-height: 1.38; }
+.objective {
+  margin-top: clamp(18px, 2.4vw, 34px);
+  padding: clamp(14px, 1.8vw, 22px) clamp(18px, 2.2vw, 30px);
+  border-left: 8px solid currentColor;
+  background: rgba(255, 255, 255, .12);
+  font-size: clamp(17px, 1.65vw, 25px);
+  line-height: 1.35;
+}
+.white .objective { background: var(--paper); }
+
+.cards { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); margin-top: clamp(22px, 3vw, 42px); }
+.card {
+  min-width: 0;
+  padding: clamp(18px, 2.3vw, 34px);
+  border: 2px solid var(--line);
+  border-top: 8px solid var(--spark-red);
+  background: var(--white);
+  color: var(--ink);
+}
+.dark .card,
+.red .card { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.1); color: var(--white); }
+.yellow .card { border-color: rgba(26,26,26,.18); background: rgba(255,255,255,.52); }
+.card .num { color: var(--spark-red); font: 700 clamp(24px, 3vw, 44px)/1 "Matchbook Display", Impact, sans-serif; margin-bottom: 12px; }
+.dark .card .num,
+.red .card .num { color: var(--yellow); }
+.card h3 { font-size: clamp(21px, 2.4vw, 34px); }
+.card p { margin: 12px 0 0; font-size: clamp(15px, 1.55vw, 23px); line-height: 1.35; }
+
+.prompt {
+  margin-top: clamp(22px, 3vw, 44px);
+  padding: clamp(22px, 3vw, 42px);
+  border: 4px dashed currentColor;
+  font-size: clamp(25px, 3vw, 46px);
+  font-weight: 700;
+  line-height: 1.22;
+}
+.frame-label {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 clamp(12px, 1.1vw, 16px)/1 "Matchbook Display", Impact, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .68;
+}
+.word-bank { margin-top: 16px; font-size: clamp(15px, 1.55vw, 23px); font-weight: 400; line-height: 1.35; }
+
+.scenario {
+  margin-top: clamp(18px, 2vw, 30px);
+  padding: clamp(20px, 2.6vw, 36px);
+  border-left: 10px solid var(--spark-red);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: clamp(18px, 2.1vw, 31px);
+  line-height: 1.38;
+}
+.dark .scenario,
+.red .scenario { background: rgba(255,255,255,.1); color: var(--white); }
+.scenario strong { display: block; margin-bottom: 8px; font-family: "Matchbook Display", Impact, sans-serif; text-transform: uppercase; }
+
+.choices { display: flex; flex-wrap: wrap; gap: clamp(12px, 1.7vw, 24px); margin-top: clamp(16px, 2vw, 26px); }
+.choice {
+  flex: 1 1 160px;
+  padding: clamp(13px, 1.5vw, 20px);
+  border: 3px solid currentColor;
+  text-align: center;
+  font: 700 clamp(16px, 1.8vw, 26px)/1.15 "Matchbook Display", Impact, sans-serif;
+  text-transform: uppercase;
+}
+.figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2.4vw, 36px);
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: clamp(20px, 3vw, 40px);
+}
+.figure { display: flex; flex-direction: column; align-items: center; gap: 10px; width: clamp(96px, 12vw, 168px); }
+.figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: clamp(10px, 1.4vw, 20px);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+}
+.dark .figure img,
+.red .figure img { background: rgba(255, 255, 255, .92); }
+.figure figcaption {
+  font: 700 clamp(13px, 1.35vw, 20px)/1.1 "Matchbook Display", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.body.with-figures { justify-content: flex-start; padding-top: clamp(6px, 1vw, 14px); }
+.note { margin-top: clamp(16px, 2vw, 28px); font-size: clamp(15px, 1.55vw, 22px); line-height: 1.4; }
+.note strong { color: var(--spark-red); }
+.dark .note strong,
+.red .note strong { color: var(--yellow); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: clamp(14px, 1.8vw, 24px);
+  font: 700 clamp(10px, 1vw, 14px)/1 "Matchbook Display", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  opacity: .62;
+}
+.footer .brand { display: flex; align-items: center; gap: 10px; }
+.footer img { width: clamp(22px, 2vw, 30px); height: auto; }
+
+.hud {
+  position: fixed;
+  z-index: 30;
+  top: 14px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.hud button,
+.hud span {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 13px;
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  font: 700 12px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+.hud button:hover { background: var(--spark-red); }
+
+.notes {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  max-height: 42vh;
+  overflow: auto;
+  padding: 22px clamp(24px, 5vw, 74px) 28px;
+  border-top: 5px solid var(--spark-red);
+  background: #111;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.notes.show { display: block; }
+.notes strong { color: var(--yellow); }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-mark { display: none; }
+  .cards { grid-template-columns: 1fr; overflow: auto; }
+  .slide { padding-top: 64px; }
+}
+
+@media print {
+  html,
+  body { height: auto; overflow: visible; background: #fff; }
+  .deck { width: auto; height: auto; }
+  .slide { position: relative; display: flex !important; width: 100vw; height: 56.25vw; page-break-after: always; }
+  .hud,
+  .notes { display: none !important; }
+}
