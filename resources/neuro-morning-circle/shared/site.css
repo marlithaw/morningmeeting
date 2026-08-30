@@ -71,6 +71,10 @@ tbody tr:nth-child(even) { background: var(--paper); }
 .chip { padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); font-size: 12px; font-weight: 700; }
 .guardrail { margin-top: 18px; padding: 16px 18px; border-left: 6px solid var(--red); background: #fff4f4; }
 .resource-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.clip-row { margin-top: 14px; font-size: 13px; color: var(--slate); }
+.clip-row-label { font-family: "Matchbook Display", Impact, sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--red); }
+.clip-row a { font-weight: 700; }
+.clip-credit { margin: 12px 0 0; font-size: 13px; color: var(--slate); }
 .sources li { margin-bottom: 9px; }
 .back { position: sticky; top: 0; z-index: 5; padding: 10px 0; background: rgba(248,250,252,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
 .back a { font-family: "Matchbook Display", Impact, sans-serif; text-transform: uppercase; letter-spacing: .08em; text-decoration: none; }

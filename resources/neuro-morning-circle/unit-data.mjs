@@ -60,7 +60,11 @@ export const lessons = [
     step: 'Emotional Temperature Check',
     value: 'Safe',
     summary: 'Name the body’s internal weather and build a felt sense of safety in the circle.',
-    clip: { url: 'https://www.youtube.com/watch?v=YCe-WQbMWhw', title: 'GoNoodle · Weather the Storm (calming breathing for kids)' },
+    clips: {
+      k2: { url: 'https://www.youtube.com/watch?v=_mZbzDOpylA', title: 'Sesame Street · “Belly Breathe” with Common & Elmo' },
+      '35': { url: 'https://www.youtube.com/watch?v=RVA2N6tX2cg', title: '“Just Breathe” · kids of color name big feelings (Wavecrest Films)' },
+      '68': { url: 'https://www.youtube.com/watch?v=Nct1XKb36zA', title: 'Liberate · “Releasing for Liberation” mindful breathing (Alli Simon)' }
+    },
     bands: {
       k2: {
         focus: 'Body Weather Report',
@@ -113,7 +117,11 @@ export const lessons = [
     step: 'Mindful Breathing',
     value: 'Safe',
     summary: 'Stabilize autonomic arousal with a portable breathing tool the body can carry all day.',
-    clip: { url: 'https://www.youtube.com/watch?v=O29e4rRMrV4', title: 'GoNoodle · Rainbow Breath (calming breathing for kids)' },
+    clips: {
+      k2: { url: 'https://www.youtube.com/watch?v=tXjXISrRpbE', title: 'JusTme & Miss Chalone · Mindful Meditation for kids' },
+      '35': { url: 'https://www.youtube.com/watch?v=tXjXISrRpbE', title: 'JusTme & Miss Chalone · Mindful Meditation for kids' },
+      '68': { url: 'https://www.youtube.com/watch?v=3lKf6NJxvYw', title: 'Box Breathing 4-4-4-4 · 5-minute guided practice (teens)' }
+    },
     bands: {
       k2: {
         focus: 'Five-Finger Breathing Beats',
@@ -166,7 +174,11 @@ export const lessons = [
     step: 'Cultural Wisdom & Shared Stories',
     value: 'Respectful',
     summary: 'Settle the social-emotional nervous system and build relational capital through respect.',
-    clip: { url: 'https://www.youtube.com/watch?v=wf5K3pP2IUQ', title: 'Cosmic Kids Zen Den · Be the Pond (mindfulness for kids)' },
+    clips: {
+      k2: { url: 'https://www.youtube.com/watch?v=Xq3DwzX6MUw', title: 'Sesame Street · Belly Breathe with Rosita' },
+      '35': { url: 'https://www.youtube.com/watch?v=8nb96mDl194', title: '“I AM: A–Z Positive Affirmations for Black Kids” (read-aloud)' },
+      '68': { url: 'https://www.youtube.com/watch?v=sLX72_WJ5q8', title: 'Mindful Moment for Teens · “I Am” Affirmations' }
+    },
     bands: {
       k2: {
         focus: 'The Kindness Echo',
@@ -219,7 +231,11 @@ export const lessons = [
     step: 'Daily Intention Setting',
     value: 'Responsible',
     summary: 'Restore agency and own the next step by choosing a tool and a specific, observable intention.',
-    clip: { url: 'https://www.youtube.com/watch?v=m-CYBzxulsM', title: 'Cosmic Kids · Space Breathing (guided calm for kids)' },
+    clips: {
+      k2: { url: 'https://www.youtube.com/watch?v=PD-R9xTj1pI', title: '“I’m a Helper, I Am Kind” · affirmation song for kids' },
+      '35': { url: 'https://www.youtube.com/watch?v=RVA2N6tX2cg', title: '“Just Breathe” · kids of color name big feelings (Wavecrest Films)' },
+      '68': { url: 'https://www.youtube.com/watch?v=Nct1XKb36zA', title: 'Liberate · “Releasing for Liberation” mindful breathing (Alli Simon)' }
+    },
     bands: {
       k2: {
         focus: 'My Learning Superpowers',
