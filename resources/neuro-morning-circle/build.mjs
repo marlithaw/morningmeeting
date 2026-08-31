@@ -34,9 +34,7 @@ const noteAttr = (html) => `data-note="${esc(html)}"`;
 
 function buildDeck(lesson, band) {
   const data = lesson.bands[band];
-  const clip = lesson.clips ? lesson.clips[band] : null;
-  const clipNote = clip ? `<br><strong>Optional calming clip:</strong> <a href="${clip.url}" target="_blank" rel="noreferrer">${clip.title}</a>` : '';
-  const titleNote = `<strong>0:00 setup</strong> Open in full screen. The 15-minute arc is Regulate (2) · Orient (2) · Connect (3) · Practice (3) · Commit (3) · Transition (2).<br><strong>Core somatic goal:</strong> ${data.somaticGoal}<br><strong>Somatic set-up:</strong> ${data.somatic}<br><strong>I can:</strong> ${data.iCan}${clipNote}`;
+  const titleNote = `<strong>0:00 setup</strong> Open in full screen. The 15-minute arc is Regulate (2) · Orient (2) · Connect (3) · Practice (3) · Commit (3) · Transition (2).<br><strong>Core somatic goal:</strong> ${data.somaticGoal}<br><strong>Somatic set-up:</strong> ${data.somatic}<br><strong>I can:</strong> ${data.iCan}`;
 
   const phaseSlides = PHASES.map((phase, i) => {
     const p = data.phases[phase.key];
@@ -45,14 +43,10 @@ function buildDeck(lesson, band) {
     const note = `<strong>${phase.name} · ${phase.minutes}</strong><br>${somaticNote}<strong>Teacher script &amp; action:</strong> ${p.teacher}<br><strong>Student action:</strong> ${p.student}<br><strong>If / Then coaching:</strong> ${p.ifThen}`;
     const figures = figuresHtml(p.img);
     const bodyClass = figures ? 'body with-figures' : 'body';
-    // The optional calming clip lives on the Regulate slide so the teacher can play it during co-regulation.
-    const clipCue = phase.key === 'regulate' && clip
-      ? `<div class="clip-cue"><a class="clip-btn" href="${esc(clip.url)}" target="_blank" rel="noreferrer">▶ Play calming clip</a><span class="clip-title">${esc(clip.title)}</span></div>`
-      : '';
     const somaticLine = phase.key === 'regulate' && !figures ? `<p class="note"><strong>Somatic move:</strong> ${esc(data.somatic)}</p>` : '';
     return `  <section class="slide ${color}" ${noteAttr(note)}>
     <div class="topline"><span>${phase.name} · ${phase.minutes}</span><span class="phase">${esc(phase.key === 'orient' ? lesson.value : phase.tone)}</span></div>
-    <div class="${bodyClass}"><h2>${esc(phase.name)}</h2><div class="prompt"><span class="frame-label">${esc(phase.frame)}</span>${esc(p.teacher)}</div>${figures}${somaticLine}${clipCue}</div>
+    <div class="${bodyClass}"><h2>${esc(phase.name)}</h2><div class="prompt"><span class="frame-label">${esc(phase.frame)}</span>${esc(p.teacher)}</div>${figures}${somaticLine}</div>
     ${footer(lesson, band, i + 2)}
   </section>`;
   }).join('\n');
@@ -80,8 +74,7 @@ const bandCards = (lesson) => bandOrder.map((band) => `<a class="btn small" href
 
 function buildIndex() {
   const scheduleRows = lessons.map((lesson) => `<tr><td><strong>Lesson ${lesson.day}</strong></td><td>${esc(lesson.date)}</td><td>${esc(lesson.step)}</td><td>${esc(lesson.summary)}</td><td>${esc(lesson.value)}</td></tr>`).join('');
-  const clipLinks = (lesson) => lesson.clips ? `<div class="clip-row"><span class="clip-row-label">▶ Calming clip:</span> ${bandOrder.map((band) => `<a href="${esc(lesson.clips[band].url)}" target="_blank" rel="noreferrer">${bands[band].short}</a>`).join(' · ')}</div>` : '';
-  const dayCards = lessons.map((lesson) => `<article class="card"><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.date)}</p><p>${esc(lesson.summary)}</p><div class="actions">${bandCards(lesson)}</div>${clipLinks(lesson)}</article>`).join('');
+  const dayCards = lessons.map((lesson) => `<article class="card"><div class="meta">Lesson ${lesson.day} · ${esc(lesson.step)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.date)}</p><p>${esc(lesson.summary)}</p><div class="actions">${bandCards(lesson)}</div></article>`).join('');
   const pathwayCards = bandOrder.map((band) => `<article class="card"><div class="meta">${esc(bands[band].engine)}</div><h3>${esc(bands[band].label)}</h3><p>${esc(bands[band].focusSystem)} focus.</p></article>`).join('');
   return `${head(unitMeta.title, unitMeta.subtitle)}
 <header class="hero"><div class="shell"><div class="brand"><img src="./shared/matchbook-flame.png" alt=""> Matchbook Learning · Morning Meeting</div><div class="kicker">Instructional Unit · Student-Facing</div><h1>${esc(unitMeta.title)}</h1><p>${esc(unitMeta.subtitle)} Every 15-minute lesson runs the same six-step arc: Regulate, Orient, Connect, Practice, Commit, and Transition.</p><div class="actions"><a class="btn" href="./teacher-guide.html">Teacher guide + scripts</a><a class="btn light" href="#slides">Open student slides</a><a class="btn yellow" href="./neuro-morning-circle-offline.zip" download>Download offline ZIP</a></div></div></header>
@@ -90,7 +83,7 @@ function buildIndex() {
   <section class="section"><h2>Design pathway</h2><p class="section-intro">Quarter 1 is mapped to physiological regulation and expanding the Window of Tolerance. Each grade band regulates a different part of the nervous system.</p><div class="grid three">${pathwayCards}</div></section>
   <section class="section"><h2>Weekly-cycle alignment</h2><div class="cycle">${lessons.map((lesson) => `<div><strong>${esc(lesson.step)}</strong><div class="date">${esc(lesson.date)}</div><h3>${esc(lesson.bands.k2.focus)}</h3><p>${esc(lesson.summary)}</p></div>`).join('')}</div></section>
   <section class="section"><h2>Unit at a glance</h2><div class="table-wrap"><table><thead><tr><th>Lesson</th><th>Date</th><th>Daily step</th><th>Focus + regulation</th><th>Value</th></tr></thead><tbody>${scheduleRows}</tbody></table></div></section>
-  <section id="slides" class="section"><h2>Student slides</h2><p class="section-intro">Each deck includes seven student-facing screens and a private teacher-notes drawer. Use the arrow keys to advance and press N to show or hide notes. K–2 decks add student-friendly picture supports on every screen, and each lesson links an optional calming, culturally-affirming video clip chosen for each grade band — so students see kids and creators who look like them.</p><div class="grid three">${dayCards}</div></section>
+  <section id="slides" class="section"><h2>Student slides</h2><p class="section-intro">Each deck includes seven student-facing screens and a private teacher-notes drawer. Use the arrow keys to advance and press N to show or hide notes. K–2 decks add student-friendly picture supports on every screen.</p><div class="grid three">${dayCards}</div></section>
   <section class="section"><h2>Teacher + print resources</h2><div class="grid three"><article class="card dark"><div class="meta">Complete delivery guide</div><h3>Teacher scripts</h3><p>Exact six-phase timing, grade-band language, somatic set-ups, student actions, and If/Then Warm Demander coaching.</p><div class="actions"><a class="btn small" href="./teacher-guide.html">Open guide</a></div></article>${bandOrder.map((band) => `<article class="card"><div class="meta">Print toolkit</div><h3>${bands[band].label}</h3><p>Somatic set-ups, the six-phase student checklist, sentence frames, and daily commitment cards.</p><div class="actions"><a class="btn small" href="./printables-${band}.html">Open printables</a></div></article>`).join('')}</div></section>
   <section class="section"><h2>Regulation guardrails</h2><div class="notice"><strong>Regulate before you reason.</strong> ${esc(common.warmDemander)} ${esc(common.disclosure)}</div></section>
   <section class="section"><p class="section-intro" style="margin:0">${esc(imageCredit)}</p></section>
@@ -106,8 +99,7 @@ function buildTeacherGuide() {
       const p = data.phases[phase.key];
       return `<tr><td><strong>${phase.name}</strong><br>${phase.minutes}</td><td>${esc(p.teacher)}</td><td>${esc(p.student)}</td><td>${esc(p.ifThen)}</td></tr>`;
     }).join('');
-    const clip = lesson.clips ? lesson.clips[band] : null;
-    return `<article class="band-block" id="lesson-${lesson.day}-${band}"><div class="band-title"><div><div class="meta">${info.label} · ${esc(info.engine)}</div><h3>${esc(data.focus)}</h3></div><div class="resource-links"><a class="btn small" href="./decks/${slug(lesson, band)}" target="_blank">Open slides</a><a class="btn small yellow" href="./printables-${band}.html">Print toolkit</a>${clip ? `<a class="btn small dark" href="${esc(clip.url)}" target="_blank" rel="noreferrer">▶ Calming clip</a>` : ''}</div></div>${clip ? `<p class="clip-credit"><strong>Calming clip:</strong> <a href="${esc(clip.url)}" target="_blank" rel="noreferrer">${esc(clip.title)}</a></p>` : ''}
+    return `<article class="band-block" id="lesson-${lesson.day}-${band}"><div class="band-title"><div><div class="meta">${info.label} · ${esc(info.engine)}</div><h3>${esc(data.focus)}</h3></div><div class="resource-links"><a class="btn small" href="./decks/${slug(lesson, band)}" target="_blank">Open slides</a><a class="btn small yellow" href="./printables-${band}.html">Print toolkit</a></div></div>
       <div class="chips"><span class="chip">${esc(lesson.step)}</span><span class="chip">Value: ${esc(lesson.value)}</span><span class="chip">${esc(info.focusSystem)}</span></div>
       <p><strong>I can:</strong> ${esc(data.iCan)}</p>
       <p><strong>Core somatic goal:</strong> ${esc(data.somaticGoal)}</p>
