@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expectation Practice · Grades 6–8 | Morning Meeting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#232323; --ember:#C8161D; --spark-red:#E21C24; --mb-yellow:#F9DC7C;
+  --ink:#1A1A1A; --slate:#4A4A4A; --hairline:#e2e8f0; --muted:#94a3b8;
+  --font-body:'Inter',system-ui,sans-serif; --font-cond:'Oswald',system-ui,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;background:#111;font-family:var(--font-body);}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(24px,4vw,64px);background:#fff;color:var(--ink);}
+.slide.active{display:flex;}
+.slide.dark{background:var(--charcoal);color:#fff;}
+.slide.red{background:var(--spark-red);color:#fff;}
+.slide.yellow{background:var(--mb-yellow);color:var(--ink);}
+
+.eyebrow{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.14em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.72;margin:0 0 .6rem;}
+.slide h1{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.01em;line-height:1.02;margin:0;font-size:clamp(30px,5.4vw,76px);}
+.slide h2{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  line-height:1.05;margin:0;font-size:clamp(24px,4.2vw,58px);}
+.lede{font-size:clamp(15px,1.7vw,25px);line-height:1.45;margin:1rem 0 0;max-width:36ch;opacity:.9;}
+.body-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+
+.mb-icon{width:1em;height:1em;flex:none;}
+.hero-icon{font-size:clamp(58px,9vw,120px);color:currentColor;opacity:.95;}
+
+.items{display:flex;gap:clamp(12px,2.2vw,32px);margin-top:clamp(16px,2.6vw,36px);flex-wrap:wrap;}
+.item{flex:1 1 0;min-width:150px;display:flex;flex-direction:column;gap:.55rem;
+  padding:clamp(12px,1.6vw,22px);border-radius:14px;background:rgba(0,0,0,.045);}
+.slide.dark .item,.slide.red .item{background:rgba(255,255,255,.11);}
+.item .mb-icon{font-size:clamp(34px,4.4vw,62px);}
+.item .lab{font-family:var(--font-cond);text-transform:uppercase;font-weight:700;
+  letter-spacing:.05em;font-size:clamp(15px,1.7vw,25px);line-height:1.1;}
+.item .txt{font-size:clamp(13px,1.35vw,19px);line-height:1.4;opacity:.93;}
+
+.frame{margin-top:clamp(16px,2.4vw,32px);padding:clamp(14px,2vw,26px);
+  border-radius:14px;border:2px dashed currentColor;opacity:.98;}
+.frame .flab{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.7;margin-bottom:.45rem;}
+.frame .stem{font-size:clamp(17px,2.3vw,34px);font-family:var(--font-cond);font-weight:600;line-height:1.25;}
+.choices{display:flex;gap:clamp(10px,1.6vw,22px);margin-top:clamp(12px,1.8vw,22px);flex-wrap:wrap;}
+.choice{flex:1 1 0;min-width:120px;display:flex;flex-direction:column;align-items:center;
+  gap:.4rem;padding:clamp(10px,1.4vw,18px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .choice,.slide.red .choice{background:rgba(255,255,255,.13);}
+.choice .mb-icon{font-size:clamp(30px,3.8vw,54px);}
+.choice .cl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(12px,1.3vw,18px);letter-spacing:.03em;}
+.bank{margin-top:.7rem;font-size:clamp(12px,1.25vw,17px);opacity:.85;}
+.bank b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.08em;font-size:.85em;}
+
+.steps{display:flex;gap:clamp(10px,1.6vw,24px);margin-top:clamp(16px,2.4vw,32px);flex-wrap:wrap;}
+.step{flex:1 1 0;min-width:110px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+  padding:clamp(10px,1.5vw,20px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .step,.slide.red .step{background:rgba(255,255,255,.13);}
+.step .n{font-family:var(--font-cond);font-weight:700;font-size:clamp(20px,2.6vw,38px);opacity:.5;line-height:1;}
+.step .mb-icon{font-size:clamp(28px,3.4vw,48px);}
+.step .sl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(13px,1.4vw,20px);letter-spacing:.03em;}
+
+.callout{margin-top:clamp(14px,2vw,28px);font-family:var(--font-cond);font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;font-size:clamp(14px,1.8vw,26px);line-height:1.2;}
+.cognate{margin-top:.8rem;font-size:clamp(11px,1.15vw,15px);opacity:.7;font-style:italic;}
+.why{margin-top:clamp(14px,2vw,26px);padding:clamp(12px,1.6vw,20px);border-left:5px solid currentColor;
+  font-size:clamp(13px,1.5vw,21px);line-height:1.45;opacity:.94;}
+.why b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.07em;font-size:.82em;
+  display:block;margin-bottom:.25rem;opacity:.75;}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(9px,.95vw,12px);opacity:.55;padding-top:1rem;}
+.foot .band{font-weight:700;letter-spacing:.16em;}
+
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:58vh;overflow:auto;
+  background:#0d0d0d;color:#f2f2f2;border-top:4px solid var(--spark-red);
+  padding:20px clamp(20px,4vw,56px) 28px;display:none;z-index:60;font-size:14.5px;line-height:1.55;}
+.notes.show{display:block;}
+.notes h3{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.12em;
+  font-size:12px;margin:0 0 10px;color:var(--mb-yellow);}
+.notes .script{font-size:16.5px;line-height:1.55;margin:0 0 14px;padding:12px 14px;
+  background:rgba(255,255,255,.07);border-left:4px solid var(--mb-yellow);border-radius:0 8px 8px 0;}
+.notes .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.notes .k{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;color:var(--muted);margin:0 0 5px;}
+.notes ul{margin:0;padding-left:18px;}
+.notes li{margin-bottom:4px;}
+.notes .rub{display:inline-block;font-family:var(--font-cond);background:var(--spark-red);
+  color:#fff;padding:2px 9px;border-radius:20px;font-size:11px;letter-spacing:.1em;}
+.notes .imgspec{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:12px;
+  border-top:1px solid rgba(255,255,255,.13);padding-top:10px;}
+
+.hud{position:fixed;top:14px;right:16px;z-index:70;display:flex;gap:8px;align-items:center;
+  font-family:var(--font-cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.hud button{font:inherit;background:rgba(0,0,0,.62);color:#fff;border:0;border-radius:20px;
+  padding:7px 13px;cursor:pointer;letter-spacing:.1em;}
+.hud button:hover{background:var(--spark-red);}
+.hud .cnt{background:rgba(0,0,0,.62);color:#fff;border-radius:20px;padding:7px 13px;}
+
+@media print{
+  html,body{background:#fff;height:auto;}
+  .deck{height:auto;width:auto;}
+  .hud{display:none;}
+  .slide{display:flex!important;position:relative;inset:auto;height:100vh;
+    page-break-after:always;border-bottom:1px solid #ddd;}
+  .notes{display:block!important;position:relative;max-height:none;}
+  .note-block{display:block!important;page-break-inside:avoid;
+    border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;}
+}
+</style></head><body>
+<div class="hud"><button id="prev">&larr;</button><button id="next">&rarr;</button><button id="nbtn">Notes (N)</button><span class="cnt" id="cnt"></span></div>
+<div class="deck">
+<section class="slide red">
+<p class="eyebrow">Expectation Practice · Launch</p>
+<div class="body-wrap">
+<h1>Reps Build<br>Reputation</h1><p class="lede">Expectations aren’t posted — they’re practiced. Today we run the reps.</p><div style="margin-top:1.1rem"><svg class="mb-icon hero-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="12"/><circle cx="32" cy="32" r="3"/></svg></div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 01</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">Regulate First</p>
+<div class="body-wrap">
+<h2>Regulate First</h2><div class="items"><div class="item"><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="14" width="36" height="36" rx="4"/><path d="M14 32h36M32 14v36"/></svg><div class="lab">Box breath</div><div class="txt">In 4 · hold 4 · out 4 · hold 4.</div></div><div class="item"><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"/><circle cx="32" cy="32" r="7"/></svg><div class="lab">Anchor</div><div class="txt">Feet down, gaze soft.</div></div></div><div class="callout">Two rounds. Then we work.</div><div class="cognate">regulate · regular</div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 02</span></div>
+</section>
+<section class="slide dark">
+<p class="eyebrow">Our Three Expectations</p>
+<div class="body-wrap">
+<h2>Safe. Respectful. Responsible.</h2><div class="items"><div class="item"><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 56S10 42 10 24a12 12 0 0 1 22-6 12 12 0 0 1 22 6c0 18-22 32-22 32z"/></svg><div class="lab">Safe</div><div class="txt">Protect people and space.</div></div><div class="item"><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 30l10-8 8 4 8-4 10 8"/><path d="M16 22v18"/><path d="M48 22v18"/><path d="M24 40l6 6 6-6 6 4"/></svg><div class="lab">Respectful</div><div class="txt">Honor voice, body, and difference.</div></div><div class="item"><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="12" width="32" height="44" rx="2"/><path d="M26 12v-2a6 6 0 0 1 12 0v2"/><path d="M23 30l4 4 8-8"/><path d="M23 44l4 4 8-8"/></svg><div class="lab">Responsible</div><div class="txt">Own actions, materials, and repair.</div></div></div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 03</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">Choose Your Growth Edge</p>
+<div class="body-wrap">
+<h2>Where Do You Break It?</h2><div class="frame"><div class="flab">Be honest</div><div class="stem">The situation where I break this is ___.</div><div class="bank"><b>Settings</b> hallway · group work · conflict · phone / DMs · unstructured time</div></div><div class="why"><b>Pick the real one</b> The easy setting won’t grow you. Choose the honest one.</div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 04</span></div>
+</section>
+<section class="slide yellow">
+<p class="eyebrow">Run The Reps</p>
+<div class="body-wrap">
+<h2>Run The Reps</h2><div class="steps"><div class="step"><div class="n">1</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"/><circle cx="32" cy="32" r="7"/></svg><div class="sl">Model</div></div><div class="step"><div class="n">2</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="12" r="6"/><path d="M36 20l-6 14 8 8 2 14"/><path d="M30 34l-10 6-4 12"/><path d="M36 24l10 6"/></svg><div class="sl">Rehearse</div></div><div class="step"><div class="n">3</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M50 24a20 20 0 1 0 4 12"/><path d="M50 12v12H38"/></svg><div class="sl">Refine</div></div><div class="step"><div class="n">4</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="24"/><path d="M21 33l7 7 15-16"/></svg><div class="sl">Own</div></div></div><div class="callout">Under pressure, you fall to your level of practice.</div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 05</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">Commit To One Rep</p>
+<div class="body-wrap">
+<h2>Commit To One Rep</h2><div class="frame"><div class="flab">Write it privately</div><div class="stem">In ___, I will ___ so that ___.</div></div><div class="why"><b>Observable + specific</b> Write it so a camera could confirm you did it.</div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 06</span></div>
+</section>
+<section class="slide dark">
+<p class="eyebrow">Carry The Standard</p>
+<div class="body-wrap">
+<h2>Carry The Standard</h2><div class="steps"><div class="step"><div class="n">1</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16l16-6 16 6 16-6v42l-16 6-16-6-16 6z"/><path d="M24 10v42M40 16v42"/></svg><div class="sl">Name</div></div><div class="step"><div class="n">2</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"/><circle cx="32" cy="32" r="7"/></svg><div class="sl">Notice</div></div><div class="step"><div class="n">3</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="12" r="6"/><path d="M36 20l-6 14 8 8 2 14"/><path d="M30 34l-10 6-4 12"/><path d="M36 24l10 6"/></svg><div class="sl">Do</div></div><div class="step"><div class="n">4</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="12" width="32" height="44" rx="2"/><path d="M26 12v-2a6 6 0 0 1 12 0v2"/><path d="M23 30l4 4 8-8"/><path d="M23 44l4 4 8-8"/></svg><div class="sl">Repair</div></div></div><div class="callout">Every hallway, class, and message is another rep.</div>
+</div>
+<div class="foot"><span>Matchbook Morning Meeting · Expectation Practice</span><span class="band">Grades 6–8 · 07</span></div>
+</section>
+</div><div class="notes" id="notes">
+<div class="note-block" style="display:none">
+<h3>Slide 1 · Launch <span class="rub">R1, R5</span></h3>
+<p class="script">“You already know the expectations. Reputation comes from reps, not reminders. Today we practice on purpose.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Students engage as skill, not compliance</li><li>Low defensiveness</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Name the ‘why’: pressure reveals practice.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Keep tone respectful and adult.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Anchor phrase: run the reps.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Target icon.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 2 · Regulate <span class="rub">R1</span></h3>
+<p class="script">“Two rounds of box breathing. In four, hold four, out four, hold four. Regulation is a skill, not a mood.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Slower, even breathing</li><li>Settled posture</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Offer feet-down anchor instead.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Model without forcing eyes closed.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Visual box guides the count.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Box + anchor icons.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 3 · Orient <span class="rub">R1, R5</span></h3>
+<p class="script">“Define each expectation as an action in this room. Safe, Respectful, Responsible — what does each look like at 8th-grade level?”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Actions, not slogans</li><li>All three defined</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Sharpen the vaguest one together.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Reference the shared standard.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Icons cue each expectation.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Three value icons.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 4 · Connect <span class="rub">R2</span></h3>
+<p class="script">“Name the setting where you actually break this. Privately is fine. Honesty is the rep.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Honest, specific growth edge</li><li>Real settings named</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Let them write it privately.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Normalize that everyone has an edge.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Frame + word bank scaffold it.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Setting word bank.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 5 · Practice <span class="rub">R4, R5</span></h3>
+<p class="script">“Model it, rehearse it, refine it, own it. We practice the move before we need it.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Genuine rehearsal, not performance</li><li>Second rep is cleaner</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Reset and re-model the move.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Coach the refine step specifically.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Peer rehearsal lowers stakes.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Model, rehearse, refine, own.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 6 · Commit <span class="rub">R2, R5</span></h3>
+<p class="script">“Write one rep: setting, action, purpose. Observable and specific — camera-confirmable.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Observable, purposeful commitments</li><li>Setting + action + why</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Give the stem and one model.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Follow up privately later.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Private writing supports candor.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Commitment frame.</p>
+</div><div class="note-block" style="display:none">
+<h3>Slide 7 · Transition <span class="rub">R1, R4, R5</span></h3>
+<p class="script">“Name it, notice it, do it, repair when you miss. Every space is another rep — including your phone.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Transfer to real settings</li><li>Ownership of repair</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Re-anchor to the three words.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Reference commitments through the day.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Four cues, four words.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Four icons across settings.</p>
+</div></div><script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var notes=[].slice.call(document.querySelectorAll('.note-block'));
+  var panel=document.getElementById('notes');
+  var cnt=document.getElementById('cnt');
+  var i=0, open=false;
+  function draw(){
+    slides.forEach(function(s,n){s.classList.toggle('active',n===i);});
+    notes.forEach(function(s,n){s.style.display=(n===i?'block':'none');});
+    cnt.textContent=(i+1)+' / '+slides.length;
+  }
+  function go(d){ i=Math.max(0,Math.min(slides.length-1,i+d)); draw(); }
+  function toggle(){ open=!open; panel.classList.toggle('show',open);
+    document.getElementById('nbtn').textContent = open?'Hide notes (N)':'Notes (N)'; }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key==='n'||e.key==='N'){e.preventDefault();toggle();}
+    else if(e.key==='Home'){i=0;draw();}
+    else if(e.key==='End'){i=slides.length-1;draw();}
+  });
+  document.getElementById('prev').addEventListener('click',function(){go(-1);});
+  document.getElementById('next').addEventListener('click',function(){go(1);});
+  document.getElementById('nbtn').addEventListener('click',toggle);
+  draw();
+})();
+</script>
+</body></html>
