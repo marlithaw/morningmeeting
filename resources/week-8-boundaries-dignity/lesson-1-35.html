@@ -1,0 +1,140 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 8 · My Body. My Boundary. · 3–5</title><style>
+:root{
+  --charcoal:#232323; --ember:#C8161D; --spark-red:#E21C24; --mb-yellow:#F9DC7C;
+  --ink:#1A1A1A; --slate:#4A4A4A; --hairline:#e2e8f0; --muted:#94a3b8;
+  --font-body:'Inter',system-ui,sans-serif; --font-cond:'Oswald',system-ui,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;background:#111;font-family:var(--font-body);}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(24px,4vw,64px);background:#fff;color:var(--ink);}
+.slide.active{display:flex;}
+.slide.dark{background:var(--charcoal);color:#fff;}
+.slide.red{background:var(--spark-red);color:#fff;}
+.slide.yellow{background:var(--mb-yellow);color:var(--ink);}
+
+.eyebrow{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.14em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.72;margin:0 0 .6rem;}
+.slide h1{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.01em;line-height:1.02;margin:0;font-size:clamp(30px,5.4vw,76px);}
+.slide h2{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  line-height:1.05;margin:0;font-size:clamp(24px,4.2vw,58px);}
+.lede{font-size:clamp(15px,1.7vw,25px);line-height:1.45;margin:1rem 0 0;max-width:36ch;opacity:.9;}
+.body-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+
+.mb-icon{width:1em;height:1em;flex:none;}
+.hero-icon{font-size:clamp(58px,9vw,120px);color:currentColor;opacity:.95;}
+
+.items{display:flex;gap:clamp(12px,2.2vw,32px);margin-top:clamp(16px,2.6vw,36px);flex-wrap:wrap;}
+.item{flex:1 1 0;min-width:150px;display:flex;flex-direction:column;gap:.55rem;
+  padding:clamp(12px,1.6vw,22px);border-radius:14px;background:rgba(0,0,0,.045);}
+.slide.dark .item,.slide.red .item{background:rgba(255,255,255,.11);}
+.item .mb-icon{font-size:clamp(34px,4.4vw,62px);}
+.item .lab{font-family:var(--font-cond);text-transform:uppercase;font-weight:700;
+  letter-spacing:.05em;font-size:clamp(15px,1.7vw,25px);line-height:1.1;}
+.item .txt{font-size:clamp(13px,1.35vw,19px);line-height:1.4;opacity:.93;}
+
+.frame{margin-top:clamp(16px,2.4vw,32px);padding:clamp(14px,2vw,26px);
+  border-radius:14px;border:2px dashed currentColor;opacity:.98;}
+.frame .flab{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.7;margin-bottom:.45rem;}
+.frame .stem{font-size:clamp(17px,2.3vw,34px);font-family:var(--font-cond);font-weight:600;line-height:1.25;}
+.choices{display:flex;gap:clamp(10px,1.6vw,22px);margin-top:clamp(12px,1.8vw,22px);flex-wrap:wrap;}
+.choice{flex:1 1 0;min-width:120px;display:flex;flex-direction:column;align-items:center;
+  gap:.4rem;padding:clamp(10px,1.4vw,18px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .choice,.slide.red .choice{background:rgba(255,255,255,.13);}
+.choice .mb-icon{font-size:clamp(30px,3.8vw,54px);}
+.choice .cl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(12px,1.3vw,18px);letter-spacing:.03em;}
+.bank{margin-top:.7rem;font-size:clamp(12px,1.25vw,17px);opacity:.85;}
+.bank b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.08em;font-size:.85em;}
+
+.steps{display:flex;gap:clamp(10px,1.6vw,24px);margin-top:clamp(16px,2.4vw,32px);flex-wrap:wrap;}
+.step{flex:1 1 0;min-width:110px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+  padding:clamp(10px,1.5vw,20px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .step,.slide.red .step{background:rgba(255,255,255,.13);}
+.step .n{font-family:var(--font-cond);font-weight:700;font-size:clamp(20px,2.6vw,38px);opacity:.5;line-height:1;}
+.step .mb-icon{font-size:clamp(28px,3.4vw,48px);}
+.step .sl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(13px,1.4vw,20px);letter-spacing:.03em;}
+
+.callout{margin-top:clamp(14px,2vw,28px);font-family:var(--font-cond);font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;font-size:clamp(14px,1.8vw,26px);line-height:1.2;}
+.cognate{margin-top:.8rem;font-size:clamp(11px,1.15vw,15px);opacity:.7;font-style:italic;}
+.why{margin-top:clamp(14px,2vw,26px);padding:clamp(12px,1.6vw,20px);border-left:5px solid currentColor;
+  font-size:clamp(13px,1.5vw,21px);line-height:1.45;opacity:.94;}
+.why b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.07em;font-size:.82em;
+  display:block;margin-bottom:.25rem;opacity:.75;}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(9px,.95vw,12px);opacity:.55;padding-top:1rem;}
+.foot .band{font-weight:700;letter-spacing:.16em;}
+
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:58vh;overflow:auto;
+  background:#0d0d0d;color:#f2f2f2;border-top:4px solid var(--spark-red);
+  padding:20px clamp(20px,4vw,56px) 28px;display:none;z-index:60;font-size:14.5px;line-height:1.55;}
+.notes.show{display:block;}
+.notes h3{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.12em;
+  font-size:12px;margin:0 0 10px;color:var(--mb-yellow);}
+.notes .script{font-size:16.5px;line-height:1.55;margin:0 0 14px;padding:12px 14px;
+  background:rgba(255,255,255,.07);border-left:4px solid var(--mb-yellow);border-radius:0 8px 8px 0;}
+.notes .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.notes .k{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;color:var(--muted);margin:0 0 5px;}
+.notes ul{margin:0;padding-left:18px;}
+.notes li{margin-bottom:4px;}
+.notes .rub{display:inline-block;font-family:var(--font-cond);background:var(--spark-red);
+  color:#fff;padding:2px 9px;border-radius:20px;font-size:11px;letter-spacing:.1em;}
+.notes .imgspec{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:12px;
+  border-top:1px solid rgba(255,255,255,.13);padding-top:10px;}
+
+.hud{position:fixed;top:14px;right:16px;z-index:70;display:flex;gap:8px;align-items:center;
+  font-family:var(--font-cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.hud button{font:inherit;background:rgba(0,0,0,.62);color:#fff;border:0;border-radius:20px;
+  padding:7px 13px;cursor:pointer;letter-spacing:.1em;}
+.hud button:hover{background:var(--spark-red);}
+.hud .cnt{background:rgba(0,0,0,.62);color:#fff;border-radius:20px;padding:7px 13px;}
+
+@media print{
+  html,body{background:#fff;height:auto;}
+  .deck{height:auto;width:auto;}
+  .hud{display:none;}
+  .slide{display:flex!important;position:relative;inset:auto;height:100vh;
+    page-break-after:always;border-bottom:1px solid #ddd;}
+  .notes{display:block!important;position:relative;max-height:none;}
+  .note-block{display:block!important;page-break-inside:avoid;
+    border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;}
+}
+
+.lede{max-width:48ch}.slide{padding-top:clamp(55px,5vw,72px)}
+.point-green{border-top:7px solid #15803d}.point-red{border-top:7px solid #b91c1c}
+.point-green .lab{color:#116329}.point-red .lab{color:#a8141b}
+.demo-link{display:inline-block;color:inherit;font-family:var(--font-cond);font-size:20px;margin-top:24px;text-underline-offset:5px}
+.hud a{font:inherit;color:white;background:#232323;border-radius:20px;padding:7px 13px;text-decoration:none}
+.notes a{color:#F9DC7C}.notes:focus{outline:0}
+@media(max-width:650px){.slide{overflow-y:auto}.body-wrap{min-height:fit-content;padding:24px 0}.items{display:grid;grid-template-columns:1fr}.hud{gap:3px;right:8px}.hud button,.hud a{padding:7px 8px}.foot{font-size:9px}}
+
+.date-line{font-family:var(--font-cond);font-size:clamp(18px,2.2vw,30px);margin-top:20px;color:inherit}
+.lede{max-width:52ch}.profile-name{font-family:var(--font-cond);font-size:clamp(20px,2.2vw,32px);text-transform:uppercase;line-height:1.15}
+.source-line{font-size:12px;margin-top:12px;opacity:.75}.notes a{color:#f9dc7c}
+.slide .item .txt{font-size:clamp(16px,1.55vw,22px)}
+.slide .foot{opacity:.72}.slide h2{max-width:26ch}
+@media(max-height:730px) and (min-width:900px){.slide{padding-bottom:25px}.slide h2{font-size:48px}.items,.frame,.steps{margin-top:18px}.body-wrap>.lede{margin-top:12px}.item{padding:14px}.frame{padding:17px}.slide .item .txt{font-size:19px}}
+
+.media-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center;margin-top:20px}.media-layout figure{margin:0}.media-layout img{width:100%;height:220px;object-fit:contain;background:#eee;border-radius:10px}.media-layout figcaption{font-size:12px;margin-top:7px}.media-layout p{font-size:21px;line-height:1.4;margin:12px 0}.media-layout .media-question{font-size:25px;font-weight:600}.media-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.media-actions button,.media-actions a,.photo-link{font:600 16px Inter,Arial,sans-serif;padding:12px 16px;border:2px solid #232323;border-radius:8px;color:#232323;background:#f9dc7c;text-decoration:none;cursor:pointer}.portrait-strip{display:flex;gap:20px;align-items:center;margin-top:14px}.portrait-strip figure{display:flex;align-items:center;gap:12px;margin:0;flex:1;font-size:13px}.portrait-strip img{height:120px;width:100px;object-fit:contain;background:#eee;border-radius:8px}.portrait-strip a{color:inherit}.media-dialog{width:min(1000px,90vw);padding:18px;border:0;border-radius:12px;background:#232323;color:white}.media-dialog::backdrop{background:#000c}.media-dialog iframe{width:100%;height:min(62vh,560px);border:0;margin-top:12px}.media-dialog button{font-size:18px;padding:9px 15px;cursor:pointer}.media-dialog a{color:#f9dc7c;margin-left:16px}.media-dialog p{font:15px Arial,sans-serif}.media-compact .items{margin-top:14px}.media-compact .item{padding:12px}
+@media(max-width:750px){.media-layout{gap:12px}.media-layout img{height:160px}.media-layout p,.media-layout .media-question{font-size:17px}.media-actions button,.media-actions a{font-size:13px;padding:8px}.portrait-strip img{height:85px;width:65px}}
+
+@font-face{font-family:Inter;src:url(shared/matchbook-body.woff2)}@font-face{font-family:Oswald;src:url(shared/matchbook-display.woff2)}
+.slide h2{font-size:clamp(30px,3.4vw,49px);max-width:35ch}.slide .body-wrap{width:100%}.copy{display:grid;gap:12px;margin-top:20px;max-width:1150px}.copy p{font-size:clamp(20px,2.1vw,30px);line-height:1.35;margin:0}.copy.dense p{font-size:clamp(19px,1.8vw,26px)}.copy strong{font-weight:700}.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.scene{background:#f2f3f5;padding:14px;border-radius:12px}.scene img{width:100%;height:155px;object-fit:contain}.scene p{font-size:21px;line-height:1.3;margin:10px 0 0}.scene-grid.four{grid-template-columns:repeat(4,1fr)}.scene-grid.four .scene img{height:145px}.scene-grid.four .scene p{font-size:19px}.scene-question{font-size:25px;font-weight:600;line-height:1.3;margin-top:16px}.notes h4{color:#f9dc7c}.notes p{margin:12px 0;line-height:1.5}.notes{overflow:auto}.safety-cue{font-size:16px;font-weight:700;margin-top:14px}.deck .slide{padding-top:68px}.hud{z-index:50}
+@media(max-width:700px){.scene-grid,.scene-grid.four{grid-template-columns:1fr 1fr}.scene img{height:90px}.scene p,.scene-grid.four .scene p{font-size:15px}.scene-question{font-size:20px}.copy p{font-size:19px}.slide .body-wrap{padding-top:10px}.slide h2{font-size:30px}.slide{overflow:auto}.foot{position:static;margin-top:18px}.scene-grid{gap:8px}}
+</style></head><body><nav class="hud" aria-label="Presentation controls"><a href="index.html">Toolkit</a><a href="teacher-guide.html#day-1-35">Guide</a><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button><button id="nbtn" aria-expanded="false" aria-controls="notes">Notes (N)</button><span class="cnt" id="cnt" aria-live="polite"></span></nav><main class="deck"><section class="slide red" aria-label="Slide 1: MY BODY. MY BOUNDARY."><p class="eyebrow">Week 8 · Monday Sep 21 · Welcome</p><div class="body-wrap"><h1>MY BODY. MY BOUNDARY.</h1><div class="copy "><p><em>Respect starts with recognizing who gets to make decisions about a person&#x27;s body.</em></p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 01</span></div></section><section class="slide " aria-label="Slide 2: NOTICE YOUR SPACE"><p class="eyebrow">Week 8 · Monday Sep 21 · Regulate</p><div class="body-wrap"><h2>NOTICE YOUR SPACE</h2><div class="copy "><p>1. Feel your feet.</p><p>2. Relax your hands.</p><p>3. Notice your distance from others.</p><p><em>Adjust your position so your body feels ready and other people&#x27;s space stays protected.</em></p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 02</span></div></section><section class="slide " aria-label="Slide 3: BODY · CLOTHING · SPACE"><p class="eyebrow">Week 8 · Monday Sep 21 · Orient</p><div class="body-wrap"><h2>BODY · CLOTHING · SPACE</h2><div class="copy "><p><strong>Body:</strong> You decide who touches you.</p><p><strong>Clothing:</strong> Someone else&#x27;s clothing is not yours to grab or pull.</p><p><strong>Space:</strong> Ask before entering another person&#x27;s physical space.</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 03</span></div></section><section class="slide " aria-label="Slide 4: LOOK FOR THE CHOICE"><p class="eyebrow">Week 8 · Monday Sep 21 · Connect · Look</p><div class="body-wrap"><h2>LOOK FOR THE CHOICE</h2><div class="scene-grid "><div class="scene"><img src="assets/ask.svg" alt="Illustrated cue: “High five?” “Yes.”"><p>“High five?” “Yes.”</p></div><div class="scene"><img src="assets/hat.svg" alt="Illustrated cue: Reaching for a hat without asking."><p>Reaching for a hat without asking.</p></div><div class="scene"><img src="assets/ask.svg" alt="Illustrated cue: “Hug?” “No, thanks.” “Okay.”"><p>“Hug?” “No, thanks.” “Okay.”</p></div></div><p class="scene-question">Where was permission clear? Where was someone guessing?</p></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 04</span></div></section><section class="slide " aria-label="Slide 5: A CONNECTION TO CONSIDER"><p class="eyebrow">Week 8 · Monday Sep 21 · Connect · Share</p><div class="body-wrap"><h2>A CONNECTION TO CONSIDER</h2><div class="copy "><p><em>How can someone show respect for another person&#x27;s space without knowing exactly how that person feels?</em></p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 05</span></div></section><section class="slide yellow" aria-label="Slide 6: WHAT NEEDS PERMISSION?"><p class="eyebrow">Week 8 · Monday Sep 21 · Practice</p><div class="body-wrap"><h2>WHAT NEEDS PERMISSION?</h2><div class="copy "><p>Scenario A: Borrowing a pencil.</p><p>Scenario B: Putting your arm around someone for a picture.</p><p>Scenario C: Pulling a friend&#x27;s hood over their head.</p><p><strong>SEE IT → NAME IT → DO IT</strong></p><p>Decide which involves a body/clothing boundary. Practice the respectful alternative.</p></div><div class="safety-cue">Practice words and decisions only. No touching or reenactment.</div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 06</span></div></section><section class="slide dark" aria-label="Slide 7: ONE ACTION TODAY"><p class="eyebrow">Week 8 · Monday Sep 21 · Commit</p><div class="body-wrap"><h2>ONE ACTION TODAY</h2><div class="copy "><p><em>Today I will protect body boundaries by ____.</em></p><p>Choose something another person could notice.</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 07</span></div></section><section class="slide red" aria-label="Slide 8: CARRY IT INTO OUR DAY"><p class="eyebrow">Week 8 · Monday Sep 21 · Transition</p><div class="body-wrap"><h2>CARRY IT INTO OUR DAY</h2><div class="copy "><p><strong>Before we move on:</strong> What should happen before touching someone&#x27;s body or clothing?</p><p>1. Keep your commitment. 2. Protect space. 3. Begin the next task.</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Boundaries &amp; Dignity</span><span class="band">Grades 3–5 · 08</span></div></section></main><aside class="notes" id="notes" aria-label="Teacher notes"><div class="note-block"><h3>Slide 1 · Welcome · 0:00</h3><p><strong>Script:</strong> “Today we&#x27;re talking about something every person in this room has: a body and the right to make choices about it. Our question is: <em>What does it look like to respect another person&#x27;s body and space?</em> You will not be asked to tell personal stories. We are going to learn a skill and practice it.”</p><p><strong>Look for:</strong> Students understand that the lesson concerns everyday respect, not punishment or investigation.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 2 · Regulate · 2:00</h3><p><strong>Script:</strong> “Before we talk about boundaries, notice your own space. You do not need to close your eyes or take a deep breath. Feel what is supporting your body. Notice where your hands, feet, chair, or body are in relation to other people. Make any small adjustment that helps you feel ready while keeping everyone&#x27;s space protected.”</p><p><strong>Facilitation:</strong> Do not ask children to stretch arms into “personal bubbles.” The concept can be learned without bringing bodies closer together.</p><p><strong>Look for:</strong> Students settle while maintaining physical boundaries.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 3 · Orient · 2:00</h3><p><strong>K–2 script:</strong> “Your body belongs to you. That means people ask before touching. If someone asks you for a hug, high five, or other touch, you can say yes, no, or not now. When we hear someone&#x27;s answer, we respect it.”</p><p><strong>3–5 script:</strong> “Bodily autonomy means each person has the right to make decisions about their own body. Your clothing is also part of your physical boundary. Friendship does not remove the need to respect someone&#x27;s space.”</p><p><strong>6–8 script:</strong> “Autonomy is control over your own body. Consent is clear permission. We do not turn silence, embarrassment, friendship, nervous laughter, or what happened last time into permission for this time.”</p><p><strong>Check:</strong> “If someone said yes yesterday, what do we know about today?” Expected: <strong>We still need to respect today&#x27;s choice.</strong></p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 4 · Connect · Look · 2:00</h3><p><strong>Script:</strong> “Don&#x27;t decide whether each person is ‘nice’ or ‘mean.’ Look only at the evidence. Who asked? Who answered? Who respected the answer?”</p><p><strong>Facilitation:</strong> Give 20–30 seconds of silent noticing before soliciting responses.</p><p><strong>Look for:</strong> Students use observable evidence rather than “they probably didn&#x27;t care.”</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 5 · Connect · Share · 1:00</h3><p><strong>Script:</strong> “Think first. You may use an invented example. Partner A gets a turn, then Partner B. A pass is okay.”</p><p><strong>Look for:</strong> Students connect respect to behaviors such as asking, listening, stopping, giving room, or accepting an answer.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 6 · Practice · 3:00</h3><p><strong>Script:</strong> “Our skill is not complicated: <strong>See it. Name it. Do it.</strong> First notice the situation. Then name whose boundary or choice is involved. Then choose the respectful action.”</p><p><strong>K–2 facilitation:</strong> Teacher models both “yes” and “no.” Students practice responding <strong>“Okay”</strong> without pouting, bargaining, or demanding a reason.</p><p><strong>3–5 facilitation:</strong> Emphasize that touching a pencil and putting an arm around a person are not the same type of decision.</p><p><strong>6–8 facilitation:</strong> Challenge “We&#x27;re friends” and “we always do this” without shaming. Ask: “Who is making the decision in that sentence?”</p><p><strong>Look for:</strong> The student&#x27;s alternative returns the choice to the other person.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 7 · Commit · 3:00</h3><p><strong>Script:</strong> “Choose something specific enough that another person could see it. ‘Be respectful’ is a goal. ‘Ask before touching someone&#x27;s things or body’ is an action.”</p><p><strong>Look for:</strong> Observable commitments.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div><div class="note-block"><h3>Slide 8 · Transition · 2:00</h3><p><strong>Script:</strong> “Before we move on, say the idea in your own words. What comes before touching another person or their clothing? Carry your commitment into the next part of the day.”</p><p><strong>Mastery evidence:</strong> Students can explain that another person&#x27;s body requires that person&#x27;s choice.</p><p><strong>Access:</strong> Offer spoken and written frames. Give quiet thinking time. Students may use fictional examples or pass. Ask for an observable detail.</p><p><strong>Practice boundary:</strong> Fictional situations only. No personal disclosures or physical reenactments.</p></div></aside><script>
+const slides=[...document.querySelectorAll('.slide')], notes=[...document.querySelectorAll('.note-block')];
+let i=Math.max(0,Math.min(slides.length-1,(parseInt(location.hash.slice(1))||1)-1));
+function draw(){slides.forEach((s,n)=>{s.classList.toggle('active',n===i);s.setAttribute('aria-hidden',n!==i)});notes.forEach((s,n)=>s.style.display=n===i?'block':'none');document.querySelector('#cnt').textContent=`${i+1} / ${slides.length}`;document.querySelector('#prev').disabled=i===0;document.querySelector('#next').disabled=i===slides.length-1;history.replaceState(null,'','#'+(i+1))}
+function go(d){i=Math.max(0,Math.min(slides.length-1,i+d));draw()}
+function toggle(){const visible=document.querySelector('#notes').classList.toggle('show');document.querySelector('#nbtn').textContent=visible?'Hide notes (N)':'Notes (N)';document.querySelector('#nbtn').setAttribute('aria-expanded',visible)}
+document.querySelector('#prev').onclick=()=>go(-1);document.querySelector('#next').onclick=()=>go(1);document.querySelector('#nbtn').onclick=toggle;
+document.addEventListener('keydown',e=>{if(e.target.closest('button,a')&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}else if(e.key.toLowerCase()==='n'){toggle()}else if(e.key==='Home'){i=0;draw()}else if(e.key==='End'){i=slides.length-1;draw()}else if(e.key==='Escape'){document.querySelector('#notes').classList.remove('show');document.querySelector('#nbtn').textContent='Notes (N)';document.querySelector('#nbtn').setAttribute('aria-expanded','false')}});draw();
+</script></body></html>
