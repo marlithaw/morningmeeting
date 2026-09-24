@@ -225,6 +225,7 @@
                 <ul class="space-y-1">
                     <li><button onclick="switchTab('overview')" id="tab-btn-overview" class="nav-btn bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]"><span class="flex items-center"><i class="fa-solid fa-compass w-5"></i> Overview</span><i class="fa-solid fa-chevron-right text-[10px]"></i></button></li>
                     <li><button onclick="switchTab('run-of-show')" id="tab-btn-run-of-show" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-stopwatch w-5"></i> Run of Show</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('morning-spark')" id="tab-btn-morning-spark" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-bolt w-5"></i> Morning Spark</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('weekly-arc')" id="tab-btn-weekly-arc" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-calendar-week w-5"></i> Weekly Cycle</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('culture-camp')" id="tab-btn-culture-camp" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-campground w-5"></i> Culture Camp</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('instructional-units')" id="tab-btn-instructional-units" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-book-open-reader w-5"></i> Instructional Units</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
@@ -474,6 +475,174 @@
                 </div>
 
                 <!-- 3. WEEKLY ARC TAB -->
+
+                <!-- MORNING SPARK TAB: arrival Do Now presentations and student pages -->
+                <div id="morning-spark" class="tab-content">
+                    <div class="mb-8">
+                        <p class="text-[var(--slate)] text-lg">Morning Spark is the arrival Do Now. Students complete it on their own as they walk in, move to IXL, stop for announcements, and close it with a two-minute reveal that leads straight into Morning Meeting. Each grade-band file holds the whole week: five Do Now slides, five reveals, and the hand-off slide.</p>
+                    </div>
+
+                    <ol class="flex flex-wrap gap-3 mb-8 list-none p-0" aria-label="Morning Spark timeline"><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:15</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Arrive</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Do Now on the screen. Students start on their own.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">Then</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">IXL</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Finished students move straight to IXL.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">~7:37</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Stop</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Announcements end the work period for everyone.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">2 min</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Reveal</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Answer, vote, or zoom-out. One or two equity sticks.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:45</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Hand off</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Morning Meeting, or the Friday Cypher on Fridays.</p></li>
+                    </ol>
+
+                    <section class="mb-8 bg-white border border-[var(--hairline)] border-l-4 border-l-[var(--spark-red)] shadow-sm p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5" aria-labelledby="spark-guide-title">
+                        <div>
+                            <div class="font-cond text-[12px] font-bold text-[var(--spark-red)] tracking-[0.12em] uppercase mb-2">Teacher guide · all grade bands</div>
+                            <h2 id="spark-guide-title" class="font-cond text-2xl font-bold uppercase tracking-wide text-[var(--ink)]">Morning Spark Teacher Guide</h2>
+                            <p class="text-[14px] text-[var(--slate)] mt-2 max-w-2xl">The 7:10 to 7:45 timeline, word-for-word scripts, equity sticks and turn and talk, LiveSchool moments, day-by-day cards for every band, redirection steps, and a one-page pocket card.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 shrink-0">
+                            <a class="mb-btn inline-flex items-center gap-2 no-underline whitespace-nowrap" href="./resources/morning-spark/morning-spark-teacher-guide.html" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> Open teacher guide</a>
+                            <a class="mb-btn inline-flex items-center gap-2 no-underline whitespace-nowrap !bg-white !text-[var(--ink)] !border-[var(--charcoal)]" href="./resources/morning-spark/morning-spark-teacher-guide.pdf" download="Morning Spark Teacher Guide.pdf"><i class="fa-solid fa-download"></i> Download PDF</a>
+                        </div>
+                    </section>
+
+                    <section class="mb-8 bg-white border border-[var(--hairline)] shadow-sm" aria-labelledby="spark-week1-title">
+                        <div class="bg-[var(--charcoal)] text-white p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+                            <div>
+                                <div class="font-cond text-[12px] font-bold text-[var(--mb-yellow)] tracking-[0.12em] uppercase mb-2">Week 1 · Four grade bands · Five formats</div>
+                                <h2 id="spark-week1-title" class="font-cond text-3xl font-bold uppercase tracking-wide">Things That Grow</h2>
+                                <p class="text-sm text-slate-300 mt-2 max-w-2xl">Every band sees the same garden, sunflower, and fall tree. The thinking gets deeper as grades go up, so a student can use a neighboring band's page on the same day and still join the class reveal.</p>
+                            </div>
+                            <a class="mb-btn inline-flex items-center gap-2 no-underline whitespace-nowrap" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-week-1-all-files.zip" download="Morning Spark Week 1 - All Files.zip"><i class="fa-solid fa-file-zipper"></i> Download all files</a>
+                        </div>
+                        <div class="px-6 py-4 bg-[var(--mb-yellow)] text-[var(--ink)] text-sm">Open a deck to present, or download it to the projector computer so it runs without the internet. Student pages print on letter paper: page 1 is the Monday check-in slips, page 2 is the weekly page.</div>
+
+                        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <article class="bg-white border border-[var(--hairline)] border-t-4 border-t-[var(--spark-red)] shadow-sm flex flex-col">
+                            <div class="p-5 flex-1">
+                                <div class="flex items-baseline justify-between gap-3">
+                                    <h3 class="font-cond text-3xl font-bold text-[var(--ink)] leading-none">Grades K–1</h3>
+                                    <span class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--spark-red)]">Pictures first</span>
+                                </div>
+                                <p class="text-[13px] text-[var(--slate)] leading-relaxed mt-3">Every prompt reads aloud in English and Spanish. Students point, circle, or draw.</p>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mb-2">Presentation · all five days</div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html" target="_blank" rel="noopener" aria-label="Present the Grades K–1 Morning Spark deck"><i class="fa-solid fa-play"></i> Present</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html" download="Morning Spark K–1 - Week 1 - Things That Grow.html" aria-label="Download the Grades K–1 deck"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                                <a class="block text-[12px] text-[var(--slate)] underline decoration-[var(--hairline)] underline-offset-4 hover:text-[var(--spark-red)] mt-2" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#week" target="_blank" rel="noopener">Preview the whole week on one page</a>
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mt-5 mb-2">Student pages · print</div>
+                                <p class="text-[12px] text-[var(--slate)] leading-snug mb-2">Monday check-in slips, 4 per page, plus a picture page for Tuesday to Friday.</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-[var(--mb-yellow)] !border-[var(--mb-yellow)] !text-[var(--ink)]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1-student-pages.pdf" target="_blank" rel="noopener" aria-label="Open the Grades K–1 student pages PDF"><i class="fa-solid fa-file-pdf"></i> Open PDF</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1-student-pages.pdf" download="Morning Spark K–1 - Week 1 - Student Pages.pdf" aria-label="Download the Grades K–1 student pages"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="bg-white border border-[var(--hairline)] border-t-4 border-t-[var(--spark-red)] shadow-sm flex flex-col">
+                            <div class="p-5 flex-1">
+                                <div class="flex items-baseline justify-between gap-3">
+                                    <h3 class="font-cond text-3xl font-bold text-[var(--ink)] leading-none">Grades 2–3</h3>
+                                    <span class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--spark-red)]">Frames and one sentence</span>
+                                </div>
+                                <p class="text-[13px] text-[var(--slate)] leading-relaxed mt-3">Sentence frames on every slide. Students write one sentence with a reason.</p>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mb-2">Presentation · all five days</div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html" target="_blank" rel="noopener" aria-label="Present the Grades 2–3 Morning Spark deck"><i class="fa-solid fa-play"></i> Present</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html" download="Morning Spark 2–3 - Week 1 - Things That Grow.html" aria-label="Download the Grades 2–3 deck"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                                <a class="block text-[12px] text-[var(--slate)] underline decoration-[var(--hairline)] underline-offset-4 hover:text-[var(--spark-red)] mt-2" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#week" target="_blank" rel="noopener">Preview the whole week on one page</a>
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mt-5 mb-2">Student pages · print</div>
+                                <p class="text-[12px] text-[var(--slate)] leading-snug mb-2">Check-in slips with feeling faces, plus a weekly page with writing lines.</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-[var(--mb-yellow)] !border-[var(--mb-yellow)] !text-[var(--ink)]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23-student-pages.pdf" target="_blank" rel="noopener" aria-label="Open the Grades 2–3 student pages PDF"><i class="fa-solid fa-file-pdf"></i> Open PDF</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23-student-pages.pdf" download="Morning Spark 2–3 - Week 1 - Student Pages.pdf" aria-label="Download the Grades 2–3 student pages"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="bg-white border border-[var(--hairline)] border-t-4 border-t-[var(--spark-red)] shadow-sm flex flex-col">
+                            <div class="p-5 flex-1">
+                                <div class="flex items-baseline justify-between gap-3">
+                                    <h3 class="font-cond text-3xl font-bold text-[var(--ink)] leading-none">Grades 4–5</h3>
+                                    <span class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--spark-red)]">Claim and evidence</span>
+                                </div>
+                                <p class="text-[13px] text-[var(--slate)] leading-relaxed mt-3">Energy check-in on Monday. Students give a claim and two pieces of evidence.</p>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mb-2">Presentation · all five days</div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html" target="_blank" rel="noopener" aria-label="Present the Grades 4–5 Morning Spark deck"><i class="fa-solid fa-play"></i> Present</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html" download="Morning Spark 4–5 - Week 1 - Things That Grow.html" aria-label="Download the Grades 4–5 deck"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                                <a class="block text-[12px] text-[var(--slate)] underline decoration-[var(--hairline)] underline-offset-4 hover:text-[var(--spark-red)] mt-2" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#week" target="_blank" rel="noopener">Preview the whole week on one page</a>
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mt-5 mb-2">Student pages · print</div>
+                                <p class="text-[12px] text-[var(--slate)] leading-snug mb-2">Energy check-in slips, plus a weekly page for claims and predictions.</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-[var(--mb-yellow)] !border-[var(--mb-yellow)] !text-[var(--ink)]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45-student-pages.pdf" target="_blank" rel="noopener" aria-label="Open the Grades 4–5 student pages PDF"><i class="fa-solid fa-file-pdf"></i> Open PDF</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45-student-pages.pdf" download="Morning Spark 4–5 - Week 1 - Student Pages.pdf" aria-label="Download the Grades 4–5 student pages"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="bg-white border border-[var(--hairline)] border-t-4 border-t-[var(--spark-red)] shadow-sm flex flex-col">
+                            <div class="p-5 flex-1">
+                                <div class="flex items-baseline justify-between gap-3">
+                                    <h3 class="font-cond text-3xl font-bold text-[var(--ink)] leading-none">Grades 6–8</h3>
+                                    <span class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--spark-red)]">Argue both sides</span>
+                                </div>
+                                <p class="text-[13px] text-[var(--slate)] leading-relaxed mt-3">Teen cast and a sharper look. Students make a claim, then name the other side.</p>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mb-2">Presentation · all five days</div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html" target="_blank" rel="noopener" aria-label="Present the Grades 6–8 Morning Spark deck"><i class="fa-solid fa-play"></i> Present</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html" download="Morning Spark 6–8 - Week 1 - Things That Grow.html" aria-label="Download the Grades 6–8 deck"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                                <a class="block text-[12px] text-[var(--slate)] underline decoration-[var(--hairline)] underline-offset-4 hover:text-[var(--spark-red)] mt-2" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#week" target="_blank" rel="noopener">Preview the whole week on one page</a>
+                                <div class="font-cond text-[11px] font-bold tracking-widest uppercase text-[var(--muted)] mt-5 mb-2">Student pages · print</div>
+                                <p class="text-[12px] text-[var(--slate)] leading-snug mb-2">Private check-in slips, plus the weekly Do Now Log.</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-[var(--mb-yellow)] !border-[var(--mb-yellow)] !text-[var(--ink)]" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68-student-pages.pdf" target="_blank" rel="noopener" aria-label="Open the Grades 6–8 student pages PDF"><i class="fa-solid fa-file-pdf"></i> Open PDF</a>
+                                    <a class="mb-btn inline-flex items-center justify-center gap-2 no-underline whitespace-nowrap !px-3 !py-2 !text-[13px] !bg-white !text-[var(--ink)] !border-[var(--charcoal)] hover:!bg-slate-50" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68-student-pages.pdf" download="Morning Spark 6–8 - Week 1 - Student Pages.pdf" aria-label="Download the Grades 6–8 student pages"><i class="fa-solid fa-download"></i> Download</a>
+                                </div>
+                            </div>
+                        </article>
+                        </div>
+
+                        <div class="px-6 pt-2 pb-3">
+                            <h3 class="font-cond text-xl font-bold uppercase tracking-wide text-[var(--ink)]">Week at a glance</h3>
+                            <p class="text-[13px] text-[var(--slate)]">Each button opens that band's deck on that day.</p>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-sm">
+                                <thead class="bg-[var(--charcoal)] text-white">
+                                    <tr><th class="px-5 py-3 text-left">Day</th><th class="px-5 py-3 text-left">Format</th><th class="px-2 py-3 text-center">K–1</th><th class="px-2 py-3 text-center">2–3</th><th class="px-2 py-3 text-center">4–5</th><th class="px-2 py-3 text-center">6–8</th></tr>
+                                </thead>
+                                <tbody class="divide-y divide-[var(--hairline)]">
+                                    <tr><td class="px-5 py-4 whitespace-nowrap"><strong>Monday</strong></td><td class="px-5 py-4"><span class="font-cond font-bold uppercase tracking-wide text-[var(--ink)]"><i class="fa-solid fa-heart text-[var(--spark-red)] w-5"></i> Check-In</span><br><span class="text-[var(--slate)] text-[13px]">Private, on a folded slip. Volunteers only at the reveal; never cold call.</span></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#mon" target="_blank" rel="noopener" aria-label="Monday Morning Spark, grades K–1">K–1</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#mon" target="_blank" rel="noopener" aria-label="Monday Morning Spark, grades 2–3">2–3</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#mon" target="_blank" rel="noopener" aria-label="Monday Morning Spark, grades 4–5">4–5</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#mon" target="_blank" rel="noopener" aria-label="Monday Morning Spark, grades 6–8">6–8</a></td></tr><tr class="bg-slate-50"><td class="px-5 py-4 whitespace-nowrap"><strong>Tuesday</strong></td><td class="px-5 py-4"><span class="font-cond font-bold uppercase tracking-wide text-[var(--ink)]"><i class="fa-solid fa-camera text-[var(--spark-red)] w-5"></i> Picture of the Day</span><br><span class="text-[var(--slate)] text-[13px]">A community garden on a city block.</span></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#tue" target="_blank" rel="noopener" aria-label="Tuesday Morning Spark, grades K–1">K–1</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#tue" target="_blank" rel="noopener" aria-label="Tuesday Morning Spark, grades 2–3">2–3</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#tue" target="_blank" rel="noopener" aria-label="Tuesday Morning Spark, grades 4–5">4–5</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#tue" target="_blank" rel="noopener" aria-label="Tuesday Morning Spark, grades 6–8">6–8</a></td></tr><tr><td class="px-5 py-4 whitespace-nowrap"><strong>Wednesday</strong></td><td class="px-5 py-4"><span class="font-cond font-bold uppercase tracking-wide text-[var(--ink)]"><i class="fa-solid fa-magnifying-glass text-[var(--spark-red)] w-5"></i> Zoom In</span><br><span class="text-[var(--slate)] text-[13px]">A close-up of a sunflower, then the zoom-out.</span></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#wed" target="_blank" rel="noopener" aria-label="Wednesday Morning Spark, grades K–1">K–1</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#wed" target="_blank" rel="noopener" aria-label="Wednesday Morning Spark, grades 2–3">2–3</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#wed" target="_blank" rel="noopener" aria-label="Wednesday Morning Spark, grades 4–5">4–5</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#wed" target="_blank" rel="noopener" aria-label="Wednesday Morning Spark, grades 6–8">6–8</a></td></tr><tr class="bg-slate-50"><td class="px-5 py-4 whitespace-nowrap"><strong>Thursday</strong></td><td class="px-5 py-4"><span class="font-cond font-bold uppercase tracking-wide text-[var(--ink)]"><i class="fa-solid fa-code-branch text-[var(--spark-red)] w-5"></i> Would You Rather</span><br><span class="text-[var(--slate)] text-[13px]">Pick a side and give a reason. Live class vote at the reveal.</span></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#thu" target="_blank" rel="noopener" aria-label="Thursday Morning Spark, grades K–1">K–1</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#thu" target="_blank" rel="noopener" aria-label="Thursday Morning Spark, grades 2–3">2–3</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#thu" target="_blank" rel="noopener" aria-label="Thursday Morning Spark, grades 4–5">4–5</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#thu" target="_blank" rel="noopener" aria-label="Thursday Morning Spark, grades 6–8">6–8</a></td></tr><tr><td class="px-5 py-4 whitespace-nowrap"><strong>Friday</strong></td><td class="px-5 py-4"><span class="font-cond font-bold uppercase tracking-wide text-[var(--ink)]"><i class="fa-solid fa-lightbulb text-[var(--spark-red)] w-5"></i> Wonder</span><br><span class="text-[var(--slate)] text-[13px]">Why do leaves change color? The last slide hands off to Friday Cypher.</span></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-k1.html#fri" target="_blank" rel="noopener" aria-label="Friday Morning Spark, grades K–1">K–1</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-23.html#fri" target="_blank" rel="noopener" aria-label="Friday Morning Spark, grades 2–3">2–3</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-45.html#fri" target="_blank" rel="noopener" aria-label="Friday Morning Spark, grades 4–5">4–5</a></td><td class="px-2 py-4 text-center"><a class="mb-btn inline-block !px-3 !py-2 no-underline" href="./resources/morning-spark/week-1-things-that-grow/morning-spark-68.html#fri" target="_blank" rel="noopener" aria-label="Friday Morning Spark, grades 6–8">6–8</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div class="mb-card mb-card-white border-l-4 border-l-[var(--spark-red)] shadow-sm">
+                            <h3 class="mb-card-title"><i class="fa-solid fa-tv text-[var(--spark-red)] mr-2"></i>Before projecting</h3>
+                            <div class="mb-uline"></div>
+                            <ul class="space-y-2 text-[14px] text-[var(--slate)] leading-relaxed list-disc pl-5">
+                                <li>Download the band's deck and open it in Chrome on the projector computer. The English and Spanish read-aloud buttons need a regular browser tab.</li>
+                                <li>The deck opens on today's day. Keys 1 to 5 jump to Monday through Friday, and the arrow keys move through a day's three slides.</li>
+                                <li>Turn on <strong>Repeat aloud</strong> so students who arrive late hear the directions without the teacher leaving the door.</li>
+                                <li>The control bar hides after a few seconds. Move the mouse to bring it back.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-card mb-card-white border-l-4 border-l-[var(--charcoal)] shadow-sm">
+                            <h3 class="mb-card-title"><i class="fa-solid fa-print text-[var(--charcoal)] mr-2"></i>Student pages</h3>
+                            <div class="mb-uline"></div>
+                            <ul class="space-y-2 text-[14px] text-[var(--slate)] leading-relaxed list-disc pl-5">
+                                <li>Print page 1 and cut the check-in slips before Monday. Slips go folded into a closed box, and the counselor picks them up by 10:00 a.m.</li>
+                                <li>Monday answers stay private: no cold call and no public comment on anyone's slip.</li>
+                                <li>Keep a few copies of the neighboring bands' weekly pages in the room so a student can move up or down a band with no wait.</li>
+                                <li>A pointed, circled, or drawn answer counts, especially for newcomers and K–1 students.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="weekly-arc" class="tab-content">
                      <div class="mb-8">
                         <p class="text-[var(--slate)] text-lg">How to structure each week around a value (Safe, Respectful, or Responsible) and a practice move.</p>
@@ -2108,6 +2277,7 @@
         const titles = {
             'overview': 'Overview',
             'run-of-show': 'Run of Show',
+            'morning-spark': 'Morning Spark',
             'weekly-arc': 'Weekly Cycle',
             'culture-camp': 'Culture Camp',
             'instructional-units': 'Instructional Units',
@@ -2224,6 +2394,13 @@
                 document.getElementById('modal-body').innerHTML = '';
             }, 300);
         }
+
+        (function openTabFromHash() {
+            const id = decodeURIComponent((window.location.hash || '').slice(1));
+            if (id && Object.prototype.hasOwnProperty.call(titles, id) && document.getElementById(id)) {
+                switchTab(id);
+            }
+        })();
     </script>
 </body>
 </html>
