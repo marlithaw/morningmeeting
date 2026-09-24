@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Morning Spark Teacher Guide</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><style>
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;--slate:#4A4A4A;--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;
+--disp:'Oswald',sans-serif;--body:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:var(--body);color:var(--ink);font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+section{padding:38px 44px}
+section+section{border-top:1px solid var(--line)}
+.hero{background:radial-gradient(ellipse at 85% -10%,rgba(226,28,36,.6),transparent 55%),var(--charcoal);color:#fff;padding:54px 44px 40px}
+.hero .eye{color:var(--yellow)}.hero .eye::before{background:var(--yellow)}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,8.6vw,76px);line-height:.98;margin:12px 0 16px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{max-width:640px;font-size:17px;color:#e8e8e4}
+.zig{display:block;margin-top:22px}
+.eye{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--red);display:flex;align-items:center;gap:8px}
+.eye::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+h2.disp{font-family:var(--disp);text-transform:uppercase;font-size:clamp(26px,4.8vw,40px);line-height:1.05;margin:8px 0 14px}
+h3{font-family:var(--disp);text-transform:uppercase;font-size:21px;letter-spacing:.02em;margin:22px 0 8px}
+p+p{margin-top:10px}
+.lead{font-size:17.5px;color:var(--slate)}
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:6px;padding:16px 18px;margin:14px 0;break-inside:avoid}
+.card .t{font-family:var(--disp);text-transform:uppercase;font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.card.dark{background:var(--charcoal);color:#fff;border-left-color:var(--yellow)}
+.card.yel{background:#FFF8DA;border-left-color:var(--charcoal)}
+.pill{font-family:var(--disp);font-size:11.5px;background:var(--red);color:#fff;border-radius:50px;padding:2px 10px;letter-spacing:.06em;text-transform:uppercase}
+.pill.y{background:var(--yellow);color:var(--charcoal)}
+.say{display:block;background:#F7F7F4;border-left:4px solid var(--yellow);padding:8px 12px;margin:8px 0;font-weight:600;border-radius:0 6px 6px 0}
+.say small{display:block;font-weight:400;color:var(--slate);font-size:13.5px}
+.ls{display:block;background:#FDECEC;border-left:4px solid var(--red);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0}
+.ls b{font-family:var(--disp);text-transform:uppercase;letter-spacing:.04em;font-weight:600;color:var(--ember);margin-right:6px}
+.pq{display:inline-block;background:var(--yellow);border-radius:6px;padding:10px 16px;font-weight:700;font-size:18px;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px;break-inside:auto}
+th{font-family:var(--disp);text-transform:uppercase;font-weight:600;letter-spacing:.04em;text-align:left;background:var(--charcoal);color:#fff;padding:8px 10px;font-size:13px}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr{break-inside:avoid}
+td:first-child{font-weight:700;white-space:nowrap}
+.tl td:first-child{font-family:var(--disp);font-size:17px;color:var(--red);font-weight:600}
+ul,ol{padding-left:22px;margin:8px 0}li{margin:4px 0}
+.check li{list-style:none;position:relative;padding-left:4px}
+.check li::before{content:"";position:absolute;left:-22px;top:5px;width:13px;height:13px;border:2px solid var(--charcoal);border-radius:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ladder{counter-reset:s;list-style:none;padding:0}
+.ladder>li{counter-increment:s;position:relative;padding:12px 14px 12px 58px;border:1px solid var(--line);border-radius:6px;margin:10px 0;break-inside:avoid}
+.ladder>li::before{content:counter(s);position:absolute;left:14px;top:10px;font-family:var(--disp);font-size:30px;color:var(--red);line-height:1}
+.ladder>li b.h{font-family:var(--disp);text-transform:uppercase;font-size:16px;display:block}
+.day{border:1px solid var(--line);border-top:6px solid var(--red);border-radius:6px;padding:18px 20px;margin:18px 0;break-inside:avoid-page}
+.day .dh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.day .dh .ic{width:46px;height:46px;border-radius:10px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;flex:none}
+.day .dh h3{margin:0}
+.day .dh span{color:var(--slate);font-size:14px;display:block}
+.todo{border:2px dashed var(--ember);background:#FFF3C4;padding:6px 10px;border-radius:6px;display:inline;font-weight:600}
+.todo::before{content:"ADD \25B8  ";color:var(--ember);font-family:var(--disp);letter-spacing:.06em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.stat{background:var(--charcoal);color:#fff;border-radius:6px;padding:14px}
+.stat b{display:block;font-family:var(--disp);font-size:38px;color:var(--yellow);line-height:1}
+.stat span{font-size:13.5px;color:#ddd}
+.closer{background:var(--charcoal);color:#fff;padding:40px 44px}
+.closer h2{font-family:var(--disp);text-transform:uppercase;font-size:34px;line-height:1.05}
+.closer h2 em{font-style:normal;color:var(--red)}
+.closer .sig{margin-top:14px;color:#ddd;font-size:14.5px}
+.closer .motto{font-family:var(--disp);color:var(--yellow);text-transform:uppercase;font-size:24px;margin-top:18px;letter-spacing:.04em}
+.pocket{border:3px solid var(--charcoal);border-radius:8px;padding:18px 20px}
+.pocket h3{margin-top:4px}
+.pocket .row{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.pocket .row b{font-family:var(--disp);color:var(--red);font-size:16px}
+.toc{columns:2;gap:24px;font-size:15px}.toc li{break-inside:avoid}
+@media(max-width:600px){section,.hero,.closer{padding:28px 20px}.grid2,.stats{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.toc{columns:1}td:first-child{white-space:normal}}
+@media print{
+  @page{size:letter;margin:.5in}
+  body{background:#fff;font-size:11pt}.wrap{box-shadow:none;max-width:none}
+  section{padding:18px 0}.hero,.closer{padding:28px 24px}
+  .hero,.closer{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#232323}
+  .pb{break-before:page}
+  .day{break-inside:avoid}
+  .eye,h2.disp,h3{break-after:avoid}
+  .closer{break-before:avoid}
+}
+</style></head><body>
+<div class="wrap">
+<header class="hero">
+  <p class="eye">Student Support &amp; Culture · Teacher-Facing</p>
+  <h1>Morning Spark <em>Teacher Guide</em></h1>
+  <p>The first thirty minutes of the day, run the same way in every room from kindergarten through eighth grade. This guide gives new and experienced teachers the exact timeline, words, recognition moments, and redirection moves so the arrival Do Now runs itself and the day starts calm.</p>
+  <svg class="zig" width="180" height="16" viewBox="0 0 180 16" aria-hidden="true"><path d="M0,12 L15,4 L30,12 L45,4 L60,12 L75,4 L90,12 L105,4 L120,12 L135,4 L150,12 L165,4 L180,12" fill="none" stroke="#E21C24" stroke-width="4"/></svg>
+</header>
+
+<section>
+  <p class="eye">What this is</p>
+  <h2 class="disp">One routine, four grade bands</h2>
+  <p class="lead">Morning Spark is the Do Now students complete as they arrive, before Morning Meeting. It lives at the front of each grade band's Morning Meeting deck. Students walk in, see a task they can finish on their own in three to five minutes, record an answer, and move to IXL. After announcements, a two-minute reveal closes the task and hands off to Morning Meeting, or to the Friday Cypher.</p>
+  <div class="stats"><div class="stat"><b>5</b><span>fixed formats, one per weekday</span></div><div class="stat"><b>4</b><span>grade-band decks: K–1, 2–3, 4–5, 6–8</span></div><div class="stat"><b>2 min</b><span>maximum for the reveal</span></div></div>
+  <table>
+    <tr><th>Day</th><th>Format</th><th>What students do</th></tr>
+    <tr><td>Monday</td><td>Check-In</td><td>Name how they are arriving, privately, on a folded slip.</td></tr>
+    <tr><td>Tuesday</td><td>Picture of the Day</td><td>Notice, wonder, or make a claim about one image.</td></tr>
+    <tr><td>Wednesday</td><td>Zoom In</td><td>Guess what a close-up shows and name the clue.</td></tr>
+    <tr><td>Thursday</td><td>Would You Rather</td><td>Pick a side and give a reason.</td></tr>
+    <tr><td>Friday</td><td>Wonder</td><td>Predict the answer to a real science question.</td></tr>
+  </table>
+  <p>Every band uses the same weekly theme and the same images. What changes is the depth of thinking. A kindergartner guesses what the sunflower is; an eighth grader counts its spirals. Because the formats line up, any student can be moved to an easier or harder band's version on the same day and still join the same reveal.</p>
+  <div class="card"><div class="t">Why it works</div>Predictability lowers the stress of walking in. A task that needs no explanation frees the teacher to greet every student by name at the door. The reveal gives the task a reason to exist, so students take it seriously. Consistency across rooms means a student who changes classes, or a substitute who covers one, already knows the routine.</div>
+  <ol class="toc">
+    <li>The morning timeline</li><li>Before the first morning</li><li>Running the 30 minutes</li><li>Equity sticks and cold call</li>
+    <li>Turn and talk</li><li>LiveSchool moments</li><li>Day-by-day cards</li><li>When behavior gets in the way</li>
+    <li>Scaffolding across bands</li><li>Building student investment</li><li>Tech troubleshooting</li><li>Pocket card</li>
+  </ol>
+</section>
+
+<section>
+  <p class="eye">The morning timeline</p>
+  <h2 class="disp">Five phases, one clock</h2>
+  <table class="tl">
+    <tr><th>Time</th><th>Phase</th><th>Teacher is</th><th>Students are</th></tr>
+    <tr><td>7:10</td><td>Set</td><td>Opening the deck, turning on Repeat aloud, placing paper and pencils.</td><td>Not yet in the room.</td></tr>
+    <tr><td>7:15</td><td>Arrive</td><td>At the door, greeting each student by name, pointing to the screen.</td><td>Entering at voice 0–1, starting the Do Now.</td></tr>
+    <tr><td>7:15–7:37</td><td>Work</td><td>Circulating once the door slows: narrating, supporting, awarding LiveSchool points for sustained work.</td><td>Finishing the Do Now, then working in IXL.</td></tr>
+    <tr><td>~7:37</td><td>Stop</td><td>Giving the silent hand raise. Announcements are the hard stop.</td><td>Pencils down, eyes up, voice 0.</td></tr>
+    <tr><td>After announcements</td><td>Reveal</td><td>Running the reveal slide: think time, equity stick, turn and talk. Two minutes, no more.</td><td>Answering, voting, talking with a partner.</td></tr>
+    <tr><td>7:45</td><td>Hand off</td><td>Advancing to the Morning Meeting slide (Monday to Thursday) or the Friday Cypher slide.</td><td>Putting materials away and moving to the circle.</td></tr>
+  </table>
+  <div class="card yel"><div class="t">Two rules that protect the timeline</div>
+  <p><b>Announcements always end the work period.</b> Whatever students are doing, they stop. Nobody finishes a sentence first.</p>
+  <p><b>If announcements run long, the reveal shrinks, not Morning Meeting.</b> Cut to one cold call, skip the turn and talk, and start Morning Meeting on time. On a very long announcement day, skip the reveal entirely and open Morning Meeting with the answer.</p></div>
+  <p><b>Late arrivals.</b> There is no cutoff. A student who arrives late works on the Do Now until announcements start, then stops with everyone else. Every reveal is built so a student who did not finish, or never saw the Do Now, can still take part.</p>
+  <p><b>Friday.</b> Friday Cypher starts at 7:45, the same time Morning Meeting starts on other days. Friday is the schoolwide community celebration, so there is no classroom Morning Meeting. After the reveal, the deck shows "Time for Friday Cypher." Students report to the hallway once the announcement is made.</p>
+</section>
+
+<section>
+  <p class="eye">Before the first morning</p>
+  <h2 class="disp">Setup checklist</h2>
+  <p>Complete this once before launch and again after any long break. Everything on it prevents a problem that otherwise shows up at 7:16 with twenty students in the room.</p>
+  <h3>Technology</h3>
+  <ul class="check">
+    <li>Download the grade band's deck file and open it in Chrome on the projector computer. The Claude app preview blocks the read-aloud voice, so projecting from the download matters.</li>
+    <li>Press the EN and ES buttons on any slide to confirm the computer plays both voices. If there is no sound, check the computer's volume and that the file is open in Chrome.</li>
+    <li>Find the control bar. It appears at the bottom when the mouse moves and hides after a few seconds. Keys 1 to 5 jump to Monday through Friday; the arrow keys move through a day's three slides.</li>
+    <li>Confirm students can log in to IXL on their own. A student who cannot log in has nothing to do after the Do Now, and that is where arrival problems start.</li>
+  </ul>
+  <h3>Paper</h3>
+  <ul class="check">
+    <li>Print the band's student pages. Page 1 holds four Monday check-in slips per sheet; cut them in advance. Page 2 is the weekly page students use Tuesday to Friday (the Do Now Log in grades 6–8).</li>
+    <li>Choose one fixed spot for weekly pages, such as a folder on each desk or a bin by the door. Students should never need to ask where their paper is.</li>
+    <li>Set out a closed box or envelope for Monday check-in slips. The counselor picks up the slips by 10:00 a.m. every Monday.</li>
+  </ul>
+  <h3>Participation tools</h3>
+  <ul class="check">
+    <li>Make one equity stick per student with the student's name. Keep two cups: one labeled for sticks not yet called, one for sticks already called.</li>
+    <li>Assign standing turn-and-talk partners (Partner A and Partner B) and post the pairs. Pair emerging English speakers with a patient partner, and with a same-language partner when possible.</li>
+    <li>Open LiveSchool on a phone or tablet so points can be awarded while circulating, not from the desk later.</li>
+  </ul>
+  <h3>Teach it once</h3>
+  <p>Before the first real morning, run the routine as a practice with students: enter, find the Do Now, answer, move to IXL, hear the stop signal, do a reveal. Practice takes ten minutes and saves weeks of reminders. The same practice is the reteach when the routine slips.</p>
+</section>
+
+<section>
+  <p class="eye">Running the 30 minutes</p>
+  <h2 class="disp">What to say, when to say it</h2>
+  <h3>At the door (7:15 onward)</h3>
+  <p>Stand at the threshold where both the hallway and the room are visible. Greet each student by name, then point to the screen. Keep the door exchange short so the line keeps moving.</p>
+  <span class="say">“Good morning, Aaliyah. Glad you're here. Spark is on the screen.”</span>
+  <span class="say">“Morning, Mateo. Do Now first, then IXL.”<small>Use the same two-part direction every day so it becomes automatic.</small></span>
+  <span class="say">“Buenos días, Hana. La tarea está en la pantalla. Primero la tarea, luego IXL.”<small>For students more comfortable in Spanish. The deck also reads every prompt aloud in both languages.</small></span>
+  <p>If a student arrives upset, do not process it at the door. Acknowledge, give a place to land, and follow up once the room is working.</p>
+  <span class="say">“You look like the morning was rough. Take your seat, take a breath. I'll come to you in two minutes.”</span>
+  <h3>Turn on Repeat aloud</h3>
+  <p>With Repeat aloud on, the deck reads the Do Now in English and then Spanish every 90 seconds. A student who walks in at 7:28 hears the directions without the teacher leaving the door. It turns off by itself on reveal slides.</p>
+  <h3>Circulating (once arrivals slow)</h3>
+  <p>Walk a loop that passes every table. The job is to keep work going, not to check answers. Three moves in order:</p>
+  <ol>
+    <li><b>Narrate what is working</b>, quietly and specifically, to students near someone who has not started. <em>"Jaylen already has his claim written. Fatima found two pieces of evidence."</em></li>
+    <li><b>Unstick one student</b> with a frame, not an explanation. Point to the sentence frame on the screen or offer a starting choice.</li>
+    <li><b>Award LiveSchool points for sustained work</b>, two to three minutes into a student's Do Now, never for the first move. See the LiveSchool section for exact wording.</li>
+  </ol>
+  <span class="say">“Start with the frame on the screen: I think it is ___ because ___. Fill in the first blank.”</span>
+  <span class="say">“You can draw it first or write it first. Your call.”</span>
+  <span class="say">“That's one reason. Can you add a second one before IXL?”<small>For a student who finishes in thirty seconds with a thin answer.</small></span>
+  <h3>The stop (announcements)</h3>
+  <p>Use the schoolwide silent hand raise. Wait for the class to echo it before announcements begin.</p>
+  <span class="say">“Hands up, voice 0. Pencils down, eyes on the speaker.”</span>
+  <h3>The reveal (after announcements)</h3>
+  <p>Advance one slide. The reveal follows the same four beats every day.</p>
+  <ol>
+    <li><b>Show:</b> the answer, zoom-out, vote, or explanation on screen.</li>
+    <li><b>Think:</b> ten seconds of silent think time. Everyone has an answer before anyone speaks.</li>
+    <li><b>Call:</b> one or two equity sticks.</li>
+    <li><b>Talk:</b> a 30-second turn and talk, only if time allows.</li>
+  </ol>
+  <h3>The hand off (7:45)</h3>
+  <p>Advance to the Morning Meeting slide. On Fridays, advance to the Friday Cypher slide; students report to the hallway once the announcement is made.</p>
+  <span class="say">“IXL closed, materials in the folder. Walk to the circle and find your spot.”</span>
+</section>
+
+<section>
+  <p class="eye">Equity sticks and cold call</p>
+  <h2 class="disp">Everyone thinks, anyone can be called</h2>
+  <p>Equity sticks, also called cold call sticks, make participation fair and predictable. Every student prepares an answer because any stick can come up, and the same few voices stop carrying the room. Used well, cold call is an invitation, not a trap.</p>
+  <h3>How to run it</h3>
+  <ol>
+    <li>Ask the question first, then give think time. Pulling the stick before the question tells everyone else they can stop thinking.</li>
+    <li>Pull a stick from the "not yet called" cup. Say the name warmly and repeat the question.</li>
+    <li>Accept the answer, name what was strong in it, and move the stick to the "called" cup.</li>
+    <li>Refill the first cup when it runs low, so every student is called before anyone is called twice.</li>
+  </ol>
+  <span class="say">“Ten seconds to think. Everyone has an answer. ... Kofi, what season do you think it is, and what's your evidence?”</span>
+  <h3>When a student is stuck</h3>
+  <p>The student still participates. Lower the demand without letting the student opt out.</p>
+  <span class="say">“Want to use the frame? It starts, I think it is ___.”</span>
+  <span class="say">“Would you like to hear one idea from a friend first? I'll come right back to you.”<small>Then actually return to that student. The return is what keeps this safe and accountable.</small></span>
+  <span class="say">“Point to the picture you chose.”<small>For K–1 students and newcomers, a pointed answer is a full answer.</small></span>
+  <div class="card"><div class="t">Guardrails</div>
+  <ul><li><b>Never cold call on the Monday check-in.</b> Feelings are private. Monday's reveal uses volunteers only.</li>
+  <li>Do not use a stick to catch a student who is off task. That turns the tool into a consequence and students stop trusting it.</li>
+  <li>For students with IEP or 504 accommodations around verbal response, honor the accommodation. A written or pointed response counts.</li>
+  <li>Praise the thinking, not the correctness. Wrong guesses on Zoom In and Wonder days are the point.</li></ul></div>
+</section>
+
+<section>
+  <p class="eye">Turn and talk</p>
+  <h2 class="disp">Thirty seconds, every voice</h2>
+  <p>A turn and talk gets every student speaking in the time it takes one student to share. Keep it short and structured.</p>
+  <ol>
+    <li><b>Set the stem:</b> read the sentence frame from the slide.</li>
+    <li><b>Name who starts:</b> "Partner A first." This removes the negotiation.</li>
+    <li><b>Voice 2, 30 seconds each:</b> say "Switch" at the halfway point.</li>
+    <li><b>Listen in:</b> stand near two pairs. Choose one strong idea to share with the class.</li>
+    <li><b>Call back:</b> silent hand raise, then one pair shares what the partner said.</li>
+  </ol>
+  <span class="say">“Turn to your partner. Partner A first. Use the frame: I would choose ___ because ___. Thirty seconds, voice 2. Go.”</span>
+  <span class="say">“Switch. Partner B.”</span>
+  <span class="say">“Hands up. Marisol, tell us what your partner said.”<small>Sharing the partner's idea builds listening and gives shy students a safer way to speak.</small></span>
+  <p>In K–1, turn and talk is knee to knee and ten to fifteen seconds. Model it once with a student before asking pairs to try it.</p>
+</section>
+
+<section>
+  <p class="eye">LiveSchool moments</p>
+  <h2 class="disp">Recognition that names the behavior</h2>
+  <p>LiveSchool points are Cardinal Cash. Every award names a specific behavior tied to Safe, Respectful, or Responsible, and is read aloud to the student when given. Points go to sustained evidence during the routine, not after it and not for the first move.</p>
+  <div class="card dark"><div class="t">Never award points for</div>being quiet, simply sitting down, complying with a basic expectation, or getting an answer correct. And never deduct points for Level 1 slips at arrival; deductions are only the logging of Level 3 and above events, never a threat.</div>
+  <h3>Approved Morning Spark moments</h3>
+  <table>
+    <tr><th>Value</th><th>Behavior (LiveSchool category)</th><th>When it happens in Morning Spark</th></tr>
+    <tr><td>Responsible</td><td>Held a routine when it slipped</td><td>A student got off track, then restarted the Do Now without a second reminder.</td></tr>
+    <tr><td>Responsible</td><td>Followed through on a commitment</td><td>Finished the Do Now all the way through and moved to IXL independently.</td></tr>
+    <tr><td>Respectful</td><td>Used a voice frame</td><td>Used the sentence frame in a cold call or turn and talk.</td></tr>
+    <tr><td>Respectful</td><td>Listened through a disagreement</td><td>Thursday: heard a partner's opposite choice and repeated it back fairly.</td></tr>
+    <tr><td>Respectful</td><td>Welcomed a new or younger student</td><td>Showed a late or new student where the Do Now and paper are.</td></tr>
+    <tr><td>Safe</td><td>Used a regulation strategy</td><td>Arrived upset and used a breath, water, or a calm spot, then rejoined.</td></tr>
+    <tr><td>Safe</td><td>Helped a peer reset</td><td>Quietly helped a classmate who was frustrated get started.</td></tr>
+  </table>
+  <h3>Say it out loud, then tap</h3>
+  <span class="ls"><b>LiveSchool · Responsible</b>“Nia, you stuck with the Do Now all the way to IXL. Followed through.”</span>
+  <span class="ls"><b>LiveSchool · Responsible</b>“Dante, you got pulled off, then came right back to your claim on your own. That's holding the routine.”</span>
+  <span class="ls"><b>LiveSchool · Respectful</b>“Zaid used the frame word for word: I think it is late summer because. Voice frame.”</span>
+  <span class="ls"><b>LiveSchool · Respectful</b>“Amara showed Hana where the check-in box is. Welcomed a classmate.”</span>
+  <span class="ls"><b>LiveSchool · Safe</b>“Jaylen, you came in heavy and took a minute to breathe before you started. That's a regulation strategy.”</span>
+  <div class="card"><div class="t">Keep it fair</div>Aim for points to different students each morning. A quick way is to glance at the equity sticks in the "called" cup and look for evidence from students who have not been recognized this week. LiveSchool reports feed the monthly equity audit, and patterns of who is and is not recognized show up there.</div>
+</section>
+
+<section class="pb">
+  <p class="eye">Day-by-day cards</p>
+  <h2 class="disp">What each morning needs</h2>
+  <p>Each card lists the teacher's job for that day, the cold-call question and turn-and-talk stem for every band, and one thing to watch for. Questions match what is on each band's reveal slide.</p>
+  <div class="day"><div class="dh"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><g style="color:#F9DC7C"><path d="M50,84 C20,62 10,46 14,32 C18,18 38,14 50,30 C62,14 82,18 86,32 C90,46 80,62 50,84Z" fill="currentColor"/></g></svg></div><div><h3>Monday · Check-In</h3><span>Private by design</span></div></div><p><b>Do Now:</b> Students circle how they feel (K–3 faces; 4–8 energy scale and feeling words) on a slip, fold it, and put it in the box. The slip includes an option to talk to an adult.</p><p><b>Reveal:</b> A breathing strategy done together: balloon breaths (K–3), box breathing (4–5), or the double sigh (6–8). Volunteers only; no equity sticks.</p><span class="say">“Every feeling is welcome here. We're going to breathe together three times. Follow the slide.”</span><p><b>Teacher job:</b> Close the box before Morning Meeting. The counselor picks up the slips by 10:00 a.m. Anyone who asked to talk to an adult is seen that same day. A slip that raises a safety concern is handled under campus reporting procedures the same day. Students are never told their slip is secret, because some concerns must be shared with the right staff.</p><p><b>Watch for:</b> any comment on an individual answer in front of the class. Check-in answers are never discussed publicly.</p><span class="ls"><b>LiveSchool · Safe</b>“Lucia, you used the breath and your shoulders came down. That's a regulation strategy.”</span></div>
+  <div class="day"><div class="dh"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><g style="color:#F9DC7C"><rect x="12" y="30" width="76" height="52" rx="10" fill="currentColor"/><rect x="34" y="20" width="32" height="16" rx="4" fill="currentColor"/><circle cx="50" cy="56" r="17" fill="#232323"/><circle cx="50" cy="56" r="10" fill="currentColor"/></g></svg></div><div><h3>Tuesday · Picture of the Day</h3><span>A community garden on a city block</span></div></div><table><tr><th>Band</th><th>Cold-call question (after think time)</th><th>Turn-and-talk stem</th></tr><tr><td>K–1</td><td>What do you see? Point and tell.</td><td>I see ___.</td></tr><tr><td>2–3</td><td>What do you notice? What do you wonder?</td><td>I notice ___. I wonder ___.</td></tr><tr><td>4–5</td><td>What season is it? What's your evidence?</td><td>I think it is ___ because I see ___.</td></tr><tr><td>6–8</td><td>Why would neighbors turn an empty lot into a garden?</td><td>I think they built it because ___. My evidence is ___.</td></tr></table><p><b>Reveal move:</b> Count the tomatoes together (K–3). In 4–8, ask for a second piece of evidence from a new stick.</p><p><b>Watch for:</b> deficit framing. The picture shows neighbors who built something. Keep the conversation on what the community made, not what it lacks.</p></div>
+  <div class="day"><div class="dh"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><g style="color:#F9DC7C"><circle cx="42" cy="42" r="26" stroke="currentColor" stroke-width="10" fill="none"/><path d="M62,62 L86,86" stroke="currentColor" stroke-width="13" stroke-linecap="round"/></g></svg></div><div><h3>Wednesday · Zoom In</h3><span>A close-up of a sunflower</span></div></div><table><tr><th>Band</th><th>Cold-call question (after think time)</th><th>Turn-and-talk stem</th></tr><tr><td>K–1</td><td>What do you think it is?</td><td>I think it is a ___.</td></tr><tr><td>2–3</td><td>What's your guess, and what clue did you use?</td><td>I think it is ___ because I see ___.</td></tr><tr><td>4–5</td><td>How are the seeds arranged, and why?</td><td>The seeds are ___ so that ___.</td></tr><tr><td>6–8</td><td>How many spirals go each way? What pattern are they?</td><td>There are ___ one way and ___ the other. They are ___ numbers.</td></tr></table><p><b>Reveal move:</b> The slide zooms out on its own. Press "Zoom again" to replay it. Pause before the zoom finishes and ask for one more guess.</p><p><b>Watch for:</b> treating wrong guesses as mistakes. Every guess that uses a clue is good thinking. Say so.</p></div>
+  <div class="day"><div class="dh"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><g style="color:#F9DC7C"><path d="M50,90 L50,52 M50,52 L24,22 M50,52 L76,22" stroke="currentColor" stroke-width="11" stroke-linecap="round" fill="none"/><path d="M14,30 L20,12 L34,20Z M86,30 L80,12 L66,20Z" fill="currentColor"/></g></svg></div><div><h3>Thursday · Would You Rather</h3><span>Pick a side, give a reason</span></div></div><table><tr><th>Band</th><th>Cold-call question (after think time)</th><th>Turn-and-talk stem</th></tr><tr><td>K–1</td><td>Bird or bee? Why?</td><td>I would be a ___.</td></tr><tr><td>2–3</td><td>Bird or bee? What's your reason?</td><td>I would be a ___ because ___.</td></tr><tr><td>4–5</td><td>Wind or bird: which seed trip is riskier?</td><td>I would travel by ___ because ___.</td></tr><tr><td>6–8</td><td>Garden or court? Now argue the other side.</td><td>Someone might choose ___ because ___.</td></tr></table><p><b>Reveal move:</b> Students raise hands for each side while the teacher taps +1 on the slide to build the live vote. Then one stick from each side.</p><span class="ls"><b>LiveSchool · Respectful</b>“Yusuf, you chose the court and still explained the garden side fairly. Listened through a disagreement.”</span><p><b>Watch for:</b> the vote becoming a competition. Both answers are right. The point is the reason.</p></div>
+  <div class="day"><div class="dh"><div class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><g style="color:#F9DC7C"><path d="M50,10 C28,10 18,28 20,42 C22,56 34,62 36,74 L64,74 C66,62 78,56 80,42 C82,28 72,10 50,10Z" fill="currentColor"/><rect x="36" y="78" width="28" height="8" rx="3" fill="currentColor"/><rect x="40" y="89" width="20" height="6" rx="3" fill="currentColor"/></g></svg></div><div><h3>Friday · Wonder</h3><span>Why do leaves change color?</span></div></div><table><tr><th>Band</th><th>Cold-call question (after think time)</th><th>Turn-and-talk stem</th></tr><tr><td>K–1</td><td>Is it the sun, the cold, or paint?</td><td>I think it is ___.</td></tr><tr><td>2–3</td><td>Why do you think leaves change?</td><td>I think leaves change because ___.</td></tr><tr><td>4–5</td><td>Was your prediction close? What would you change?</td><td>I predicted ___. Now I know ___.</td></tr><tr><td>6–8</td><td>Did your hypothesis hold up? Revise it with one fact.</td><td>My revised hypothesis is ___ because ___.</td></tr></table><p><b>Reveal move:</b> Three panels appear in order. Read each one, then call one stick after panel 3.</p><p><b>Then:</b> Advance to "Time for Friday Cypher." Cypher starts at 7:45. Students report to the hallway once the announcement is made.</p></div>
+</section>
+
+<section class="pb">
+  <p class="eye">When behavior gets in the way</p>
+  <h2 class="disp">The least move that works</h2>
+  <p>Most arrival behavior is Level 1 on the campus Student Behavior Levels chart: off task, calling out, side conversations, a slow start, or a minor refusal. Level 1 is handled in the room with the smallest move that works. Start at step 1 and move up only if the step before did not work. Correct the routine, not the child.</p>
+  <ol class="ladder">
+    <li><b class="h">Proximity and a point</b>Walk to the student and point to the screen or the paper. No words. Most slow starts end here.</li>
+    <li><b class="h">Narrate nearby</b>Quietly name what a student close by is doing well, focused on the work. <em>"Kofi's already on his second sentence."</em></li>
+    <li><b class="h">Private redirect</b>Get close and quiet, name the next step, and walk away. Walking away signals trust.<span class="say">“Do Now first. Step one is the frame on the screen. I'll check back.”</span></li>
+    <li><b class="h">Offer a choice</b>Two acceptable options return control to the student.<span class="say">“You can start at your desk or at the back table. Which one?”</span></li>
+    <li><b class="h">Reteach the routine</b>If several students are off, the routine has slipped, not the students. Stop, re-cue, and practice entry for sixty seconds. Reteach is the consequence.<span class="say">“Let's reset. Voice 1, eyes on the Do Now, pencils moving. We'll practice that for one minute.”</span></li>
+    <li><b class="h">Beyond Level 1</b>If behavior escalates or is unsafe, follow the Student Behavior Levels chart. A tap-in follows the Tap-In Conversation Guide and Script Bank. Patterns over time go on an MTSS Behavior Request with the Tier 1 supports already tried.</li>
+  </ol>
+  <h3>Common arrival moments</h3>
+  <table>
+    <tr><th>Situation</th><th>Say or do</th></tr>
+    <tr><td>Head down, will not start</td><td>Crouch to eye level. <span class="say">“Hey. I'm right here. You can get water and come back, or sit up and just look at the picture for a minute. Which one?”</span></td></tr>
+    <tr><td>"I don't know what to write"</td><td><span class="say">“That's okay. Start with the frame, or draw what you see first.”</span></td></tr>
+    <tr><td>Two students talking at voice 3</td><td>Walk over, hold up one finger. <span class="say">“Voice 1.”</span> Move on.</td></tr>
+    <tr><td>Done in 30 seconds</td><td><span class="say">“Strong start. Add one more reason, then IXL.”</span> Or hand over the next band's prompt.</td></tr>
+    <tr><td>Wandering instead of IXL</td><td><span class="say">“Do Now is finished? Show me, then IXL. Or I can help you log in.”</span></td></tr>
+    <tr><td>Arrives upset from the hallway</td><td>Do not process at the door. <span class="say">“Take your seat and breathe. I'll come to you in two minutes.”</span> Then follow up.</td></tr>
+    <tr><td>Something on a slip worries you</td><td>Follow campus reporting procedures the same day. Do not promise the student secrecy.</td></tr>
+  </table>
+  <div class="card"><div class="t">Avoid</div><ul><li>Correcting from across the room. An audience makes students defend themselves.</li><li>Arguing at the door. The line behind the student is waiting.</li><li>LiveSchool deductions or point threats for Level 1 behavior.</li><li>Holding a student out of the reveal or Morning Meeting to finish the Do Now.</li></ul></div>
+</section>
+
+<section>
+  <p class="eye">Scaffolding across bands</p>
+  <h2 class="disp">Same day, same picture, right-sized task</h2>
+  <p>Because all four bands run the same format on the same day with the same images, a student can use another band's page and still take part in the class reveal. This is a support, not a label, and it can change week to week.</p>
+  <table>
+    <tr><th>Student</th><th>Move</th><th>Example</th></tr>
+    <tr><td>Needs reading support</td><td>Use one band lower</td><td>A 4th grader uses the 2–3 page: same garden, a sentence frame instead of a claim with two pieces of evidence.</td></tr>
+    <tr><td>New to English</td><td>Picture page plus audio</td><td>Use the K–1 or 2–3 page and the ES read-aloud button. A pointed or drawn answer counts.</td></tr>
+    <tr><td>Ready for more</td><td>Use one band higher</td><td>A 5th grader who finishes early tries the 6–8 prompt: count the spirals.</td></tr>
+    <tr><td>Needs time</td><td>Shorten, don't skip</td><td>Complete only the first line or the choice. Partial work on time beats full work that eats IXL.</td></tr>
+    <tr><td>Has IEP or 504 supports</td><td>Apply the plan</td><td>Accommodations such as read-aloud, extended time, or alternative responses apply to Morning Spark like any task.</td></tr>
+  </table>
+  <p>Keep a few copies of the neighboring bands' weekly pages in the room so the switch takes no time.</p>
+  <p><b>Other home languages.</b> The decks read every prompt aloud in English and Spanish. Some students speak Haitian Creole and other home languages. For these students, seat a same-language peer nearby when possible and make that peer the turn-and-talk partner, use the picture-based K–1 or 2–3 page, and accept a pointed, circled, or drawn answer as a full answer.</p>
+</section>
+
+<section>
+  <p class="eye">Building student investment</p>
+  <h2 class="disp">Make the reveal worth waiting for</h2>
+  <ul>
+    <li><b>Always reveal.</b> A Do Now that is never closed teaches students it does not matter. Even on a rushed day, show the answer.</li>
+    <li><b>Give students jobs.</b> A rotating Spark Captain presses the read-aloud button, taps the vote buttons, or reads the reveal aloud. In grades 3–8, the captain can pull the equity stick.</li>
+    <li><b>Quote students back.</b> Repeat a strong student answer word for word during the reveal, with the student's name. Being quoted is powerful recognition.</li>
+    <li><b>Connect the days.</b> Point out the threads: the cardinal on Tuesday's roof is Thursday's bird; Tuesday's garden holds Wednesday's sunflower.</li>
+    <li><b>Carry it to Friday.</b> Save the week's best "because" for a Cypher shout-out.</li>
+    <li><b>Peer recognition.</b> In grades 3–5, students nominate a peer's strong reason. In grades 6–8, peer recognition in LiveSchool is the main voice.</li>
+  </ul>
+</section>
+
+<section>
+  <p class="eye">Tech troubleshooting</p>
+  <h2 class="disp">Quick fixes</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>No read-aloud sound</td><td>Open the downloaded file in Chrome, not in a preview window. Check the computer's volume.</td></tr>
+    <tr><td>Wrong day showing</td><td>Press 1 to 5 for Monday to Friday, or move the mouse and use the day buttons.</td></tr>
+    <tr><td>Controls disappeared</td><td>Move the mouse or tap the screen. The bar hides itself after a few seconds.</td></tr>
+    <tr><td>Want to preview the whole week</td><td>Press "Week view" in the control bar. On a phone, the deck opens in Week view automatically.</td></tr>
+    <tr><td>Vote count needs a restart</td><td>Press "Clear votes" in the corner of Thursday's reveal.</td></tr>
+  </table>
+</section>
+
+<section class="pb">
+  <p class="eye">Pocket card</p>
+  <h2 class="disp">The 30 minutes on one page</h2>
+  <div class="pocket">
+    <h3>Morning Spark · every day</h3>
+    <div class="row"><b>7:10</b><span>Deck open in Chrome. Repeat aloud on. Paper out. LiveSchool open.</span></div>
+    <div class="row"><b>7:15</b><span>At the door. Name plus "Do Now first, then IXL." Point to the screen.</span></div>
+    <div class="row"><b>Work</b><span>Loop the room: narrate, unstick with the frame, award points for sustained work.</span></div>
+    <div class="row"><b>~7:37</b><span>Silent hand raise. Announcements are the hard stop.</span></div>
+    <div class="row"><b>Reveal</b><span>Show, think 10 seconds, pull a stick, turn and talk if time. Two minutes.</span></div>
+    <div class="row"><b>7:45</b><span>Morning Meeting slide. Friday: Cypher slide, then the hallway on the announcement.</span></div>
+    <h3>Least move that works</h3>
+    <div class="row"><b>1–2</b><span>Proximity and point. Narrate nearby.</span></div>
+    <div class="row"><b>3–4</b><span>Private redirect. Offer two choices.</span></div>
+    <div class="row"><b>5</b><span>Many students off? Reteach the entry for 60 seconds.</span></div>
+    <div class="row"><b>6</b><span>Beyond Level 1: Behavior Levels chart, tap-in, MTSS Behavior Request.</span></div>
+    <h3>LiveSchool</h3>
+    <div class="row"><b>Say it</b><span>"[Name], [specific behavior]. [Value]." Then tap.</span></div>
+    <div class="row"><b>Never</b><span>For quiet, sitting, compliance, or correct answers. No deductions for Level 1.</span></div>
+    <h3>Never on Monday</h3>
+    <div class="row"><b>Check-In</b><span>No cold call. No public comment on answers. Counselor picks up slips by 10:00 a.m.</span></div>
+  </div>
+</section>
+
+<footer class="closer">
+  <h2>Every morning, <em>the same</em> start.</h2>
+  <p class="sig">Student Support &amp; School Culture · Matchbook Learning, Wendell Phillips School 63<br>M. Williams, Director of Student Support &amp; School Culture</p>
+  <p class="motto">Safe. Respectful. Responsible.</p>
+</footer>
+</div>
+</body></html>
