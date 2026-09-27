@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recess &amp; Playground · Grades 3–5 | Culture Camp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#232323; --ember:#C8161D; --spark-red:#E21C24; --mb-yellow:#F9DC7C;
+  --ink:#1A1A1A; --slate:#4A4A4A; --hairline:#e2e8f0; --muted:#94a3b8;
+  --font-body:'Inter',system-ui,sans-serif; --font-cond:'Oswald',system-ui,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;background:#111;font-family:var(--font-body);}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(24px,4vw,64px);background:#fff;color:var(--ink);}
+.slide.active{display:flex;}
+.slide.dark{background:var(--charcoal);color:#fff;}
+.slide.red{background:var(--spark-red);color:#fff;}
+.slide.yellow{background:var(--mb-yellow);color:var(--ink);}
+
+.eyebrow{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.14em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.72;margin:0 0 .6rem;}
+.slide h1{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.01em;line-height:1.02;margin:0;font-size:clamp(30px,5.4vw,76px);}
+.slide h2{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  line-height:1.05;margin:0;font-size:clamp(24px,4.2vw,58px);}
+.lede{font-size:clamp(15px,1.7vw,25px);line-height:1.45;margin:1rem 0 0;max-width:36ch;opacity:.9;}
+.body-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+
+.mb-icon{width:1em;height:1em;flex:none;}
+.hero-icon{font-size:clamp(58px,9vw,120px);color:currentColor;opacity:.95;}
+
+.items{display:flex;gap:clamp(12px,2.2vw,32px);margin-top:clamp(16px,2.6vw,36px);flex-wrap:wrap;}
+.item{flex:1 1 0;min-width:150px;display:flex;flex-direction:column;gap:.55rem;
+  padding:clamp(12px,1.6vw,22px);border-radius:14px;background:rgba(0,0,0,.045);}
+.slide.dark .item,.slide.red .item{background:rgba(255,255,255,.11);}
+.item .mb-icon{font-size:clamp(34px,4.4vw,62px);}
+.item .lab{font-family:var(--font-cond);text-transform:uppercase;font-weight:700;
+  letter-spacing:.05em;font-size:clamp(15px,1.7vw,25px);line-height:1.1;}
+.item .txt{font-size:clamp(13px,1.35vw,19px);line-height:1.4;opacity:.93;}
+
+.frame{margin-top:clamp(16px,2.4vw,32px);padding:clamp(14px,2vw,26px);
+  border-radius:14px;border:2px dashed currentColor;opacity:.98;}
+.frame .flab{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.7;margin-bottom:.45rem;}
+.frame .stem{font-size:clamp(17px,2.3vw,34px);font-family:var(--font-cond);font-weight:600;line-height:1.25;}
+.choices{display:flex;gap:clamp(10px,1.6vw,22px);margin-top:clamp(12px,1.8vw,22px);flex-wrap:wrap;}
+.choice{flex:1 1 0;min-width:120px;display:flex;flex-direction:column;align-items:center;
+  gap:.4rem;padding:clamp(10px,1.4vw,18px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .choice,.slide.red .choice{background:rgba(255,255,255,.13);}
+.choice .mb-icon{font-size:clamp(30px,3.8vw,54px);}
+.choice .cl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(12px,1.3vw,18px);letter-spacing:.03em;}
+.bank{margin-top:.7rem;font-size:clamp(12px,1.25vw,17px);opacity:.85;}
+.bank b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.08em;font-size:.85em;}
+
+.steps{display:flex;gap:clamp(10px,1.6vw,24px);margin-top:clamp(16px,2.4vw,32px);flex-wrap:wrap;}
+.step{flex:1 1 0;min-width:110px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+  padding:clamp(10px,1.5vw,20px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .step,.slide.red .step{background:rgba(255,255,255,.13);}
+.step .n{font-family:var(--font-cond);font-weight:700;font-size:clamp(20px,2.6vw,38px);opacity:.5;line-height:1;}
+.step .mb-icon{font-size:clamp(28px,3.4vw,48px);}
+.step .sl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(13px,1.4vw,20px);letter-spacing:.03em;}
+
+.callout{margin-top:clamp(14px,2vw,28px);font-family:var(--font-cond);font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;font-size:clamp(14px,1.8vw,26px);line-height:1.2;}
+.cognate{margin-top:.8rem;font-size:clamp(11px,1.15vw,15px);opacity:.7;font-style:italic;}
+.why{margin-top:clamp(14px,2vw,26px);padding:clamp(12px,1.6vw,20px);border-left:5px solid currentColor;
+  font-size:clamp(13px,1.5vw,21px);line-height:1.45;opacity:.94;}
+.why b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.07em;font-size:.82em;
+  display:block;margin-bottom:.25rem;opacity:.75;}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(9px,.95vw,12px);opacity:.55;padding-top:1rem;}
+.foot .band{font-weight:700;letter-spacing:.16em;}
+
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:58vh;overflow:auto;
+  background:#0d0d0d;color:#f2f2f2;border-top:4px solid var(--spark-red);
+  padding:20px clamp(20px,4vw,56px) 28px;display:none;z-index:60;font-size:14.5px;line-height:1.55;}
+.notes.show{display:block;}
+.notes h3{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.12em;
+  font-size:12px;margin:0 0 10px;color:var(--mb-yellow);}
+.notes .script{font-size:16.5px;line-height:1.55;margin:0 0 14px;padding:12px 14px;
+  background:rgba(255,255,255,.07);border-left:4px solid var(--mb-yellow);border-radius:0 8px 8px 0;}
+.notes .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.notes .k{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;color:var(--muted);margin:0 0 5px;}
+.notes ul{margin:0;padding-left:18px;}
+.notes li{margin-bottom:4px;}
+.notes .rub{display:inline-block;font-family:var(--font-cond);background:var(--spark-red);
+  color:#fff;padding:2px 9px;border-radius:20px;font-size:11px;letter-spacing:.1em;}
+.notes .imgspec{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:12px;
+  border-top:1px solid rgba(255,255,255,.13);padding-top:10px;}
+
+.hud{position:fixed;top:14px;right:16px;z-index:70;display:flex;gap:8px;align-items:center;
+  font-family:var(--font-cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.hud button{font:inherit;background:rgba(0,0,0,.62);color:#fff;border:0;border-radius:20px;
+  padding:7px 13px;cursor:pointer;letter-spacing:.1em;}
+.hud button:hover{background:var(--spark-red);}
+.hud .cnt{background:rgba(0,0,0,.62);color:#fff;border-radius:20px;padding:7px 13px;}
+
+@media print{
+  html,body{background:#fff;height:auto;}
+  .deck{height:auto;width:auto;}
+  .hud{display:none;}
+  .slide{display:flex!important;position:relative;inset:auto;height:100vh;
+    page-break-after:always;border-bottom:1px solid #ddd;}
+  .notes{display:block!important;position:relative;max-height:none;}
+  .note-block{display:block!important;page-break-inside:avoid;
+    border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;}
+}
+</style></head><body>
+<div class="hud"><button id="prev">&larr;</button><button id="next">&rarr;</button><button id="nbtn">Notes (N)</button><span class="cnt" id="cnt"></span></div>
+<div class="deck">
+<section class="slide red">
+<p class="eyebrow">Shared Spaces · Recess</p>
+<div class="body-wrap">
+<h1>Who Gets<br>Left Out?</h1>
+<p class="lede">Recess is the freest part of your day. That freedom is great for most people and hard for the ones who never get picked.</p>
+<div style="margin-top:1.1rem"><svg class="mb-icon hero-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><path d="M32 10c-8 8-8 36 0 44"/><path d="M32 10c8 8 8 36 0 44"/><path d="M11 24h42"/><path d="M11 40h42"/></svg></div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 01</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">We Get Calm Before We Work</p>
+<div class="body-wrap">
+<h2>Reset Your Body First</h2>
+<div class="items">
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 8v26"/><path d="M32 20c-4 0-8 3-9 8l-4 16a6 6 0 0 0 11 4V20z"/><path d="M32 20c4 0 8 3 9 8l4 16a6 6 0 0 1-11 4V20z"/></svg>
+<div class="lab">In for 4</div>
+<div class="txt">Slow, through your nose.</div>
+</div>
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><path d="M22 28h6"/><path d="M36 28h6"/><path d="M22 40c4 4 16 4 20 0"/></svg>
+<div class="lab">Out for 6</div>
+<div class="txt">Longer, through your mouth.</div>
+</div>
+</div>
+<div class="callout">Three rounds. The breath out is the long one.</div>
+<div class="cognate">calm · calma</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 02</span></div>
+</section>
+<section class="slide dark">
+<p class="eyebrow">Two Kinds Of Fair</p>
+<div class="body-wrap">
+<h2>Fair Is Not Always Equal</h2>
+<div class="items">
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="8"/><circle cx="32" cy="10" r="5"/><circle cx="32" cy="54" r="5"/><circle cx="10" cy="32" r="5"/><circle cx="54" cy="32" r="5"/></svg>
+<div class="lab">Same rules</div>
+<div class="txt">Everyone plays by the same rules. That is the easy part.</div>
+</div>
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 28l10-8 8 6"/><path d="M58 28l-10-8-10 6h-8l-6 5a3 3 0 0 0 4 5l5-4"/><path d="M28 36l6 5"/><path d="M32 40l6 5"/><path d="M37 44l5 4a3 3 0 0 0 4-5l-8-7"/></svg>
+<div class="lab">Same chance</div>
+<div class="txt">Everyone actually gets picked and gets a turn. That is the hard part.</div>
+</div>
+</div>
+<div class="callout">Same rules is not the same as same chance.</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 03</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">Structured Partner Talk</p>
+<div class="body-wrap">
+<h2>Who Is On The Edge?</h2>
+<div style="margin-top:1.1rem"><svg class="mb-icon hero-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="18" r="7"/><path d="M8 50v-4a12 12 0 0 1 24 0v4"/><circle cx="45" cy="18" r="7"/><path d="M34 50v-4a12 12 0 0 1 24 0v4"/></svg></div>
+<div class="frame">
+<div class="flab">Sentence frame</div>
+<div class="stem">At recess some people end up ___ because ___.</div>
+<div class="bank"><b>Word bank:</b> alone · waiting · watching · not picked · on the edge</div>
+</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 04</span></div>
+</section>
+<section class="slide yellow">
+<p class="eyebrow">Rehearse The Behavior</p>
+<div class="body-wrap">
+<h2>Three Moves</h2>
+<div class="items">
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32s10-14 26-14 26 14 26 14-10 14-26 14S6 32 6 32z"/><circle cx="32" cy="32" r="7"/></svg>
+<div class="lab">Scan</div>
+<div class="txt">Look at the edges before you start playing.</div>
+</div>
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 28l10-8 8 6"/><path d="M58 28l-10-8-10 6h-8l-6 5a3 3 0 0 0 4 5l5-4"/><path d="M28 36l6 5"/><path d="M32 40l6 5"/><path d="M37 44l5 4a3 3 0 0 0 4-5l-8-7"/></svg>
+<div class="lab">Invite</div>
+<div class="txt">“We need one more.” Not “do you want to play?”</div>
+</div>
+<div class="item">
+<svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M52 26a22 22 0 0 0-40-6"/><path d="M12 8v12h12"/><path d="M12 38a22 22 0 0 0 40 6"/><path d="M52 56V44H40"/></svg>
+<div class="lab">Rotate</div>
+<div class="txt">Different people pick teams each day.</div>
+</div>
+</div>
+<div class="callout">“We need one more” beats “do you want to play?” every time.</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 05</span></div>
+</section>
+<section class="slide ">
+<p class="eyebrow">One Visible Next Step</p>
+<div class="body-wrap">
+<h2>My Commitment</h2>
+<div style="margin-top:1.1rem"><svg class="mb-icon hero-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="24"/><path d="M20 33l8 9 16-19"/></svg></div>
+<div class="frame">
+<div class="flab">Sentence frame</div>
+<div class="stem">At recess I will ___ so that ___.</div>
+<div class="bank"><b>Word bank:</b> scan the edges · say we need one more · rotate who picks · include someone new</div>
+</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 06</span></div>
+</section>
+<section class="slide dark">
+<p class="eyebrow">How We Leave Is How We Enter</p>
+<div class="body-wrap">
+<h2>The Exit Sequence</h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="12" r="6"/><path d="M32 18v20"/><path d="M32 38l-7 18"/><path d="M32 38l7 18"/><path d="M22 26h20"/></svg><div class="sl">Stand</div></div>
+<div class="step"><div class="n">2</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10v26h28V10"/><path d="M14 36h36"/><path d="M20 36v18"/><path d="M44 36v18"/></svg><div class="sl">Push in</div></div>
+<div class="step"><div class="n">3</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 32h44"/><path d="M38 18l14 14-14 14"/></svg><div class="sl">Turn</div></div>
+<div class="step"><div class="n">4</div><svg class="mb-icon " viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="36" cy="12" r="6"/><path d="M36 20l-6 14 8 8 2 14"/><path d="M30 34l-10 6-4 12"/><path d="M36 24l10 6"/></svg><div class="sl">Walk</div></div>
+</div>
+<div class="callout">Timed as one class, against our own last time. Never against each other.</div>
+</div>
+<div class="foot"><span>Matchbook Culture Camp · Recess &amp; Playground</span><span class="band">Grades 3–5 · 07</span></div>
+</section>
+</div><div class="notes" id="notes">
+<div class="note-block" style="display:none">
+<h3>Slide 1 · Title &amp; Promise <span class="rub">R1, R3</span></h3>
+<p class="script">“Recess is the freest time you get. And free is great — unless you are the person nobody picks. Look at the edges of the playground tomorrow. There are always people there.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Students acknowledge the edges</li><li>Students name the picking-teams problem</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Ask who has ever been picked last. Most hands go up.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Walk the perimeter at recess. That is where the data is.</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Newly arrived students are frequently on the perimeter.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Ball icon. Focus on the edges of the playground, not the center.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 2 · Regulate <span class="rub">R1</span></h3>
+<p class="script">“In for four, out for six. The breath OUT is the one that calms you — that is the whole trick. Three rounds.” Count aloud with them.</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Exhale visibly longer</li><li>Shoulders drop by round two</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>“This one is for you, not for me. Eyes down, one more round.”</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Co-regulate beside students who struggle</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Counting is the only demand.</li><li>Model rather than describe.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Lungs and calm-face icons; optional 4/6 count bar.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 3 · Orient <span class="rub">R3, R5</span></h3>
+<p class="script">“Same rules for everyone is easy — we already do that. Same chance is different. If the same three people pick teams every day, the rules are equal and the chances are not.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Students distinguish equal rules from equal access</li><li>Students name who never gets picked</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>“Who picks teams? Is it always the same people?”</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Rotating who picks teams solves more playground conflict than any rule</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Provide: ‘Everyone follows the rules but not everyone gets ___.’</li></ul></div>
+</div>
+<p class="imgspec">Visual: Two contrasting fairness icons.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 4 · Connect <span class="rub">R3</span></h3>
+<p class="script">“Why do some people end up on the edge? Not who — why. What are the reasons?” Keep it about mechanisms, not individuals.</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Structural reasons named — picking order, skill gaps, being new</li><li>No individual students named</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Redirect firmly if it becomes about specific children.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Never let this become a discussion about a named child</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Word bank covers both halves.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Two-people icon with word bank.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 5 · Practice <span class="rub">R3, R5</span></h3>
+<p class="script">“Here is the difference. 'Do you want to play?' makes them the person who needed to be asked. 'We need one more' makes them useful. Same invitation, completely different feeling. Use the second one.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>The 'we need one more' phrasing being used</li><li>Team-picking rotating</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>Practice both phrasings aloud so students hear the difference.</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>This single phrasing change is the highest-leverage thing in this deck</li></ul></div>
+<div><p class="k">Language support</p><ul><li>The exact script is provided and is short enough for any proficiency level.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Three icons. The phrasing difference is the whole lesson.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 6 · Commit <span class="rub">R2, R3, R5</span></h3>
+<p class="script">“One move, today. Scanning the edges counts — you cannot invite someone you never looked at.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Inclusion commitments</li><li>Visible change at recess</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>“Who benefits?”</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Watch and name it privately afterward</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Word bank covers the first blank.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Check icon.</p>
+</div>
+<div class="note-block" style="display:none">
+<h3>Slide 7 · Transition <span class="rub">R1, R4, R5</span></h3>
+<p class="script">“How we leave the meeting is how we enter the learning. We time it as one class, against our own record — not against each other.”</p>
+<div class="grid">
+<div><p class="k">Look for</p><ul><li>Chairs in unprompted</li><li>No pushing or racing</li></ul></div>
+<div><p class="k">If it breaks</p><ul><li>“Reset. First thirty seconds again until it is clean.”</li></ul></div>
+<div><p class="k">Support adult</p><ul><li>Redirect to the step, not the behavior</li></ul></div>
+<div><p class="k">Language support</p><ul><li>Icons carry the sequence.</li><li>Post the class time — numbers are accessible.</li></ul></div>
+</div>
+<p class="imgspec">Visual: Four step icons plus a clock showing the class's previous time.</p>
+</div>
+</div><script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var notes=[].slice.call(document.querySelectorAll('.note-block'));
+  var panel=document.getElementById('notes');
+  var cnt=document.getElementById('cnt');
+  var i=0, open=false;
+  function draw(){
+    slides.forEach(function(s,n){s.classList.toggle('active',n===i);});
+    notes.forEach(function(s,n){s.style.display=(n===i?'block':'none');});
+    cnt.textContent=(i+1)+' / '+slides.length;
+  }
+  function go(d){ i=Math.max(0,Math.min(slides.length-1,i+d)); draw(); }
+  function toggle(){ open=!open; panel.classList.toggle('show',open);
+    document.getElementById('nbtn').textContent = open?'Hide notes (N)':'Notes (N)'; }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key==='n'||e.key==='N'){e.preventDefault();toggle();}
+    else if(e.key==='Home'){i=0;draw();}
+    else if(e.key==='End'){i=slides.length-1;draw();}
+  });
+  document.getElementById('prev').addEventListener('click',function(){go(-1);});
+  document.getElementById('next').addEventListener('click',function(){go(1);});
+  document.getElementById('nbtn').addEventListener('click',toggle);
+  draw();
+})();
+</script></body></html>

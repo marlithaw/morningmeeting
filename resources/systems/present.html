@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presenter View · Culture Camp</title>
+<link rel="icon" type="image/svg+xml" href="./shared/flame-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --spark-red:#E21C24; --red-dark:#B5151A; --charcoal:#232323; --charcoal-2:#2b2b2b;
+    --ink:#1A1A1A; --paper:#f4f4f2; --muted:#9a9a9a; --gold:#F7B23C; --line:#3a3a3a;
+    --font-display:'Anton','Arial Narrow',sans-serif; --font-cond:'Oswald','Arial Narrow',sans-serif;
+    --font-body:'Mulish',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:#1b1b1b;color:#fff;font-family:var(--font-body);}
+  body{display:flex;flex-direction:column;overflow:hidden;}
+
+  .p-header{
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    padding:12px clamp(14px,2vw,26px);
+    background:var(--charcoal);border-bottom:1px solid var(--line);
+  }
+  .p-brand{display:flex;align-items:center;gap:10px;}
+  .p-brand img{width:22px;height:auto;}
+  .p-brand strong{font-family:var(--font-cond);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+  .p-title{font-family:var(--font-cond);font-weight:600;font-size:14px;color:#e6e6e6;letter-spacing:.02em;
+    max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .p-spacer{flex:1;}
+  .p-count{font-family:var(--font-cond);font-weight:700;font-size:15px;letter-spacing:.06em;color:#fff;}
+  .p-timer{font-family:var(--font-cond);font-weight:600;font-size:16px;letter-spacing:.05em;color:var(--gold);
+    min-width:76px;text-align:center;}
+  .p-btn{
+    font-family:var(--font-cond);font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--line);background:#2f2f2f;color:#fff;padding:8px 14px;cursor:pointer;
+  }
+  .p-btn:hover{border-color:#666;}
+  .p-btn.primary{background:var(--spark-red);border-color:var(--spark-red);}
+  .p-btn.primary:hover{background:var(--red-dark);border-color:var(--red-dark);}
+  .p-btn.live{background:#1f6f43;border-color:#1f6f43;}
+  .p-btn.tiny{padding:6px 9px;font-size:11px;}
+
+  .p-main{flex:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0;min-height:0;}
+  @media (max-width:900px){ .p-main{grid-template-columns:1fr;grid-template-rows:auto 1fr;} }
+
+  .p-stage-wrap{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--line);background:#000;}
+  .p-stage-label{display:flex;align-items:center;justify-content:space-between;
+    padding:9px 16px;background:var(--charcoal-2);border-bottom:1px solid var(--line);
+    font-family:var(--font-cond);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .p-stage{position:relative;flex:1;min-height:0;background:#000;overflow:hidden;}
+  .p-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;pointer-events:none;}
+  .p-next{padding:10px 16px;background:var(--charcoal-2);border-top:1px solid var(--line);
+    font-family:var(--font-body);font-size:13px;color:#cfcfcf;}
+  .p-next b{font-family:var(--font-cond);font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:8px;}
+
+  .p-notes-wrap{display:flex;flex-direction:column;min-width:0;min-height:0;background:#202020;}
+  .p-notes-head{padding:10px 18px;background:var(--charcoal-2);border-bottom:1px solid var(--line);
+    font-family:var(--font-cond);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  #pnotes{flex:1;overflow:auto;padding:20px clamp(16px,2vw,30px) 28px;font-size:17px;line-height:1.6;color:#f0f0f0;}
+  #pnotes h3{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin:0 0 12px;color:var(--gold);}
+  #pnotes .script{font-size:18px;line-height:1.6;margin:0 0 16px;padding:14px 16px;background:rgba(255,255,255,.06);border-left:4px solid var(--gold);}
+  #pnotes .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:6px;}
+  #pnotes .k{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);margin:0 0 5px;}
+  #pnotes ul{margin:0;padding-left:20px;} #pnotes li{margin-bottom:5px;}
+  #pnotes .rub{display:inline-block;font-family:var(--font-cond);background:var(--spark-red);color:#fff;padding:2px 10px;font-size:11px;letter-spacing:.1em;}
+  #pnotes .imgspec{font-size:13px;color:var(--muted);font-style:italic;margin-top:14px;border-top:1px solid var(--line);padding-top:10px;}
+  #pnotes .empty{color:var(--muted);font-style:italic;}
+
+  .p-controls{display:flex;align-items:center;gap:14px;padding:12px clamp(14px,2vw,26px);
+    background:var(--charcoal);border-top:1px solid var(--line);}
+  .p-nav{font-family:var(--font-cond);font-weight:700;font-size:15px;letter-spacing:.05em;text-transform:uppercase;
+    border:0;background:var(--spark-red);color:#fff;padding:14px 26px;cursor:pointer;min-width:120px;}
+  .p-nav:hover{background:var(--red-dark);}
+  .p-nav[disabled]{background:#3a3a3a;color:#777;cursor:default;}
+  .p-hint{flex:1;font-size:12.5px;color:var(--muted);line-height:1.4;}
+  .p-hint b{color:#ddd;}
+
+  .p-banner{background:var(--gold);color:#1a1a1a;padding:10px 18px;font-family:var(--font-cond);font-weight:600;
+    font-size:13px;letter-spacing:.03em;text-transform:uppercase;display:none;}
+  .p-banner.show{display:block;}
+  .p-banner a{color:#1a1a1a;}
+</style>
+</head>
+<body>
+  <div class="p-banner" id="p-banner"></div>
+  <header class="p-header">
+    <span class="p-brand"><img src="./shared/flame-logo.svg" alt=""><strong>Presenter</strong></span>
+    <span class="p-title" id="p-title">Procedure deck</span>
+    <span class="p-spacer"></span>
+    <span class="p-count" id="p-count">— / —</span>
+    <span class="p-timer" id="p-timer">00:00</span>
+    <button class="p-btn tiny" id="p-timer-toggle" type="button">Start</button>
+    <button class="p-btn tiny" id="p-timer-reset" type="button">Reset</button>
+    <button class="p-btn primary" id="p-open-proj" type="button">▶ Open projector window</button>
+  </header>
+
+  <div class="p-main">
+    <div class="p-stage-wrap">
+      <div class="p-stage-label"><span>Current slide (your preview)</span><span id="p-stage-note">Students see this — without notes</span></div>
+      <div class="p-stage"><iframe id="p-stage-frame" title="Current slide preview"></iframe></div>
+      <div class="p-next"><b>Next up</b><span id="p-next">—</span></div>
+    </div>
+    <div class="p-notes-wrap">
+      <div class="p-notes-head" id="p-notes-head">Teacher notes</div>
+      <div id="pnotes"><p class="empty">Loading deck…</p></div>
+    </div>
+  </div>
+
+  <div class="p-controls">
+    <button class="p-nav" id="p-prev" type="button">◀ Prev</button>
+    <button class="p-nav" id="p-next-btn" type="button">Next ▶</button>
+    <p class="p-hint">Open the projector window, drag it to your projector/second screen, and make it <b>fullscreen</b>. Students see only the slides. Advance with these buttons or your <b>arrow keys</b>.</p>
+  </div>
+
+<script>
+(function(){
+  var qs = new URLSearchParams(location.search);
+  var deck = qs.get('deck') || '';
+  var title = qs.get('title') || 'Procedure deck';
+  // Only allow same-directory deck filenames (no paths/protocols) for safety.
+  var safe = /^[A-Za-z0-9._-]+\.html$/.test(deck);
+  var banner = document.getElementById('p-banner');
+  function showBanner(html){ banner.innerHTML = html; banner.classList.add('show'); }
+
+  document.getElementById('p-title').textContent = title;
+  document.title = 'Presenter · ' + title;
+
+  var frame = document.getElementById('p-stage-frame');
+  var projector = null;
+  var idx = 0, count = 0, notesEls = [], slideCount = 0, ready = false;
+
+  var elCount = document.getElementById('p-count');
+  var elNotes = document.getElementById('pnotes');
+  var elNext = document.getElementById('p-next');
+  var elHead = document.getElementById('p-notes-head');
+  var btnPrev = document.getElementById('p-prev');
+  var btnNext = document.getElementById('p-next-btn');
+
+  if(!safe){
+    showBanner('No valid deck specified. Open Presenter View from a deck’s “Present with notes” button.');
+    elNotes.innerHTML = '<p class="empty">No deck loaded.</p>';
+    return;
+  }
+  frame.src = deck;
+
+  function hideChrome(win){
+    try{
+      var d = win.document;
+      if(d.getElementById('cc-present-style')) return;
+      var st = d.createElement('style');
+      st.id = 'cc-present-style';
+      st.textContent = '.hud{display:none !important;} .notes{display:none !important;}';
+      (d.head || d.documentElement).appendChild(st);
+    }catch(e){}
+  }
+
+  function activeIndex(win){
+    try{
+      var slides = win.document.querySelectorAll('.slide');
+      for(var n=0;n<slides.length;n++){ if(slides[n].classList.contains('active')) return n; }
+    }catch(e){}
+    return -1;
+  }
+
+  function applyIndex(win, target){
+    try{
+      if(!win || win.closed || !win.document) return;
+      var next = win.document.getElementById('next');
+      var prev = win.document.getElementById('prev');
+      if(!next || !prev) return;
+      var cur = activeIndex(win); if(cur < 0) cur = 0;
+      var guard = 0;
+      while(cur < target && guard++ < 300){ next.click(); cur++; }
+      while(cur > target && guard++ < 300){ prev.click(); cur--; }
+    }catch(e){}
+  }
+
+  function renderNotes(){
+    var el = notesEls[idx];
+    if(el){ elNotes.innerHTML = el.innerHTML; }
+    else { elNotes.innerHTML = '<p class="empty">No notes for this slide.</p>'; }
+    elHead.textContent = 'Teacher notes · Slide ' + (idx+1);
+    // next-up preview: title of next slide's notes (its h3) or count
+    if(idx+1 < slideCount){
+      var nx = notesEls[idx+1];
+      var h = nx ? nx.querySelector('h3') : null;
+      elNext.textContent = h ? h.textContent : ('Slide ' + (idx+2) + ' of ' + slideCount);
+    } else {
+      elNext.textContent = 'End of deck';
+    }
+    elCount.textContent = (idx+1) + ' / ' + slideCount;
+    btnPrev.disabled = (idx <= 0);
+    btnNext.disabled = (idx >= slideCount-1);
+  }
+
+  function go(delta){
+    if(!ready) return;
+    var t = Math.max(0, Math.min(slideCount-1, idx + delta));
+    if(t === idx && delta !== 0) return;
+    idx = t;
+    applyIndex(frame.contentWindow, idx);
+    if(projector && !projector.closed) applyIndex(projector, idx);
+    renderNotes();
+  }
+
+  frame.addEventListener('load', function(){
+    var win = frame.contentWindow;
+    try{
+      var slides = win.document.querySelectorAll('.slide');
+      notesEls = [].slice.call(win.document.querySelectorAll('.note-block'));
+      slideCount = slides.length || notesEls.length || 1;
+      hideChrome(win);
+      idx = 0;
+      applyIndex(win, 0);
+      ready = true;
+      renderNotes();
+    }catch(e){
+      // Cross-origin / file:// restriction — notes can't be read.
+      showBanner('Could not read this deck’s notes in the preview (this works on the live site). You can still open the projector window and present.');
+      elNotes.innerHTML = '<p class="empty">Notes unavailable in this context.</p>';
+      ready = true; slideCount = 1; renderNotes();
+    }
+  });
+
+  btnPrev.addEventListener('click', function(){ go(-1); });
+  btnNext.addEventListener('click', function(){ go(1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); go(1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); go(-1); }
+    else if(e.key === 'Home'){ go(-slideCount); }
+    else if(e.key === 'End'){ go(slideCount); }
+  });
+
+  // Projector window
+  var openBtn = document.getElementById('p-open-proj');
+  openBtn.addEventListener('click', function(){
+    if(projector && !projector.closed){ projector.focus(); return; }
+    projector = window.open(deck, 'cc_projector', 'width=1280,height=720');
+    if(!projector){
+      showBanner('Your browser blocked the projector window. Allow pop-ups for this site, then click “Open projector window” again.');
+      return;
+    }
+    banner.classList.remove('show');
+    openBtn.textContent = 'Projector open ✓';
+    openBtn.classList.remove('primary'); openBtn.classList.add('live');
+    var tries = 0;
+    var t = setInterval(function(){
+      tries++;
+      if(!projector || projector.closed){ clearInterval(t); openBtn.textContent = '▶ Open projector window'; openBtn.classList.add('primary'); openBtn.classList.remove('live'); return; }
+      var ai = activeIndex(projector);
+      if(ai >= 0){ hideChrome(projector); applyIndex(projector, idx); clearInterval(t); }
+      if(tries > 60) clearInterval(t);
+    }, 200);
+  });
+  window.addEventListener('beforeunload', function(){ try{ if(projector && !projector.closed) projector.close(); }catch(e){} });
+
+  // Timer
+  var elTimer = document.getElementById('p-timer');
+  var running = false, seconds = 0, timerId = null;
+  var toggle = document.getElementById('p-timer-toggle');
+  function fmt(s){ var m = Math.floor(s/60), r = s%60; return (m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
+  function tick(){ seconds++; elTimer.textContent = fmt(seconds); }
+  toggle.addEventListener('click', function(){
+    running = !running;
+    if(running){ timerId = setInterval(tick, 1000); toggle.textContent = 'Pause'; }
+    else { clearInterval(timerId); toggle.textContent = 'Start'; }
+  });
+  document.getElementById('p-timer-reset').addEventListener('click', function(){
+    clearInterval(timerId); running = false; seconds = 0; elTimer.textContent = '00:00'; toggle.textContent = 'Start';
+  });
+})();
+</script>
+</body>
+</html>

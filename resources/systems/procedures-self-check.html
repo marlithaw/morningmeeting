@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Procedures Self-Check</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><style>
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;--slate:#4A4A4A;--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;
+--disp:'Oswald',sans-serif;--body:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:var(--body);color:var(--ink);font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+section{padding:38px 44px}
+section+section{border-top:1px solid var(--line)}
+.hero{background:radial-gradient(ellipse at 85% -10%,rgba(226,28,36,.6),transparent 55%),var(--charcoal);color:#fff;padding:54px 44px 40px}
+.hero .eye{color:var(--yellow)}.hero .eye::before{background:var(--yellow)}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,8.6vw,76px);line-height:.98;margin:12px 0 16px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{max-width:640px;font-size:17px;color:#e8e8e4}
+.zig{display:block;margin-top:22px}
+.eye{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--red);display:flex;align-items:center;gap:8px}
+.eye::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+h2.disp{font-family:var(--disp);text-transform:uppercase;font-size:clamp(26px,4.8vw,40px);line-height:1.05;margin:8px 0 14px}
+h3{font-family:var(--disp);text-transform:uppercase;font-size:21px;letter-spacing:.02em;margin:22px 0 8px}
+p+p{margin-top:10px}
+.lead{font-size:17.5px;color:var(--slate)}
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:6px;padding:16px 18px;margin:14px 0;break-inside:avoid}
+.card .t{font-family:var(--disp);text-transform:uppercase;font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.card.dark{background:var(--charcoal);color:#fff;border-left-color:var(--yellow)}
+.card.yel{background:#FFF8DA;border-left-color:var(--charcoal)}
+.pill{font-family:var(--disp);font-size:11.5px;background:var(--red);color:#fff;border-radius:50px;padding:2px 10px;letter-spacing:.06em;text-transform:uppercase}
+.pill.y{background:var(--yellow);color:var(--charcoal)}
+.say{display:block;background:#F7F7F4;border-left:4px solid var(--yellow);padding:8px 12px;margin:8px 0;font-weight:600;border-radius:0 6px 6px 0}
+.say small{display:block;font-weight:400;color:var(--slate);font-size:13.5px}
+.ls{display:block;background:#FDECEC;border-left:4px solid var(--red);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0}
+.ls b{font-family:var(--disp);text-transform:uppercase;letter-spacing:.04em;font-weight:600;color:var(--ember);margin-right:6px}
+.pq{display:inline-block;background:var(--yellow);border-radius:6px;padding:10px 16px;font-weight:700;font-size:18px;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px;break-inside:auto}
+th{font-family:var(--disp);text-transform:uppercase;font-weight:600;letter-spacing:.04em;text-align:left;background:var(--charcoal);color:#fff;padding:8px 10px;font-size:13px}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr{break-inside:avoid}
+td:first-child{font-weight:700;white-space:nowrap}
+.tl td:first-child{font-family:var(--disp);font-size:17px;color:var(--red);font-weight:600}
+ul,ol{padding-left:22px;margin:8px 0}li{margin:4px 0}
+.check li{list-style:none;position:relative;padding-left:4px}
+.check li::before{content:"";position:absolute;left:-22px;top:5px;width:13px;height:13px;border:2px solid var(--charcoal);border-radius:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ladder{counter-reset:s;list-style:none;padding:0}
+.ladder>li{counter-increment:s;position:relative;padding:12px 14px 12px 58px;border:1px solid var(--line);border-radius:6px;margin:10px 0;break-inside:avoid}
+.ladder>li::before{content:counter(s);position:absolute;left:14px;top:10px;font-family:var(--disp);font-size:30px;color:var(--red);line-height:1}
+.ladder>li b.h{font-family:var(--disp);text-transform:uppercase;font-size:16px;display:block}
+.day{border:1px solid var(--line);border-top:6px solid var(--red);border-radius:6px;padding:18px 20px;margin:18px 0;break-inside:avoid-page}
+.day .dh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.day .dh .ic{width:46px;height:46px;border-radius:10px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;flex:none}
+.day .dh h3{margin:0}
+.day .dh span{color:var(--slate);font-size:14px;display:block}
+.todo{border:2px dashed var(--ember);background:#FFF3C4;padding:6px 10px;border-radius:6px;display:inline;font-weight:600}
+.todo::before{content:"ADD \25B8  ";color:var(--ember);font-family:var(--disp);letter-spacing:.06em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.stat{background:var(--charcoal);color:#fff;border-radius:6px;padding:14px}
+.stat b{display:block;font-family:var(--disp);font-size:38px;color:var(--yellow);line-height:1}
+.stat span{font-size:13.5px;color:#ddd}
+.closer{background:var(--charcoal);color:#fff;padding:40px 44px}
+.closer h2{font-family:var(--disp);text-transform:uppercase;font-size:34px;line-height:1.05}
+.closer h2 em{font-style:normal;color:var(--red)}
+.closer .sig{margin-top:14px;color:#ddd;font-size:14.5px}
+.closer .motto{font-family:var(--disp);color:var(--yellow);text-transform:uppercase;font-size:24px;margin-top:18px;letter-spacing:.04em}
+.pocket{border:3px solid var(--charcoal);border-radius:8px;padding:18px 20px}
+.pocket h3{margin-top:4px}
+.pocket .row{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.pocket .row b{font-family:var(--disp);color:var(--red);font-size:16px}
+.toc{columns:2;gap:24px;font-size:15px}.toc li{break-inside:avoid}
+@media(max-width:600px){section,.hero,.closer{padding:28px 20px}.grid2,.stats{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.toc{columns:1}td:first-child{white-space:normal}}
+@media print{
+  @page{size:letter;margin:.5in}
+  body{background:#fff;font-size:11pt}.wrap{box-shadow:none;max-width:none}
+  section{padding:18px 0}.hero,.closer{padding:28px 24px}
+  .hero,.closer{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#232323}
+  .pb{break-before:page}
+  .day{break-inside:avoid}
+  .eye,h2.disp,h3{break-after:avoid}
+  .closer{break-before:avoid}
+}
+
+.chk td{height:44px}.chk td.box{width:92px;text-align:center}.chk td.box span{display:inline-block;width:22px;height:22px;border:2px solid var(--charcoal);border-radius:4px}
+.chk th.c{text-align:center;width:92px}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.sig div{border-bottom:2px solid var(--charcoal);padding-top:26px;font-size:13px;color:var(--slate)}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-family:var(--disp);text-transform:uppercase;letter-spacing:.04em;border-radius:50px;padding:9px 18px;font-size:14px}
+.chk{table-layout:fixed}.chk td{white-space:normal;overflow-wrap:anywhere}
+@media print{.btnrow{display:none}.closer{break-inside:avoid;break-before:auto;padding:20px 24px}.closer h2{font-size:26px}.closer .motto{font-size:18px;margin-top:10px}
+.card,tr,.say,.stats,.sig{break-inside:avoid}h2,h3,.eye{break-after:avoid}thead{display:table-header-group}
+.hero{padding:30px 32px 24px}.hero h1{font-size:44px}section{padding-top:12px;padding-bottom:12px}.chk td{height:26px;padding-top:5px;padding-bottom:5px}.chk{font-size:13px;margin:6px 0}.sig div{padding-top:18px}.sig{gap:10px 18px;margin-top:10px}}
+</style></head><body><div class="wrap">
+<header class="hero"><p class="eye">Student Support &amp; Culture · Teacher-Facing</p>
+<h1>Procedures <em>Self-Check</em></h1>
+<p>A two-minute check on which schoolwide and classroom procedures have been explicitly taught to students, modeled and practiced, not just announced. Any row marked "I want support" can become a 30-minute Procedures Clinic.</p><svg class="zig" width="180" height="16" viewBox="0 0 180 16" aria-hidden="true"><path d="M0,12 L15,4 L30,12 L45,4 L60,12 L75,4 L90,12 L105,4 L120,12 L135,4 L150,12 L165,4 L180,12" fill="none" stroke="#E21C24" stroke-width="4"/></svg></header>
+<section><p class="eye">How to use it</p><h2 class="disp">Mark each procedure honestly</h2>
+<ul><li><b>Taught and practiced</b> means students saw it modeled and rehearsed it, not only heard the expectation.</li>
+<li><b>Students do it without reminders</b> means the routine runs on the cue alone most days.</li>
+<li><b>I want support</b> means a coach will run a short clinic on that procedure, then visit for 10 minutes to see it with students.</li></ul>
+<div class="btnrow"><a class="btn" href="javascript:window.print()">Print this page</a></div></section>
+<section><p class="eye">Schoolwide</p><h2 class="disp">Held the same way everywhere</h2><table class="chk"><colgroup><col><col style="width:96px"><col style="width:96px"><col style="width:96px"></colgroup><thead><tr><th>Procedure</th><th class="c">Taught and practiced</th><th class="c">Students do it without reminders</th><th class="c">I want support</th></tr></thead><tr><td>Morning Entry</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Dismissal (Ember, 2:05 to 2:23)</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Hallway Transitions</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Restroom</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Lunch Expectations</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Recess Expectations</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Expectations Refresher (dress code, phones, backpacks, passes)</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Student Technology (grades 5–8 only)</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr></table></section>
+<section><p class="eye">Classroom</p><h2 class="disp">Same shape, your room's specifics</h2><table class="chk"><colgroup><col><col style="width:96px"><col style="width:96px"><col style="width:96px"></colgroup><thead><tr><th>Procedure</th><th class="c">Taught and practiced</th><th class="c">Students do it without reminders</th><th class="c">I want support</th></tr></thead><tr><td>Entering (First Five) and Exiting</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Assigned Seating</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Voice Levels</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Materials Collection and Distribution</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Attention-Getter</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Morning Circle Transition</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr><tr><td>Indoor Recess</td><td class="box"><span></span></td><td class="box"><span></span></td><td class="box"><span></span></td></tr></table>
+<div class="sig"><div>Name</div><div>Grade / room</div><div>Date</div><div>Coach</div></div>
+<p style="margin-top:16px">Share the completed self-check with your instructional coach.</p></section>
+<footer class="closer" style="padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><p class="sig" style="margin:0">Student Support &amp; School Culture · Matchbook Learning, Wendell Phillips School 63</p><p class="motto" style="margin:0;font-size:16px">Safe. Respectful. Responsible.</p></footer></div></body></html>
