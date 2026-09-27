@@ -194,7 +194,19 @@
         .modal-overlay.open .modal-content {
             transform: scale(1) translateY(0);
         }
-    </style>
+    
+        /* Deliver Today: the three lesson-delivery tabs, in order of the day */
+        nav button.deliver { border-radius: 10px !important; padding: 11px 12px !important; color: #fff !important; font-weight: 600 !important; border-right: 0 !important; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+        nav button.deliver i { color: #fff !important; }
+        nav button.deliver .dl-when { margin-left: auto; margin-right: 6px; font-family: var(--font-cond, 'Oswald', sans-serif); font-size: 12px; letter-spacing: .06em; background: rgba(255,255,255,.22); border-radius: 50px; padding: 1px 8px; }
+        nav button.deliver-spark { background: linear-gradient(90deg, #E21C24, #F29A2E) !important; }
+        nav button.deliver-units { background: #232323 !important; }
+        nav button.deliver-units > span > i { color: #F9DC7C !important; }
+        nav button.deliver-ember { background: linear-gradient(90deg, #2B2320, #E3602A) !important; }
+        nav button.deliver:hover { filter: brightness(1.08); }
+        nav button.deliver-on { box-shadow: 0 0 0 3px #F9DC7C, 0 2px 8px rgba(0,0,0,.2) !important; }
+        nav button:not(.deliver) .dl-when { display: none; }
+</style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden relative">
 
@@ -221,15 +233,20 @@
         
         <nav class="w-64 bg-white border-r border-[var(--hairline)] overflow-y-auto custom-scrollbar flex-shrink-0 flex flex-col">
             <div class="p-6 pb-2">
+                <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mb-1">Deliver Today</h2>
+                <p class="text-[11px] text-[var(--muted)] mb-3 leading-snug">In order, arrival to dismissal.</p>
+                <ul class="space-y-2 mb-8 deliver-list">
+                    <li><button onclick="switchTab('morning-spark')" id="tab-btn-morning-spark" data-tone="spark" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-bolt w-5"></i> Morning Spark</span><span class="dl-when">7:15</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('instructional-units')" id="tab-btn-instructional-units" data-tone="units" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-book-open-reader w-5"></i> Instructional Units</span><span class="dl-when">7:45</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                    <li><button onclick="switchTab('ember')" id="tab-btn-ember" data-tone="ember" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-fire-flame-curved w-5"></i> Ember</span><span class="dl-when">2:05</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
+                </ul>
+
                 <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mb-4">Operating Protocol</h2>
                 <ul class="space-y-1">
                     <li><button onclick="switchTab('overview')" id="tab-btn-overview" class="nav-btn bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]"><span class="flex items-center"><i class="fa-solid fa-compass w-5"></i> Overview</span><i class="fa-solid fa-chevron-right text-[10px]"></i></button></li>
                     <li><button onclick="switchTab('run-of-show')" id="tab-btn-run-of-show" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-stopwatch w-5"></i> Run of Show</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
-                    <li><button onclick="switchTab('morning-spark')" id="tab-btn-morning-spark" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-bolt w-5"></i> Morning Spark</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
-                    <li><button onclick="switchTab('ember')" id="tab-btn-ember" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-fire-flame-curved w-5"></i> Ember</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('weekly-arc')" id="tab-btn-weekly-arc" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-calendar-week w-5"></i> Weekly Cycle</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                     <li><button onclick="switchTab('culture-camp')" id="tab-btn-culture-camp" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-campground w-5"></i> Culture Camp</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
-                    <li><button onclick="switchTab('instructional-units')" id="tab-btn-instructional-units" class="nav-btn"><span class="flex items-center"><i class="fa-solid fa-book-open-reader w-5"></i> Instructional Units</span><i class="fa-solid fa-chevron-right text-[10px] opacity-0"></i></button></li>
                 </ul>
 
                 <h2 class="font-cond text-[13px] text-[var(--muted)] uppercase tracking-[0.08em] mt-8 mb-4">Systems &amp; Procedures</h2>
@@ -486,10 +503,10 @@
                 <!-- MORNING SPARK TAB: arrival Do Now presentations and student pages -->
                 <div id="morning-spark" class="tab-content">
                     <div class="mb-8">
-                        <p class="text-[var(--slate)] text-lg">Morning Spark is the arrival Do Now. Students complete it on their own as they walk in, move to IXL, stop for announcements, and close it with a two-minute reveal that leads straight into Morning Meeting. Each grade-band file holds the whole week: five Do Now slides, five reveals, and the hand-off slide.</p>
+                        <p class="text-[var(--slate)] text-lg">Morning Spark is the arrival Do Now. Students complete it on their own as they walk in, move to IXL (grades 3–8) or read a book (K–2), stop for announcements, and close it with a two-minute reveal that leads straight into Morning Meeting. Each grade-band file holds the whole week: five Do Now slides, five reveals, and the hand-off slide.</p>
                     </div>
 
-                    <ol class="flex flex-wrap gap-3 mb-8 list-none p-0" aria-label="Morning Spark timeline"><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:15</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Arrive</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Do Now on the screen. Students start on their own.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">Then</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">IXL</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Finished students move straight to IXL.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">~7:37</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Stop</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Announcements end the work period for everyone.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">2 min</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Reveal</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Answer, vote, or zoom-out. One or two equity sticks.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:45</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Hand off</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Morning Meeting, or the Friday Cypher on Fridays.</p></li>
+                    <ol class="flex flex-wrap gap-3 mb-8 list-none p-0" aria-label="Morning Spark timeline"><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:15</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Arrive</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Do Now on the screen. Students start on their own.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">Then</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">IXL or read</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Grades 3–8 go straight to IXL. K–2 read a book.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">~7:37</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Stop</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Announcements end the work period for everyone.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">2 min</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Reveal</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Answer, vote, or zoom-out. One or two equity sticks.</p></li><li class="flex-1 min-w-[150px] bg-white border border-[var(--hairline)] p-4 relative"><div class="font-cond text-2xl font-bold text-[var(--spark-red)] leading-none">7:45</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Hand off</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Morning Meeting, or the Friday Cypher on Fridays.</p></li>
                     </ol>
 
                     <section class="mb-8 bg-white border border-[var(--hairline)] border-l-4 border-l-[var(--spark-red)] shadow-sm p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5" aria-labelledby="spark-guide-title">
@@ -635,6 +652,7 @@
                                 <li>The deck opens on today's day. Keys 1 to 5 jump to Monday through Friday, and the arrow keys move through a day's three slides.</li>
                                 <li>Turn on <strong>Repeat aloud</strong> so students who arrive late hear the directions without the teacher leaving the door.</li>
                                 <li>The control bar hides after a few seconds. Move the mouse to bring it back.</li>
+                                <li>Grades 3–8: the yellow <strong>Go to IXL</strong> button on each Do Now slide opens today's IXL codes. K–2 slides say <strong>Read a book</strong> instead; in the 2–3 deck, grade 3 goes to IXL and grade 2 reads.</li>
                             </ul>
                         </div>
                         <div class="mb-card mb-card-white border-l-4 border-l-[var(--charcoal)] shadow-sm">
@@ -657,7 +675,7 @@
                         <p class="text-[var(--slate)] text-lg">Ember is the end-of-day companion to Morning Spark. It is the assigned seated task from the 2:05 announcement until each group is called: pack up, watch a short calm-down video, reflect, then wait calmly. A rail on the side of the screen shows which group goes now, which is next, and which is gone. <strong class="text-[var(--charcoal)]">No one lines up at the door. Students stay seated until their group is called.</strong></p>
                     </div>
 
-                    <ol class="flex flex-wrap gap-3 mb-8 list-none p-0" aria-label="Ember and dismissal timeline"><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:05</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Pack up</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Announcement. Everyone stays seated and packs up. The teacher stands.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:08</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Watch</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">A calm-down video, or the breathing circle if video is blocked.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:10</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Walkers</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Called by name. Computer and pencil stay on the desk.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:13</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Reflect</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">One prompt and a sentence frame. Tell someone at home tonight.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:15</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Cafeteria, gym</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Car riders and aftercare to the cafeteria. Activities to the gym.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:17–2:23</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Buses</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">6–8 at 2:17, 3–5 at 2:20, K–2 at 2:23, with a teacher.</p></li>
+                    <ol class="flex flex-wrap gap-3 mb-8 list-none p-0" aria-label="Ember and dismissal timeline"><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:05</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Pack up</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Announcement. Everyone stays seated and packs up. The teacher stands.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:08</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Watch</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">A calm-down video, or the breathing circle if video is blocked.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:10</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Walkers</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Called by name. Chromebook into its numbered cart spot on the way out.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:#E3602A">2:13</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Reflect</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">One prompt and a sentence frame. Tell someone at home tonight.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:15</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Cafeteria, gym</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">Car riders and aftercare to the cafeteria. Activities to the gym.</p></li><li class="flex-1 min-w-[140px] bg-white border border-[var(--hairline)] p-4"><div class="font-cond text-2xl font-bold leading-none" style="color:var(--charcoal)">2:17–2:23</div><div class="font-cond text-[13px] font-bold uppercase tracking-widest text-[var(--ink)] mt-2">Buses</div><p class="text-[12px] text-[var(--slate)] leading-snug mt-1">K–2 at 2:17, 3–5 at 2:20, 6–8 last at 2:23, with a teacher.</p></li>
                     </ol>
 
                     <section class="mb-8 bg-white border border-[var(--hairline)] shadow-sm" aria-labelledby="ember-title">
@@ -665,7 +683,7 @@
                             <div>
                                 <div class="font-cond text-[12px] font-bold text-[var(--mb-yellow)] tracking-[0.12em] uppercase mb-2" style="color:#F29A2E">Dismissal · Four grade bands · Five days</div>
                                 <h2 id="ember-title" class="font-cond text-3xl font-bold uppercase tracking-wide"><i class="fa-solid fa-fire-flame-curved mr-2" style="color:#E3602A"></i>Ember</h2>
-                                <p class="text-sm text-slate-300 mt-2 max-w-2xl">Each band has its own board with a different video and reflection every day. The board starts itself at 2:05 on school days, or press Start. Practice mode runs a pretend 2:05 so students can rehearse dismissal at any time.</p>
+                                <p class="text-sm text-slate-300 mt-2 max-w-2xl">Each band has its own board with a different video and reflection every day. The day's video is on the board as soon as it opens. The board starts itself at 2:05 on school days, or press Start. Practice mode runs a pretend 2:05 so students can rehearse dismissal at any time.</p>
                             </div>
                         </div>
                         <div class="px-6 py-4 bg-[var(--mb-yellow)] text-[var(--ink)] text-sm">Open the board in Chrome on the projector computer before 2:05. Videos play from YouTube, so test one in the classroom first. If YouTube is blocked, the board switches to a breathing circle that needs no internet.</div>
@@ -771,7 +789,7 @@
                                 <li><strong>Do</strong> keep everyone seated until their group is called. <strong>Not</strong> a line at the door, ever.</li>
                                 <li><strong>Do</strong> call groups by the schoolwide times. <strong>Not</strong> early releases for students who packed up fast.</li>
                                 <li><strong>Do</strong> keep the voice level at 1 during the video and reflection. <strong>Not</strong> free time on devices.</li>
-                                <li><strong>Do</strong> send walkers with computers and pencils left on the desk. <strong>Not</strong> devices in backpacks.</li>
+                                <li><strong>Do</strong> have each student plug their Chromebook into their numbered cart spot (the same number as their workbook) as their group leaves. <strong>Not</strong> Chromebooks left on desks or in backpacks.</li>
                             </ul>
                         </div>
                     </div>
@@ -2643,6 +2661,7 @@
             
             document.querySelectorAll('nav button').forEach(btn => {
                 btn.className = 'w-full text-left px-3 py-2 text-sm font-medium text-[var(--slate)] hover:bg-slate-50 transition-colors flex items-center justify-between group';
+                if (btn.dataset.tone) btn.classList.add('deliver', 'deliver-' + btn.dataset.tone);
                 btn.querySelector(':scope > span > i').className = 'fa-solid ' + btn.querySelector(':scope > span > i').className.split(' ')[1] + ' w-5 group-hover:text-[var(--ink)] transition-colors';
                 btn.querySelector(':scope > i:last-child').className = 'fa-solid fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-opacity';
             });
@@ -2658,6 +2677,7 @@
                     activeBtn.className = 'w-full text-left px-3 py-2 text-sm font-medium transition-colors flex items-center justify-between group bg-red-50 text-[var(--spark-red)] border-r-4 border-[var(--spark-red)]';
                 }
                 
+                if (activeBtn.dataset.tone) activeBtn.classList.add('deliver', 'deliver-' + activeBtn.dataset.tone, 'deliver-on');
                 activeBtn.querySelector(':scope > span > i').className = 'fa-solid ' + activeBtn.querySelector(':scope > span > i').className.split(' ')[1] + ' w-5 transition-colors';
                 activeBtn.querySelector(':scope > i:last-child').className = 'fa-solid fa-chevron-right text-[10px] opacity-100 transition-opacity';
             }
@@ -2715,6 +2735,8 @@
                 switchTab(id);
             }
         }
+        // style the sidebar on first paint the same way a click does
+        switchTab((document.querySelector('.tab-content.active') || {}).id || 'overview');
         openTabFromHash();
         window.addEventListener('hashchange', openTabFromHash);
     </script>
