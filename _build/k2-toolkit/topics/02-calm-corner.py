@@ -32,7 +32,7 @@ TOPIC = dict(
                 kr='Mwen kalme m. Apre sa, mwen retounen pou m aprann.',
             ),
     card_line='I can use the calm corner, get calm, and come back.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 26 seconds', poster_at=2.5),
     choices=CHOICES,
     choices_head=dict(en='In the calm corner, I can:', es='En el rincón de calma, puedo:', kr='Nan kwen kalm nan, mwen ka:'),
     deck=dict(
