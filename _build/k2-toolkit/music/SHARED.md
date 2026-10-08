@@ -1,6 +1,6 @@
 # Shared song parts (every K-2 toolkit topic)
 
-Every topic song reuses these lines word for word. Only the topic hook, the verses, and the outro promise change.
+Agreed plan (Option A, "Calm Choices"): the chorus never changes. In every topic, only the verses and the outro get rewritten. The intro is shared too.
 Lyrics are Marlitha's, from the approved Gentle Hands song.
 
 [Intro]
@@ -8,7 +8,7 @@ Matchbook, are you ready? (Ready!)
 Hands up high, hands down low,
 Let's learn it, let's go!
 
-[Chorus]
+[Chorus - Calm Choices]
 When I feel mad, I can choose! (I can choose!)
 Breathe in slow, blow it out, whoo!
 Calm corner, break card, use my words,

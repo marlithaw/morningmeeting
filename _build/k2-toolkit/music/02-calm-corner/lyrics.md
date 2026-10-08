@@ -22,7 +22,7 @@ Big feelings are okay, nobody's to blame.
 I walk, don't run, to the cozy spot,
 One friend at a time, that's the deal we got.
 
-[Chorus]
+[Chorus - Calm Choices]
 When I feel mad, I can choose! (I can choose!)
 Breathe in slow, blow it out, whoo!
 Calm corner, break card, use my words,
@@ -34,7 +34,7 @@ I find my feeling and I take a look.
 My body feels calm, my breathing is slow,
 Back to the rug, now I'm ready to go!
 
-[Chorus]
+[Chorus - Calm Choices]
 When I feel mad, I can choose! (I can choose!)
 Breathe in slow, blow it out, whoo!
 Calm corner, break card, use my words,
