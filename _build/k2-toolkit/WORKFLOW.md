@@ -13,7 +13,7 @@ family half-sheets (EN/ES/KR), a captioned song video, a topic web page, and an 
 | 3. Review the content draft | Marlitha |
 | 4. Flow image prompts for the gaps; generate in Flow (personal Gmail only, never the Matchbook account); she picks | Claude + Marlitha |
 | 5. Build the draft bundle and check every page | Claude |
-| 6. Two lyric options; she makes the song in Suno and uploads it | Claude + Marlitha |
+| 6. Lyrics: shared intro + "I can choose" chorus (music/SHARED.md) word for word, new topic hook, verses, outro; she makes it in Suno and uploads it | Claude + Marlitha |
 | 7. Flow video clips (Frames mode, 8s, no ages in prompts, never animate the unsafe act); cut the captioned video | Claude |
 | 8. Publish on a branch, open a PR; she merges; check the live site | Claude + Marlitha |
 
