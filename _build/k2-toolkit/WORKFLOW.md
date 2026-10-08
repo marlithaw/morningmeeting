@@ -19,12 +19,15 @@ family half-sheets (EN/ES/KR), a captioned song video, a topic web page, and an 
 
 ## Commands
 
+See README.md, "How to build a topic". In short:
+
 ```
-cd _build/k2-toolkit/builder
-python3 build_topic.py 02-calm-corner              # draft into out/02-calm-corner (+ site preview)
-python3 build_topic.py 02-calm-corner --only deck  # rebuild one part
-python3 coloring.py c_breathe color_calm.png 90    # trace a white-background image into a coloring page
-python3 build_topic.py 02-calm-corner --publish    # copy into resources/k2-behavior-toolkit and refresh the topic menu
+cd _build/k2-toolkit
+python3 build.py topics/02-calm-corner.py                 # draft into out/02-calm-corner (includes the topic page)
+python3 build.py topics/02-calm-corner.py --only deck     # rebuild one part
+python3 builder/lineart.py c_breathe color_calm.png       # trace a white-background image into a coloring page
+python3 music/build_mv.py 02-calm-corner --clips <folder> # captioned song video (needs music/02-calm-corner/mv.py)
+python3 build.py topics/02-calm-corner.py --publish       # copy into resources/k2-behavior-toolkit and refresh the toolkit home
 ```
 
 ## Content rules

@@ -1,29 +1,28 @@
-"""Poster: letter and 11x17, four captioned panels, calm choices row, promise footer."""
+"""Poster: four story panels, the calm choices row, and the promise. Letter (8.5x11) and tabloid (11x17) PDFs."""
 import os
 from common import *
 
+ROT = [-1.2, 1, 0.8, -0.9]          # panel tilt, one per panel in the 2 x 2 grid
+SIZES = {'letter': ('8.5in', '11in', 16), 'tabloid': ('11in', '17in', 20.7)}
 
-def html(t, size):
-    P = t['poster']
-    fs = 16 if size == 'letter' else 20.7
-    W, H = ('8.5in', '11in') if size == 'letter' else ('11in', '17in')
+
+def poster(T, size):
+    P = T['poster']
+    W, H, fs = SIZES[size]
     panels = ''
-    for i, (im, col, sym, en, es, ht, pos) in enumerate(P['panels']):
-        rot = [-1.2, 1, 0.8, -0.9][i]
+    for i, p in enumerate(P['panels']):
+        col, sym = p['color'], p['symbol']
+        rot = ROT[i]
         panels += f'''<div class="pan" style="--b:{col};transform:rotate({rot}deg)">
-          <span class="tape" style="top:-.55em;left:38%;transform:rotate({-rot * 3}deg)"></span>
-          <div class="ph" style="background-image:url({img(im)});background-position:{pos}"></div>
+          <span class="tape" style="top:-.55em;left:38%;transform:rotate({-rot*3}deg)"></span>
+          <div class="ph" style="background-image:url({img(p['img'])});background-position:{p['pos']}"></div>
           <div class="cap"><span class="badge" style="background:{col}">{sym}</span>
-            <div><div class="en">{en}</div>
-            <div class="lang"><b>ES</b>{es}</div><div class="lang"><b>KR</b>{ht}</div></div></div>
+            <div><div class="en">{p['en']}</div>
+            <div class="lang"><b>ES</b>{p['es']}</div><div class="lang"><b>KR</b>{p['kr']}</div></div></div>
         </div>'''
-    C = P.get('choices') or t['choices']
     cope = ''.join(f'''<div class="cp"><div class="ci" style="background-image:url({img(k)})"></div>
-        <div class="cl">{en}</div><div class="lang sm">{es}</div><div class="lang sm">{ht}</div></div>''' for k, en, es, ht in C)
-    ch_en, ch_es, ch_kr = P.get('choices_head') or t['choices_head']
-    pe, ps, pk = t['promise']
-    title = ' '.join(t['title_lines'])
-    tsize = P.get('title_size', '4.6em')
+        <div class="cl">{en}</div><div class="lang sm">{es}</div><div class="lang sm">{ht}</div></div>''' for k, en, es, ht in P['choices'])
+    ch, say = P['choices_head'], P['say']
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
 {fontface()}
 {BASE_CSS}
@@ -34,10 +33,10 @@ body{{width:{W};height:{H};font-size:{fs}px;overflow:hidden}}
 .top{{height:.8em}}
 .hd{{display:flex;align-items:center;justify-content:space-between;padding:.7em 1.6em .2em}}
 .hd .t{{display:flex;flex-direction:column}}
-.ttl{{font-size:{tsize}}}
+.ttl{{font-size:4.6em}}
 .sub{{font-family:var(--round);font-weight:600;font-size:1.5em;color:var(--char);margin-top:.15em}}
 .sub em{{font-style:normal;background:var(--green);color:#fff;border-radius:.4em;padding:.05em .45em;margin-left:.3em;font-size:.8em;vertical-align:middle;border:2px solid var(--char)}}
-.hd .lt{{width:9.5em;height:6.2em;background:url({img(P['header_img'])}) center/cover;border-radius:1em;border:3px solid var(--char);flex:none}}
+.hd .lt{{width:9.5em;height:6.2em;background:url({img(P['header_img'])}) center/cover;border-radius:1em;border:3px solid var(--char)}}
 .grid{{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:1.1em 1.2em;padding:.9em 1.6em .6em;min-height:0}}
 .pan{{position:relative;background:#fff;border:4px solid var(--b);border-radius:1em;box-shadow:5px 5px 0 var(--char);display:flex;flex-direction:column;overflow:visible;min-height:0}}
 .ph{{flex:1;background-size:cover;background-position:center 35%;border-radius:.7em .7em 0 0;min-height:0}}
@@ -49,7 +48,7 @@ body{{width:{W};height:{H};font-size:{fs}px;overflow:hidden}}
 .ch{{display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap;margin-bottom:.4em}}
 .ch .h{{font-family:var(--disp);font-size:1.7em;color:var(--char)}}
 .ch .lang{{font-size:.8em}}
-.cps{{display:grid;grid-template-columns:repeat({len(C)},1fr);gap:.55em}}
+.cps{{display:grid;grid-template-columns:repeat({len(P['choices'])},1fr);gap:.55em}}
 .cp{{text-align:center}}
 .ci{{height:6.2em;border-radius:.6em;border:3px solid var(--char);background-size:cover;background-position:center 30%;background-color:#fff}}
 .cl{{font-family:var(--round);font-weight:700;font-size:.92em;line-height:1.08;margin:.3em 0 .1em}}
@@ -57,28 +56,30 @@ body{{width:{W};height:{H};font-size:{fs}px;overflow:hidden}}
 .ft{{display:flex;align-items:center;justify-content:space-between;margin:.8em 1.6em .3em;padding:.5em .9em;background:var(--red);border:4px solid var(--char);border-radius:1em;color:#fff}}
 .ft .say{{font-family:var(--disp);font-size:1.55em;line-height:1.05}}
 .ft .lang{{color:#fff;opacity:.92;font-size:.72em}} .ft .lang b{{color:#ffe7a6}}
-.ft .tu{{width:6em;height:4.4em;background:url({img(P['foot_img'])}) center/cover;border-radius:.6em;border:3px solid var(--char);flex:none}}
+.ft .tu{{width:6em;height:4.4em;background:url({img(P['footer_img'])}) center/cover;border-radius:.6em;border:3px solid var(--char);flex:none}}
 .meta{{display:flex;justify-content:space-between;align-items:center;padding:.15em 1.6em .55em;font-family:var(--round);font-size:.62em;color:#555}}
 .logo{{font-size:1.15em}}
 </style></head><body><div class="pg paper">
 <div class="top kente"></div>
-<div class="hd"><div class="t"><div class="ttl">{title}</div>
-<div class="sub">{t['sub']} <em>{t['value'].upper()}</em></div></div><div class="lt"></div></div>
+<div class="hd"><div class="t"><div class="ttl">{' '.join(T['title_lines'])}</div>
+<div class="sub">{T['subtitle']} <em>{T['value'].upper()}</em></div></div><div class="lt"></div></div>
 <div class="grid">{panels}</div>
-<div class="cope"><div class="ch"><span class="h">{ch_en}</span>
-<span class="lang"><b>ES</b>{ch_es}</span><span class="lang"><b>KR</b>{ch_kr}</span></div>
+<div class="cope"><div class="ch"><span class="h">{ch['en']}</span>
+<span class="lang"><b>ES</b>{ch['es']}</span><span class="lang"><b>KR</b>{ch['kr']}</span></div>
 <div class="cps">{cope}</div></div>
-<div class="ft"><div><div class="say">{pe}</div>
-<div class="lang"><b>ES</b>{ps}</div>
-<div class="lang"><b>KR</b>{pk}</div></div><div class="tu"></div></div>
-<div class="meta"><span class="logo">{LOGO_SVG}Matchbook Learning</span><span>K–2 Behavior Toolkit · {t['title']} · Safe · Respectful · Responsible</span></div>
+<div class="ft"><div><div class="say">{say['en']}</div>
+<div class="lang"><b>ES</b>{say['es']}</div>
+<div class="lang"><b>KR</b>{say['kr']}</div></div><div class="tu"></div></div>
+<div class="meta"><span class="logo">{LOGO_SVG}Matchbook Learning</span><span>K–2 Behavior Toolkit · {T['full_title']} · Safe · Respectful · Responsible</span></div>
 </div></body></html>'''
 
 
-def build(t):
-    N, od, td = names(t), out_dir(t), tmp_dir(t)
-    for size, (w, h), key in [('letter', ('8.5in', '11in'), 'poster_letter'), ('tabloid', ('11in', '17in'), 'poster_tabloid')]:
-        p = os.path.join(td, f'poster_{size}.html')
-        open(p, 'w').write(html(t, size))
-        render_pdf(p, os.path.join(od, N[key]), w, h)
-    return [N['poster_letter'], N['poster_tabloid']]
+def build(T, outdir):
+    N, wd, made = names(T), work_dir(outdir), []
+    for size, (w, h, _) in SIZES.items():
+        p = os.path.join(wd, f'poster_{size}.html')
+        open(p, 'w').write(poster(T, size))
+        f = N['poster_' + size]
+        render_pdf(p, os.path.join(outdir, f), w, h)
+        made.append(f)
+    return made
