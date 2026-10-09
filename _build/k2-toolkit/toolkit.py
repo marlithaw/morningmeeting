@@ -11,7 +11,7 @@ TOPICS = [
     dict(num=1, title='Naming My Feelings', line='I can name how I feel.',
          part='Skills I can use', slug='01-naming-my-feelings', status='soon', thumb=None),
     dict(num=2, title='Using the Calm Corner', line='I can use the calm corner, get calm, and come back.',
-         part='Skills I can use', slug='02-calm-corner', status='soon', thumb=None),
+         part='Skills I can use', slug='02-calm-corner', status='live', thumb='in_corner'),
     dict(num=3, title='Belly Breathing', line='I can breathe slow to calm my body.',
          part='Skills I can use', slug='03-belly-breathing', status='soon', thumb=None),
     dict(num=4, title='Asking for a Break', line='I can ask for a break with my words or my card.',
