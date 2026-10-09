@@ -9,6 +9,7 @@ TITLE = 'MY FEELINGS'
 SUBTITLE = 'Morning Meeting · K–2'
 TITLE_LAYOUT = 'frame'            # title above a framed video, so it never covers a face
 TITLE_UNTIL = 7.3                 # opening card shows through the intro
+OPENING_CROP = (258, 8, 764, 430)  # zoom the intro clip to Lee and Tee, head to waist (x, y, w, h of the 1280x720 clip)
 BPM = 92.285                      # librosa: 92.2 fit, first beat 0.19
 BEAT0 = 0.19
 SNAP_UNTIL = 83
@@ -19,8 +20,8 @@ END = 83.8
 SEG = [(7.4, 'gh_wave', 0.0),
        # hook
        (12.2, 'ff_cards', 0.3), (14.2, 'ff_say', 0.3), (16.6, 'ff_cards', 5.0),
-       # verse 1: Lee's turn to read
-       (21.3, 'ff_turn', 0.3), (26.8, 'ff_tummy', 0.3), (31.0, 'ff_tell', 0.5), (33.4, 'ff_proud', 0.3),
+       # verse 1: Lee's turn to read, all in the reading circle
+       (21.3, 'ff_worry', 2.0), (26.8, 'ff_tummy', 0.3), (31.0, 'ff_tell2', 0.5), (33.4, 'ff_proud', 0.3),
        # chorus (shared)
        (36.5, 'gh_promise', 0.0), (41.25, 'gh_breathe', 1.0), (43.25, 'gh_corner', 2.0), (45.5, 'gh_break', 2.0),
        (47.5, 'gh_grownup', 1.0),

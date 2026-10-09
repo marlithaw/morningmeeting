@@ -74,13 +74,13 @@ def captions(mv, cap):
         opening(mv, cap)
 
 
-FRAME = (280, 180, 720, 405)        # x, y, w, h of the framed video during the opening title
+FRAME = (248, 156, 784, 441)        # x, y, w, h of the framed video during the opening title
 
 
 def opening(mv, cap):
     """Opening card for TITLE_LAYOUT='frame': the title sits on a paper band above a framed, smaller video,
     so the title never covers a face. Captions stay at the bottom as usual."""
-    ft = ImageFont.truetype(os.path.join(FONTS, 'lilita.ttf'), 88)
+    ft = ImageFont.truetype(os.path.join(FONTS, 'lilita.ttf'), 80)
     fl = ImageFont.truetype(os.path.join(FONTS, 'fred7.ttf'), 24)
     bg = Image.new('RGBA', (W, H), (255, 248, 236, 255)); d = ImageDraw.Draw(bg)
     for gx in range(0, W, 32):
@@ -91,12 +91,12 @@ def opening(mv, cap):
     for k, gx in enumerate(range(0, W, 40)):
         d.rectangle((gx, 0, gx + 40, 10), fill=kente[k % len(kente)])
         d.rectangle((gx, H - 10, gx + 40, H), fill=kente[(k + 3) % len(kente)])
-    tt = mv.TITLE; tw = ft.getlength(tt); x = (W - tw) / 2; y = 16
+    tt = mv.TITLE; tw = ft.getlength(tt); x = (W - tw) / 2; y = 12
     d.text((x + 6, y + 6), tt, font=ft, fill=(35, 35, 35))
     d.text((x, y), tt, font=ft, fill=(226, 28, 36), stroke_width=4, stroke_fill=(35, 35, 35))
     sub = mv.SUBTITLE; sw = fl.getlength(sub)
-    d.rounded_rectangle(((W - sw) / 2 - 16, y + 104, (W + sw) / 2 + 16, y + 138), radius=17, fill=(31, 138, 76))
-    d.text(((W - sw) / 2, y + 108), sub, font=fl, fill=(255, 255, 255))
+    d.rounded_rectangle(((W - sw) / 2 - 16, y + 90, (W + sw) / 2 + 16, y + 122), radius=16, fill=(31, 138, 76))
+    d.text(((W - sw) / 2, y + 93), sub, font=fl, fill=(255, 255, 255))
     fx, fy, fw, fh = FRAME
     d.rounded_rectangle((fx - 12 + 10, fy - 12 + 10, fx + fw + 12 + 10, fy + fh + 12 + 10), radius=22, fill=(35, 35, 35, 255))
     d.rounded_rectangle((fx - 12, fy - 12, fx + fw + 12, fy + fh + 12), radius=22, fill=(255, 255, 255, 255), outline=(35, 35, 35, 255), width=4)
@@ -132,7 +132,8 @@ def command(mv, clips, song, cap, out):
         fx, fy, fw, fh = FRAME
         inputs += ['-loop', '1', '-t', str(mv.TITLE_UNTIL + 0.5), '-i', os.path.join(cap, 'opening.png')]; open_i = idx; idx += 1
         fc.append(f'[base]split[bfull][bsm]')
-        fc.append(f'[bsm]trim=duration={mv.TITLE_UNTIL + 0.5},scale={fw}:{fh}[small]')
+        cx, cy, cw, ch = getattr(mv, 'OPENING_CROP', (0, 0, W, H))   # zoom into the opening clip (source px)
+        fc.append(f'[bsm]trim=duration={mv.TITLE_UNTIL + 0.5},crop={cw}:{ch}:{cx}:{cy},scale={fw}:{fh}[small]')
         fc.append(f'[{open_i}:v]fps=24,format=yuv420p[obg]')
         fc.append(f'[obg][small]overlay={fx}:{fy}:shortest=1[open]')
         fc.append(f'[bfull][open]overlay=0:0:eof_action=pass:enable=\'lt(t,{mv.TITLE_UNTIL})\'[o_open]'); cur = 'o_open'
