@@ -33,7 +33,7 @@ TOPIC = dict(
         kr='Mwen ka di sa m santi: "Mwen santi m ___."',
     ),
     card_line='I can name how I feel.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 24 seconds', poster_at=2.5),
     choices=FACES,
     choices_head=dict(en='How do I feel?', es='¿Qué siento?', kr='Kijan m santi m?'),
     deck=dict(
@@ -42,6 +42,7 @@ TOPIC = dict(
         s2=dict(img='class_breathe', pos='center 35%'),
         s3=dict(
             title='WHAT DID LEE DO?',
+            layout='grid',
             panels=[
                 dict(img='ff_worried', pos='5% 35%', num='1', label='Big feeling.', color='var(--sky)'),
                 dict(img='ff_notice', pos='0% 30%', num='2', label='Notice.', color='var(--orange)'),

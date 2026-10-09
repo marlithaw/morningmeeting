@@ -59,7 +59,7 @@ def captions(mv, cap):
         im.save(os.path.join(cap, f'c{i:02d}.png'))
     logo = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(logo)
     fl_img = Image.open(FLAME).convert('RGBA'); fl_img.thumbnail((40, 44))
-    d.rounded_rectangle((18, 16, 18 + fl_img.width + 238, 16 + 52), radius=26, fill=(255, 255, 255, 215))
+    d.rounded_rectangle((18, 16, 30 + fl_img.width + 10 + fl.getlength('MATCHBOOK LEARNING') + 22, 16 + 52), radius=26, fill=(255, 255, 255, 215))
     logo.alpha_composite(fl_img, (30, 20)); d.text((30 + fl_img.width + 10, 28), 'MATCHBOOK LEARNING', font=fl, fill=(35, 35, 35))
     logo.save(os.path.join(cap, 'logo.png'))
     title = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(title)
@@ -70,6 +70,37 @@ def captions(mv, cap):
     d.rounded_rectangle(((W - sw) / 2 - 16, y + 140, (W + sw) / 2 + 16, y + 178), radius=18, fill=(31, 138, 76))
     d.text(((W - sw) / 2, y + 145), sub, font=fl, fill=(255, 255, 255))
     title.save(os.path.join(cap, 'title.png'))
+    if getattr(mv, 'TITLE_LAYOUT', 'overlay') == 'frame':
+        opening(mv, cap)
+
+
+FRAME = (280, 180, 720, 405)        # x, y, w, h of the framed video during the opening title
+
+
+def opening(mv, cap):
+    """Opening card for TITLE_LAYOUT='frame': the title sits on a paper band above a framed, smaller video,
+    so the title never covers a face. Captions stay at the bottom as usual."""
+    ft = ImageFont.truetype(os.path.join(FONTS, 'lilita.ttf'), 88)
+    fl = ImageFont.truetype(os.path.join(FONTS, 'fred7.ttf'), 24)
+    bg = Image.new('RGBA', (W, H), (255, 248, 236, 255)); d = ImageDraw.Draw(bg)
+    for gx in range(0, W, 32):
+        d.line((gx, 0, gx, H), fill=(240, 228, 208, 255))
+    for gy in range(0, H, 32):
+        d.line((0, gy, W, gy), fill=(240, 228, 208, 255))
+    kente = [(226, 28, 36), (242, 183, 5), (31, 138, 76), (35, 35, 35), (242, 183, 5), (31, 138, 76)]
+    for k, gx in enumerate(range(0, W, 40)):
+        d.rectangle((gx, 0, gx + 40, 10), fill=kente[k % len(kente)])
+        d.rectangle((gx, H - 10, gx + 40, H), fill=kente[(k + 3) % len(kente)])
+    tt = mv.TITLE; tw = ft.getlength(tt); x = (W - tw) / 2; y = 16
+    d.text((x + 6, y + 6), tt, font=ft, fill=(35, 35, 35))
+    d.text((x, y), tt, font=ft, fill=(226, 28, 36), stroke_width=4, stroke_fill=(35, 35, 35))
+    sub = mv.SUBTITLE; sw = fl.getlength(sub)
+    d.rounded_rectangle(((W - sw) / 2 - 16, y + 104, (W + sw) / 2 + 16, y + 138), radius=17, fill=(31, 138, 76))
+    d.text(((W - sw) / 2, y + 108), sub, font=fl, fill=(255, 255, 255))
+    fx, fy, fw, fh = FRAME
+    d.rounded_rectangle((fx - 12 + 10, fy - 12 + 10, fx + fw + 12 + 10, fy + fh + 12 + 10), radius=22, fill=(35, 35, 35, 255))
+    d.rounded_rectangle((fx - 12, fy - 12, fx + fw + 12, fy + fh + 12), radius=22, fill=(255, 255, 255, 255), outline=(35, 35, 35, 255), width=4)
+    bg.convert('RGB').save(os.path.join(cap, 'opening.png'))
 
 
 def command(mv, clips, song, cap, out):
@@ -96,8 +127,19 @@ def command(mv, clips, song, cap, out):
     inputs += ['-i', os.path.join(cap, 'logo.png')]; logo_i = idx; idx += 1
     inputs += ['-i', os.path.join(cap, 'title.png')]; title_i = idx; idx += 1
     cur = 'base'
-    fc.append(f'[{cur}][{logo_i}:v]overlay=0:0[o_logo]'); cur = 'o_logo'
-    fc.append(f'[{cur}][{title_i}:v]overlay=0:0:enable=\'between(t,0,{mv.TITLE_UNTIL})\'[o_t]'); cur = 'o_t'
+    if getattr(mv, 'TITLE_LAYOUT', 'overlay') == 'frame':
+        # opening: paper card with the title on top and the video framed underneath, then full frame
+        fx, fy, fw, fh = FRAME
+        inputs += ['-loop', '1', '-t', str(mv.TITLE_UNTIL + 0.5), '-i', os.path.join(cap, 'opening.png')]; open_i = idx; idx += 1
+        fc.append(f'[base]split[bfull][bsm]')
+        fc.append(f'[bsm]trim=duration={mv.TITLE_UNTIL + 0.5},scale={fw}:{fh}[small]')
+        fc.append(f'[{open_i}:v]fps=24,format=yuv420p[obg]')
+        fc.append(f'[obg][small]overlay={fx}:{fy}:shortest=1[open]')
+        fc.append(f'[bfull][open]overlay=0:0:eof_action=pass:enable=\'lt(t,{mv.TITLE_UNTIL})\'[o_open]'); cur = 'o_open'
+        fc.append(f'[{cur}][{logo_i}:v]overlay=0:0:enable=\'gte(t,{mv.TITLE_UNTIL})\'[o_t]'); cur = 'o_t'
+    else:
+        fc.append(f'[{cur}][{logo_i}:v]overlay=0:0[o_logo]'); cur = 'o_logo'
+        fc.append(f'[{cur}][{title_i}:v]overlay=0:0:enable=\'between(t,0,{mv.TITLE_UNTIL})\'[o_t]'); cur = 'o_t'
     for i, (t, txt) in enumerate(mv.LYR):
         t2 = mv.LYR[i + 1][0] if i + 1 < len(mv.LYR) else END
         inputs += ['-i', os.path.join(cap, f'c{i:02d}.png')]
