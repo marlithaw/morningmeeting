@@ -64,7 +64,8 @@ def html(T, has_song=True):
 </div>{foot(4)}</section>''')
     # 5 Practice
     s = D['s5']
-    cope = ''.join(f'''<div class="cp">{pic(c[0],'ci',s['choice_pos'])}<div class="cl">{c[1]}</div></div>''' for c in s['choices'])
+    fit = 'background-size:contain;background-repeat:no-repeat;background-color:#fff' if s.get('choice_fit') == 'contain' else ''
+    cope = ''.join(f'''<div class="cp">{pic(c[0],'ci',s['choice_pos'],fit)}<div class="cl">{c[1]}</div></div>''' for c in s['choices'])
     S.append(f'''<section class="slide paper">{head(s['eyebrow'],s['title'],s['color'])}
 <div class="scene"><div class="sc">{pic(s['img'],'',s['pos'])}</div>
 <div class="prompt"><div class="q">{s['q']}</div><div class="q2">{s['q2']}</div></div></div>

@@ -15,12 +15,12 @@ def poster(T, size):
         rot = ROT[i]
         panels += f'''<div class="pan" style="--b:{col};transform:rotate({rot}deg)">
           <span class="tape" style="top:-.55em;left:38%;transform:rotate({-rot*3}deg)"></span>
-          <div class="ph" style="background-image:url({img(p['img'])});background-position:{p['pos']}"></div>
+          <div class="ph" style="background-image:url({img(p['img'])});background-position:{p['pos']};{'background-size:contain;background-repeat:no-repeat;background-color:#fff' if p.get('fit') == 'contain' else ''}"></div>
           <div class="cap"><span class="badge" style="background:{col}">{sym}</span>
             <div><div class="en">{p['en']}</div>
             <div class="lang"><b>ES</b>{p['es']}</div><div class="lang"><b>KR</b>{p['kr']}</div></div></div>
         </div>'''
-    cope = ''.join(f'''<div class="cp"><div class="ci" style="background-image:url({img(k)})"></div>
+    cope = ''.join(f'''<div class="cp"><div class="ci" style="background-image:url({img(k)});{'background-size:contain;background-repeat:no-repeat;background-color:#fff' if P.get('choice_fit') == 'contain' else ''}"></div>
         <div class="cl">{en}</div><div class="lang sm">{es}</div><div class="lang sm">{ht}</div></div>''' for k, en, es, ht in P['choices'])
     ch, say = P['choices_head'], P['say']
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
