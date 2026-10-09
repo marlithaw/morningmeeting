@@ -1,4 +1,4 @@
-# Topic 1 · Naming My Feelings (draft 1; not published). Build: python3 build.py topics/01-naming-my-feelings.py
+# Topic 1 · Naming My Feelings (published). Build: python3 build.py topics/01-naming-my-feelings.py
 # Lee leads this story (Tee led Calm Corner). Four core feelings for K: happy, sad, mad, worried.
 # Spanish uses feeling NOUNS (alegría, tristeza, enojo, preocupación) so lines are not gendered.
 # New Flow art needed: ff_hero, ff_worried, ff_notice, ff_proud.

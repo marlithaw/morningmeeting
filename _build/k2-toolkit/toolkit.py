@@ -9,7 +9,7 @@ title and line must match the topic file's full_title and card_line.
 
 TOPICS = [
     dict(num=1, title='Naming My Feelings', line='I can name how I feel.',
-         part='Skills I can use', slug='01-naming-my-feelings', status='soon', thumb=None),
+         part='Skills I can use', slug='01-naming-my-feelings', status='live', thumb='ff_hero'),
     dict(num=2, title='Using the Calm Corner', line='I can use the calm corner, get calm, and come back.',
          part='Skills I can use', slug='02-calm-corner', status='live', thumb='in_corner'),
     dict(num=3, title='Belly Breathing', line='I can breathe slow to calm my body.',
