@@ -48,7 +48,7 @@ def html(T, has_song=True):
     s = D['s3']
     cards = ''.join(f'''<div class="st" style="--b:{p['color']}">{pic(p['img'],'',p['pos'])}<div class="sn" style="background:{p['color']}">{p['num']}</div><div class="sl">{p['label']}</div></div>''' for p in s['panels'])
     S.append(f'''<section class="slide paper">{head(s['eyebrow'],s['title'],s['color'])}
-<div class="story">{cards}</div>
+<div class="story{' grid' if s.get('layout') == 'grid' else ''}">{cards}</div>
 <div class="say"><span>{s['say_label']}</span> {s['say']}</div>{foot(3)}</section>''')
     # 4 Connect
     s = D['s4']
@@ -64,7 +64,8 @@ def html(T, has_song=True):
 </div>{foot(4)}</section>''')
     # 5 Practice
     s = D['s5']
-    cope = ''.join(f'''<div class="cp">{pic(c[0],'ci',s['choice_pos'])}<div class="cl">{c[1]}</div></div>''' for c in s['choices'])
+    fit = 'background-size:contain;background-repeat:no-repeat;background-color:#fff' if s.get('choice_fit') == 'contain' else ''
+    cope = ''.join(f'''<div class="cp">{pic(c[0],'ci',s['choice_pos'],fit)}<div class="cl">{c[1]}</div></div>''' for c in s['choices'])
     S.append(f'''<section class="slide paper">{head(s['eyebrow'],s['title'],s['color'])}
 <div class="scene"><div class="sc">{pic(s['img'],'',s['pos'])}</div>
 <div class="prompt"><div class="q">{s['q']}</div><div class="q2">{s['q2']}</div></div></div>
@@ -192,6 +193,10 @@ h2.ttl{font-size:92px;margin:4px 0 22px;-webkit-text-stroke:3px var(--char);text
 .st .pic{flex:1;border-color:var(--b)}
 .sn{position:absolute;top:-14px;left:-14px;width:68px;height:68px;border-radius:50%;border:5px solid var(--char);color:#fff;font-family:var(--disp);font-size:44px;display:flex;align-items:center;justify-content:center;z-index:2}
 .sl{font-family:var(--disp);font-size:46px;text-align:center;margin-top:16px;color:var(--char)}
+.story.grid{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:26px 40px}
+.story.grid .st{flex-direction:row;align-items:center;gap:24px;min-height:0}
+.story.grid .st .pic{flex:none;height:100%;aspect-ratio:16/9;background-position:center!important}
+.story.grid .sl{margin:0;text-align:left;font-size:46px;line-height:1.05}
 .say{margin:22px 0 0;background:var(--red);color:#fff;border:5px solid var(--char);border-radius:22px;padding:14px 28px;font-family:var(--disp);font-size:46px}
 .say span{color:var(--yellow);margin-right:12px}
 /* 4 */
