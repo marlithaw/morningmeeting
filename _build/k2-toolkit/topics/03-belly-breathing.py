@@ -27,7 +27,7 @@ TOPIC = dict(
         kr='Mwen ka respire dousman pou m kalme kò m.',
     ),
     card_line='I can breathe slow to calm my body.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 27 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='My belly breath', es='Mi respiración de barriga', kr='Respirasyon vant mwen'),
     deck=dict(

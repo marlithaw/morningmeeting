@@ -23,7 +23,7 @@ SEG = [(7.4, 'gh_wave', 0.0),
        # hook
        (12.2, 'bbv_hero', 0.3), (14.2, 'bbv_steps', 0.5), (16.8, 'bbv_hero', 4.5),
        # verse 1: clean-up time, Tee breathes, calm
-       (22.6, 'bbv_busy', 0.5), (29.8, 'bbv_belly', 0.3), (33.4, 'bbv_calm', 0.5),
+       (24.6, 'bbv_busy', 0.0), (29.8, 'bbv_belly', 0.3), (33.4, 'bbv_calm', 0.5),
        # chorus (shared)
        (36.5, 'gh_promise', 0.0), (41.7, 'gh_breathe', 1.0), (43.7, 'gh_corner', 2.0), (45.2, 'gh_break', 2.0),
        (47.9, 'gh_grownup', 1.0),
