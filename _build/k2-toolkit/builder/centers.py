@@ -114,7 +114,21 @@ def pages(T, outdir):
 <div class="lang" style="font-size:13px">ES {c['prompt_es']} · KR {c['prompt_kr']}</div></div></div>
 <div style="height:2.2in;border:4px dashed var(--char);border-radius:20px;background:#fff;margin-top:.1in"></div>
 {ftr('Coloring Page')}</div>'''
-    return [(mat, 'L'), (sortp, 'P'), (seqp, 'L'), (rpp, 'P'), (dsp, 'P'), (colp, 'P')]
+    out = [(mat, 'L'), (sortp, 'P'), (seqp, 'L'), (rpp, 'P'), (dsp, 'P'), (colp, 'P')]
+
+    # F. Break cards (optional): blue card with a white pause sign, matching the Flow art
+    b = C.get('breakcards')
+    if b:
+        one = f'''<div class="card" style="padding:.12in"><div style="flex:1;background:#2f6fd6;border:4px solid var(--char);border-radius:22px;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.08in;color:#fff;text-align:center">
+ <div style="display:flex;gap:.16in"><span style="width:.34in;height:1.05in;background:#fff;border-radius:8px"></span><span style="width:.34in;height:1.05in;background:#fff;border-radius:8px"></span></div>
+ <div style="font-family:var(--disp);font-size:34px;line-height:1;-webkit-text-stroke:1.5px var(--char);paint-order:stroke fill">{b['en']}</div>
+ <div style="font-family:var(--round);font-weight:700;font-size:14px">{b['es']} · {b['kr']}</div></div></div>'''
+        bcp = f'''<div class="sheet"><div class="top kente"></div>
+<div class="hrow"><div class="h" style="font-size:34px">{b['title']}</div><div class="tag">✂ cut · laminate</div></div>
+<div class="cards" style="grid-template-columns:1fr 1fr;grid-template-rows:repeat({math.ceil(b['count'] / 2)},1fr)">{one * b['count']}</div>{ftr('Break Cards')}</div>'''
+        out.append((bcp, 'P'))
+    return out
 
 
 def coloring_art(c, outdir):
