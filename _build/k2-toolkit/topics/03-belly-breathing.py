@@ -32,7 +32,7 @@ TOPIC = dict(
     choices_head=dict(en='My belly breath', es='Mi respiración de barriga', kr='Respirasyon vant mwen'),
     deck=dict(
         eyebrow='Morning Meeting · Responsible',
-        s1=dict(bubble='My belly is a balloon!', words='breathe · respirar · respire', img='bb_hero', pos='center 30%'),
+        s1=dict(bubble='My belly is a balloon!', words='breathe · respirar · respire', img='bb_hero', pos='44% 30%'),
         s2=dict(img='class_breathe', pos='center 35%'),
         s3=dict(
             title='WHAT DID TEE DO?',
@@ -250,7 +250,7 @@ TOPIC = dict(
             ft='Questions? Talk with your child’s teacher.',
         ),
         es=dict(
-            t='Respiro con la barriga',
+            t='Barriga de globo',
             eb='Esta semana en la Reunión de la Mañana · Kínder a 2.º grado',
             intro='Su hijo o hija está aprendiendo a respirar con la barriga: la mano en la barriga, inhalar despacio para que se haga grande como un globo y exhalar despacio para que se haga pequeña. Tres respiraciones lentas calman el cuerpo.',
             sayh='En la escuela decimos:',
@@ -260,12 +260,12 @@ TOPIC = dict(
             tips=[
                 '<b>Respiren juntos:</b> a la hora de dormir, pongan un peluche sobre la barriga y miren cómo sube y baja.',
                 '<b>Practiquen en calma:</b> hagan tres respiraciones antes de la escuela o la cena.',
-                '<b>Respire primero:</b> cuando tenga prisa, diga: “Voy a respirar con la barriga,” y hágalo. Los niños aprenden de usted.',
+                '<b>Respire primero:</b> cuando tenga prisa, respire con la barriga frente a su hijo. Los niños aprenden de usted.',
             ],
             ft='¿Preguntas? Hable con el maestro o la maestra de su hijo o hija.',
         ),
         kr=dict(
-            t='M respire ak vant mwen',
+            t='Vant balon',
             eb='Semèn sa a nan Reyinyon Maten · Kindègadenn rive 2yèm ane',
             intro='Pitit ou ap aprann respire ak vant li: men sou vant, respire antre dousman pou vant lan gonfle tankou yon balon, epi respire soti dousman pou l desann. Twa respirasyon dousman ede yon kò ajite vin kalm.',
             sayh='Nan lekòl la nou di:',
@@ -275,7 +275,7 @@ TOPIC = dict(
             tips=[
                 '<b>Respire ansanm:</b> lè pou dòmi, mete yon ti bèt an twal sou vant pitit ou. Gade l monte epi desann.',
                 '<b>Pratike lè l kalm:</b> fè twa respirasyon anvan lekòl oswa anvan manje.',
-                '<b>Respire anvan:</b> lè ou prese, di: “Mwen pral respire ak vant mwen,” epi fè l. Timoun yo aprann lè yo gade ou.',
+                '<b>Respire anvan:</b> lè ou prese, respire ak vant ou devan pitit ou. Timoun yo aprann nan men ou.',
             ],
             ft='Ou gen kesyon? Pale ak pwofesè pitit ou a.',
         ),
