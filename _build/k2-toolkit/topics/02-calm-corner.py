@@ -52,7 +52,7 @@ TOPIC = dict(
              s4=dict(
                     title='HOW DOES TEE FEEL?',
                     img='tee_overwhelmed',
-                    pos='center 30%',
+                    pos='30% 30%',
                     stem='Tee feels ___.',
                     faces=[('tee_happy', 'happy'), ('tee_worried', 'worried'), ('tee_frustrated', 'frustrated')],
                 ),

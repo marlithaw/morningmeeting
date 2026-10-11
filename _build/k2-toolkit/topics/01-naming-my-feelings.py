@@ -54,7 +54,8 @@ TOPIC = dict(
         s4=dict(
             title='HOW DOES LEE FEEL?',
             img='ff_worried',
-            pos='center 35%',
+            pos='0% 35%',
+            zoom=1.2,
             stem='Lee feels ___.',
             faces=[('lee_happy', 'happy'), ('lee_worried', 'worried'), ('lee_mad', 'mad')],
         ),

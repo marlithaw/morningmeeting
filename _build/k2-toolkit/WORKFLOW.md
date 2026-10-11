@@ -50,3 +50,10 @@ python3 build.py topics/02-calm-corner.py --publish       # copy into resources/
 Render every PDF page to an image and look at it (crops, overflow, wrapping, 2-line titles). Open the deck and step
 through all 7 slides with notes. Check every local link on the topic page. After the merge, hard refresh the live
 site and check the hub button, toolkit menu, topic page, video, and deck song button.
+
+Picture crops: Flow art is 16:9, but most frames are narrower (slide 4's big picture is about 1.2:1, so a third of
+the width is cut). Flow scenes usually put the main character in the left or right third, so a "center" crop pushes
+the character the slide asks about to the edge. For every cover-cropped picture, set the horizontal part of `pos`
+to where that character stands, not "center". On slide 4, if the character is in the outer third, add `zoom`
+(1.15 to 1.25) with `pos` near 0% or 100%. Then check that the named character's face sits near the middle of the
+frame on the rendered slide, not just that the slide looks fine overall.
