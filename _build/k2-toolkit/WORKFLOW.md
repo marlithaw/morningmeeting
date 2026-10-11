@@ -57,3 +57,8 @@ the character the slide asks about to the edge. For every cover-cropped picture,
 to where that character stands, not "center". On slide 4, if the character is in the outer third, add `zoom`
 (1.15 to 1.25) with `pos` near 0% or 100%. Then check that the named character's face sits near the middle of the
 frame on the rendered slide, not just that the slide looks fine overall.
+Mini book pages are portrait (about 0.85:1), so a 16:9 scene loses more than half its width there. For any classroom
+or hallway scene in the mini book, set `fit='wide'` on the page (and `cover_wide=True` for a scene cover): it uses a
+4:3 frame and centers the page. Keep the portrait frame for white-background step pictures (`fit='contain'`).
+Scenes that teach a spatial idea ("stand close") must show it: generate them with the characters grouped near the
+middle and give the left-to-right order in the prompt, or every narrow crop loses someone.

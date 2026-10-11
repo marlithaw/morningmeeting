@@ -11,6 +11,9 @@ html,body{margin:0;padding:0}
 .half .k{height:10px;margin:-.35in -.38in .22in}
 .pic{background-size:cover;background-repeat:no-repeat;border:4px solid var(--char);border-radius:18px;box-shadow:5px 5px 0 var(--char);background-color:#fff}
 .bp{flex:1;min-height:0}
+.bp.wide{flex:none;aspect-ratio:4/3}  /* scene pages: landscape frame keeps a 16:9 scene readable */
+.sp{flex:1}
+.wtxt .txt{font-size:31px}
 .txt{font-family:var(--read);font-weight:700;font-size:27px;line-height:1.25;color:var(--ink);margin:.22in 0 .08in}
 .lang{font-size:14px;margin-top:3px}
 .pg{position:absolute;bottom:.14in;right:.3in;font-family:var(--disp);font-size:18px;color:#999}
@@ -25,23 +28,25 @@ def head():
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>{fontface()}{BASE_CSS}''' + HEAD_CSS + '''</style></head><body>'''
 
 
-def page(n, image, en, es, ht, pos='center 35%', two=None):
+def page(n, image, en, es, ht, pos='center 35%', two=None, wide=False):
     if two:
         p = f'''<div class="bp" style="display:grid;grid-template-rows:1fr 1fr;gap:.18in">
         <div class="pic" style="background-image:url({img(two[0])});background-position:{pos}"></div>
         <div class="pic" style="background-image:url({img(two[1])});background-position:{pos}"></div></div>'''
     else:
-        p = f'<div class="pic bp" style="background-image:url({img(image)});background-position:{pos}"></div>'
-    return f'''<div class="half paper"><div class="k kente"></div>{p}
-    <div class="txt">{en}</div><div class="lang"><b>ES</b>{es}</div><div class="lang"><b>KR</b>{ht}</div><div class="pg">{n}</div></div>'''
+        p = f'<div class="pic bp{" wide" if wide else ""}" style="background-image:url({img(image)});background-position:{pos}"></div>'
+    sp = '<div class="sp"></div>' if wide else ''
+    return f'''<div class="half paper{" wtxt" if wide else ""}"><div class="k kente"></div>{sp}{p}
+    <div class="txt">{en}</div><div class="lang"><b>ES</b>{es}</div><div class="lang"><b>KR</b>{ht}</div>{sp}{sp}<div class="pg">{n}</div></div>'''
 
 
 def html(T):
     M = T['minibook']
-    cover = f'''<div class="half paper"><div class="k kente"></div>
+    csp = '<div class="sp"></div>' if M.get('cover_wide') else ''
+    cover = f'''<div class="half paper"><div class="k kente"></div>{csp}
 <div class="ttl cvt">{M['cover_title']}</div>
-<div class="pic bp" style="background-image:url({img(M['cover_img'])});background-position:{M['cover_pos']}"></div>
-<div class="lang" style="text-align:center;margin-top:.16in;font-size:16px"><b>ES</b>{M['cover_es']} · <b>KR</b>{M['cover_kr']}</div>
+<div class="pic bp{" wide" if M.get('cover_wide') else ""}" style="background-image:url({img(M['cover_img'])});background-position:{M['cover_pos']}"></div>
+<div class="lang" style="text-align:center;margin-top:.16in;font-size:16px"><b>ES</b>{M['cover_es']} · <b>KR</b>{M['cover_kr']}</div>{csp}{csp}
 <div class="ftr"><span class="logo">{LOGO_SVG}Matchbook Learning</span><span>K–2 Behavior Toolkit</span></div></div>'''
     P = []
     for n, pg in enumerate(M['pages'], 1):
@@ -51,7 +56,7 @@ def html(T):
         if pg.get('imgs'):
             P.append(page(n, None, pg['en'], pg['es'], pg['kr'], pos, two=pg['imgs']))
         else:
-            P.append(page(n, pg['img'], pg['en'], pg['es'], pg['kr'], pos))
+            P.append(page(n, pg['img'], pg['en'], pg['es'], pg['kr'], pos, wide=pg.get('fit') == 'wide'))
     stars = ''.join(f'<div style="text-align:center"><div style="font-size:74px;line-height:1;-webkit-text-stroke:2px #232323;color:#fff">★</div><div style="font-family:var(--disp);font-size:24px">{d}</div></div>' for d in M['days'])
     bt = lang3(M['back_title'])
     back = f'''<div class="half paper"><div class="k kente"></div>
