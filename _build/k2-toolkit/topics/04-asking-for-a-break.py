@@ -29,7 +29,7 @@ TOPIC = dict(
         kr='Mwen ka mande yon poz ak pawòl mwen oswa kat mwen.',
     ),
     card_line='I can ask for a break with my words or my card.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 24 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='How I ask for a break', es='Cómo pido un descanso', kr='Kijan m mande yon poz'),
     deck=dict(
