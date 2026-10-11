@@ -31,12 +31,12 @@ SEG = [(7.5, 'gh_wave', 0.0),
        (36.2, 'gh_promise', 0.0), (40.9, 'gh_breathe', 1.0), (43.0, 'gh_corner', 2.0), (45.1, 'gh_break', 2.0),
        (47.1, 'gh_grownup', 1.0),
        # verse 2: hallway, stand close and wait, excuse me, hurt means right away
-       (55.0, 'gav_hall', 0.1), (58.9, 'gh_grownup', 3.5),
+       (55.0, 'gav_hall', 0.1), (58.9, 'gav_hurt', 0.2),
        # chorus (shared)
        (62.0, 'gh_promise', 0.5), (66.7, 'gh_breathe', 2.6), (68.8, 'gh_corner', 5.3), (70.9, 'gh_break', 5.0),
        (74.7, 'gh_grownup', 2.6),
-       # outro
-       (76.8, 'gav_hero', 0.2), (78.7, 'gh_promise', 0.3), (83.9, 'gav_thanks', 2.5)]
+       # outro: ends on Lee, Tee, and the teacher together (hand on heart, then a wave goodbye)
+       (76.8, 'gav_hero', 0.2), (78.7, 'gh_promise', 0.3), (83.9, 'gav_end', 2.8)]
 
 # (start_time, caption). Text in (parentheses) is the echo, drawn yellow.
 LYR = [(0.4, 'Matchbook, are you ready? (Ready!)'), (2.0, 'Hands up high, hands down low,'), (5.2, "Let's learn it, let's go!"),
