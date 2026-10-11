@@ -17,6 +17,13 @@ def html(T, has_song=True):
     def pic(name, cls='', pos='center', extra=''):
         return f'<div class="pic {cls}" style="background-image:url({img(name)});background-position:{pos};{extra}"></div>'
 
+    def zoom_css(s):
+        # The slide 4 frame is about 1.2:1, so a 16:9 picture loses a third of its width to cover-cropping.
+        # When the character the slide asks about stands near the side of the scene, 'zoom' (e.g. 1.35)
+        # enlarges the picture so 'pos' can bring that character to the middle of the frame.
+        z = s.get('zoom')
+        return f'background-size:auto {round(z * 100)}%' if z else ''
+
     S = []
     # 1 Title & Promise
     s = D['s1']
@@ -55,7 +62,7 @@ def html(T, has_song=True):
     faces = ''.join(f'''<div class="fc">{pic(k,'face',s['face_pos'])}<div class="fl">{lab}</div></div>''' for k, lab in s['faces'])
     S.append(f'''<section class="slide paper">{head(s['eyebrow'],s['title'],s['color'])}
 <div class="row2">
-  <div class="big-pic">{pic(s['img'],'',s['pos'])}</div>
+  <div class="big-pic">{pic(s['img'],'',s['pos'],zoom_css(s))}</div>
   <div class="stack">
     <div class="frame"><div class="fh">{s['frame']}</div><div class="stem">{s['stem']}</div>
     <div class="faces">{faces}</div></div>
