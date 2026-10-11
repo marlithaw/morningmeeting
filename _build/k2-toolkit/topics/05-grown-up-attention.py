@@ -21,7 +21,7 @@ TOPIC = dict(
     deck_slug='grown-up-attention',
     title="Getting a Grown-Up's Attention",
     full_title="Getting a Grown-Up's Attention",
-    title_lines=['GET&nbsp;A', 'GROWN-UP'],
+    title_lines=['GET&nbsp;A', 'GROWN&#8209;UP'],
     subtitle="I can get a grown-up's help the safe way",
     value='Respectful',
     part='Skills I can use',
@@ -47,7 +47,7 @@ TOPIC = dict(
                 dict(img='ga_comes', pos='center', num='3', label='She comes.', color='var(--green)'),
                 dict(img='ga_help', pos='center', num='4', label='I tell her.', color='var(--red)'),
             ],
-            say='Hand up. Wait with a calm body. Tell what I need. Say thank you.',
+            say='Hand up. Wait calmly. Tell what I need. Say thank you.',
         ),
         s4=dict(
             title='WHAT CAN TEE DO?',
@@ -67,7 +67,7 @@ TOPIC = dict(
             choices=[(k, en) for k, en, es, kr in STEPS],
         ),
         s6=dict(
-            vow="I can get a grown-up's<br>help the safe way.",
+            vow="I can get a grown&#8209;up's<br>help the safe way.",
             stem='When I need help, I can ___.',
             choice_pos='center 35%',
             choices=[('ga_s1', 'raise my hand'), ('ga_s2', 'wait calmly'), ('ga_s3', 'tell what I need')],
@@ -104,7 +104,7 @@ TOPIC = dict(
             dict(
                 name='Orient · The Story',
                 rubric='R2, R3',
-                script='Point to each picture as you tell it. “It was writing time. Tee’s pencil broke, and he needed a new one. His teacher was helping a group at the back table. Tee did not shout. He did not get up and pull her sleeve. He raised his hand, stayed in his seat, and waited with a calm body. His teacher saw him and nodded. When she was done, she walked over to Tee. He said, ‘My pencil broke. Can I have a new one?’ She said, ‘Thank you for waiting. Here you go.’ Tee said, ‘Thank you.’” Then have the class say together: “Hand up. Wait with a calm body. Tell what I need. Say thank you.”',
+                script='Point to each picture as you tell it. “It was writing time. Tee’s pencil broke, and he needed a new one. His teacher was helping a group at the back table. Tee did not shout. He did not get up and pull her sleeve. He raised his hand, stayed in his seat, and waited with a calm body. His teacher saw him and nodded. When she was done, she walked over to Tee. He said, ‘My pencil broke. Can I have a new one?’ She said, ‘Thank you for waiting. Here you go.’ Tee said, ‘Thank you.’” Then have the class say together: “Hand up. Wait calmly. Tell what I need. Say thank you.”',
                 look=['Students follow the pictures in order', 'Whole class repeats the We say line'],
                 breaks=['If students giggle at the broken pencil: “Yes! Small problems need help too.”'],
                 support=['Point to each panel as the teacher narrates'],
@@ -170,11 +170,11 @@ TOPIC = dict(
         ],
     ),
     minibook=dict(
-        cover_title='Excuse Me!',
+        cover_title='I Can Get<br>Help!',
         cover_img='ga_hero',
         cover_pos='center 30%',
-        cover_es='¡Disculpe!',
-        cover_kr='Eskize m!',
+        cover_es='¡Puedo pedir ayuda!',
+        cover_kr='Mwen ka jwenn èd!',
         pages=[
             dict(img='ga_need', pos='center', en='Sometimes I need help from a grown-up.', es='A veces necesito ayuda de un adulto.', kr='Pafwa mwen bezwen èd yon granmoun.'),
             dict(img='ga_s1', pos='center 30%', fit='contain', en='I raise my hand. I stay in my seat.', es='Levanto la mano. Me quedo en mi asiento.', kr='Mwen leve men m. Mwen rete chita.'),
@@ -243,7 +243,7 @@ TOPIC = dict(
             eb='This week in Morning Meeting · Kindergarten to 2nd Grade',
             intro='Your child is learning to get a grown-up’s help the safe way. In class: raise a hand, wait with a calm body, and the teacher comes. In the hall: stand close, wait, and say “Excuse me.” If someone is hurt, children go right to a grown-up.',
             sayh='At school we say:',
-            say='Hand up. Wait with a calm body. Tell what I need. Say thank you.',
+            say='Hand up. Wait calmly. Tell what I need. Say thank you.',
             ch='The four steps',
             th='Try at home',
             tips=[
@@ -291,7 +291,7 @@ TOPIC = dict(
             ('Time', '15 minutes in Morning Meeting, in place of the general lesson. Centers run during the week.'),
             ('When', 'Teach after Topic 4, Asking for a Break. Teach it before Topic 8, Gentle Hands with Grown-Ups, because it gives students the safe way to reach a grown-up.'),
             ('In the bundle', 'Student deck (7 slides, press N for notes) · Poster (letter and 11×17) · Center kit (sort, sequence, act it out, desk strips, coloring) · Mini book · Family half-sheet'),
-            ('Words we use', '“Hand up. Wait with a calm body. Tell what I need. Say thank you.” · “Excuse me” in the hall or outside · “I need help now” for emergencies'),
+            ('Words we use', '“Hand up. Wait calmly. Tell what I need. Say thank you.” · “Excuse me” in the hall or outside · “I need help now” for emergencies'),
         ],
         before=[
             'Choose your “I see you” signal before the lesson, such as a nod and one finger up for “one minute.” Use the same signal all week, then walk to the student.',
@@ -304,7 +304,7 @@ TOPIC = dict(
         slides=[
             ('1 · Title & Promise (R2)', 'Raise your hand and wait a moment. “In class, we raise our hand, stay in our seat, and wait. The grown-up comes to us.” Say together: “Hand up. I can wait.”', 'Students repeat the line in a calm voice.', 'Equity stick: “Show me how you get my attention.”'),
             ('2 · Get Calm First (R1)', 'Do it with them. “Smell the flower. Blow out the candle. Long and slow. Three times.”', 'Exhale longer than inhale; shoulders drop.', 'LiveSchool point: “You breathed slow three times.”'),
-            ('3 · What Did Tee Do? (R2, R3)', 'Point to each picture. “Tee’s pencil broke. His teacher was busy. He raised his hand, stayed in his seat, and waited. She walked over to him. He said, ‘My pencil broke,’ and then, ‘Thank you.’” Class says: “Hand up. Wait with a calm body. Tell what I need. Say thank you.”', 'Students follow the pictures; whole class repeats the line.', 'Equity stick: “Which picture shows the teacher coming to Tee? Point.”'),
+            ('3 · What Did Tee Do? (R2, R3)', 'Point to each picture. “Tee’s pencil broke. His teacher was busy. He raised his hand, stayed in his seat, and waited. She walked over to him. He said, ‘My pencil broke,’ and then, ‘Thank you.’” Class says: “Hand up. Wait calmly. Tell what I need. Say thank you.”', 'Students follow the pictures; whole class repeats the line.', 'Equity stick: “Which picture shows the teacher coming to Tee? Point.”'),
             ('4 · Turn and Talk (R3, R4)', 'Model knee to knee. “Tee needs help and his teacher is busy. Tell your partner: Tee can ___.” 30 seconds, then two shares.', 'Partners take turns; any safe step on the slide is right.', 'Equity stick: two shares.'),
             ('5 · Watch Me, Then Show Me (R3, R4, R5)', 'Pretend to help a small group. A student raises a hand from a seat and waits; give your “I see you” nod and walk over. Then practice the hallway way once (stand close, wait, “Excuse me”) and the emergency rule once.', 'Seated, no calling out; hands to self while waiting; calm voice.', 'LiveSchool point for the student model.'),
             ('6 · My Promise Today (R2, R5)', 'Hand on heart. “Say it with me: I can get a grown-up’s help the safe way.” Then: “When you need help, point to one.”', 'Every student says the promise and points to one picture.', 'Equity stick: three names. Pointing counts.'),
