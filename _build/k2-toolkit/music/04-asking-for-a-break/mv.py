@@ -19,20 +19,20 @@ END = 84.3
 
 # (end_time, clip, src_in[, speed])
 SEG = [(7.5, 'gh_wave', 0.0),
-       # hook: break card high, ask, come back
-       (11.2, 'abv_hero', 0.3), (14.0, 'abv_s1', 0.3), (16.3, 'abv_back', 0.5),
+       # hook: break card high, ask with words, come back
+       (9.8, 'abv_hero', 0.3), (14.0, 'abv_words', 0.3), (16.3, 'abv_back', 0.5),
        # verse 1: loud center time, Lee asks, teacher says yes, timer
        (24.2, 'abv_loud', 0.1), (29.6, 'abv_card', 0.3), (33.2, 'abv_timer', 0.3),
        # chorus (shared)
        (36.4, 'gh_promise', 0.0), (41.2, 'gh_breathe', 1.0), (43.3, 'gh_corner', 2.0), (45.4, 'gh_break', 2.0),
        (47.4, 'gh_grownup', 1.0),
        # verse 2: card or words, wait for a yes, sand goes down, back to class
-       (50.6, 'abv_s1', 3.5), (53.8, 'abv_card', 4.0), (55.8, 'abv_timer', 4.0), (59.3, 'abv_back', 3.0),
+       (49.0, 'abv_s1', 3.5), (50.6, 'abv_words', 4.5), (53.8, 'abv_card', 4.0), (55.8, 'abv_timer', 4.0), (59.3, 'abv_back', 3.0),
        # chorus (shared)
        (62.4, 'gh_promise', 0.5), (67.2, 'gh_breathe', 2.6), (69.3, 'gh_corner', 5.3), (71.4, 'gh_break', 5.0),
        (75.2, 'gh_grownup', 2.6),
        # outro
-       (77.4, 'abv_hero', 4.0), (79.3, 'gh_promise', 0.3), (84.3, 'abv_s4', 1.0)]
+       (77.4, 'abv_hero', 4.0), (79.3, 'gh_promise', 0.3), (84.3, 'abv_end', 1.0)]
 
 # (start_time, caption). Text in (parentheses) is the echo, drawn yellow.
 LYR = [(0.4, 'Matchbook, are you ready? (Ready!)'), (2.0, 'Hands up high, hands down low,'), (5.2, "Let's learn it, let's go!"),
