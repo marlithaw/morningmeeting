@@ -113,12 +113,16 @@ def command(mv, clips, song, cap, out):
 
     END = mv.END
     inputs = []; fc = []; start = 0.0
-    for n, (end, clip, src) in enumerate(mv.SEG):
+    for n, seg in enumerate(mv.SEG):
+        end, clip, src = seg[:3]
+        speed = seg[3] if len(seg) > 3 else 1.0   # optional: <1 plays the clip slower to fill a longer section
         e = snap(end) if n < len(mv.SEG) - 1 else END
         dur = round(e - start, 3)
-        assert src + dur <= mv.CLIP_LEN, f'segment {n} (clip {clip}) needs {src}+{dur}s, clips are {mv.CLIP_LEN}s'
+        take = round(dur * speed, 3)
+        assert src + take <= mv.CLIP_LEN, f'segment {n} (clip {clip}) needs {src}+{take}s, clips are {mv.CLIP_LEN}s'
         inputs += ['-i', os.path.join(clips, f'{clip}.mp4')]
-        fc.append(f'[{n}:v]trim=start={src}:duration={dur},setpts=PTS-STARTPTS,scale={W}:{H},fps=24,format=yuv420p[v{n}]')
+        fc.append(f'[{n}:v]trim=start={src}:duration={take},setpts=(PTS-STARTPTS)/{speed},scale={W}:{H},fps=24,'
+                  f'trim=duration={dur},format=yuv420p[v{n}]')
         start = e
     nseg = len(mv.SEG)
     fc.append(''.join(f'[v{n}]' for n in range(nseg)) + f'concat=n={nseg}:v=1:a=0[base]')
@@ -178,7 +182,7 @@ def main():
     if a.dry_run:
         print(' '.join(shlex.quote(c) for c in cmd))
         return
-    missing = sorted({c for _, c, _ in mv.SEG if not os.path.exists(os.path.join(clips, f'{c}.mp4'))})
+    missing = sorted({c for _, c, *_ in mv.SEG if not os.path.exists(os.path.join(clips, f'{c}.mp4'))})
     if missing:
         sys.exit(f'missing clips in {clips}: {", ".join(m + ".mp4" for m in missing)}')
     subprocess.run(cmd, check=True)

@@ -13,7 +13,7 @@ TOPICS = [
     dict(num=2, title='Using the Calm Corner', line='I can use the calm corner, get calm, and come back.',
          part='Skills I can use', slug='02-calm-corner', status='live', thumb='in_corner'),
     dict(num=3, title='Belly Breathing', line='I can breathe slow to calm my body.',
-         part='Skills I can use', slug='03-belly-breathing', status='soon', thumb=None),
+         part='Skills I can use', slug='03-belly-breathing', status='live', thumb='bb_hero'),
     dict(num=4, title='Asking for a Break', line='I can ask for a break with my words or my card.',
          part='Skills I can use', slug='04-asking-for-a-break', status='soon', thumb=None),
     dict(num=5, title="Getting a Grown-Up's Attention", line="I can get a grown-up's help the safe way.",
