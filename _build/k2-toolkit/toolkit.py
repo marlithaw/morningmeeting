@@ -15,7 +15,7 @@ TOPICS = [
     dict(num=3, title='Belly Breathing', line='I can breathe slow to calm my body.',
          part='Skills I can use', slug='03-belly-breathing', status='live', thumb='bb_hero'),
     dict(num=4, title='Asking for a Break', line='I can ask for a break with my words or my card.',
-         part='Skills I can use', slug='04-asking-for-a-break', status='soon', thumb=None),
+         part='Skills I can use', slug='04-asking-for-a-break', status='live', thumb='ab_hero'),
     dict(num=5, title="Getting a Grown-Up's Attention", line="I can get a grown-up's help the safe way.",
          part='Skills I can use', slug='05-grown-up-attention', status='soon', thumb=None),
     dict(num=6, title='Fixing It', line='I can help make it right.',
