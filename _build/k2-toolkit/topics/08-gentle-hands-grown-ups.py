@@ -31,7 +31,7 @@ TOPIC = dict(
         kr='Mwen pwoteje granmoun yo tou.',
     ),
     card_line='I keep my grown-ups safe too.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 25 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='When I feel mad at a grown-up', es='Cuando me enojo con un adulto', kr='Lè m fache ak yon granmoun'),
     deck=dict(
