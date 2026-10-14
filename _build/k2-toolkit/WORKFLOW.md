@@ -62,3 +62,8 @@ or hallway scene in the mini book, set `fit='wide'` on the page (and `cover_wide
 4:3 frame and centers the page. Keep the portrait frame for white-background step pictures (`fit='contain'`).
 Scenes that teach a spatial idea ("stand close") must show it: generate them with the characters grouped near the
 middle and give the left-to-right order in the prompt, or every narrow crop loses someone.
+
+Coloring pages: do not trace a 3D render for the coloring page; the tracer turns shading and frowns into harsh, spooky
+lines. Generate a real coloring-book page in Flow instead (prompt: "simple black-and-white coloring book page for young
+children, clean thick smooth black outlines, white background, no shading", friendly smiling faces, the lesson's safe
+action), save it as assets/img/color_<key>.png, and set `color=dict(png='color_<key>', ...)`.
