@@ -230,11 +230,10 @@ TOPIC = dict(
         ),
         color=dict(
             title='I CAN FIX IT!',
-            trace='ft_s4',
-            trace_opts=dict(blur=1.2, thicken=1),
-            prompt='Color Lee. Then show how you help fix it.',
-            prompt_es='Colorea a Lee. Luego muestra cómo ayudas a arreglarlo.',
-            prompt_kr='Kolore Lee. Apre sa, montre kijan ou ede ranje l.',
+            png='color_ft',
+            prompt='Color Lee and Kiara. Then show how you help fix it.',
+            prompt_es='Colorea a Lee y a Kiara. Luego muestra cómo ayudas a arreglarlo.',
+            prompt_kr='Kolore Lee ak Kiara. Apre sa, montre kijan ou ede ranje l.',
         ),
     ),
     family=dict(
