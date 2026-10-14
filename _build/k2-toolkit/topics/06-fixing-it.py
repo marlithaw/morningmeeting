@@ -32,7 +32,7 @@ TOPIC = dict(
         kr='Mwen ka ede ranje sa.',
     ),
     card_line='I can help make it right.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 23 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='How I fix it', es='Cómo lo arreglo', kr='Kijan m ranje l'),
     deck=dict(
