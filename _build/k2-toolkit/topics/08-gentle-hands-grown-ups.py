@@ -229,11 +229,10 @@ TOPIC = dict(
         ),
         color=dict(
             title='SAFE HANDS TOO!',
-            trace='gm_s1',
-            trace_opts=dict(blur=1.2, thicken=1),
-            prompt='Color Tee. Then show your safe hands.',
-            prompt_es='Colorea a Tee. Luego muestra tus manos seguras.',
-            prompt_kr='Kolore Tee. Apre sa, montre men ou an sekirite.',
+            png='color_gm',
+            prompt='Color Tee and his teacher. Then show your safe hands.',
+            prompt_es='Colorea a Tee y a su maestra. Luego muestra tus manos seguras.',
+            prompt_kr='Kolore Tee ak pwofesè li. Apre sa, montre men ou an sekirite.',
         ),
     ),
     family=dict(
@@ -321,7 +320,7 @@ TOPIC = dict(
             ('Put It in Order', 'Sequencing mat and 4 cut cards.', '“Put Tee’s story in order: first, next, then, last. Tell your partner the story.”', 'Students retell: clean-up time, hands down, I feel mad, we are okay.'),
             ('Act It Out', '4 role-play cards in a stack.', '“Pick a card. Read it with me. Show me how you keep your grown-up safe.”', 'Each student shows hands down, a step back, a breath, and the words “I feel mad.”'),
             ('Safe With Grown-Ups Steps', 'Desk strips, one per student.', '“Point to each step and say it.”', 'Each student says all four steps.'),
-            ('Color', 'Coloring page and crayons.', '“Color Tee. Then show your safe hands.”', 'A colored page and hands pressed down.'),
+            ('Color', 'Coloring page and crayons.', '“Color Tee and his teacher. Then show your safe hands.”', 'A colored page and hands pressed down.'),
         ],
         keys=[
             ('Sort, Safe: ', 'Tee puts his hands down · Tee takes a slow breath · Tee tells his teacher he feels mad · Tee and his teacher fist bump.'),
