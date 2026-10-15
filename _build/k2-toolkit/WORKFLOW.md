@@ -72,4 +72,7 @@ Suno lyrics: the Lyrics box takes 1,000 characters at most, counting section tag
 intro and both choruses use about 400 of them, so the new parts (hook, verse 1, verse 2, outro) get about 550. Use only
 the plain section tags ([Intro] [Hook] [Verse 1] [Chorus] [Verse 2] [Chorus] [Outro] [End]); put sound directions in the
 Style of Music box, not the lyrics. Keep verse 1 to 4 lines and verse 2 to 2 to 4 lines. Count with `wc -m` and stay
-under 975 before sending.
+under 990 before sending.
+Before sending lyrics, check them line by line against the lesson: the story beats in the same order (including the
+grown-up's response), every one of the four steps sung at least once outside the hook, the class "We say" line sung
+as written, and the exact words the character says in the story ("Can you help me?").
