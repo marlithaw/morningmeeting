@@ -13,7 +13,7 @@ family half-sheets (EN/ES/KR), a captioned song video, a topic web page, and an 
 | 3. Review the content draft | Marlitha |
 | 4. Flow image prompts for the gaps; generate in Flow (personal Gmail only, never the Matchbook account); she picks | Claude + Marlitha |
 | 5. Build the draft bundle and check every page | Claude |
-| 6. Lyrics: shared intro + "I can choose" chorus (music/SHARED.md) word for word, new topic hook, verses, outro, 1,000 characters or less in the Lyrics box (see below); she makes it in Suno and uploads it | Claude + Marlitha |
+| 6. Lyrics: shared intro + "I can choose" chorus (music/SHARED.md) word for word, new topic hook, verses, outro, lyrics and style line labeled for their own Suno boxes (see below); she makes it in Suno and uploads it | Claude + Marlitha |
 | 7. Flow video clips (Frames mode, 8s, no ages in prompts, never animate the unsafe act); cut the captioned video | Claude |
 | 8. Publish on a branch, open a PR; she merges; check the live site | Claude + Marlitha |
 
@@ -68,11 +68,8 @@ lines. Generate a real coloring-book page in Flow instead (prompt: "simple black
 children, clean thick smooth black outlines, white background, no shading", friendly smiling faces, the lesson's safe
 action), save it as assets/img/color_<key>.png, and set `color=dict(png='color_<key>', ...)`.
 
-Suno lyrics: the Lyrics box takes 1,000 characters at most, counting section tags, spaces, and line breaks. The shared
-intro and both choruses use about 400 of them, so the new parts (hook, verse 1, verse 2, outro) get about 550. Use only
-the plain section tags ([Intro] [Hook] [Verse 1] [Chorus] [Verse 2] [Chorus] [Outro] [End]); put sound directions in the
-Style of Music box, not the lyrics. Keep verse 1 to 4 lines and verse 2 to 2 to 4 lines. Count with `wc -m` and stay
-under 990 before sending.
+Suno boxes: the lyrics (with the bracketed section and sound tags) go in the Lyrics box, which has room for a full song.
+Only the short style line goes in the Style of Music box (1,000 characters max). Give her the two parts clearly labeled.
 Before sending lyrics, check them line by line against the lesson: the story beats in the same order (including the
 grown-up's response), every one of the four steps sung at least once outside the hook, the class "We say" line sung
 as written, and the exact words the character says in the story ("Can you help me?").
