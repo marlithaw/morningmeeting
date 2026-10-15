@@ -34,7 +34,7 @@ TOPIC = dict(
         kr='Mwen pwoteje bagay nou yo.',
     ),
     card_line='I keep our things safe and in their place.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 31 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='When I feel mad, our things stay safe', es='Cuando me enojo, nuestras cosas están seguras', kr='Lè m fache, bagay nou yo rete an sekirite'),
     deck=dict(
@@ -166,10 +166,10 @@ TOPIC = dict(
         footer_img='thumbs',
         choice_fit='contain',
         panels=[
-            dict(img='ts_mad', pos='center', color='var(--sky)', symbol='1', en='Something goes wrong. I feel mad. Mad is okay.', es='Algo sale mal. Me enojo. Está bien enojarse.', kr='Yon bagay pa mache. Mwen fache. Sa pa grav.'),
-            dict(img='ts_down', pos='center', color='var(--orange)', symbol='2', en='I put it down gently and take a slow breath.', es='Lo pongo abajo con cuidado y respiro despacio.', kr='Mwen depoze l dousman epi m respire dousman.'),
-            dict(img='ts_help', pos='center', color='var(--green)', symbol='3', en='I ask for help: Can you help me, please?', es='Pido ayuda: ¿Me ayudas, por favor?', kr='Mwen mande èd: Ou ka ede m, souple?'),
-            dict(img='ts_back', pos='center', color='var(--red)', symbol='4', en='I put it back in its place.', es='Lo guardo en su lugar.', kr='Mwen remete l nan plas li.'),
+            dict(img='ts_mad', pos='center 25%', color='var(--sky)', symbol='1', en='Something goes wrong. I feel mad. Mad is okay.', es='Algo sale mal. Me enojo. Está bien enojarse.', kr='Yon bagay pa mache. Mwen fache. Sa pa grav.'),
+            dict(img='ts_down', pos='center 25%', color='var(--orange)', symbol='2', en='I put it down gently and take a slow breath.', es='Lo pongo abajo con cuidado y respiro despacio.', kr='Mwen depoze l dousman epi m respire dousman.'),
+            dict(img='ts_help', pos='center 25%', color='var(--green)', symbol='3', en='I ask for help: Can you help me, please?', es='Pido ayuda: ¿Me ayudas, por favor?', kr='Mwen mande èd: Ou ka ede m, souple?'),
+            dict(img='ts_back', pos='center 25%', color='var(--red)', symbol='4', en='I put it back in its place.', es='Lo guardo en su lugar.', kr='Mwen remete l nan plas li.'),
         ],
     ),
     minibook=dict(
