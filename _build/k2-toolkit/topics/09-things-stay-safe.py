@@ -1,6 +1,7 @@
 # Topic 9 · Things Stay Safe (draft 1; not published). Build: python3 build.py topics/09-things-stay-safe.py
 # Lee leads (Tee led Topic 8). Setting: the art table, so it does not repeat the block tower from Topics 6 and 8.
-# Lee is drawing a tree for her family. The lines go wrong and she feels mad; her hands want to throw. Lee shows the
+# Lee is drawing a tree for her family: green leaves, a brown trunk. A big scribble lands on it; she feels mad and
+# stuck, and her hands want to throw. Her teacher helps her turn the scribble into a bird's nest. Lee shows the
 # safe way: put it down gently, take a slow breath, ask for help, put it back in its place. Mad is okay; our things
 # stay safe. Lee never throws, rips, or kicks on screen; the story only says her hands "wanted to."
 # Unsafe moments belong to classmates: Nadege throwing a block (existing art), Sofia ripping a paper, Malik kicking a
@@ -106,7 +107,7 @@ TOPIC = dict(
             dict(
                 name='Orient · The Story',
                 rubric='R2, R3',
-                script='Point to each picture as you tell it. “Lee was drawing a tree for her family. The lines went wrong, and she felt mad. Her hands wanted to throw the crayon. But Lee put the crayon down gently. She took a slow breath. Then she asked for help: ‘Can you help me? My picture is not working.’ Her teacher helped her try again. When art time was over, Lee put the crayons back in their place. Our things stayed safe.” Then have the class say together: “Put it down. Breathe. Ask for help. Put it back.”',
+                script='Point to each picture as you tell it. “Lee was drawing a tree for her family: green leaves, a brown trunk. Then, oops, a big scribble! Lee felt mad and stuck. Her hands wanted to throw the crayon. But Lee put the crayon down gently. She took a slow breath. Then she asked for help: ‘Can you help me, please?’ Her teacher said, ‘Let’s turn that scribble into a bird’s nest.’ Now Lee’s tree has a nest! When art time was over, Lee put the crayons back in the box. Our things stayed safe.” Then have the class say together: “Put it down. Breathe. Ask for help. Put it back.”',
                 look=['Students follow the pictures in order', 'Whole class repeats the We say line'],
                 breaks=['If students laugh: point to Lee’s face. “How does Lee feel? Mad. And she still kept our things safe.”'],
                 support=['Point to each panel as you narrate'],
@@ -117,7 +118,7 @@ TOPIC = dict(
             dict(
                 name='Connect · Turn and Talk',
                 rubric='R3, R4',
-                script='Show knee to knee with a student partner. “Turn knee to knee. Look at Lee. Her picture is not working, and she feels mad. Tell your partner: Lee can ___.” Give 30 seconds, then ring back. Ask one pair: “What did your partner say?”',
+                script='Show knee to knee with a student partner. “Turn knee to knee. Look at Lee. A big scribble landed on her tree, and she feels mad. Tell your partner: Lee can ___.” Give 30 seconds, then ring back. Ask one pair: “What did your partner say?”',
                 look=['Partners face each other', 'Students name put it down, breathe, or ask for help'],
                 breaks=['If a pair is stuck: kneel in and say the stem with them.', 'If partners argue: “Take turns. You go first, then you.”'],
                 support=['Pair any student who needs support with a steady partner before the lesson starts'],
@@ -128,11 +129,11 @@ TOPIC = dict(
             dict(
                 name='Practice · Watch Me, Then Show Me',
                 rubric='R3, R4, R5',
-                script='Give one student a crayon and a paper. Say: “Your picture is not working, and you feel mad.” The student shows a mad face, then the four steps: sets the crayon down gently, takes a slow breath, raises a hand and says, “Can you help me?”, and puts the crayon back in the box. Answer: “Thank you for asking. Let’s try it together.” Then switch the scene: “The tower falls down.” Practice once more with the whole class from their spots, each child setting down an imaginary crayon.',
+                script='Give one student a crayon and a paper. Say: “A big scribble lands on your picture, and you feel mad.” The student shows a mad face, then the four steps: sets the crayon down gently, takes a slow breath, raises a hand and says, “Can you help me, please?”, and puts the crayon back in the box. Answer: “Thank you for asking. Let’s try it together.” Then switch the scene: “The tower falls down.” Practice once more with the whole class from their spots, each child setting down an imaginary crayon.',
                 look=['The object is set down, not dropped or tossed', 'A long breath out', 'A hand up or calm words to ask for help', 'The object goes back where it lives'],
-                breaks=['Excellent model: “Show us again. Everyone, watch how gently she puts it down, even with a mad face.”', 'Partly right model: “You put it down gently. Now ask for help: Can you help me? Try again.”', 'Silly model: “Thank you. Let’s see it the safe way.” Call a new student; no commentary.'],
+                breaks=['Excellent model: “Show us again. Everyone, watch how gently she puts it down, even with a mad face.”', 'Partly right model: “You put it down gently. Now ask for help: Can you help me, please? Try again.”', 'Silly model: “Thank you. Let’s see it the safe way.” Call a new student; no commentary.'],
                 support=['Use a crayon or soft item for the practice. Never hand a student something heavy or breakable to act out.'],
-                language=['“Help, please” plus pointing is a full answer', 'Spanish: “¿Me ayudas? Mi dibujo no sale.” · Kreyòl: “Ou ka ede m? Desen mwen an pa mache.”'],
+                language=['“Help, please” plus pointing is a full answer', 'Spanish: “¿Me ayudas, por favor?” · Kreyòl: “Ou ka ede m, souple?”'],
                 move='LiveSchool: award the student model a point. Name it out loud: “You felt mad and kept our things safe.”',
                 aside='Students who throw or sweep things off a table are often stuck and do not know how to ask for help yet. Teaching the ask is the prevention.',
             ),
@@ -167,7 +168,7 @@ TOPIC = dict(
         panels=[
             dict(img='ts_mad', pos='center', color='var(--sky)', symbol='1', en='Something goes wrong. I feel mad. Mad is okay.', es='Algo sale mal. Me enojo. Está bien enojarse.', kr='Yon bagay pa mache. Mwen fache. Sa pa grav.'),
             dict(img='ts_down', pos='center', color='var(--orange)', symbol='2', en='I put it down gently and take a slow breath.', es='Lo pongo abajo con cuidado y respiro despacio.', kr='Mwen depoze l dousman epi m respire dousman.'),
-            dict(img='ts_help', pos='center', color='var(--green)', symbol='3', en='I ask for help: Can you help me?', es='Pido ayuda: ¿Me ayudas?', kr='Mwen mande èd: Ou ka ede m?'),
+            dict(img='ts_help', pos='center', color='var(--green)', symbol='3', en='I ask for help: Can you help me, please?', es='Pido ayuda: ¿Me ayudas, por favor?', kr='Mwen mande èd: Ou ka ede m, souple?'),
             dict(img='ts_back', pos='center', color='var(--red)', symbol='4', en='I put it back in its place.', es='Lo guardo en su lugar.', kr='Mwen remete l nan plas li.'),
         ],
     ),
@@ -182,7 +183,7 @@ TOPIC = dict(
             dict(img='ts_mad', pos='center 40%', fit='wide', en='Sometimes things go wrong. I feel mad.', es='A veces algo sale mal. Me enojo.', kr='Pafwa yon bagay pa mache. Mwen fache.'),
             dict(img='ts_s1', pos='center 30%', fit='contain', en='I put it down gently.', es='Lo pongo abajo con cuidado.', kr='Mwen depoze l dousman.'),
             dict(img='ts_s2', pos='center 30%', fit='contain', en='I take a slow breath.', es='Respiro despacio.', kr='Mwen respire dousman.'),
-            dict(img='ts_s3', pos='center 30%', fit='contain', en='I ask for help: Can you help me?', es='Pido ayuda: ¿Me ayudas?', kr='Mwen mande èd: Ou ka ede m?'),
+            dict(img='ts_s3', pos='center 30%', fit='contain', en='I ask for help: Can you help me, please?', es='Pido ayuda: ¿Me ayudas, por favor?', kr='Mwen mande èd: Ou ka ede m, souple?'),
             dict(img='ts_s4', pos='center 30%', fit='contain', en='I put it back in its place.', es='Lo guardo en su lugar.', kr='Mwen remete l nan plas li.'),
             dict(img='ts_hero', pos='center 35%', fit='wide', en='Our things are safe. I feel proud.', es='Nuestras cosas están seguras. Siento orgullo.', kr='Bagay nou yo an sekirite. Mwen fyè.'),
         ],
@@ -293,7 +294,7 @@ TOPIC = dict(
             ('Time', '15 minutes in Morning Meeting, in place of the general lesson. Centers run during the week.'),
             ('When', 'Teach after Topic 8, Gentle Hands with Grown-Ups. Teach it on a calm day, never the morning after a student threw or broke something.'),
             ('In the bundle', 'Student deck (7 slides, press N for notes) · Poster (letter and 11×17) · Center kit (sort, sequence, act it out, desk strips, coloring) · Mini book · Family half-sheet'),
-            ('Words we use', '“Put it down. Breathe. Ask for help. Put it back.” · “Can you help me?” · “Mad is okay. Throwing is not.”'),
+            ('Words we use', '“Put it down. Breathe. Ask for help. Put it back.” · “Can you help me, please?” · “Mad is okay. Throwing is not.”'),
         ],
         before=[
             'Give every shared material a labeled home (picture plus word) so “put it back in its place” has a clear answer.',
@@ -306,7 +307,7 @@ TOPIC = dict(
         slides=[
             ('1 · Title & Promise (R2)', 'Set a crayon down gently. “When we feel mad, our things stay safe.” Say together: “Our things stay safe!”', 'Students repeat the line in a calm voice.', 'Equity stick: “Name one thing in our room that we all share.”'),
             ('2 · Get Calm First (R1)', 'Do it with them. “Smell the flower. Blow out the candle. Long and slow. Three times.”', 'Exhale longer than inhale; shoulders drop.', 'LiveSchool point: “You breathed slow three times.”'),
-            ('3 · What Did Lee Do? (R2, R3)', 'Point to each picture. “Lee’s picture was not working. She felt mad. She put the crayon down gently, took a breath, asked for help, and put the crayons back.” Class says: “Put it down. Breathe. Ask for help. Put it back.”', 'Students follow the pictures; whole class repeats the line.', 'Equity stick: “Which picture shows Lee asking for help? Point.”'),
+            ('3 · What Did Lee Do? (R2, R3)', 'Point to each picture. “A big scribble landed on Lee’s tree. She felt mad and stuck. She put the crayon down gently, took a breath, and asked, ‘Can you help me, please?’ Her teacher helped her turn the scribble into a bird’s nest. Then Lee put the crayons back in the box.” Class says: “Put it down. Breathe. Ask for help. Put it back.”', 'Students follow the pictures; whole class repeats the line.', 'Equity stick: “Which picture shows Lee asking for help? Point.”'),
             ('4 · Turn and Talk (R3, R4)', 'Model knee to knee. “Lee feels mad at her picture. Tell your partner: Lee can ___.” 30 seconds, then two shares.', 'Partners take turns; any safe step on the slide is right.', 'Equity stick: two shares.'),
             ('5 · Watch Me, Then Show Me (R3, R4, R5)', 'Give a student a crayon. “Your picture is not working, and you feel mad.” The student shows the four steps. Then try “The tower falls down,” and practice once all together.', 'Set down, not tossed; a long breath out; asks for help; puts it back.', 'LiveSchool point for the student model.'),
             ('6 · My Promise Today (R2, R5)', 'Hand on heart. “Say it with me: I keep our things safe.” Then: “When you feel mad, point to one.”', 'Every student says the promise and points to one picture.', 'Equity stick: three names. Pointing counts.'),
@@ -314,7 +315,7 @@ TOPIC = dict(
         ],
         bridges=[
             ('Excellent', '“Show us again. Everyone, watch how gently she puts it down, even with a mad face.”'),
-            ('Partly right', '“You put it down gently. Now ask for help: Can you help me? Try again.”'),
+            ('Partly right', '“You put it down gently. Now ask for help: Can you help me, please? Try again.”'),
             ('Silly', '“Thank you. Let’s see it the safe way.” Call a new student. No commentary.'),
         ],
         centers=[
@@ -327,11 +328,11 @@ TOPIC = dict(
         keys=[
             ('Sort, Things stay safe: ', 'Lee puts her crayon down gently · Lee takes a slow breath · Lee asks her teacher for help · Lee puts the crayons back in their place.'),
             ('Sort, Not safe: ', 'Nadege throws a block · Sofia rips a paper · Malik kicks a chair · Kiara pushes crayons off the table.'),
-            ('Put It in Order: ', '1 Lee feels mad at her picture · 2 Lee puts the crayon down · 3 Lee asks for help · 4 Lee puts the crayons back.'),
+            ('Put It in Order: ', '1 A scribble lands on Lee’s tree and she feels mad · 2 Lee puts the crayon down · 3 Lee asks for help · 4 Lee puts the crayons back in the box.'),
         ],
         minibook=[
             'For a child who has thrown, ripped, kicked, or broken classroom things. Read it one-on-one at a calm time, before the hardest part of the day.',
-            'Read it every day for a week. Practice each step as you read it, especially the words “Can you help me?”',
+            'Read it every day for a week. Practice each step as you read it, especially the words “Can you help me, please?”',
             'Never read it as a consequence or right after an incident.',
             'On the back, the child colors a star each day they keep our things safe. Celebrate every star.',
         ],
