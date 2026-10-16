@@ -185,6 +185,8 @@ TOPIC = dict(
         header_img='rv_hero',
         footer_img='thumbs',
         choice_fit='contain',
+        hide_choices=True,   # the six panels are the voice chart
+        title_size=3.6,
         panels=[
             dict(img='rv_talk', pos='center 30%', color='var(--sky)', symbol='0', en='Someone is talking to the group.', es='Alguien le habla al grupo.', kr='Yon moun ap pale ak gwoup la.'),
             dict(img='rv_hall', pos='center 30%', color='var(--sky)', symbol='0', en='Walking in the hallway.', es='Caminando en el pasillo.', kr='Ap mache nan koulwa a.'),
@@ -230,10 +232,10 @@ TOPIC = dict(
         ),
         seq=dict(
             cards=[
-                ('rv_lunch', 'Table talk at 2'),
-                ('rv_lunchloud', 'Louder and louder'),
-                ('rv_dial', 'Back to two!'),
-                ('rv_lunchcalm', 'Everyone can hear'),
+                ('rv_talk', 'Morning meeting: 0'),
+                ('rv_partner', 'Partner reading: 1'),
+                ('rv_lunch', 'Lunch table: 2'),
+                ('rv_recess', 'Recess: 4'),
             ],
             print_order=[2, 0, 3, 1],
         ),
@@ -280,7 +282,7 @@ TOPIC = dict(
         ),
         es=dict(
             t='Voz del tamaño correcto',
-            t_size=40,
+            t_size=31,
             eb='Esta semana en la Reunión de la Mañana · Kínder a 2.º grado',
             intro='Su hijo o hija aprende los niveles de voz de la escuela: 0 cuando alguien habla y en el pasillo, 1 con un compañero o al leer, 2 en la mesa del comedor, 3 al presentar o en gimnasia, 4 afuera en el recreo. Antes de hablar, mira alrededor, pregunta “¿Quién necesita oírme?” y “gira su control”.',
             sayh='En la escuela decimos:',
@@ -288,14 +290,15 @@ TOPIC = dict(
             ch='Niveles de voz',
             th='Practiquen en casa',
             tips=[
-                '<b>Jueguen al control:</b> nombre un lugar (biblioteca, carro, parque) y pregunte: “¿Qué número?”',
-                '<b>En la cena:</b> practiquen el 2 y digan “Volvamos al dos” si hay mucho ruido.',
-                '<b>Note el esfuerzo:</b> “Bajaste tu voz porque el bebé duerme. Gracias.”',
+                '<b>Jueguen al control:</b> nombre un lugar y pregunte: “¿Qué número?”',
+                '<b>En la cena:</b> practiquen el 2: “Volvamos al dos.”',
+                '<b>Note el esfuerzo:</b> “Bajaste tu voz. Gracias.”',
             ],
             ft='¿Preguntas? Hable con el maestro o la maestra de su hijo o hija.',
         ),
         kr=dict(
             t='Vwa ki bon gwosè',
+            t_size=36,
             eb='Semèn sa a nan Reyinyon Maten · Kindègadenn rive 2yèm ane',
             intro='Pitit ou ap aprann nivo vwa lekòl la: 0 lè yon moun ap pale ak nan koulwa a, 1 ak yon zanmi oswa pou li, 2 sou tab kafeterya a, 3 lè l ap prezante oswa nan jimnastik, 4 deyò nan rekreyasyon. Anvan l pale, li gade alantou l, li mande “Kiyès ki bezwen tande m?”, epi li “vire bouton l”.',
             sayh='Nan lekòl la nou di:',
@@ -343,7 +346,7 @@ TOPIC = dict(
         ],
         centers=[
             ('Sort It', 'Sort mat (landscape page) and 8 cut picture cards.', '“Look at each picture. Is this voice the right size for the place? Put it on the side where it goes.”', '4 cards on Right-size voice, 4 on Not right-size. Accept any sort a student can explain.'),
-            ('Put It in Order', 'Sequencing mat and 4 cut cards.', '“Put the lunch story in order: first, next, then, last. Tell your partner the story at a 2.”', 'Students retell: table talk at 2, louder and louder, Lee says back to two, everyone can hear.'),
+            ('Put It in Order', 'Sequencing mat and 4 cut cards.', '“Put Lee and Tee’s day in order: first, next, then, last. Say the voice number for each one.”', 'Students order the day and name each number: morning meeting 0, partner reading 1, lunch 2, recess 4.'),
             ('Act It Out', '4 role-play cards in a stack.', '“Pick a card. Ask, who needs to hear me? Show the number, turn your dial, and say it.”', 'Each student shows the right number and says the line at that size.'),
             ('Our Voice Levels', 'Desk strips, one per student.', '“Point to each number and say the word at that size.”', 'Each student says all five at the right size.'),
             ('Color', 'Coloring page and crayons.', '“Color Lee and Tee at lunch. Then tell a friend about your day at a 2.”', 'A colored page and one sentence at a 2.'),
@@ -351,7 +354,7 @@ TOPIC = dict(
         keys=[
             ('Sort, Right-size: ', 'Lee and Tee partner reading at 1 · The lunch table at 2 · Tee presenting at 3 · Lee and Tee at recess at 4.'),
             ('Sort, Not right-size: ', 'Kiara calls out while the teacher talks · Diego yells in the hallway · Malik mumbles when presenting · Kiara and Diego get too loud at lunch.'),
-            ('Put It in Order: ', '1 Table talk at 2 · 2 The table gets louder and louder · 3 Lee says, “Let’s take it back to two!” · 4 Everyone can hear.'),
+            ('Put It in Order: ', '1 Morning meeting, voice 0 · 2 Partner reading, voice 1 · 3 Lunch table, voice 2 · 4 Recess, voice 4.'),
         ],
         minibook=[
             'For a child who calls out, gets loud at lunch, or speaks too softly to be heard. Read it one-on-one at a calm time, before the hardest part of the day.',
@@ -377,7 +380,7 @@ TOPIC = dict(
         deck_desc='Get calm, follow Lee and Tee through the school day with a voice level for each place, help a loud lunch table take it back to two, play Turn Your Dial, make a promise, and leave calmly.',
         guide_desc='The lesson at a glance, the slide-by-slide script, how to run the centers, and what to do when a student’s voice is not right-size.',
         poster_hint='Hang it near the door or meeting area, and a copy near the cafeteria line-up spot.',
-        centers_desc='Sort mat and 8 picture cards, the lunch-table sequencing story, role-play cards for each place, voice-level desk strips, and a coloring page.',
+        centers_desc='Sort mat and 8 picture cards, Lee and Tee’s day sequencing cards, role-play cards for each place, voice-level desk strips, and a coloring page.',
         minibook_desc='A read-together book for students who call out, get loud at lunch, or speak too softly. Practice the dial as you read.',
         family_desc='What your child is learning, our voice levels and the words we use at school, and three ways to practice at home. One page per language, two half-sheets per page.',
     ),
