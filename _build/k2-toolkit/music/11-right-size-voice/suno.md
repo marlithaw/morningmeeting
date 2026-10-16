@@ -14,19 +14,19 @@ Let's learn it, let's go!
 [bouncy drums, kids echo the parentheses]
 [Hook]
 Look around (look around!), where am I?
-Pick my number (zero to four!), get it right!
+Who needs to hear me? Pick my number right!
 Turn my dial (turn my dial!), up or down,
 Right-size voice, all around!
 
 [Verse 1]
-Center time, by the window, what did I see?
-A little red ladybug, crawling on a leaf!
-"TEE, COME LOOK!" wanted to jump right out,
-But I stopped, looked around, didn't need to shout.
-Reading group was working at the back table,
-So I turned my dial to one, quiet as I'm able.
-Walked right over, whispered, "Tee, come see!"
-He tiptoed and whispered, "Wow!" and my teacher smiled at me.
+Teacher's talking to the group? Zero, eyes on her face,
+Walking down the hallway? Zero, quiet in my place.
+Reading with my partner? One, a whisper soft and low,
+Just loud enough for my buddy, nobody else needs to know.
+Lunchtime! Two at the table, laughing with my crew,
+But the voices got louder, three, then four, whoo!
+I looked around, turned my dial: "Let's take it back to two!"
+The whole table turned it down, and now I can hear you!
 
 [full beat, kids chorus, call and response]
 [Chorus]
@@ -36,10 +36,10 @@ Calm corner, break card, use my words,
 Ask a grown-up, I get help, that's how it works!
 
 [Verse 2]
-Hallway? Zero (zero!), lips closed tight,
-Table talk is two (that's two!), partners just right,
-Sharing with the class? Three, so all can hear,
-Recess? Four! "Race you to the slide!" Let's cheer!
+Presenting my picture? Three (three!), loud and clear,
+Gym class team game? Three! "I'm open! Over here!"
+Recess, big blue sky? Four (four!), "Race you to the slide!"
+Bell rings, check it again: back to zero, walking inside!
 
 [full beat, kids chorus, call and response]
 [Chorus]
@@ -50,7 +50,7 @@ Ask a grown-up, I get help, that's how it works!
 
 [beat drops to soft drums, warm and calm]
 [Outro]
-Too loud? Too soft? (Look around, pick my number, turn my dial!)
+Too loud? Too soft? (Look around! Who needs to hear me? Turn my dial!)
 Hand on your heart, say it with me:
 I use the right voice for the place.
 [End]
