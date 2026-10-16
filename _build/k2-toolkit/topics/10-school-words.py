@@ -12,9 +12,9 @@
 # That's not kind." When he keeps laughing, she tells her teacher. Mad is okay; mean words are not.
 # Unkind moments belong to classmates (Diego cuts, Kiara takes, Malik teases), never Lee or Tee.
 # Reused art: kiara_shout, ft_laugh, ga_s1 (Tee raising his hand, white background), ball, promise, leave, class_breathe.
-# New Flow art: sw_hero, sw_line, sw_cut, sw_tall, sw_words, sw_sorry (recess line, Tee + Diego), sw_take, sw_marker
+# New Flow art: sw_hero, sw_cut, sw_tall, sw_words, sw_sorry (recess line, Tee + Diego), sw_take, sw_marker
 # (Kiara takes Lee's marker / Lee asks for it back), sw_tease, sw_teacher (Malik laughs / Lee tells her teacher),
-# sw_grab (sort), sw_s1..sw_s3 (Tee, white background), color_sw (Flow coloring-book page, never traced).
+# sw_stop (Lee: "Malik, stop. That's not kind."), sw_grab (sort), sw_s1..sw_s3 (Tee, white background), color_sw (Flow coloring-book page, never traced).
 
 STEPS = [  # (art, EN, ES, KR): how to use school words
     ('sw_s1', 'Stand tall and look', 'Me paro derecho y miro', 'Mwen kanpe dwat epi m gade'),
@@ -174,7 +174,7 @@ TOPIC = dict(
         panels=[
             dict(img='sw_words', pos='center 25%', color='var(--sky)', symbol='1', en='Someone cuts: "Diego, I was here first. Please go behind me."', es='Alguien se mete: "Diego, yo estaba primero. Ponte detrás de mí, por favor."', kr='Yon moun koupe liy: "Diego, se mwen ki te la anvan. Mete w dèyè m, souple."'),
             dict(img='sw_marker', pos='center 25%', color='var(--orange)', symbol='2', en='Someone takes: "Kiara, that\'s my marker. Please give it back."', es='Alguien toma: "Kiara, es mi marcador. Devuélvemelo, por favor."', kr='Yon moun pran: "Kiara, se makè pa m. Ban m li tounen, souple."'),
-            dict(img='sw_tease', pos='center 25%', color='var(--green)', symbol='3', en='Someone teases: "Malik, stop. That\'s not kind."', es='Alguien se burla: "Malik, para. Eso no es amable."', kr='Yon moun ap pase m nan rizib: "Malik, sispann. Sa pa janti."'),
+            dict(img='sw_stop', pos='center 25%', color='var(--green)', symbol='3', en='Someone teases: "Malik, stop. That\'s not kind."', es='Alguien se burla: "Malik, para. Eso no es amable."', kr='Yon moun ap pase m nan rizib: "Malik, sispann. Sa pa janti."'),
             dict(img='sw_teacher', pos='center 25%', color='var(--red)', symbol='4', en='Still happening? I get a grown-up.', es='¿Sigue pasando? Busco a un adulto.', kr='Li toujou ap fèt? Mwen chèche yon granmoun.'),
         ],
     ),
@@ -208,7 +208,7 @@ TOPIC = dict(
                 ('kiara_shout', 'center 35%', 'no'),
                 ('sw_teacher', 'center 35%', 'yes'),
                 ('sw_tease', 'center 35%', 'no'),
-                ('sw_tall', 'center 35%', 'yes'),
+                ('sw_stop', 'center 35%', 'yes'),
                 ('sw_grab', 'center 35%', 'no'),
             ],
         ),
@@ -250,7 +250,7 @@ TOPIC = dict(
         en=dict(
             t='School Words',
             eb='This week in Morning Meeting · Kindergarten to 2nd Grade',
-            intro='Your child is learning exactly what to say when someone cuts in line, takes their things, or teases them, and how to say it: stand tall, look at the other child, and use a strong, calm voice (strong, not loud). They say the child’s name and “please,” plus what they need. When someone teases, there is no please: “Stop. That’s not kind.” If it keeps happening, they get a grown-up.',
+            intro='Your child is learning what to say when someone cuts in line, takes their things, or teases, and how to say it: stand tall, look at the child, and use a strong, calm voice (strong, not loud). Say the child’s name, “please,” and what they need. For teasing, no please: “Stop. That’s not kind.” If it keeps happening, get a grown-up.',
             sayh='At school we say:',
             say='"Diego, please go behind me." "Kiara, please give it back." "Malik, stop. That\'s not kind."',
             ch='How to use school words',
@@ -264,31 +264,32 @@ TOPIC = dict(
         ),
         es=dict(
             t='Palabras de la escuela',
+            t_size=40,
             eb='Esta semana en la Reunión de la Mañana · Kínder a 2.º grado',
-            intro='Su hijo o hija está aprendiendo qué decir cuando alguien se mete en la fila, toma sus cosas o se burla, y cómo decirlo: pararse derecho, mirar al otro niño o niña y usar una voz firme y tranquila (firme, no fuerte). Dice el nombre, “por favor” y lo que necesita. Cuando alguien se burla, no hay por favor: “Para. Eso no es amable.” Si sigue pasando, busca a un adulto.',
+            intro='Su hijo o hija aprende qué decir si alguien se mete en la fila, toma sus cosas o se burla: pararse derecho, mirar y hablar con voz firme y calmada. Dice el nombre, “por favor” y lo que necesita. Si se burlan: “Para. Eso no es amable.” Si sigue, busca a un adulto.',
             sayh='En la escuela decimos:',
             say='"Diego, ponte detrás de mí, por favor." "Kiara, devuélvemelo, por favor." "Malik, para. Eso no es amable."',
             ch='Cómo usar palabras de la escuela',
             th='Practiquen en casa',
             tips=[
-                '<b>Practiquen la voz:</b> díganlo en voz bajita, con voz muy fuerte, y luego firme y tranquila. Pregunte: “¿Cuál funciona mejor?”',
-                '<b>Usen nombres:</b> cuando los hermanos discutan, diga: “Di su nombre, luego por favor y lo que necesitas.”',
-                '<b>Note las palabras firmes:</b> “Te enojaste y dijiste: ‘Devuélvemelo, por favor.’ Eso fue firme y amable.”',
+                '<b>Practiquen la voz:</b> bajita, muy fuerte y firme. ¿Cuál funciona?',
+                '<b>Usen nombres:</b> “Di su nombre, por favor y lo que necesitas.”',
+                '<b>Note las palabras firmes:</b> “¡Eso fue firme y amable!”',
             ],
             ft='¿Preguntas? Hable con el maestro o la maestra de su hijo o hija.',
         ),
         kr=dict(
             t='Pawòl lekòl',
             eb='Semèn sa a nan Reyinyon Maten · Kindègadenn rive 2yèm ane',
-            intro='Pitit ou ap aprann egzakteman kisa pou l di lè yon moun koupe liy, pran bagay li, oswa pase l nan rizib, ak kijan pou l di l: kanpe dwat, gade lòt timoun nan, epi sèvi ak yon vwa fèm e kalm (fèm, pa fò). Li di non timoun nan, “souple,” ak sa li bezwen. Lè yon moun ap pase l nan rizib, pa gen souple: “Sispann. Sa pa janti.” Si sa kontinye, li chèche yon granmoun.',
+            intro='Pitit ou ap aprann kisa pou l di lè yon moun koupe liy, pran bagay li, oswa pase l nan rizib: kanpe dwat, gade, epi sèvi ak yon vwa fèm e kalm. Li di non timoun nan, “souple,” ak sa li bezwen. Si se rizib: “Sispann. Sa pa janti.” Si sa kontinye, li chèche yon granmoun.',
             sayh='Nan lekòl la nou di:',
             say='"Diego, mete w dèyè m, souple." "Kiara, ban m li tounen, souple." "Malik, sispann. Sa pa janti."',
             ch='Kijan pou sèvi ak pawòl lekòl',
             th='Eseye lakay ou',
             tips=[
-                '<b>Pratike vwa a:</b> di l tou ba, di l byen fò, epi di l fèm e kalm. Mande: “Kiyès ki mache pi byen?”',
-                '<b>Sèvi ak non:</b> lè frè ak sè ap diskite, di: “Di non li, apre sa souple ak sa ou bezwen.”',
-                '<b>Remake pawòl fèm:</b> “Ou te fache, epi ou di: ‘Ban m li tounen, souple.’ Sa te fèm e janti.”',
+                '<b>Pratike vwa a:</b> tou ba, byen fò, epi fèm e kalm. Kiyès ki mache pi byen?',
+                '<b>Sèvi ak non:</b> “Di non li, souple, ak sa ou bezwen.”',
+                '<b>Remake pawòl fèm:</b> “Ou di: ‘Ban m li tounen, souple.’ Fèm e janti!”',
             ],
             ft='Ou gen kesyon? Pale ak pwofesè pitit ou a.',
         ),
@@ -332,7 +333,7 @@ TOPIC = dict(
             ('Color', 'Coloring page and crayons.', '“Color Lee and Tee standing tall. Then say one school-word sentence.”', 'A colored page and one please sentence.'),
         ],
         keys=[
-            ('Sort, School words: ', 'Tee tells Diego, “Please go behind me” · Lee asks Kiara to give the marker back · Lee tells her teacher · Tee stands tall and looks at Diego.'),
+            ('Sort, School words: ', 'Tee tells Diego, “Please go behind me” · Lee asks Kiara to give the marker back · Lee tells her teacher · Lee tells Malik, “Stop. That’s not kind.”'),
             ('Sort, Not school words: ', 'Diego laughs at a fallen tower · Kiara shouts at Diego · Malik laughs at Lee’s drawing · Sofia grabs a marker back.'),
             ('Put It in Order: ', '1 Diego cuts in front of Tee · 2 Tee stands tall · 3 Tee says, “Diego, please go behind me” · 4 Diego says, “Oh, sorry!”'),
         ],
