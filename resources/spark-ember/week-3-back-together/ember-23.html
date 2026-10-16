@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Ember 2–3 · October 19–23 · Back Together</title>
+<style>@font-face{font-family:'Oswald';src:url(shared/c92b62da7f9d.woff2) format('woff2');font-weight:200 700}@font-face{font-family:'Andika';src:url(shared/95ae4c899373.woff2) format('woff2');font-weight:400}@font-face{font-family:'Andika';src:url(shared/4591e06d5206.woff2) format('woff2');font-weight:700}@font-face{font-family:'MBIcons';src:url(shared/19d25093bf07.woff2) format('woff2');font-weight:900}.i{font-family:'MBIcons';font-weight:900;font-style:normal;display:inline-block;line-height:1;-webkit-font-smoothing:antialiased}.i-chair::before{content:"\f6c0"}.i-pencil::before{content:"\f303"}.i-laptop::before{content:"\f109"}.i-door-open::before{content:"\f52b"}.i-bus::before{content:"\f207"}.i-walk::before{content:"\f554"}.i-car::before{content:"\f1b9"}.i-basketball::before{content:"\f434"}.i-utensils::before{content:"\f2e7"}.i-clock::before{content:"\f017"}.i-play::before{content:"\f04b"}.i-wind::before{content:"\f72e"}.i-book::before{content:"\f518"}.i-heart::before{content:"\f004"}.i-hand::before{content:"\f256"}.i-house::before{content:"\f015"}.i-fire::before{content:"\f06d"}.i-flame::before{content:"\f7e4"}.i-palette::before{content:"\f53f"}.i-check::before{content:"\f00c"}.i-pause::before{content:"\f04c"}.i-next::before{content:"\f04e"}.i-prev::before{content:"\f04a"}.i-expand::before{content:"\f065"}.i-speaker::before{content:"\f028"}.i-arrow::before{content:"\f061"}.i-star::before{content:"\f005"}.i-smile::before{content:"\f118"}.i-users::before{content:"\f0c0"}.i-done::before{content:"\f058"}.i-hourglass::before{content:"\f254"}.i-box::before{content:"\f187"}.i-seedling::before{content:"\f4d8"}.i-lungs::before{content:"\f604"}.i-ban::before{content:"\f05e"}.i-moon::before{content:"\f186"}.i-sun::before{content:"\f185"}.i-tv::before{content:"\f26c"}.i-comment::before{content:"\f075"}.i-pen::before{content:"\f304"}.i-calendar::before{content:"\f783"}.i-reset::before{content:"\f2ea"}.i-list::before{content:"\f0ae"}.i-stopwatch::before{content:"\f2f2"}.i-bell::before{content:"\f0f3"}.i-bullhorn::before{content:"\f0a1"}.i-circle-play::before{content:"\f144"}.i-x::before{content:"\f00d"}.i-bulb::before{content:"\f0eb"}.i-thumbs::before{content:"\f164"}.i-hands::before{content:"\f2a7"}.i-child::before{content:"\f1ae"}.i-school::before{content:"\f549"}.i-toilet::before{content:"\f7d8"}.i-restroom::before{content:"\f7bd"}.i-steps::before{content:"\f54b"}.i-swap::before{content:"\f362"}.i-leftright::before{content:"\f07e"}.i-sparkle::before{content:"\e05d"}.i-brain::before{content:"\f5dc"}.i-flag::before{content:"\f11e"}.i-clipboard::before{content:"\f46c"}.i-teacher::before{content:"\f51c"}.i-search::before{content:"\f002"}.i-mute::before{content:"\f6a9"}.i-ear::before{content:"\f2a2"}.i-eye::before{content:"\f06e"}.i-point::before{content:"\f0a6"}.i-bag::before{content:"\f290"}.i-plug::before{content:"\f1e6"}.i-cart::before{content:"\f07a"}.i-utensils2::before{content:"\f2e7"}
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;--slate:#4A4A4A;
+--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;--glow:#E3602A;--amber:#F29A2E;--dusk:#2B2320;
+--disp:'Oswald',sans-serif;--kid:'Andika',system-ui,sans-serif}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#120e0c;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center;background:var(--paper);
+  display:flex;flex-direction:column;font-family:var(--kid);color:var(--ink)}
+.en{display:block;font-weight:700;color:var(--ink)}
+.es{display:block;font-weight:400;color:var(--slate)}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible{outline:4px solid var(--glow);outline-offset:3px}
+
+/* header: dusk, the Spark header after sunset */
+.hd{height:118px;flex:none;display:flex;align-items:center;gap:22px;padding:0 30px;color:#fff;
+  background:linear-gradient(90deg,var(--dusk),#3a2a22 55%,#4a2c1c);border-bottom:6px solid var(--glow)}
+.badge{width:84px;height:84px;border-radius:22px;background:linear-gradient(160deg,var(--amber),var(--red));display:grid;place-items:center;flex:none;box-shadow:0 0 30px rgba(242,154,46,.45)}
+.badge .i{font-size:46px;color:#fff}
+.ttl h1{font-family:var(--disp);text-transform:uppercase;font-size:56px;line-height:.95;letter-spacing:.02em;color:#fff}
+.ttl p{display:flex;gap:14px;align-items:baseline;margin-top:4px}
+.ttl .es{color:#f3d9c4;font-size:22px}.ttl .dn{font-family:var(--disp);color:var(--yellow);font-size:20px}
+.steps{list-style:none;display:flex;gap:8px;margin-left:auto}
+.st{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.08);color:#d9c9bd;min-width:150px}
+.st .i{font-size:22px;color:#d9c9bd}.st .en{color:#fff;font-size:17px;line-height:1.05}.st .es{color:#d9c9bd;font-size:14px}
+.st .sn{font-family:var(--disp);font-size:22px;color:var(--amber)}
+.st.on{background:var(--glow);box-shadow:0 0 0 3px #fff inset}.st.on .en,.st.on .es,.st.on .i,.st.on .sn{color:#fff}
+.st.did{opacity:.55}
+.clockbox{display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:170px}
+.clock{font-family:var(--disp);font-size:52px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.band{font-family:var(--disp);font-size:20px;background:var(--yellow);color:var(--charcoal);border-radius:50px;padding:1px 14px}
+.mode{font-family:var(--disp);font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:#fff;color:var(--red);border-radius:6px;padding:1px 8px;visibility:hidden}
+body.practice .mode{visibility:visible}
+
+main{flex:1;min-height:0;display:grid;grid-template-columns:1fr 430px;gap:22px;padding:20px 26px}
+.now{background:#fff;border-radius:22px;border:1px solid var(--line);display:flex;flex-direction:column;padding:16px 20px;min-height:0;position:relative}
+.nowhead{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.stitle .en{font-family:var(--disp);text-transform:uppercase;font-size:42px;line-height:1;letter-spacing:.01em}
+.stitle .es{font-size:24px}
+.say{display:flex;gap:8px}
+.spk{display:flex;align-items:center;gap:6px;background:#fff;border:3px solid var(--charcoal);border-radius:50px;padding:5px 14px 5px 10px}
+.spk .i{font-size:18px}.spk b{font-family:var(--disp);font-size:18px}
+.spk.talking{background:var(--yellow)}
+.timer{margin-left:auto;display:flex;align-items:center;gap:10px;background:var(--dusk);color:#fff;border-radius:16px;padding:8px 18px}
+.timer .i{font-size:28px;color:var(--amber)}.timer b{font-family:var(--disp);font-size:46px;line-height:1;font-variant-numeric:tabular-nums}
+.timer.open b{font-size:26px}
+
+.body{flex:1;min-height:0;display:grid;grid-template-columns:620px 1fr;gap:20px}
+.vcol{display:flex;flex-direction:column;gap:10px;min-width:0}
+.vidwrap{position:relative;width:620px;height:349px;flex:none}.breathe[hidden]{display:none}
+.vid{width:620px;height:349px;border-radius:16px;overflow:hidden;background:#111;display:grid;place-items:center;border:5px solid var(--dusk);transition:border-color .3s,box-shadow .3s}
+body[data-step="1"] .vid{border-color:var(--glow);box-shadow:0 0 0 6px rgba(227,96,42,.25)}
+.vid iframe{width:100%;height:100%;border:0}
+.vidph{color:#bbb;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:22px}.vidph .i{font-size:70px;color:var(--amber)}
+.breathe{position:absolute;inset:0;border-radius:16px;background:radial-gradient(circle at 50% 45%,#4a2c1c,var(--dusk));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.orb{width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--yellow),var(--amber) 55%,var(--red));animation:breath 10s ease-in-out infinite;box-shadow:0 0 80px rgba(242,154,46,.6)}
+@keyframes breath{0%,100%{transform:scale(.55)}45%,55%{transform:scale(1)}}
+.bcue{position:relative;height:70px;width:100%}.bcue>div{position:absolute;inset:0;text-align:center}
+.bcue .en{color:#fff;font-size:36px}.bcue .es{color:#f3d9c4;font-size:24px}
+.bcue .in{animation:ci 10s infinite}.bcue .out{animation:co 10s infinite}
+@keyframes ci{0%,48%{opacity:1}52%,98%{opacity:0}100%{opacity:1}}
+@keyframes co{0%,48%{opacity:0}52%,98%{opacity:1}100%{opacity:0}}
+.vinfo{display:flex;align-items:center;gap:10px}
+.vtxt{flex:1;min-width:0}
+.vk{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:13px;color:var(--glow)}
+.vt{font-family:var(--disp);font-size:21px;line-height:1.1;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vc{font-size:15px;color:var(--slate)}
+.vbtn{display:flex;align-items:center;gap:8px;justify-content:center;text-decoration:none;font-family:var(--disp);text-transform:uppercase;letter-spacing:.04em;
+  font-size:14px;border-radius:50px;padding:9px 14px;background:var(--red);color:#fff;border:0;white-space:nowrap}
+.vbtn.alt{background:#fff;color:var(--ink);border:3px solid var(--charcoal);font-size:13px;padding:6px 12px}
+.vbtn.alt.on{background:var(--yellow)}
+.scol{min-width:0;display:flex}
+.pane{display:none;flex:1;min-height:0}
+body[data-step="0"] .p0,body[data-step="1"] .p1,body[data-step="2"] .p2,body[data-step="3"] .p3{display:flex}
+
+/* step 1 pack up */
+.packs{flex:1;display:flex;flex-direction:column;gap:12px}
+.pc{flex:1;border-radius:16px;background:#FFF6EC;border:3px solid #f1dcc6;display:flex;align-items:center;gap:16px;padding:10px 16px}
+.pic{width:92px;height:92px;flex:none;border-radius:50%;background:#fff;border:5px solid var(--glow);display:grid;place-items:center}
+.pic .i{font-size:48px;color:var(--dusk)}
+.pc .en{font-size:25px;line-height:1.1}.pc .es{font-size:18px;margin-top:3px}
+
+/* step 2 watch */
+.p1{flex-direction:column;justify-content:center;gap:18px;border-radius:16px;background:#FFF6EC;border:3px solid #f1dcc6;padding:20px}
+.p1 .big .en{font-family:var(--disp);text-transform:uppercase;font-size:44px;line-height:1}.p1 .big .es{font-size:26px}
+.p1 .mid .en{font-size:28px;line-height:1.15}.p1 .mid .es{font-size:20px}
+.minibox{display:flex;align-items:center;gap:16px}.minibox .en{font-size:22px}.minibox .es{font-size:17px}
+
+/* step 3 reflect */
+.p2{flex-direction:column;gap:12px}
+.prompt{flex:1;min-height:0;border-radius:16px;background:linear-gradient(150deg,#FFF6EC,#FFE9D2);border:3px solid #f1dcc6;display:flex;flex-direction:column;justify-content:center;padding:12px 16px;gap:10px}
+.pq .en{font-size:29px;line-height:1.12}.pq .es{font-size:19px;margin-top:4px}
+.frame{border:3px dashed var(--glow);border-radius:14px;padding:10px 14px;background:#fff}
+.frame .en{font-size:21px}.frame .es{font-size:16px}
+.home{display:flex;align-items:center;gap:12px;background:var(--dusk);border-radius:14px;padding:10px 16px}
+.home .i{font-size:32px;color:var(--amber)}.home .en{color:#fff;font-size:20px}.home .es{color:#f3d9c4;font-size:16px}
+
+/* step 4 wait */
+.p3{flex-direction:column;gap:12px}
+.waitline .en{font-size:30px;line-height:1.1}.waitline .es{font-size:21px}
+.choices{flex:1;display:flex;flex-direction:column;gap:10px}
+.ch{flex:1;border-radius:16px;background:#FFF6EC;border:3px solid #f1dcc6;display:flex;align-items:center;gap:18px;padding:0 18px}
+.ch .i{font-size:46px;color:var(--dusk)}.ch .en{font-size:28px}.ch .es{font-size:20px}
+.mini{width:62px;height:62px;flex:none;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--yellow),var(--amber) 55%,var(--red));animation:breath 10s ease-in-out infinite}
+
+/* called strip, always on */
+.called{margin-top:12px;display:flex;align-items:center;gap:14px;background:var(--dusk);border-radius:14px;padding:10px 18px;flex:none}
+.called .i{font-size:32px;color:var(--amber)}.called .en{color:#fff;font-size:21px}.called .es{color:#f3d9c4;font-size:16px}
+
+/* rail */
+.rail{background:var(--dusk);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:9px;color:#fff;min-height:0}
+.noline{display:flex;align-items:center;gap:14px;background:var(--red);border-radius:16px;padding:8px 16px}
+.noline .i{font-size:38px;color:#fff}.noline .en{color:#fff;font-family:var(--disp);text-transform:uppercase;font-size:30px;line-height:1}.noline .es{color:#ffe1e1;font-size:20px}
+.rail h2 .en{color:#fff;font-family:var(--disp);text-transform:uppercase;font-size:24px;letter-spacing:.03em;font-weight:600}.rail h2 .es{color:#f3d9c4;font-size:17px}
+.groups{list-style:none;display:flex;flex-direction:column;gap:6px;flex:1;min-height:0;overflow:hidden}
+.g{flex:none;display:grid;grid-template-columns:58px 40px 1fr 56px;align-items:center;gap:8px;background:rgba(255,255,255,.07);border-radius:12px;padding:7px 10px;cursor:pointer;border:2px solid transparent}
+.gt{font-family:var(--disp);font-size:24px;color:var(--amber)}
+.gi .i{font-size:26px;color:#fff}
+.gn .en{color:#fff;font-size:17px;line-height:1.1}.gn .es{color:#d9c9bd;font-size:13px}
+.gw{display:none;margin-top:2px}.gw .en{font-size:13px;color:var(--yellow);font-weight:700}.gw .es{font-size:12px;color:#d9c9bd}
+.gs b{display:none;font-family:var(--disp);font-size:15px;text-transform:uppercase;border-radius:6px;padding:2px 7px;text-align:center}
+.g.now{background:var(--glow);border-color:#fff}.g.now .gn>.bi .es{display:none}.g.now .gt{color:#fff}.g.now.latest .gw{display:block}.g.now .gs .now{display:inline-block;background:#fff;color:var(--red)}
+.g.next .gs .nxt{display:inline-block;background:var(--yellow);color:var(--ink)}
+.g.gone{opacity:.45;padding:2px 10px}.g.gone .gn .es,.g.gone .gw{display:none}.g.gone .gt{font-size:18px}.g.gone .gi .i{font-size:18px}.g.gone .gs .gone{display:inline-block;color:#8fd17a;font-size:22px}.g.gone .gs .now,.g.gone .gs .nxt{display:none}
+.tap{font-size:13px;color:#b9a99c;text-align:center}
+
+/* footer rules */
+.rules{height:96px;flex:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 26px 18px}
+.r{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-left:8px solid var(--glow);border-radius:14px;padding:0 18px}
+.r .i{font-size:34px;color:var(--dusk)}.r .en{font-size:20px;line-height:1.1}.r .es{font-size:15px}
+
+/* bands */
+.b68 .pc .en{font-size:23px}.b68 .pq .en{font-size:27px}
+.b45 .pq .en{font-size:27px}
+.bk1 .pc .en{font-size:25px}
+
+/* teacher controls */
+#ctl{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;background:rgba(35,35,35,.94);padding:8px 10px;border-radius:50px;
+  font-family:'Oswald',sans-serif;color:#fff;z-index:10;transition:opacity .3s}
+#ctl.hide{opacity:0;pointer-events:none}
+#ctl button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:50px;padding:6px 12px;font-size:15px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+#ctl .go{background:var(--glow);border-color:var(--glow)}
+#ctl .days{display:flex;gap:3px}
+.dchip.cur{background:var(--yellow)!important;color:var(--ink)!important;border-color:var(--yellow)!important}
+#practice[aria-pressed=true]{background:#fff;color:var(--red)}
+@media (prefers-reduced-motion:reduce){.orb,.mini,.bcue>div{animation:none!important}.bcue .out{display:none}}
+</style></head>
+<body class="kid b23">
+<div aria-label="Ember end of day board" id="stage" role="application">
+<header class="hd">
+<div class="badge"><i aria-hidden="true" class="i i-flame"></i></div>
+<div class="ttl"><h1>Ember</h1><p><span class="es">Fin del día</span><span class="dn" id="dayname"></span></p></div>
+<ol class="steps"><li class="st" data-s="0"><span class="sn">1</span><i aria-hidden="true" class="i i-box"></i><span><div class="bi"><span class="en">Pack up</span><span class="es">Guarda</span></div></span></li><li class="st" data-s="1"><span class="sn">2</span><i aria-hidden="true" class="i i-tv"></i><span><div class="bi"><span class="en">Watch and breathe</span><span class="es">Mira y respira</span></div></span></li><li class="st" data-s="2"><span class="sn">3</span><i aria-hidden="true" class="i i-comment"></i><span><div class="bi"><span class="en">Reflect</span><span class="es">Reflexiona</span></div></span></li><li class="st" data-s="3"><span class="sn">4</span><i aria-hidden="true" class="i i-hourglass"></i><span><div class="bi"><span class="en">Wait calmly</span><span class="es">Espera con calma</span></div></span></li></ol>
+<div class="clockbox"><div class="mode" id="mode">Practice</div><div class="clock" id="clock">2:05</div><div class="band">2–3</div></div>
+</header>
+<main>
+<section aria-live="polite" class="now">
+<div class="nowhead"><div class="stitle" id="stepTitle"></div><div class="say"><button aria-label="Read aloud in English" class="spk" data-lang="en"><i aria-hidden="true" class="i i-speaker"></i><b>EN</b></button><button aria-label="Leer en español" class="spk" data-lang="es"><i aria-hidden="true" class="i i-speaker"></i><b>ES</b></button></div><div class="timer" id="timer"><i aria-hidden="true" class="i i-stopwatch"></i><b id="tleft">3:00</b></div></div>
+<div class="body">
+<div class="vcol">
+<div class="vidwrap">
+<div class="vid" id="vid"></div>
+<div class="breathe" hidden="" id="breathe"><div class="orb"></div><div class="bcue"><div class="in"><div class="bi"><span class="en">Breathe in</span><span class="es">Inhala</span></div></div><div class="out"><div class="bi"><span class="en">Breathe out</span><span class="es">Exhala</span></div></div></div></div>
+</div>
+<div class="vinfo">
+<div class="vtxt"><div class="vk">Today's video · Step 2</div><div class="vt" id="vtitle"></div><div class="vc" id="vchan"></div></div>
+<a class="vbtn" id="vopen" rel="noopener" target="_blank"><i aria-hidden="true" class="i i-circle-play"></i> YouTube</a>
+<button class="vbtn alt" id="planb"><i aria-hidden="true" class="i i-lungs"></i> Won't play? Breathe</button>
+</div>
+</div>
+<div class="scol">
+<div class="pane p0"><div class="packs"><div class="pc"><div class="pic"><i aria-hidden="true" class="i i-box"></i></div><div class="bi"><span class="en">Put your things away.</span><span class="es">Guarda tus cosas.</span></div></div><div class="pc"><div class="pic"><i aria-hidden="true" class="i i-laptop"></i></div><div class="bi"><span class="en">Chromebook closed on your desk. Pencil and Ember slip stay on the desk.</span><span class="es">Chromebook cerrada en tu escritorio. El lápiz y la hoja Ember se quedan.</span></div></div><div class="pc"><div class="pic"><i aria-hidden="true" class="i i-chair"></i></div><div class="bi"><span class="en">Stay in your seat.</span><span class="es">Quédate en tu asiento.</span></div></div></div></div>
+<div class="pane p1">
+<div class="bi big"><span class="en">Eyes on the screen.</span><span class="es">Ojos en la pantalla.</span></div>
+<div class="bi mid"><span class="en">Voice 0. Breathe with the video.</span><span class="es">Voz 0. Respira con el video.</span></div>
+<div class="minibox"><div class="mini"></div><div class="bi"><span class="en">In through your nose. Out slowly.</span><span class="es">Inhala por la nariz. Exhala despacio.</span></div></div>
+</div>
+<div class="pane p2">
+<div class="prompt"><div class="pq" id="pq"></div><div class="frame" id="pframe"></div></div>
+<div class="home"><i aria-hidden="true" class="i i-pen"></i><div class="bi"><span class="en">Write it on your Ember slip. Leave it face down on your desk.</span><span class="es">Escríbelo en tu hoja Ember. Déjala boca abajo en tu escritorio.</span></div></div>
+</div>
+<div class="pane p3">
+<div class="bi waitline"><span class="en">Wait calmly in your seat until your group is called.</span><span class="es">Espera con calma en tu asiento hasta que llamen a tu grupo.</span></div>
+<div class="choices">
+<div class="ch"><i aria-hidden="true" class="i i-book"></i><div class="bi"><span class="en">Read</span><span class="es">Lee</span></div></div>
+<div class="ch"><i aria-hidden="true" class="i i-pen"></i><div class="bi"><span class="en">Draw</span><span class="es">Dibuja</span></div></div>
+<div class="ch breath"><div class="mini"></div><div class="bi"><span class="en">Breathe</span><span class="es">Respira</span></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="called"><i aria-hidden="true" class="i i-plug"></i><div class="bi"><span class="en">Group called? Plug your Chromebook into your number in the cart. Then go with calm feet.</span><span class="es">¿Llamaron a tu grupo? Conecta tu Chromebook en tu número del carrito. Luego sal con pasos tranquilos.</span></div></div>
+</section>
+<aside class="rail">
+<div class="noline"><i aria-hidden="true" class="i i-ban"></i><div class="bi"><span class="en">No lining up</span><span class="es">No hacer fila</span></div></div>
+<h2><div class="bi"><span class="en">Who goes when</span><span class="es">¿Quién sale y cuándo?</span></div></h2>
+<ol class="groups"><li class="g" data-i="0" data-t="14:10"><span class="gt">2:10</span><span class="gi"><i aria-hidden="true" class="i i-walk"></i></span><span class="gn"><div class="bi"><span class="en">Walkers</span><span class="es">Caminantes</span></div><small class="gw"><span class="en">Chromebook in the cart, then walk out.</span><span class="es">Chromebook al carrito y sal caminando.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li><li class="g" data-i="1" data-t="14:15"><span class="gt">2:15</span><span class="gi"><i aria-hidden="true" class="i i-car"></i></span><span class="gn"><div class="bi"><span class="en">Car riders and aftercare</span><span class="es">Carro y cuidado después de clases</span></div><small class="gw"><span class="en">Chromebook in the cart, then the cafeteria.</span><span class="es">Chromebook al carrito y a la cafetería.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li><li class="g" data-i="2" data-t="14:15"><span class="gt">2:15</span><span class="gi"><i aria-hidden="true" class="i i-basketball"></i></span><span class="gn"><div class="bi"><span class="en">After-school activities</span><span class="es">Actividades después de clases</span></div><small class="gw"><span class="en">Chromebook in the cart, then the gym.</span><span class="es">Chromebook al carrito y al gimnasio.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li><li class="g" data-i="3" data-t="14:17"><span class="gt">2:17</span><span class="gi"><i aria-hidden="true" class="i i-bus"></i></span><span class="gn"><div class="bi"><span class="en">Bus riders, grades K–2</span><span class="es">Autobús, grados K–2</span></div><small class="gw"><span class="en">Chromebook in the cart, then walk with your teacher.</span><span class="es">Chromebook al carrito y camina con tu maestro.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li><li class="g" data-i="4" data-t="14:20"><span class="gt">2:20</span><span class="gi"><i aria-hidden="true" class="i i-bus"></i></span><span class="gn"><div class="bi"><span class="en">Bus riders, grades 3–5</span><span class="es">Autobús, grados 3–5</span></div><small class="gw"><span class="en">Chromebook in the cart, then walk with your teacher.</span><span class="es">Chromebook al carrito y camina con tu maestro.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li><li class="g" data-i="5" data-t="14:23"><span class="gt">2:23</span><span class="gi"><i aria-hidden="true" class="i i-bus"></i></span><span class="gn"><div class="bi"><span class="en">Bus riders, grades 6–8</span><span class="es">Autobús, grados 6–8</span></div><small class="gw"><span class="en">Chromebook in the cart, then walk with your teacher.</span><span class="es">Chromebook al carrito y camina con tu maestro.</span></small></span><span class="gs"><b class="now">Now</b><b class="nxt">Next</b><b class="gone"><i aria-hidden="true" class="i i-check"></i></b></span></li></ol>
+<p class="tap">Teacher: tap a group when it leaves.</p>
+</aside>
+</main>
+<footer class="rules">
+<div class="r"><i aria-hidden="true" class="i i-chair"></i><div class="bi"><span class="en">Stay seated.</span><span class="es">Quédate sentado.</span></div></div>
+<div class="r"><i aria-hidden="true" class="i i-plug"></i><div class="bi"><span class="en">Plug in your Chromebook at your number as you leave.</span><span class="es">Conecta tu Chromebook en tu número al salir.</span></div></div>
+<div class="r"><i aria-hidden="true" class="i i-door-open"></i><div class="bi"><span class="en">Leave only when your group is called.</span><span class="es">Sal solo cuando llamen a tu grupo.</span></div></div>
+</footer>
+</div>
+<nav aria-label="Teacher controls" id="ctl">
+<div class="days"><button aria-label="Monday" class="dchip" data-d="mon">Mon</button><button aria-label="Tuesday" class="dchip" data-d="tue">Tue</button><button aria-label="Wednesday" class="dchip" data-d="wed">Wed</button><button aria-label="Thursday" class="dchip" data-d="thu">Thu</button><button aria-label="Friday" class="dchip" data-d="fri">Fri</button></div>
+<button class="go" id="start"><i aria-hidden="true" class="i i-play"></i> Start (2:05 announcement)</button>
+<button aria-label="Previous step" id="prev"><i aria-hidden="true" class="i i-prev"></i></button>
+<button aria-label="Next step" id="next"><i aria-hidden="true" class="i i-next"></i></button>
+<button aria-pressed="false" id="practice">Practice mode: off</button>
+<button id="resetg"><i aria-hidden="true" class="i i-reset"></i> Reset groups</button>
+<button aria-label="Full screen" id="fs"><i aria-hidden="true" class="i i-expand"></i></button>
+</nav>
+<script>const EMBER={"videos": [["cyVzjoj96vs", "What I Am, with will.i.am", "Sesame Street"], ["syr1VL4Gzdg", "Sesame Street Best Friends Band", "Sesame Street"], ["iN6g2mr0p3Q", "Quick Meditation: Changing Perspective", "Headspace"], ["RwzbFIHt6sE", "We All Sing with Elmo and Friends!", "Sesame Street"], ["enpFde5rgmw", "I Love My Hair", "Sesame Street"]], "prompts": [["Name a welcome and how it helped someone join.", "Nombra un saludo y cómo ayudó a alguien a participar.", "____ helped by ____.", "____ ayudó al ____."], ["Name a direction you checked and what you did.", "Nombra una instrucción que comprobaste y qué hiciste.", "I checked ____. Then ____.", "Comprobé ____. Después ____."], ["Name a support and one part you attempted.", "Nombra un apoyo y una parte que intentaste.", "____ helped me try ____.", "____ me ayudó a intentar ____."], ["Name a choice you offered for participating.", "Nombra una opción que ofreciste para participar.", "I offered ____. They could choose.", "Ofrecí ____. La otra persona pudo elegir."], ["Name a contribution from this week and a next step that helps the group.", "Nombra una contribución de esta semana y un paso que ayude al grupo.", "At ____, I contributed ____. Next week I will ____.", "En ____, aporté ____. La próxima semana voy a ____."]], "band": "2–3", "pack": {"en": "Time to pack up. Put your things away. Close your Chromebook and keep it on your desk. Your pencil and your Ember slip stay on the desk. Stay in your seat. When your group is called, plug your Chromebook into your number in the cart, then go.", "es": "Es hora de guardar. Guarda tus cosas. Cierra tu Chromebook y déjala en tu escritorio. El lápiz y la hoja Ember se quedan en el escritorio. Quédate en tu asiento. Cuando llamen a tu grupo, conecta tu Chromebook en tu número del carrito y sal."}, "slip": {"en": "Write it on your Ember slip. Leave it face down on your desk.", "es": "Escríbelo en tu hoja Ember. Déjala boca abajo en tu escritorio."}, "bridges": ["Name the action that made returning easier.", "Listen, settle, then describe the message you checked.", "Let the mind settle; identify the support and the next action.", "Notice a contribution without deciding what others should feel.", "Carry a helpful contribution into next week."]};
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const stage=$('#stage'); const DAYS=['mon','tue','wed','thu','fri'];
+  const DN={mon:['Monday','lunes'],tue:['Tuesday','martes'],wed:['Wednesday','miércoles'],thu:['Thursday','jueves'],fri:['Friday','viernes']};
+  const DUR=[180,300,120,null];
+  const TITLES=[['Pack up at your seat','Guarda tus cosas en tu asiento'],['Watch and breathe','Mira y respira'],['Reflect on your slip','Reflexiona en tu hoja'],['Wait calmly','Espera con calma']];
+  let day=DAYS[Math.min(Math.max(new Date().getDay(),1),5)-1];
+  let h=''; try{h=location.hash.slice(1)}catch(e){} if(DAYS.includes(h)) day=h;
+  let step=0, stepStart=null, started=false, practice=false, t0=null, videoLoaded=false, planB=false, gone=new Set();
+
+  function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform=`translate(-50%,-50%) scale(${s})`}
+  addEventListener('resize',fit); fit();
+
+  // clock: real time, or a simulated 2:05 start in practice mode
+  function nowMin(){ if(practice&&t0){const e=(Date.now()-t0)/1000; return 14*60+5+e/60} const d=new Date(); return d.getHours()*60+d.getMinutes()+d.getSeconds()/60 }
+  function fmtClock(m){let hh=Math.floor(m/60),mm=Math.floor(m%60); const ap=hh>=12?'':''; hh=((hh+11)%12)+1; return hh+':'+String(mm).padStart(2,'0')}
+  const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+
+  function setDay(d){ day=d; try{history.replaceState(null,'','#'+d)}catch(e){}
+    $$('.dchip').forEach(c=>c.classList.toggle('cur',c.dataset.d===d));
+    const i=DAYS.indexOf(d); $('#dayname').textContent=DN[d][0]+' Oct '+(19+i)+' / '+DN[d][1];
+    const v=EMBER.videos[i]; $('#vtitle').textContent=v[1]; $('#vchan').textContent=v[2]+' · Opening 90 seconds · Seated';
+    $('#vopen').href='https://www.youtube.com/watch?v='+v[0];
+    const p=EMBER.prompts[i];
+    $('#pq').innerHTML='<span class="en"></span><span class="es"></span>'; $('#pq .en').textContent=p[0]; $('#pq .es').textContent=p[1];
+    $('#pframe').innerHTML='<span class="en"></span><span class="es"></span>'; $('#pframe .en').textContent=p[2]; $('#pframe .es').textContent=p[3];
+    videoLoaded=false; loadVideo();
+  }
+  function loadVideo(){ if(videoLoaded)return;const v=EMBER.videos[DAYS.indexOf(day)];$('#vid').innerHTML='<div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;background:#f4edda;color:#232323;padding:20px;text-align:center"><strong style="font-size:25px">'+v[1]+'</strong><button id="playclip" style="background:#e3602a;color:white;border:0;border-radius:30px;padding:16px 24px;font-size:23px;cursor:pointer">▶ Play 90-second excerpt · Reproducir</button><span style="font-size:18px">Stay seated. Watch or quietly observe. · Quédate sentado.</span></div>';$('#playclip').onclick=()=>{const v=EMBER.videos[DAYS.indexOf(day)];$('#vid').innerHTML='<iframe title="'+v[1].replace(/"/g,'&quot;')+'" src="https://www.youtube-nocookie.com/embed/'+v[0]+'?rel=0&playsinline=1&start=0&end=90&autoplay=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';videoLoaded=true;};}
+  function setStep(n){  step=Math.max(0,Math.min(3,n)); if(step!==1){videoLoaded=false;loadVideo();} stepStart=Date.now(); document.body.dataset.step=step;
+    $$('.st').forEach(s=>{const k=+s.dataset.s; s.classList.toggle('on',k===step); s.classList.toggle('did',k<step)});
+    $('#stepTitle').innerHTML='<span class="en"></span><span class="es"></span>'; $('#stepTitle .en').textContent=TITLES[step][0]; $('#stepTitle .es').textContent=TITLES[step][1];
+    hush(); tick() }
+
+  function tick(){
+    const m=nowMin(); $('#clock').textContent=fmtClock(m);
+    const d=DUR[step], tl=$('#timer');
+    if(!started){ tl.classList.add('open'); $('#tleft').textContent='Press Start'; }
+    else if(d==null){ tl.classList.add('open'); $('#tleft').textContent='Until called'; }
+    else { tl.classList.remove('open'); const left=Math.max(0,d-(Date.now()-stepStart)/1000); $('#tleft').textContent=fmt(left); if(left<=0&&step<3) setStep(step+1) }
+    // dismissal rail
+    const gs=$$('.g'); let nextSet=false; let latest=-1;
+    gs.forEach(g=>{ const [hh,mm]=g.dataset.t.split(':').map(Number); if(hh*60+mm<=m&&!gone.has(g.dataset.i)) latest=Math.max(latest,hh*60+mm) });
+    gs.forEach(g=>{ const [hh,mm]=g.dataset.t.split(':').map(Number); const due=hh*60+mm<=m; const isGone=gone.has(g.dataset.i);
+      g.classList.toggle('gone',isGone); g.classList.toggle('now',due&&!isGone); g.classList.toggle('latest',due&&!isGone&&hh*60+mm===latest);
+      const nx=!due&&!isGone&&!nextSet; if(nx) nextSet=true; g.classList.toggle('next',nx) });
+    // auto-start at the real 2:05 announcement on school days
+    if(!started&&!practice){ const d0=new Date(); const mm=d0.getHours()*60+d0.getMinutes(); if(d0.getDay()>=1&&d0.getDay()<=5&&mm>=14*60+5&&mm<14*60+25) start() }
+  }
+  function start(){ started=true; if(practice) t0=Date.now(); setStep(0) }
+
+  // speech
+  const TTS=(typeof speechSynthesis!=='undefined'&&typeof SpeechSynthesisUtterance!=='undefined')?speechSynthesis:null;
+  function hush(){try{TTS&&TTS.cancel()}catch(e){} $$('.spk').forEach(b=>b.classList.remove('talking'))}
+  function textFor(lang){ const i=DAYS.indexOf(day), e=lang==='en';
+    if(step===0) return e?EMBER.pack.en:EMBER.pack.es;
+    if(step===1) return e?'Watch and breathe. Eyes on the screen. Voice zero.':'Mira y respira. Ojos en la pantalla. Voz cero.';
+    if(step===2){const p=EMBER.prompts[i]; return e?(p[0]+' '+p[2].replace(/___/g,'blank')+' '+EMBER.slip.en):(p[1]+' '+p[3].replace(/___/g,'')+' '+EMBER.slip.es)}
+    return e?'Wait calmly in your seat until your group is called. You can read, draw, or breathe. No lining up. When your group is called, plug your Chromebook into your number in the cart, then go.':'Espera con calma en tu asiento hasta que llamen a tu grupo. Puedes leer, dibujar o respirar. No hacer fila. Cuando llamen a tu grupo, conecta tu Chromebook en tu número del carrito y sal.' }
+  $$('.spk').forEach(b=>b.onclick=()=>{ hush(); if(!TTS){b.style.opacity=.4;return}
+    const u=new SpeechSynthesisUtterance(textFor(b.dataset.lang)); u.lang=b.dataset.lang==='es'?'es-US':'en-US'; u.rate=.85;
+    const vs=TTS.getVoices(); const v=vs.find(v=>v.lang&&v.lang.startsWith(b.dataset.lang)); if(v) u.voice=v;
+    b.classList.add('talking'); u.onend=()=>b.classList.remove('talking'); try{TTS.speak(u)}catch(e){} });
+
+  // controls
+  $$('.dchip').forEach(c=>c.onclick=()=>setDay(c.dataset.d));
+  $('#start').onclick=start; $('#next').onclick=()=>{ if(!started) start(); else setStep(step+1)}; $('#prev').onclick=()=>setStep(step-1);
+  $('#practice').onclick=()=>{ practice=!practice; document.body.classList.toggle('practice',practice); $('#practice').setAttribute('aria-pressed',practice); $('#practice').textContent='Practice mode: '+(practice?'on':'off'); gone.clear(); started=false; t0=null; setStep(0) };
+  $('#resetg').onclick=()=>{gone.clear();tick()};
+  $$('.g').forEach(g=>g.onclick=()=>{ const k=g.dataset.i; gone.has(k)?gone.delete(k):gone.add(k); tick() });
+  $('#planb').onclick=()=>{videoLoaded=false;loadVideo(); planB=!planB; $('#breathe').hidden=!planB; $('#planb').classList.toggle('on',planB) };
+  $('#fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+  addEventListener('keydown',e=>{ if(e.target.tagName==='IFRAME') return;
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault(); $('#next').click()} if(e.key==='ArrowLeft') setStep(step-1);
+    if('12345'.includes(e.key)) setDay(DAYS[+e.key-1]); if(e.key==='s'||e.key==='S') start(); wake() });
+  const ctl=$('#ctl'); let idle; function wake(){ctl.classList.remove('hide');clearTimeout(idle);idle=setTimeout(()=>ctl.classList.add('hide'),4000)}
+  addEventListener('mousemove',wake); addEventListener('touchstart',wake); wake();
+  addEventListener('hashchange',()=>{let d='';try{d=location.hash.slice(1)}catch(e){} if(DAYS.includes(d)&&d!==day) setDay(d)});
+
+  setDay(day); setStep(0); setInterval(tick,500);
+})();
+</script>
+</body></html>

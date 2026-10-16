@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Week 10 · Come Back Ready · K–2</title><style>
+:root{
+  --charcoal:#232323; --ember:#C8161D; --spark-red:#E21C24; --mb-yellow:#F9DC7C;
+  --ink:#1A1A1A; --slate:#4A4A4A; --hairline:#e2e8f0; --muted:#94a3b8;
+  --font-body:'Inter',system-ui,sans-serif; --font-cond:'Oswald',system-ui,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;background:#111;font-family:var(--font-body);}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(24px,4vw,64px);background:#fff;color:var(--ink);}
+.slide.active{display:flex;}
+.slide.dark{background:var(--charcoal);color:#fff;}
+.slide.red{background:var(--spark-red);color:#fff;}
+.slide.yellow{background:var(--mb-yellow);color:var(--ink);}
+
+.eyebrow{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.14em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.72;margin:0 0 .6rem;}
+.slide h1{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  letter-spacing:.01em;line-height:1.02;margin:0;font-size:clamp(30px,5.4vw,76px);}
+.slide h2{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;
+  line-height:1.05;margin:0;font-size:clamp(24px,4.2vw,58px);}
+.lede{font-size:clamp(15px,1.7vw,25px);line-height:1.45;margin:1rem 0 0;max-width:36ch;opacity:.9;}
+.body-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+
+.mb-icon{width:1em;height:1em;flex:none;}
+.hero-icon{font-size:clamp(58px,9vw,120px);color:currentColor;opacity:.95;}
+
+.items{display:flex;gap:clamp(12px,2.2vw,32px);margin-top:clamp(16px,2.6vw,36px);flex-wrap:wrap;}
+.item{flex:1 1 0;min-width:150px;display:flex;flex-direction:column;gap:.55rem;
+  padding:clamp(12px,1.6vw,22px);border-radius:14px;background:rgba(0,0,0,.045);}
+.slide.dark .item,.slide.red .item{background:rgba(255,255,255,.11);}
+.item .mb-icon{font-size:clamp(34px,4.4vw,62px);}
+.item .lab{font-family:var(--font-cond);text-transform:uppercase;font-weight:700;
+  letter-spacing:.05em;font-size:clamp(15px,1.7vw,25px);line-height:1.1;}
+.item .txt{font-size:clamp(13px,1.35vw,19px);line-height:1.4;opacity:.93;}
+
+.frame{margin-top:clamp(16px,2.4vw,32px);padding:clamp(14px,2vw,26px);
+  border-radius:14px;border:2px dashed currentColor;opacity:.98;}
+.frame .flab{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(11px,1.1vw,14px);font-weight:600;opacity:.7;margin-bottom:.45rem;}
+.frame .stem{font-size:clamp(17px,2.3vw,34px);font-family:var(--font-cond);font-weight:600;line-height:1.25;}
+.choices{display:flex;gap:clamp(10px,1.6vw,22px);margin-top:clamp(12px,1.8vw,22px);flex-wrap:wrap;}
+.choice{flex:1 1 0;min-width:120px;display:flex;flex-direction:column;align-items:center;
+  gap:.4rem;padding:clamp(10px,1.4vw,18px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .choice,.slide.red .choice{background:rgba(255,255,255,.13);}
+.choice .mb-icon{font-size:clamp(30px,3.8vw,54px);}
+.choice .cl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(12px,1.3vw,18px);letter-spacing:.03em;}
+.bank{margin-top:.7rem;font-size:clamp(12px,1.25vw,17px);opacity:.85;}
+.bank b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.08em;font-size:.85em;}
+
+.steps{display:flex;gap:clamp(10px,1.6vw,24px);margin-top:clamp(16px,2.4vw,32px);flex-wrap:wrap;}
+.step{flex:1 1 0;min-width:110px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+  padding:clamp(10px,1.5vw,20px);border-radius:12px;background:rgba(0,0,0,.06);text-align:center;}
+.slide.dark .step,.slide.red .step{background:rgba(255,255,255,.13);}
+.step .n{font-family:var(--font-cond);font-weight:700;font-size:clamp(20px,2.6vw,38px);opacity:.5;line-height:1;}
+.step .mb-icon{font-size:clamp(28px,3.4vw,48px);}
+.step .sl{font-family:var(--font-cond);text-transform:uppercase;font-weight:600;
+  font-size:clamp(13px,1.4vw,20px);letter-spacing:.03em;}
+
+.callout{margin-top:clamp(14px,2vw,28px);font-family:var(--font-cond);font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;font-size:clamp(14px,1.8vw,26px);line-height:1.2;}
+.cognate{margin-top:.8rem;font-size:clamp(11px,1.15vw,15px);opacity:.7;font-style:italic;}
+.why{margin-top:clamp(14px,2vw,26px);padding:clamp(12px,1.6vw,20px);border-left:5px solid currentColor;
+  font-size:clamp(13px,1.5vw,21px);line-height:1.45;opacity:.94;}
+.why b{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.07em;font-size:.82em;
+  display:block;margin-bottom:.25rem;opacity:.75;}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:clamp(9px,.95vw,12px);opacity:.55;padding-top:1rem;}
+.foot .band{font-weight:700;letter-spacing:.16em;}
+
+.notes{position:fixed;left:0;right:0;bottom:0;max-height:58vh;overflow:auto;
+  background:#0d0d0d;color:#f2f2f2;border-top:4px solid var(--spark-red);
+  padding:20px clamp(20px,4vw,56px) 28px;display:none;z-index:60;font-size:14.5px;line-height:1.55;}
+.notes.show{display:block;}
+.notes h3{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.12em;
+  font-size:12px;margin:0 0 10px;color:var(--mb-yellow);}
+.notes .script{font-size:16.5px;line-height:1.55;margin:0 0 14px;padding:12px 14px;
+  background:rgba(255,255,255,.07);border-left:4px solid var(--mb-yellow);border-radius:0 8px 8px 0;}
+.notes .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.notes .k{font-family:var(--font-cond);text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px;color:var(--muted);margin:0 0 5px;}
+.notes ul{margin:0;padding-left:18px;}
+.notes li{margin-bottom:4px;}
+.notes .rub{display:inline-block;font-family:var(--font-cond);background:var(--spark-red);
+  color:#fff;padding:2px 9px;border-radius:20px;font-size:11px;letter-spacing:.1em;}
+.notes .imgspec{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:12px;
+  border-top:1px solid rgba(255,255,255,.13);padding-top:10px;}
+
+.hud{position:fixed;top:14px;right:16px;z-index:70;display:flex;gap:8px;align-items:center;
+  font-family:var(--font-cond);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+.hud button{font:inherit;background:rgba(0,0,0,.62);color:#fff;border:0;border-radius:20px;
+  padding:7px 13px;cursor:pointer;letter-spacing:.1em;}
+.hud button:hover{background:var(--spark-red);}
+.hud .cnt{background:rgba(0,0,0,.62);color:#fff;border-radius:20px;padding:7px 13px;}
+
+@media print{
+  html,body{background:#fff;height:auto;}
+  .deck{height:auto;width:auto;}
+  .hud{display:none;}
+  .slide{display:flex!important;position:relative;inset:auto;height:100vh;
+    page-break-after:always;border-bottom:1px solid #ddd;}
+  .notes{display:block!important;position:relative;max-height:none;}
+  .note-block{display:block!important;page-break-inside:avoid;
+    border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;}
+}
+
+.lede{max-width:48ch}.slide{padding-top:clamp(55px,5vw,72px)}
+.point-green{border-top:7px solid #15803d}.point-red{border-top:7px solid #b91c1c}
+.point-green .lab{color:#116329}.point-red .lab{color:#a8141b}
+.demo-link{display:inline-block;color:inherit;font-family:var(--font-cond);font-size:20px;margin-top:24px;text-underline-offset:5px}
+.hud a{font:inherit;color:white;background:#232323;border-radius:20px;padding:7px 13px;text-decoration:none}
+.notes a{color:#F9DC7C}.notes:focus{outline:0}
+@media(max-width:650px){.slide{overflow-y:auto}.body-wrap{min-height:fit-content;padding:24px 0}.items{display:grid;grid-template-columns:1fr}.hud{gap:3px;right:8px}.hud button,.hud a{padding:7px 8px}.foot{font-size:9px}}
+
+.date-line{font-family:var(--font-cond);font-size:clamp(18px,2.2vw,30px);margin-top:20px;color:inherit}
+.lede{max-width:52ch}.profile-name{font-family:var(--font-cond);font-size:clamp(20px,2.2vw,32px);text-transform:uppercase;line-height:1.15}
+.source-line{font-size:12px;margin-top:12px;opacity:.75}.notes a{color:#f9dc7c}
+.slide .item .txt{font-size:clamp(16px,1.55vw,22px)}
+.slide .foot{opacity:.72}.slide h2{max-width:26ch}
+@media(max-height:730px) and (min-width:900px){.slide{padding-bottom:25px}.slide h2{font-size:48px}.items,.frame,.steps{margin-top:18px}.body-wrap>.lede{margin-top:12px}.item{padding:14px}.frame{padding:17px}.slide .item .txt{font-size:19px}}
+
+.media-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center;margin-top:20px}.media-layout figure{margin:0}.media-layout img{width:100%;height:220px;object-fit:contain;background:#eee;border-radius:10px}.media-layout figcaption{font-size:12px;margin-top:7px}.media-layout p{font-size:21px;line-height:1.4;margin:12px 0}.media-layout .media-question{font-size:25px;font-weight:600}.media-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.media-actions button,.media-actions a,.photo-link{font:600 16px Inter,Arial,sans-serif;padding:12px 16px;border:2px solid #232323;border-radius:8px;color:#232323;background:#f9dc7c;text-decoration:none;cursor:pointer}.portrait-strip{display:flex;gap:20px;align-items:center;margin-top:14px}.portrait-strip figure{display:flex;align-items:center;gap:12px;margin:0;flex:1;font-size:13px}.portrait-strip img{height:120px;width:100px;object-fit:contain;background:#eee;border-radius:8px}.portrait-strip a{color:inherit}.media-dialog{width:min(1000px,90vw);padding:18px;border:0;border-radius:12px;background:#232323;color:white}.media-dialog::backdrop{background:#000c}.media-dialog iframe{width:100%;height:min(62vh,560px);border:0;margin-top:12px}.media-dialog button{font-size:18px;padding:9px 15px;cursor:pointer}.media-dialog a{color:#f9dc7c;margin-left:16px}.media-dialog p{font:15px Arial,sans-serif}.media-compact .items{margin-top:14px}.media-compact .item{padding:12px}
+@media(max-width:750px){.media-layout{gap:12px}.media-layout img{height:160px}.media-layout p,.media-layout .media-question{font-size:17px}.media-actions button,.media-actions a{font-size:13px;padding:8px}.portrait-strip img{height:85px;width:65px}}
+
+@font-face{font-family:Inter;src:url(shared/matchbook-body.woff2)}@font-face{font-family:Oswald;src:url(shared/matchbook-display.woff2)}
+.slide h2{font-size:clamp(30px,3.4vw,49px);max-width:35ch}.slide .body-wrap{width:100%}.copy{display:grid;gap:12px;margin-top:20px;max-width:1150px}.copy p{font-size:clamp(20px,2.1vw,30px);line-height:1.35;margin:0}.copy.dense p{font-size:clamp(19px,1.8vw,26px)}.copy strong{font-weight:700}.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.scene{background:#f2f3f5;padding:14px;border-radius:12px}.scene img{width:100%;height:155px;object-fit:contain}.scene p{font-size:21px;line-height:1.3;margin:10px 0 0}.scene-grid.four{grid-template-columns:repeat(4,1fr)}.scene-grid.four .scene img{height:145px}.scene-grid.four .scene p{font-size:19px}.scene-question{font-size:25px;font-weight:600;line-height:1.3;margin-top:16px}.notes h4{color:#f9dc7c}.notes p{margin:12px 0;line-height:1.5}.notes{overflow:auto}.safety-cue{font-size:16px;font-weight:700;margin-top:14px}.deck .slide{padding-top:68px}.hud{z-index:50}
+@media(max-width:700px){.scene-grid,.scene-grid.four{grid-template-columns:1fr 1fr}.scene img{height:90px}.scene p,.scene-grid.four .scene p{font-size:15px}.scene-question{font-size:20px}.copy p{font-size:19px}.slide .body-wrap{padding-top:10px}.slide h2{font-size:30px}.slide{overflow:auto}.foot{position:static;margin-top:18px}.scene-grid{gap:8px}}
+
+.grade-scene{width:100%;height:210px;object-fit:contain;display:block;margin:12px 0}.exact-scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.exact-scenarios.four{grid-template-columns:repeat(4,1fr)}.exact-scenarios p{font-size:20px;line-height:1.28;margin:0;border-left:3px solid #e21c24;padding-left:10px}.scene-question{font-size:23px;margin-top:12px;line-height:1.3}.support-strip{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}.support-strip span{padding:8px 12px;border:2px solid currentColor;border-radius:7px;font-size:18px;font-weight:600}.slide .body-wrap .phase-support{font-size:18px;line-height:1.35;margin-top:12px;padding-top:10px;border-top:1px solid currentColor}.precise-note{border-left:4px solid #e21c24;padding:12px 18px;margin:15px 0}.notes .precise-note{border-color:#f9dc7c}.teacher-model{background:#fff8df;padding:15px}.resource-nav{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}.cut-tools{display:grid;grid-template-columns:1fr 1fr;gap:16px}.cut-tool{border:2px dashed #555;padding:18px;break-inside:avoid}.cut-tool h3{margin-top:0}.answer-line{min-height:34px;border-bottom:1px solid #888;margin:8px 0}.print-page .scenario-text{font-size:14px}.teacher-only{background:#f5f5f5;padding:15px}.source-copy{line-height:1.6}.source-copy table{font-size:13px}.print-page .grade-scene{height:110px}.print-page .compact p{font-size:13px;line-height:1.35;margin:6px 0}.print-page .compact h3{font-size:19px;margin:10px 0 5px}@media(max-width:700px){.grade-scene{height:145px}.exact-scenarios,.exact-scenarios.four{grid-template-columns:1fr 1fr}.exact-scenarios p{font-size:16px}.cut-tools{grid-template-columns:1fr}}@media print{.print-page{break-after:page}.print-page .cut-tools{grid-template-columns:1fr 1fr}.print-page .grade-scene{height:90px}.resource-nav{display:none}.print-page h2{font-size:23px}.print-page .teacher-only{background:#fff;border:1px solid #888}.print-page .cut-tool{padding:10px}.print-page .cut-tool h3{font-size:20px}.print-page p{font-size:13px;line-height:1.35}.print-page .answer-line{min-height:24px}}
+</style><style>.tool-icon{height:64px;width:64px;object-fit:contain}.slide.dark .tool-icon,.slide.red .tool-icon{filter:invert(1)}.visual-header{display:flex;align-items:center;gap:20px}.visual-header .tool-icon{height:70px;width:70px}.copy p{font-size:clamp(18px,1.8vw,26px)}.copy{gap:9px}.picture-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.picture-choice{border:1px solid #888;border-radius:10px;padding:10px;text-align:center}.picture-choice img{height:45px;width:45px}.tool-box{border:1px solid #888;padding:14px;margin:12px 0;break-inside:avoid}.draw-box{height:150px;border:1px dashed #555;margin:12px 0}.timeline-strip{display:flex;gap:10px;flex-wrap:wrap}.timeline-stop{flex:1;text-align:center;min-width:75px}.timeline-stop img{height:45px;width:45px}.answer-line{height:30px;border-bottom:1px solid #888}.print-page .compact p{font-size:13px;line-height:1.3}.print-page .compact h3{font-size:16px;margin:7px 0 3px}@media print{.hero,.back,.toolnav,.actions{display:none!important}.section.print-page{break-after:page;page-break-after:always;padding:8px 0;margin:0}.print-page .draw-box{height:120px}.print-page .tool-box{padding:9px;margin:8px 0}.print-page .picture-choice{padding:5px}.print-page p{font-size:13px}.print-page .compact p{font-size:12px}.print-page .compact h3{font-size:14px}.print-page h2{font-size:23px}@page{size:letter;margin:.45in}}@media(max-height:750px) and (min-width:900px){.grade-scene{height:150px}.visual-header .tool-icon{height:50px;width:50px}.copy{gap:6px}.copy p{font-size:21px}.safety-cue{font-size:13px}}@media(max-width:700px){.picture-choices{grid-template-columns:repeat(3,1fr)}.visual-header .tool-icon{height:42px;width:42px}}</style><style>.break-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.break-grid .tool-box{margin:0;padding:8px}.break-grid h3{margin:0 0 5px;font-size:20px}.break-grid .picture-choice{padding:5px}.break-grid p{font-size:16px}.slide .picture-choice{background:#ffffffde;color:#232323}.slide .picture-choice .tool-icon{filter:none}.slide .picture-choice p{font-size:20px}.slide .picture-choice img{height:50px;width:50px}</style></head><body><nav aria-label="Presentation controls" class="hud"><a href="index.html">Toolkit</a><a href="teacher-guide.html#day-3-k2">Guide</a><button aria-label="Previous slide" id="prev">←</button><button aria-label="Next slide" id="next">→</button><button aria-controls="notes" aria-expanded="false" id="nbtn">Notes (N)</button><span aria-live="polite" class="cnt" id="cnt"></span></nav><main class="deck"><section aria-label="Slide 1: COME BACK READY" class="slide red"><p class="eyebrow">Week 10 · Wednesday October 7 · Welcome · 0:00</p><div class="body-wrap"><div class="visual-header"><img alt="path" class="tool-icon" src="assets/path.svg"/><h1>COME BACK READY</h1></div><div class="copy"></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 01</span></div></section><section aria-label="Slide 2: MY RESET" class="slide"><p class="eyebrow">Week 10 · Wednesday October 7 · Regulate · 2:00</p><div class="body-wrap"><div class="visual-header"><img alt="lungs" class="tool-icon" src="assets/lungs.svg"/><h2>MY RESET</h2></div><div class="copy"><p>Feet on the floor.</p><p>Hands in my lap.</p><p>One flower breath.</p><p>This is my reset for the first day back.</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 02</span></div></section><section aria-label="Slide 3: READY BODY (bed and breakfast tray)" class="slide"><p class="eyebrow">Week 10 · Wednesday October 7 · Orient · 2:00</p><div class="body-wrap"><div class="visual-header"><img alt="target" class="tool-icon" src="assets/target.svg"/><h2>READY BODY (bed and breakfast tray)</h2></div><div class="copy"><div class="picture-choices"><div class="picture-choice"><img alt="Ready Body" src="assets/breakfast.svg"/><p>Ready Body</p></div><div class="picture-choice"><img alt="Ready Routine" src="assets/desk.svg"/><p>Ready Routine</p></div><div class="picture-choice"><img alt="Ready Goal" src="assets/target.svg"/><p>Ready Goal</p></div></div></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 03</span></div></section><section aria-label="Slide 4: THE FIRST MORNING BACK" class="slide"><p class="eyebrow">Week 10 · Wednesday October 7 · Connect · Look · 2:00</p><div class="body-wrap"><div class="visual-header"><h2>THE FIRST MORNING BACK</h2></div><img alt="Come Back Ready comparison" class="grade-scene" src="assets/day-3-k2-scene.svg"/><div class="copy"><p>Omar: comes in, sits down, gets his things, starts.</p><p>Eli: comes in, stands by the door, looks around.</p><p>Question: What can help Eli remember?</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 04</span></div></section><section aria-label="Slide 5: When I come back, I want to get better at ____." class="slide"><p class="eyebrow">Week 10 · Wednesday October 7 · Connect · Share · 1:00</p><div class="body-wrap"><div class="visual-header"><img alt="friends" class="tool-icon" src="assets/friends.svg"/><h2>When I come back, I want to get better at ____.</h2></div><div class="copy"></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 05</span></div></section><section aria-label="Slide 6: MY COMEBACK CARD" class="slide yellow"><p class="eyebrow">Week 10 · Wednesday October 7 · Practice · 3:00</p><div class="body-wrap"><div class="visual-header"><img alt="book" class="tool-icon" src="assets/book.svg"/><h2>MY COMEBACK CARD</h2></div><div class="copy"><p>READY GOAL: Draw what you will get better at.</p><p>READY ROUTINE: Point to the First Five. 1 Come In</p><p>2 Sit Down</p><p>3 Get My Things</p><p>4 Start</p><p>5 Keep Going</p><p>READY BODY: Circle your reset: flower breath</p><p>feet on the floor</p></div><p class="safety-cue">Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 06</span></div></section><section aria-label="Slide 7: ONE ACTION TODAY" class="slide dark"><p class="eyebrow">Week 10 · Wednesday October 7 · Commit · 3:00</p><div class="body-wrap"><div class="visual-header"><img alt="star" class="tool-icon" src="assets/star.svg"/><h2>ONE ACTION TODAY</h2></div><div class="copy"><p>Today I will practice the First Five by ____.</p><p>Say it, draw it, or keep it private.</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 07</span></div></section><section aria-label="Slide 8: CARRY IT INTO OUR DAY" class="slide red"><p class="eyebrow">Week 10 · Wednesday October 7 · Transition · 2:00</p><div class="body-wrap"><div class="visual-header"><img alt="backpack" class="tool-icon" src="assets/backpack.svg"/><h2>CARRY IT INTO OUR DAY</h2></div><div class="copy"><p>Before we move on: What does a ready body, ready routine, and ready goal look like?</p><p>Tomorrow: Cypher Day!</p></div></div><div class="foot"><span>Matchbook Morning Meeting · Look Back, Plan Ahead</span><span class="band">Grades K–2 · 08</span></div></section></main><aside aria-label="Teacher notes" class="notes" id="notes"><div class="note-block"><h3>Screen 1 · Welcome · 0:00</h3><p><strong>Target:</strong> Show the First Five steps and choose one thing to get better at.</p>
+<p><strong>Script:</strong> "Monday we looked back. Yesterday we made a plan for the break. Today we get ready for the day we come back. The first morning after a break sets the tone for the whole next stretch of the year. We are going to decide right now what that morning looks like."
+<strong>Look for:</strong> Students connect the three days.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 2 · Regulate · 2:00</h3><p><strong>Prepare:</strong> One Comeback Card per student, the First Five picture strip from Week 9 (already posted), and the Comeback Folder label (toolkit).</p>
+<p><strong>Script:</strong> "Feet flat on the floor. Feel the chair holding you. Breathe in for four. Out for six. The long breath out is the one that calms you. Three rounds. This is your reset. The first morning back after break, your body may feel tired or jittery. This is what you will do."
+Use the flower breath for the breath step.
+<strong>Look for:</strong> Bodies still by the third round.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 3 · Orient · 2:00</h3><p><strong>Model</strong>
+Teacher points: "Ready body: I go to bed early the night before. Ready routine: come in, sit down, get my things, start. Ready goal: I want to get better at reading words."</p>
+<p><strong>Script:</strong>
+"Being ready has three parts. A ready body has sleep and breakfast. Breakfast is here at school every morning too. A ready routine means you remember the First Five. Come in, sit down, get your things, start. A ready goal is one thing you want to get better at."</p>
+<p><strong>Check:</strong> "If you forget the First Five after break, what do you do?" Expected: Look at the board and start. Do my best and keep going.
+<strong>Look for:</strong> Students name all three parts.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 4 · Connect · Look · 2:00</h3><p><strong>Worked response</strong>
+"Eli can look at the pictures. Eli can watch a friend. Eli can come in and sit down."</p>
+<p><strong>If a student is unsure:</strong>
+Point to the First Five pictures. "What does Omar do first?"</p>
+<p><strong>Script:</strong> "Look at the first morning back. Don't decide who is a good student. Look at what each person does." Give twenty seconds of silent looking, then take two or three answers.
+<strong>Facilitation:</strong> Students will want to share break stories when they return. Name where those belong: Morning Meeting and lunch.
+<strong>Look for:</strong> Students use the First Five steps as evidence.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 5 · Connect · Share · 1:00</h3><p><strong>Response options</strong>
+Point to a picture: reading, counting, writing my name, being a good friend, starting fast. Say "I want to get better at ____."</p>
+<p><strong>Script:</strong> "Think about your Next from Monday's Look Back Card. That might be your goal. Partner A, then Partner B. A pass is okay."
+<strong>Look for:</strong> Goals connect to Monday's Next.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 6 · Practice · 3:00</h3><p><strong>Three-minute facilitation</strong>
+0:00 to 0:45: point to each box and model. 0:45 to 2:30: students draw their goal and circle their reset. 2:30 to 3:00: students point to the First Five pictures in order with a partner.</p>
+<p><strong>Look for:</strong> Goals are specific. First steps happen in the first week back.
+<strong>If the response misses the skill:</strong>
+If a child draws something unrelated, ask, "What do you want to get better at?" Write their words under the drawing.</p>
+<p><strong>Script:</strong> "This is your Comeback Card. It stays here at school in our Comeback Folder. On our first morning back, you get it back so you walk in remembering your goal."
+<strong>Facilitation:</strong> Collect every card into the Comeback Folder. Store Monday's Look Back Cards in the same folder.
+<strong>Look for:</strong> Every card has a goal and a reset.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 7 · Commit · 3:00</h3><p><strong>If support is needed:</strong> See the response support on the Practice screen. <strong>Commitment support:</strong> Point to the student's first step on their card. Ask, "Could you do a small part of that today?" <strong>Extend when ready:</strong> "What could get in the way of your goal? What will you do then?"</p>
+<p><strong>Script:</strong> "Goals do not start after break. They start today. Name one small thing you can do today that moves you toward your goal. Whisper it to your partner."
+<strong>Look for:</strong> Commitments are small and doable today.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div><div class="note-block"><h3>Screen 8 · Transition · 2:00</h3><p><strong>Expected exit response</strong>
+"When I come back, I come in, sit down, get my things, and start. I want to get better at ____."</p>
+<p><strong>Mastery evidence:</strong> Students can describe their first morning back and name their goal.</p>
+<p><strong>Script:</strong> "Tomorrow we celebrate. Friday Cypher is on Thursday this week because there is no school Friday. Think about who you saw this week being Safe, Respectful, and Responsible. Nominations close at the end of today. Stand on the one."
+<strong>Look for:</strong> A calm transition into the first task.
+<strong>Access:</strong> Read aloud. Accept pointing, gesture, drawing, dictation, a partner response, quiet thinking, or a pass.</p>
+<hr/>
+<p><strong>Practice boundary:</strong> Breaks look different for every family. Plans and reflections stay private unless the student chooses to share.</p></div></aside><script>
+const slides=[...document.querySelectorAll('.slide')], notes=[...document.querySelectorAll('.note-block')];
+let i=Math.max(0,Math.min(slides.length-1,(parseInt(location.hash.slice(1))||1)-1));
+function draw(){slides.forEach((s,n)=>{s.classList.toggle('active',n===i);s.setAttribute('aria-hidden',n!==i)});notes.forEach((s,n)=>s.style.display=n===i?'block':'none');document.querySelector('#cnt').textContent=`${i+1} / ${slides.length}`;document.querySelector('#prev').disabled=i===0;document.querySelector('#next').disabled=i===slides.length-1;history.replaceState(null,'','#'+(i+1))}
+function go(d){i=Math.max(0,Math.min(slides.length-1,i+d));draw()}
+function toggle(){const visible=document.querySelector('#notes').classList.toggle('show');document.querySelector('#nbtn').textContent=visible?'Hide notes (N)':'Notes (N)';document.querySelector('#nbtn').setAttribute('aria-expanded',visible)}
+document.querySelector('#prev').onclick=()=>go(-1);document.querySelector('#next').onclick=()=>go(1);document.querySelector('#nbtn').onclick=toggle;
+document.addEventListener('keydown',e=>{if(e.target.closest('button,a')&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}else if(e.key.toLowerCase()==='n'){toggle()}else if(e.key==='Home'){i=0;draw()}else if(e.key==='End'){i=slides.length-1;draw()}else if(e.key==='Escape'){document.querySelector('#notes').classList.remove('show');document.querySelector('#nbtn').textContent='Notes (N)';document.querySelector('#nbtn').setAttribute('aria-expanded','false')}});draw();
+</script></body></html>

@@ -1,0 +1,81 @@
+{
+  "clips": {
+    "sing": [
+      "RwzbFIHt6sE",
+      "We All Sing with Elmo and Friends!",
+      "Sesame Street"
+    ],
+    "iam": [
+      "cyVzjoj96vs",
+      "What I Am, with will.i.am",
+      "Sesame Street"
+    ],
+    "hair": [
+      "enpFde5rgmw",
+      "I Love My Hair",
+      "Sesame Street"
+    ],
+    "band": [
+      "syr1VL4Gzdg",
+      "Sesame Street Best Friends Band",
+      "Sesame Street"
+    ],
+    "peek": [
+      "pkGAX4ogIeA",
+      "Play Peek-A-Boo with Elmo",
+      "Sesame Street"
+    ],
+    "sky": [
+      "56c1uL_O8Jk",
+      "Remember the Blue Sky",
+      "Headspace"
+    ],
+    "perspective": [
+      "iN6g2mr0p3Q",
+      "Quick Meditation: Changing Perspective",
+      "Headspace"
+    ],
+    "effort": [
+      "wyj8l9miy4w",
+      "Letting Go of Effort",
+      "Headspace"
+    ],
+    "pep": [
+      "l-gQLqv9f4o",
+      "A Pep Talk from Kid President to You",
+      "SoulPancake"
+    ]
+  },
+  "bands": {
+    "k1": [
+      "sing",
+      "band",
+      "sky",
+      "hair",
+      "iam"
+    ],
+    "23": [
+      "iam",
+      "band",
+      "perspective",
+      "sing",
+      "hair"
+    ],
+    "45": [
+      "sky",
+      "perspective",
+      "effort",
+      "sing",
+      "iam"
+    ],
+    "68": [
+      "sky",
+      "perspective",
+      "effort",
+      "pep",
+      "iam"
+    ]
+  },
+  "retrieved": "2026-10-16",
+  "ixl_week": 8
+}
