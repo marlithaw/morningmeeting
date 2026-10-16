@@ -25,7 +25,7 @@ TOPICS = [
     dict(num=8, title='Gentle Hands with Grown-Ups', line='I keep my grown-ups safe too.',
          part='Safe choices', slug='08-gentle-hands-grown-ups', status='live', thumb='gm_hero'),
     dict(num=9, title='Things Stay Safe', line='I keep our things safe and in their place.',
-         part='Safe choices', slug='09-things-stay-safe', status='soon', thumb=None),
+         part='Safe choices', slug='09-things-stay-safe', status='live', thumb='ts_hero'),
     dict(num=10, title='School Words', line='I use kind school words, even when I am mad.',
          part='Safe choices', slug='10-school-words', status='soon', thumb=None),
     dict(num=11, title='Right-Size Voice', line='I use the right voice for the place.',

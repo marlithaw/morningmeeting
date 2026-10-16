@@ -13,7 +13,7 @@ family half-sheets (EN/ES/KR), a captioned song video, a topic web page, and an 
 | 3. Review the content draft | Marlitha |
 | 4. Flow image prompts for the gaps; generate in Flow (personal Gmail only, never the Matchbook account); she picks | Claude + Marlitha |
 | 5. Build the draft bundle and check every page | Claude |
-| 6. Lyrics: shared intro + "I can choose" chorus (music/SHARED.md) word for word, new topic hook, verses, outro; she makes it in Suno and uploads it | Claude + Marlitha |
+| 6. Lyrics: shared intro + "I can choose" chorus (music/SHARED.md) word for word, new topic hook, verses, outro, lyrics and style line labeled for their own Suno boxes (see below); she makes it in Suno and uploads it | Claude + Marlitha |
 | 7. Flow video clips (Frames mode, 8s, no ages in prompts, never animate the unsafe act); cut the captioned video | Claude |
 | 8. Publish on a branch, open a PR; she merges; check the live site | Claude + Marlitha |
 
@@ -67,3 +67,9 @@ Coloring pages: do not trace a 3D render for the coloring page; the tracer turns
 lines. Generate a real coloring-book page in Flow instead (prompt: "simple black-and-white coloring book page for young
 children, clean thick smooth black outlines, white background, no shading", friendly smiling faces, the lesson's safe
 action), save it as assets/img/color_<key>.png, and set `color=dict(png='color_<key>', ...)`.
+
+Suno boxes: the lyrics (with the bracketed section and sound tags) go in the Lyrics box, which has room for a full song.
+Only the short style line goes in the Style of Music box (1,000 characters max). Give her the two parts clearly labeled.
+Before sending lyrics, check them line by line against the lesson: the story beats in the same order (including the
+grown-up's response), every one of the four steps sung at least once outside the hook, the class "We say" line sung
+as written, and the exact words the character says in the story ("Can you help me?").
