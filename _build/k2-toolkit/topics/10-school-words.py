@@ -40,7 +40,7 @@ TOPIC = dict(
         kr='Mwen sèvi ak pawòl lekòl ki fèm e janti.',
     ),
     card_line='I use kind school words, even when I am mad.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 30 seconds', poster_at=2.5),
     choices=STEPS,
     choices_head=dict(en='School words: what to say and how', es='Palabras de la escuela: qué decir y cómo', kr='Pawòl lekòl: kisa pou m di ak kijan'),
     deck=dict(
