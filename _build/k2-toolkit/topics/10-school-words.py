@@ -5,11 +5,11 @@
 # and "please" plus what I need. If it keeps happening, get a grown-up.
 #   Cutting:  "Diego, I was here first. Please go behind me."
 #   Taking:   "Kiara, that's my marker. Please give it back."
-#   Teasing:  "Malik, that's not kind. Please stop."
+#   Teasing:  "Malik, stop. That's not kind."  (no "please": we ask for things with please; we do not ask someone to stop being unkind)
 # Story: lining up for recess, Diego slides in front of Tee. Tee's face gets hot and mean words are ready to pop out.
 # He takes a breath, stands tall, looks at Diego, and says in a strong, calm voice, "Diego, I was here first. Please go
-# behind me." Diego says, "Oh, sorry!" and steps back. Transfer: Malik laughs at Lee's drawing; Lee says, "Malik, that's
-# not kind. Please stop." When he keeps laughing, she tells her teacher. Mad is okay; mean words are not.
+# behind me." Diego says, "Oh, sorry!" and steps back. Transfer: Malik laughs at Lee's drawing; Lee says, "Malik, stop.
+# That's not kind." When he keeps laughing, she tells her teacher. Mad is okay; mean words are not.
 # Unkind moments belong to classmates (Diego cuts, Kiara takes, Malik teases), never Lee or Tee.
 # Reused art: kiara_shout, ft_laugh, ga_s1 (Tee raising his hand, white background), ball, promise, leave, class_breathe.
 # New Flow art: sw_hero, sw_line, sw_cut, sw_tall, sw_words, sw_sorry (recess line, Tee + Diego), sw_take, sw_marker
@@ -70,7 +70,7 @@ TOPIC = dict(
             title='WHEN IT KEEPS HAPPENING',
             img='sw_tease',
             pos='center 35%',
-            q='Malik laughs at Lee’s drawing. Lee says, “Malik, that’s not kind. Please stop.”',
+            q='Malik laughs at Lee’s drawing. Lee says, “Malik, stop. That’s not kind.”',
             q2='He keeps laughing. Lee gets a grown-up.',
             choice_fit='contain',
             choices=[(k, en) for k, en, es, kr in STEPS],
@@ -135,13 +135,13 @@ TOPIC = dict(
             dict(
                 name='Practice · Watch Me, Then Show Me',
                 rubric='R3, R4, R5',
-                script='Teach how to say it with three voices. Whisper, “Diego, please go behind me.” Ask: “Did Diego hear me? No. Too quiet.” Then say it too loud, but not mean, as a big booming voice. Ask: “Did that feel calm? No. Too loud.” Then stand tall, look, and say it in a strong, calm voice. “That one! Strong, not loud.” Invite one student to play Tee while you play Diego and cut in front. The student stands tall, looks, and says, “[Name], I was here first. Please go behind me.” Answer: “Oh, sorry!” Then switch the scene: “Someone keeps laughing at your drawing.” The student says, “That’s not kind. Please stop.” Keep laughing softly; the student walks to you, the grown-up. Practice the three sentences once with the whole class.',
+                script='Teach how to say it with three voices. Whisper, “Diego, please go behind me.” Ask: “Did Diego hear me? No. Too quiet.” Then say it too loud, but not mean, as a big booming voice. Ask: “Did that feel calm? No. Too loud.” Then stand tall, look, and say it in a strong, calm voice. “That one! Strong, not loud.” Invite one student to play Tee while you play Diego and cut in front. The student stands tall, looks, and says, “[Name], I was here first. Please go behind me.” Answer: “Oh, sorry!” Then switch the scene: “Someone keeps laughing at your drawing.” The student says, firmly, “[Name], stop. That’s not kind.” Point out: “No please this time. We say please when we ask for something. When someone is unkind, we say stop.” Keep laughing softly; the student walks to you, the grown-up. Practice the three sentences once with the whole class.',
                 look=['Tall body, eyes on the friend', 'A strong voice, not a whisper and not a yell', 'The friend’s name first, then please', 'Gets a grown-up when it keeps happening'],
                 breaks=['Excellent model: “Show us again. Everyone, listen: strong, not loud.”', 'Partly right model: “Your words were kind. Now stand tall and look at me. Try again.”', 'Silly model: “Thank you. Let’s hear it with school words.” Call a new student; no commentary.'],
                 support=['You always play the friend who cuts, takes, or teases. Never have a student act out teasing or say a mean word, even to show what not to do.'],
                 language=['Name plus “please” is a full answer', 'Spanish: “Diego, yo estaba primero. Ponte detrás de mí, por favor.” · Kreyòl: “Diego, se mwen ki te la anvan. Mete w dèyè m, souple.”'],
                 move='LiveSchool: award the student model a point. Name it out loud: “You felt mad and used strong, kind words.”',
-                aside='Post the three school-word sentences where students can see them: Please go behind me. Please give it back. Please stop.',
+                aside='Post the three school-word sentences where students can see them: Please go behind me. Please give it back. Stop. That’s not kind.',
             ),
             dict(
                 name='Commit · My Promise Today',
@@ -174,7 +174,7 @@ TOPIC = dict(
         panels=[
             dict(img='sw_words', pos='center 25%', color='var(--sky)', symbol='1', en='Someone cuts: "Diego, I was here first. Please go behind me."', es='Alguien se mete: "Diego, yo estaba primero. Ponte detrás de mí, por favor."', kr='Yon moun koupe liy: "Diego, se mwen ki te la anvan. Mete w dèyè m, souple."'),
             dict(img='sw_marker', pos='center 25%', color='var(--orange)', symbol='2', en='Someone takes: "Kiara, that\'s my marker. Please give it back."', es='Alguien toma: "Kiara, es mi marcador. Devuélvemelo, por favor."', kr='Yon moun pran: "Kiara, se makè pa m. Ban m li tounen, souple."'),
-            dict(img='sw_tease', pos='center 25%', color='var(--green)', symbol='3', en='Someone teases: "Malik, that\'s not kind. Please stop."', es='Alguien se burla: "Malik, eso no es amable. Para, por favor."', kr='Yon moun ap pase m nan rizib: "Malik, sa pa janti. Sispann, souple."'),
+            dict(img='sw_tease', pos='center 25%', color='var(--green)', symbol='3', en='Someone teases: "Malik, stop. That\'s not kind."', es='Alguien se burla: "Malik, para. Eso no es amable."', kr='Yon moun ap pase m nan rizib: "Malik, sispann. Sa pa janti."'),
             dict(img='sw_teacher', pos='center 25%', color='var(--red)', symbol='4', en='Still happening? I get a grown-up.', es='¿Sigue pasando? Busco a un adulto.', kr='Li toujou ap fèt? Mwen chèche yon granmoun.'),
         ],
     ),
@@ -227,7 +227,7 @@ TOPIC = dict(
             scenes=[
                 ('sw_cut', 'center', 'Someone cuts in front of me. "___, I was here first. Please go behind me."', 'Alguien se mete delante de mí. "___, yo estaba primero. Ponte detrás de mí, por favor."', 'Yon moun koupe devan m. "___, se mwen ki te la anvan. Mete w dèyè m, souple."'),
                 ('sw_take', 'center 35%', 'Someone takes my marker. "___, that\'s my marker. Please give it back."', 'Alguien toma mi marcador. "___, es mi marcador. Devuélvemelo, por favor."', 'Yon moun pran makè m. "___, se makè pa m. Ban m li tounen, souple."'),
-                ('sw_tease', 'center 35%', 'Someone laughs at my drawing. "___, that\'s not kind. Please stop."', 'Alguien se ríe de mi dibujo. "___, eso no es amable. Para, por favor."', 'Yon moun ap ri desen mwen. "___, sa pa janti. Sispann, souple."'),
+                ('sw_tease', 'center 35%', 'Someone laughs at my drawing. "___, stop. That\'s not kind."', 'Alguien se ríe de mi dibujo. "___, para. Eso no es amable."', 'Yon moun ap ri desen mwen. "___, sispann. Sa pa janti."'),
                 ('ball', 'center 40%', 'Someone keeps the ball. "___, it\'s my turn. Please pass the ball."', 'Alguien no comparte la pelota. "___, es mi turno. Pásame la pelota, por favor."', 'Yon moun kenbe boul la. "___, se tou pa m. Pase m boul la, souple."'),
             ],
         ),
@@ -250,9 +250,9 @@ TOPIC = dict(
         en=dict(
             t='School Words',
             eb='This week in Morning Meeting · Kindergarten to 2nd Grade',
-            intro='Your child is learning exactly what to say when someone cuts in line, takes their things, or teases them, and how to say it: stand tall, look at the other child, and use a strong, calm voice (strong, not loud). They say the child’s name and “please,” plus what they need. If it keeps happening, they get a grown-up.',
+            intro='Your child is learning exactly what to say when someone cuts in line, takes their things, or teases them, and how to say it: stand tall, look at the other child, and use a strong, calm voice (strong, not loud). They say the child’s name and “please,” plus what they need. When someone teases, there is no please: “Stop. That’s not kind.” If it keeps happening, they get a grown-up.',
             sayh='At school we say:',
-            say='"Diego, please go behind me." "Kiara, please give it back." "Malik, please stop."',
+            say='"Diego, please go behind me." "Kiara, please give it back." "Malik, stop. That\'s not kind."',
             ch='How to use school words',
             th='Try at home',
             tips=[
@@ -265,9 +265,9 @@ TOPIC = dict(
         es=dict(
             t='Palabras de la escuela',
             eb='Esta semana en la Reunión de la Mañana · Kínder a 2.º grado',
-            intro='Su hijo o hija está aprendiendo qué decir cuando alguien se mete en la fila, toma sus cosas o se burla, y cómo decirlo: pararse derecho, mirar al otro niño o niña y usar una voz firme y tranquila (firme, no fuerte). Dice el nombre, “por favor” y lo que necesita. Si sigue pasando, busca a un adulto.',
+            intro='Su hijo o hija está aprendiendo qué decir cuando alguien se mete en la fila, toma sus cosas o se burla, y cómo decirlo: pararse derecho, mirar al otro niño o niña y usar una voz firme y tranquila (firme, no fuerte). Dice el nombre, “por favor” y lo que necesita. Cuando alguien se burla, no hay por favor: “Para. Eso no es amable.” Si sigue pasando, busca a un adulto.',
             sayh='En la escuela decimos:',
-            say='"Diego, ponte detrás de mí, por favor." "Kiara, devuélvemelo, por favor." "Malik, para, por favor."',
+            say='"Diego, ponte detrás de mí, por favor." "Kiara, devuélvemelo, por favor." "Malik, para. Eso no es amable."',
             ch='Cómo usar palabras de la escuela',
             th='Practiquen en casa',
             tips=[
@@ -280,9 +280,9 @@ TOPIC = dict(
         kr=dict(
             t='Pawòl lekòl',
             eb='Semèn sa a nan Reyinyon Maten · Kindègadenn rive 2yèm ane',
-            intro='Pitit ou ap aprann egzakteman kisa pou l di lè yon moun koupe liy, pran bagay li, oswa pase l nan rizib, ak kijan pou l di l: kanpe dwat, gade lòt timoun nan, epi sèvi ak yon vwa fèm e kalm (fèm, pa fò). Li di non timoun nan, “souple,” ak sa li bezwen. Si sa kontinye, li chèche yon granmoun.',
+            intro='Pitit ou ap aprann egzakteman kisa pou l di lè yon moun koupe liy, pran bagay li, oswa pase l nan rizib, ak kijan pou l di l: kanpe dwat, gade lòt timoun nan, epi sèvi ak yon vwa fèm e kalm (fèm, pa fò). Li di non timoun nan, “souple,” ak sa li bezwen. Lè yon moun ap pase l nan rizib, pa gen souple: “Sispann. Sa pa janti.” Si sa kontinye, li chèche yon granmoun.',
             sayh='Nan lekòl la nou di:',
-            say='"Diego, mete w dèyè m, souple." "Kiara, ban m li tounen, souple." "Malik, sispann, souple."',
+            say='"Diego, mete w dèyè m, souple." "Kiara, ban m li tounen, souple." "Malik, sispann. Sa pa janti."',
             ch='Kijan pou sèvi ak pawòl lekòl',
             th='Eseye lakay ou',
             tips=[
@@ -296,14 +296,14 @@ TOPIC = dict(
     guide=dict(
         images=[('sw_cut', 300, 168), ('sw_words', 300, 168)],
         glance=[
-            ('Goal', 'Students learn what to say, and how, when someone cuts in line, takes their things, or teases them: stand tall and look, use a strong, calm voice, say the child’s name and “please” plus what they need. If it keeps happening, they get a grown-up. Mad is okay; mean words are not.'),
+            ('Goal', 'Students learn what to say, and how, when someone cuts in line, takes their things, or teases them: stand tall and look, use a strong, calm voice, say the child’s name and “please” plus what they need. For teasing, there is no please: “Stop. That’s not kind.” If it keeps happening, they get a grown-up. Mad is okay; mean words are not.'),
             ('Time', '15 minutes in Morning Meeting, in place of the general lesson. Centers run during the week.'),
             ('When', 'Teach after Topic 9, Things Stay Safe. Teach it on a calm day, never the morning after a student was teased or said something hurtful.'),
             ('In the bundle', 'Student deck (7 slides, press N for notes) · Poster (letter and 11×17) · Center kit (sort, sequence, act it out, desk strips, coloring) · Mini book · Family half-sheet'),
-            ('Words we use', '“Diego, I was here first. Please go behind me.” · “Kiara, that’s my marker. Please give it back.” · “Malik, that’s not kind. Please stop.” · “Strong, not loud.”'),
+            ('Words we use', '“Diego, I was here first. Please go behind me.” · “Kiara, that’s my marker. Please give it back.” · “Malik, stop. That’s not kind.” (no please for teasing) · “Strong, not loud.”'),
         ],
         before=[
-            'Post the three school-word sentences at child height: Please go behind me. Please give it back. Please stop.',
+            'Post the three school-word sentences at child height: Please go behind me. Please give it back. Stop. That’s not kind.',
             'Practice the three voices yourself (whisper, booming, strong and calm) so the contrast on slide 5 is clear.',
             'Hang the poster near the classroom door or line-up spot, where cutting and teasing happen most.',
             'Plan to play the friend who cuts, takes, or teases. Students only ever practice the response.',
@@ -315,7 +315,7 @@ TOPIC = dict(
             ('2 · Get Calm First (R1)', 'Do it with them. “Smell the flower. Blow out the candle. Long and slow. Three times.”', 'Exhale longer than inhale; shoulders drop.', 'LiveSchool point: “You breathed slow three times.”'),
             ('3 · What Did Tee Say? (R2, R3)', 'Point to each picture. “Diego cut in line. Tee felt mad. He took a breath, stood tall, looked at Diego, and said, ‘Diego, I was here first. Please go behind me.’ Diego said, ‘Oh, sorry!’” Class says: “Stand tall. Strong voice. Say their name and please.”', 'Students follow the pictures; whole class repeats the line.', 'Equity stick: “What did Tee say first?”'),
             ('4 · Turn and Talk (R3, R4)', '“Kiara took Lee’s marker. Tell your partner what Lee can say: Kiara, please ___.” 30 seconds, then two shares and say it together.', 'Every sentence has the name and please.', 'Equity stick: two shares.'),
-            ('5 · Watch Me, Then Show Me (R3, R4, R5)', 'Model the three voices: too quiet, too loud, strong and calm. Play the friend who cuts; a student stands tall and says the words. Then play the friend who keeps laughing; the student says, “Please stop,” then gets you, the grown-up.', 'Tall body; strong, not loud; name first, then please; gets a grown-up when it keeps happening.', 'LiveSchool point for the student model.'),
+            ('5 · Watch Me, Then Show Me (R3, R4, R5)', 'Model the three voices: too quiet, too loud, strong and calm. Play the friend who cuts; a student stands tall and says the words. Then play the friend who keeps laughing; the student says, “Stop. That’s not kind,” then gets you, the grown-up.', 'Tall body; strong, not loud; name first, then please (or a firm “stop” for teasing); gets a grown-up when it keeps happening.', 'LiveSchool point for the student model.'),
             ('6 · My Promise Today (R2, R5)', 'Hand on heart. “Say it with me: I use strong, kind school words.” Then: “Point to one thing you can do.”', 'Every student says the promise and points to one picture.', 'Equity stick: three names. Pointing counts.'),
             ('7 · How We Leave (R1, R4, R5)', '“Stand tall. Quiet lips. Walk. Ready to learn.” Do not time this at K–2.', 'Tall, calm bodies; quiet lips while moving.', 'LiveSchool point for a student you hear using a strong, kind school word.'),
         ],

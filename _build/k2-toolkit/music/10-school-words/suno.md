@@ -37,7 +37,7 @@ Ask a grown-up, I get help, that's how it works!
 
 [Verse 2]
 Took my marker? (Took my marker!) "Kiara, please give it back!"
-Laughing at me? (Laughing at me!) "Malik, not kind. Please stop that!"
+Laughing at me? (Laughing at me!) "Malik, stop! That's not kind, and that's that!"
 Mad is okay (mad is okay!), but mean words? No way!
 Still happening? I get a grown-up right away!
 
