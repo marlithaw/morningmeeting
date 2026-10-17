@@ -1,0 +1,792 @@
+{
+  "math": {
+    "K": {
+      "8": {
+        "1": [
+          [
+            "Complete a sequence - up to 10",
+            "math/kindergarten/complete-a-sequence-up-to-10",
+            "5A2"
+          ],
+          [
+            "Put numbers in counting order - up to 10",
+            "math/kindergarten/put-numbers-in-counting-order-up-to-10",
+            "WPG"
+          ]
+        ],
+        "2": [
+          [
+            "One more and one less on frames - up to 10",
+            "math/kindergarten/one-more-and-one-less-on-frames-up-to-10",
+            "6QC"
+          ]
+        ],
+        "3": [
+          [
+            "One more and one less - up to 10",
+            "math/kindergarten/one-more-and-one-less-than-a-number-up-to-10",
+            "5W9"
+          ]
+        ],
+        "4": [
+          [
+            "Count up and down to find the next number - upto 10",
+            "math/kindergarten/count-up-and-down-to-find-the-next-number-up-to-10",
+            "BKF"
+          ]
+        ],
+        "5": [
+          [
+            "Count forward and backward - up to 10",
+            "math/kindergarten/count-forward-and-backward-up-to-10",
+            "VYA"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "8": {
+        "1": [
+          [
+            "Add using doubles plus one",
+            "math/grade-1/add-using-doubles-plus-one",
+            "XAY"
+          ],
+          [
+            "Add using doubles minus one",
+            "math/grade-1/add-using-doubles-minus-one",
+            "FRN"
+          ]
+        ],
+        "2": [
+          [
+            "Add near doubles",
+            "math/grade-1/add-near-doubles",
+            "A8B"
+          ],
+          [
+            "Add three numbers - use doubles",
+            "math/grade-1/add-three-numbers-use-doubles",
+            "2K8"
+          ]
+        ],
+        "3": [
+          [
+            "Adding 4",
+            "math/grade-1/adding-4",
+            "5T3"
+          ]
+        ],
+        "4": [
+          [
+            "Adding 5",
+            "math/grade-1/adding-5",
+            "ZPK"
+          ]
+        ],
+        "5": [
+          [
+            "Adding 6",
+            "math/grade-1/adding-6",
+            "RGF"
+          ]
+        ]
+      }
+    },
+    "2": {
+      "8": {
+        "1": [
+          [
+            "Use models to add two-digit numbers - without regrouping",
+            "math/grade-2/use-models-to-add-two-digit-numbers-without-regrouping",
+            "GK2"
+          ]
+        ],
+        "2": [
+          [
+            "Use place value to add two-digit numbers - without regrouping",
+            "math/grade-2/use-place-value-to-add-two-digit-numbers-without-regrouping",
+            "NPN"
+          ]
+        ],
+        "3": [
+          [
+            "Add two-digit numbers without regrouping - sums to 100",
+            "math/grade-2/add-two-digit-numbers-without-regrouping-sums-to-100",
+            "TX5"
+          ]
+        ],
+        "4": [
+          [
+            "Regroup tens and ones",
+            "math/grade-2/regroup-tens-and-ones",
+            "5LV"
+          ]
+        ],
+        "5": [
+          [
+            "Use models to add a two-digit and a one-digit number - with regrouping",
+            "math/grade-2/use-models-to-add-a-two-digit-and-a-one-digit-number-with-regrouping",
+            "URQ"
+          ]
+        ]
+      }
+    },
+    "3": {
+      "8": {
+        "1": [
+          [
+            "Multiply 6 by numbers up to 10",
+            "math/grade-3/multiply-6-by-numbers-up-to-10",
+            "SX6"
+          ],
+          [
+            "Multiply 7 by numbers up to 10",
+            "math/grade-3/multiply-7-by-numbers-up-to-10",
+            "9PT"
+          ]
+        ],
+        "2": [
+          [
+            "Multiply 8 by numbers up to 10",
+            "math/grade-3/multiply-8-by-numbers-up-to-10",
+            "SMR"
+          ],
+          [
+            "Multiply 9 by numbers up to 10",
+            "math/grade-3/multiply-9-by-numbers-up-to-10",
+            "SUH"
+          ]
+        ],
+        "3": [
+          [
+            "Multiplication facts for 6, 7, 8, and 9",
+            "math/grade-3/multiplication-facts-for-6-7-8-and-9",
+            "XT7"
+          ]
+        ],
+        "4": [
+          [
+            "Multiply one-digit numbers using grids",
+            "math/grade-3/multiply-one-digit-numbers-using-grids",
+            "HXY"
+          ]
+        ],
+        "5": [
+          [
+            "Multiply using the distributive property",
+            "math/grade-3/multiply-using-the-distributive-property",
+            "6W7"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "8": {
+        "1": [
+          [
+            "Multiply by multiples of ten",
+            "math/grade-4/multiply-by-multiples-of-ten",
+            "7NS"
+          ],
+          [
+            "Estimate products: multiply by 2-digit numbers",
+            "math/grade-4/estimate-products-multiply-by-2-digit-numbers",
+            "2TR"
+          ]
+        ],
+        "2": [
+          [
+            "Multiply 2-digit numbers by 2-digit numbers using area models",
+            "math/grade-4/multiply-2-digit-numbers-by-2-digit-numbers-area-models",
+            "8K7"
+          ],
+          [
+            "Multiply 2-digit numbers by 2-digit numbers using partial products",
+            "math/grade-4/multiply-2-digit-numbers-by-2-digit-numbers-using-partial-products",
+            "XLZ"
+          ]
+        ],
+        "3": [
+          [
+            "Multiply a 2-digit number by a 2-digit number",
+            "math/grade-4/multiply-a-2-digit-number-by-a-2-digit-number",
+            "MLC"
+          ]
+        ],
+        "4": [
+          [
+            "Multiply a 2-digit number by a 2-digit number: multi-step word problems",
+            "math/grade-4/multiply-a-2-digit-number-by-a-2-digit-number-multi-step-word-problems",
+            "RM5"
+          ]
+        ],
+        "5": [
+          [
+            "Find two numbers based on sum and product",
+            "math/grade-4/find-two-numbers-based-on-sum-and-product",
+            "JPD"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "8": {
+        "1": [
+          [
+            "Fractions review",
+            "math/grade-5/fractions-review",
+            "PCF"
+          ],
+          [
+            "Equivalent fractions",
+            "math/grade-5/equivalent-fractions",
+            "MKA"
+          ]
+        ],
+        "2": [
+          [
+            "Least common denominator",
+            "math/grade-5/least-common-denominator",
+            "R7P"
+          ],
+          [
+            "Write fractions in lowest terms",
+            "math/grade-5/write-fractions-in-lowest-terms",
+            "A76"
+          ]
+        ],
+        "3": [
+          [
+            "Estimate sums and differences of fractions using benchmarks",
+            "math/grade-5/estimate-sums-and-differences-of-fractions-using-benchmarks",
+            "9JR"
+          ]
+        ],
+        "4": [
+          [
+            "Add fractions with unlike denominators using models",
+            "math/grade-5/add-fractions-with-unlike-denominators-using-models",
+            "2BS"
+          ]
+        ],
+        "5": [
+          [
+            "Add fractions with unlike denominators",
+            "math/grade-5/add-fractions-with-unlike-denominators",
+            "D9N"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "8": {
+        "1": [
+          [
+            "Understanding absolute value",
+            "math/grade-6/understanding-absolute-value",
+            "TLR"
+          ],
+          [
+            "Absolute value",
+            "math/grade-6/absolute-value",
+            "2YZ"
+          ]
+        ],
+        "2": [
+          [
+            "Absolute value and integers: word problems",
+            "math/grade-6/absolute-value-and-integers-word-problems",
+            "9CW"
+          ],
+          [
+            "Rational numbers on number lines",
+            "math/grade-6/rational-numbers-on-number-lines",
+            "DJE"
+          ]
+        ],
+        "3": [
+          [
+            "Opposites of rational numbers",
+            "math/grade-6/opposites-of-rational-numbers",
+            "E8R"
+          ],
+          [
+            "Absolute value of rational numbers",
+            "math/grade-6/absolute-value-of-rational-numbers",
+            "KGX"
+          ]
+        ],
+        "4": [
+          [
+            "Compare and order rational numbers using number lines",
+            "math/grade-6/compare-and-order-rational-numbers-using-number-lines",
+            "FMS"
+          ],
+          [
+            "Compare rational numbers",
+            "math/grade-6/compare-rational-numbers",
+            "KS2"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "8": {
+        "1": [
+          [
+            "Complete multiplication and division equations with integers",
+            "math/grade-7/complete-multiplication-and-division-equations-with-integers",
+            "K94"
+          ]
+        ],
+        "2": [
+          [
+            "Add, subtract, multiply, and divide integers",
+            "math/grade-7/add-subtract-multiply-and-divide-integers",
+            "B8A"
+          ]
+        ],
+        "3": [
+          [
+            "Evaluate numerical expressions involving integers",
+            "math/grade-7/evaluate-numerical-expressions-involving-integers",
+            "7YN"
+          ]
+        ],
+        "4": [
+          [
+            "Add and subtract rational numbers",
+            "math/grade-7/add-and-subtract-rational-numbers",
+            "GKU"
+          ]
+        ],
+        "5": [
+          [
+            "Multiply and divide rational numbers",
+            "math/grade-7/multiply-and-divide-rational-numbers",
+            "BXW"
+          ]
+        ]
+      }
+    },
+    "8": {
+      "8": {
+        "1": [
+          [
+            "Rotations: graph the image",
+            "math/grade-8/rotations-graph-the-image",
+            "AC9"
+          ],
+          [
+            "Rotations: find the coordinates",
+            "math/grade-8/rotations-find-the-coordinates",
+            "HHS"
+          ]
+        ],
+        "2": [
+          [
+            "Sequences of congruence transformations: choose the sequence",
+            "math/grade-8/sequences-of-congruence-transformations-choose-the-sequence",
+            "WBS"
+          ],
+          [
+            "Sequences of congruence transformations: graph the image",
+            "math/grade-8/sequences-of-congruence-transformations-graph-the-image",
+            "C53"
+          ]
+        ],
+        "3": [
+          [
+            "Identify congruent figures",
+            "math/grade-8/identify-congruent-figures",
+            "96U"
+          ]
+        ],
+        "4": [
+          [
+            "Congruence statements and corresponding parts",
+            "math/grade-8/congruence-statements-and-corresponding-parts",
+            "LPP"
+          ]
+        ],
+        "5": [
+          [
+            "Side lengths and angle measures of congruent figures",
+            "math/grade-8/side-lengths-and-angle-measures-of-congruent-figures",
+            "DSQ"
+          ]
+        ]
+      }
+    }
+  },
+  "ela": {
+    "K": {
+      "8": {
+        "1": [
+          [
+            "Frequently confused letters: find the letter",
+            "ela/kindergarten/frequently-confused-letters-find-the-letter",
+            "7YC"
+          ]
+        ],
+        "2": [
+          [
+            "Change or remove one part of a compound word",
+            "ela/kindergarten/change-or-remove-one-part-of-a-compound-word",
+            "G86"
+          ]
+        ],
+        "3": [
+          [
+            "Which word ends with the same sound?",
+            "ela/kindergarten/which-word-ends-with-the-same-sound",
+            "XFJ"
+          ]
+        ],
+        "4": [
+          [
+            "What will happen next?",
+            "ela/kindergarten/what-will-happen-next",
+            "B9G"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "8": {
+        "1": [
+          [
+            "Complete the short o word",
+            "ela/grade-1/complete-the-short-o-word",
+            "QHE"
+          ]
+        ],
+        "2": [
+          [
+            "Choose the short o sentence that matches the picture",
+            "ela/grade-1/choose-the-short-o-sentence-that-matches-the-picture",
+            "UKW"
+          ]
+        ],
+        "3": [
+          [
+            "Read short o stories",
+            "ela/grade-1/read-short-o-stories",
+            "CLM"
+          ]
+        ],
+        "4": [
+          [
+            "Order images in a story",
+            "ela/grade-1/order-images-in-a-story",
+            "J5D"
+          ]
+        ],
+        "5": [
+          [
+            "Sort common and proper nouns",
+            "ela/grade-1/sort-common-and-proper-nouns",
+            "XF8"
+          ]
+        ]
+      }
+    },
+    "2": {
+      "8": {
+        "1": [
+          [
+            "Spell the long a word: silent e, ai, ay",
+            "ela/grade-2/spell-the-long-a-word-silent-e-ai-ay",
+            "9KW"
+          ],
+          [
+            "Spell the long o word: silent e, oa, ow",
+            "ela/grade-2/spell-the-long-o-word-silent-e-oa-ow",
+            "W69"
+          ]
+        ],
+        "2": [
+          [
+            "Read along with realistic fiction",
+            "ela/grade-2/read-along-with-realistic-fiction",
+            "BU7"
+          ]
+        ],
+        "3": [
+          [
+            "Use conjunctions",
+            "ela/grade-2/use-conjunctions",
+            "XM2"
+          ]
+        ],
+        "4": [
+          [
+            "Use regular plurals with -s and -es",
+            "ela/grade-2/use-regular-plurals-with-s-and-es",
+            "WHZ"
+          ]
+        ],
+        "5": [
+          [
+            "Form and use irregular plurals",
+            "ela/grade-2/form-and-use-irregular-plurals",
+            "GBG"
+          ]
+        ]
+      }
+    },
+    "3": {
+      "8": {
+        "1": [
+          [
+            "Make predictions about a story",
+            "ela/grade-3/make-predictions-about-a-story",
+            "FWT"
+          ],
+          [
+            "Read realistic fiction with illustrations",
+            "ela/grade-3/read-realistic-fiction-with-illustrations",
+            "QTL"
+          ]
+        ],
+        "2": [
+          [
+            "Show character emotions and traits",
+            "ela/grade-3/show-character-emotions-and-traits",
+            "SCZ"
+          ]
+        ],
+        "3": [
+          [
+            "Use context to identify the meaning of a word",
+            "ela/grade-3/use-context-to-identify-the-meaning-of-a-word",
+            "5A8"
+          ]
+        ],
+        "4": [
+          [
+            "Identify personal pronouns",
+            "ela/grade-3/identify-personal-pronouns",
+            "K8V"
+          ]
+        ],
+        "5": [
+          [
+            "Choose between subject and object personal pronouns",
+            "ela/grade-3/choose-between-subject-and-object-personal-pronouns",
+            "KQJ"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "8": {
+        "1": [
+          [
+            "Distinguish points of view",
+            "ela/grade-4/distinguish-points-of-view",
+            "LGA"
+          ],
+          [
+            "Add imagery to stories",
+            "ela/grade-4/add-imagery-to-stories",
+            "6BY"
+          ]
+        ],
+        "2": [
+          [
+            "Determine the meaning of a word with -ly or -ness",
+            "ela/grade-4/determine-the-meaning-of-a-word-with-ly-or-ness",
+            "J58"
+          ]
+        ],
+        "3": [
+          [
+            "Shades of meaning with pictures",
+            "ela/grade-4/shades-of-meaning-with-pictures",
+            "TWK"
+          ]
+        ],
+        "4": [
+          [
+            "Use action verbs",
+            "ela/grade-4/use-action-verbs",
+            "8Z3"
+          ]
+        ],
+        "5": [
+          [
+            "Learn to spell words with suffixes: -able, -ish, -ment",
+            "ela/grade-4/learn-to-spell-words-with-suffixes-able-ish-ment",
+            "BR2"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "8": {
+        "1": [
+          [
+            "Identify the narrative point of view",
+            "ela/grade-5/identify-the-narrative-point-of-view",
+            "XPD"
+          ],
+          [
+            "Compare and contrast points of view",
+            "ela/grade-5/compare-and-contrast-points-of-view",
+            "GV8"
+          ]
+        ],
+        "2": [
+          [
+            "Choose the best transition",
+            "ela/grade-5/choose-the-best-transition",
+            "X9M"
+          ]
+        ],
+        "3": [
+          [
+            "Choose the antonym",
+            "ela/grade-5/choose-the-antonym",
+            "6E3"
+          ]
+        ],
+        "4": [
+          [
+            "Find antonyms in context",
+            "ela/grade-5/find-antonyms-in-context",
+            "BPH"
+          ]
+        ],
+        "5": [
+          [
+            "Identify subordinating conjunctions",
+            "ela/grade-5/identify-subordinating-conjunctions",
+            "GQ6"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "8": {
+        "1": [
+          [
+            "Analyze passages from The Great Fire: Part 2",
+            "ela/grade-6/analyze-passages-from-the-great-fire-part-2",
+            "WPC"
+          ],
+          [
+            "Identify text structures",
+            "ela/grade-6/identify-text-structures",
+            "6G9"
+          ]
+        ],
+        "2": [
+          [
+            "Choose the antonym",
+            "ela/grade-6/choose-the-antonym",
+            "QK8"
+          ]
+        ],
+        "3": [
+          [
+            "Describe the difference between related words",
+            "ela/grade-6/describe-the-difference-between-related-words",
+            "RBH"
+          ]
+        ],
+        "4": [
+          [
+            "Form plurals: review",
+            "ela/grade-6/form-plurals-review",
+            "NLA"
+          ]
+        ],
+        "5": [
+          [
+            "Form and use plurals: review",
+            "ela/grade-6/form-and-use-plurals-review",
+            "KSA"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "8": {
+        "1": [
+          [
+            "Read about business and technology",
+            "ela/grade-7/read-about-business-and-technology",
+            "GFY"
+          ]
+        ],
+        "2": [
+          [
+            "Determine the meaning of words using antonyms in context",
+            "ela/grade-7/determine-the-meaning-of-words-using-antonyms-in-context",
+            "WZC"
+          ]
+        ],
+        "3": [
+          [
+            "Form and use plurals: review",
+            "ela/grade-7/form-and-use-plurals-review",
+            "QSP"
+          ]
+        ],
+        "4": [
+          [
+            "Form and use plurals of compound nouns",
+            "ela/grade-7/form-and-use-plurals-of-compound-nouns",
+            "GMJ"
+          ]
+        ]
+      }
+    },
+    "8": {
+      "8": {
+        "1": [
+          [
+            "Compare information from two texts",
+            "ela/grade-8/compare-information-from-two-texts",
+            "VAL"
+          ],
+          [
+            "Correct errors in everyday use",
+            "ela/grade-8/correct-errors-in-everyday-use",
+            "HCU"
+          ]
+        ],
+        "2": [
+          [
+            "Use dictionary entries",
+            "ela/grade-8/use-dictionary-entries",
+            "QZN"
+          ]
+        ],
+        "3": [
+          [
+            "Spell common words: sets 1 and 2",
+            "ela/grade-8/spell-common-words-sets-1-and-2",
+            "6DX"
+          ]
+        ],
+        "4": [
+          [
+            "Form and use plurals: review",
+            "ela/grade-8/form-and-use-plurals-review",
+            "6E8"
+          ]
+        ],
+        "5": [
+          [
+            "Form and use plurals of compound nouns",
+            "ela/grade-8/form-and-use-plurals-of-compound-nouns",
+            "UN2"
+          ]
+        ]
+      }
+    }
+  }
+}
