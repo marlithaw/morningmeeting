@@ -2,7 +2,8 @@
 # Build:  python3 music/build_mv.py 11-right-size-voice --clips DIR
 # Caption times: OCR of the Suno lyric video (lines highlight about 1.5 s early) plus a chroma + MFCC alignment against
 # the Topic 9 song (same tempo 92.285 BPM, first beat about 0.17 s, same section layout). Line starts sit on the bar grid
-# (7.34 + 2.60 k); verse 1 opens just after its bar.
+# (7.34 + 2.60 k); verse 1 opens just after its bar. The outro's first line is longer than in Topics 9 and 10, so
+# "Hand on your heart" starts about 2 s later (84.05) and the promise on the next bar (87.95), from the lyric video.
 # Every lyric line has its own matching shot, in the order of the school day: Lee looks around and turns her dial (hook,
 # the dial close-up is a Veo 3.1 Quality clip), the teacher reading to the rug (0), the hallway (0), partner reading and
 # whispering (1), the lunch table at 2, voices creeping up, Lee turning the dial and the table copying her, the calm
@@ -40,7 +41,7 @@ SEG = [(7.35, 'gh_wave', 0.0),
        (69.4, 'gh_promise', 0.5), (74.3, 'gh_breathe', 2.6), (75.6, 'gh_corner', 5.3), (76.85, 'gh_break', 5.0),
        (79.5, 'gh_grownup', 2.6),
        # outro: too loud (Lee noticing), turn my dial, hand on heart, Lee and Tee high five and wave goodbye
-       (80.8, 'rvv_loud', 4.6), (82.1, 'rvv_dialcu', 2.0), (85.6, 'gh_promise', 0.3), (91.5, 'swv_hero', 2.0)]
+       (81.3, 'rvv_loud', 4.6), (84.05, 'rvv_dialcu', 2.0), (87.95, 'gh_promise', 0.3), (91.5, 'swv_hero', 2.0)]
 
 # (start_time, caption). Text in (parentheses) is the echo, drawn yellow.
 LYR = [(0.2, 'Matchbook, are you ready? (Ready!)'), (3.4, 'Hands up high, hands down low,'), (5.7, "Let's learn it, let's go!"),
@@ -60,4 +61,4 @@ LYR = [(0.2, 'Matchbook, are you ready? (Ready!)'), (3.4, 'Hands up high, hands 
        (64.55, 'When I feel mad, I can choose! (I can choose!)'), (69.4, 'Breathe in slow, blow it out, whoo!'),
        (74.3, 'Calm corner, break card, use my words,'), (76.85, "Ask a grown-up, I get help, that's how it works!"),
        (79.5, 'Too loud? Too soft? (Look around! Who needs to hear me? Turn my dial!)'),
-       (82.1, 'Hand on your heart, say it with me:'), (85.6, 'I use the right voice for the place.')]
+       (84.05, 'Hand on your heart, say it with me:'), (87.95, 'I use the right voice for the place.')]
