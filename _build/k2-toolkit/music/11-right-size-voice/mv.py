@@ -26,8 +26,10 @@ END = 91.5
 
 # (end_time, clip, src_in[, speed])
 SEG = [(7.35, 'gh_wave', 0.0),
-       # hook: look around, who needs to hear me (chin tap), turn my dial (close-up), right-size voice (her grin)
-       (9.95, 'rvv_look', 0.3), (12.55, 'rvv_look', 3.0), (15.1, 'rvv_dialcu', 0.5), (17.85, 'rvv_dialcu', 4.0),
+       # hook: look around, who needs to hear me (chin tap), turn my dial (slow push-in on the dial picture), right-size
+       # voice (push-in on Lee and Tee). The Veo dial close-up (rvv_dialcu) is retired: Lee's raised finger read as the
+       # wrong finger. Never use it.
+       (9.95, 'rvv_look', 0.3), (12.55, 'rvv_look', 3.0), (15.1, 'rvv_dialkb', 0.3), (17.85, 'rvv_herokb', 0.3),
        # verse 1: teacher talking (0), hallway (0), partner reading and the whisper (1), lunch at 2, voices creep up,
        # Lee turns her dial ("Let's take it back to two!"), the whole table turns it down
        (20.35, 'rvv_talk', 0.5), (22.95, 'rvv_hall', 0.3), (25.5, 'rvv_partner', 0.3), (28.1, 'rvv_partner', 4.0),
@@ -40,8 +42,8 @@ SEG = [(7.35, 'gh_wave', 0.0),
        # chorus (shared)
        (69.4, 'gh_promise', 0.5), (74.3, 'gh_breathe', 2.6), (75.6, 'gh_corner', 5.3), (76.85, 'gh_break', 5.0),
        (79.5, 'gh_grownup', 2.6),
-       # outro: too loud (Lee noticing), turn my dial, hand on heart, Lee and Tee high five and wave goodbye
-       (81.3, 'rvv_loud', 4.6), (84.05, 'rvv_dialcu', 2.0), (87.95, 'gh_promise', 0.3), (91.5, 'swv_hero', 2.0)]
+       # outro: too loud (Lee noticing), turn my dial (the lunch-table dial clip), hand on heart, Lee and Tee high five and wave goodbye
+       (81.3, 'rvv_loud', 4.6), (84.05, 'rvv_dial', 3.0), (87.95, 'gh_promise', 0.3), (91.5, 'swv_hero', 2.0)]
 
 # (start_time, caption). Text in (parentheses) is the echo, drawn yellow.
 LYR = [(0.2, 'Matchbook, are you ready? (Ready!)'), (3.4, 'Hands up high, hands down low,'), (5.7, "Let's learn it, let's go!"),
