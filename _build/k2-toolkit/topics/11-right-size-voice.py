@@ -52,7 +52,7 @@ TOPIC = dict(
         kr='Mwen sèvi ak vwa ki bon pou kote m ye a.',
     ),
     card_line='I use the right voice for the place.',
-    song=None,
+    song=dict(video=None, length='about 1 minute 32 seconds', poster_at=2.5),
     choices=LEVELS,
     choices_head=dict(en='Our voice levels: 0 to 4', es='Niveles de voz: 0 a 4', kr='Nivo vwa nou: 0 a 4'),
     deck=dict(
