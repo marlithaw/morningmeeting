@@ -12,7 +12,7 @@ def poster(T, size):
     panels = ''
     for i, p in enumerate(P['panels']):
         col, sym = p['color'], p['symbol']
-        rot = ROT[i]
+        rot = ROT[i % len(ROT)]
         panels += f'''<div class="pan" style="--b:{col};transform:rotate({rot}deg)">
           <span class="tape" style="top:-.55em;left:38%;transform:rotate({-rot*3}deg)"></span>
           <div class="ph" style="background-image:url({img(p['img'])});background-position:{p['pos']};{'background-size:contain;background-repeat:no-repeat;background-color:#fff' if p.get('fit') == 'contain' else ''}"></div>
@@ -23,6 +23,9 @@ def poster(T, size):
     cope = ''.join(f'''<div class="cp"><div class="ci" style="background-image:url({img(k)});{'background-size:contain;background-repeat:no-repeat;background-color:#fff' if P.get('choice_fit') == 'contain' else ''}"></div>
         <div class="cl">{en}</div><div class="lang sm">{es}</div><div class="lang sm">{ht}</div></div>''' for k, en, es, ht in P['choices'])
     ch, say = P['choices_head'], P['say']
+    cope_html = '' if P.get('hide_choices') else f'''<div class="cope"><div class="ch"><span class="h">{ch['en']}</span>
+<span class="lang"><b>ES</b>{ch['es']}</span><span class="lang"><b>KR</b>{ch['kr']}</span></div>
+<div class="cps">{cope}</div></div>'''
     return f'''<!doctype html><html><head><meta charset="utf-8"><style>
 {fontface()}
 {BASE_CSS}
@@ -33,7 +36,7 @@ body{{width:{W};height:{H};font-size:{fs}px;overflow:hidden}}
 .top{{height:.8em}}
 .hd{{display:flex;align-items:center;justify-content:space-between;padding:.7em 1.6em .2em}}
 .hd .t{{display:flex;flex-direction:column}}
-.ttl{{font-size:4.6em}}
+.ttl{{font-size:{P.get('title_size', 4.6)}em}}
 .sub{{font-family:var(--round);font-weight:600;font-size:1.5em;color:var(--char);margin-top:.15em}}
 .sub em{{font-style:normal;background:var(--green);color:#fff;border-radius:.4em;padding:.05em .45em;margin-left:.3em;font-size:.8em;vertical-align:middle;border:2px solid var(--char)}}
 .hd .lt{{width:9.5em;height:6.2em;background:url({img(P['header_img'])}) center/cover;border-radius:1em;border:3px solid var(--char)}}
@@ -59,14 +62,17 @@ body{{width:{W};height:{H};font-size:{fs}px;overflow:hidden}}
 .ft .tu{{width:6em;height:4.4em;background:url({img(P['footer_img'])}) center/cover;border-radius:.6em;border:3px solid var(--char);flex:none}}
 .meta{{display:flex;justify-content:space-between;align-items:center;padding:.15em 1.6em .55em;font-family:var(--round);font-size:.62em;color:#555}}
 .logo{{font-size:1.15em}}
+.grid.six{{gap:.8em 1.1em;padding:.7em 1.6em .4em}}
+.grid.six .cap{{padding:.35em .6em .4em;gap:.45em}}
+.grid.six .en{{font-size:1.08em}}
+.grid.six .lang{{font-size:.68em}}
+.grid.six .cap .badge{{width:1.7em;height:1.7em}}
 </style></head><body><div class="pg paper">
 <div class="top kente"></div>
 <div class="hd"><div class="t"><div class="ttl">{' '.join(T['title_lines'])}</div>
 <div class="sub">{T['subtitle']} <em>{T['value'].upper()}</em></div></div><div class="lt"></div></div>
-<div class="grid">{panels}</div>
-<div class="cope"><div class="ch"><span class="h">{ch['en']}</span>
-<span class="lang"><b>ES</b>{ch['es']}</span><span class="lang"><b>KR</b>{ch['kr']}</span></div>
-<div class="cps">{cope}</div></div>
+<div class="grid{' six' if len(P['panels']) == 6 else ''}">{panels}</div>
+{cope_html}
 <div class="ft"><div><div class="say">{say['en']}</div>
 <div class="lang"><b>ES</b>{say['es']}</div>
 <div class="lang"><b>KR</b>{say['kr']}</div></div><div class="tu"></div></div>

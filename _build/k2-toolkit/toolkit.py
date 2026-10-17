@@ -29,7 +29,7 @@ TOPICS = [
     dict(num=10, title='School Words', line='I use strong, kind school words, even when I am mad.',
          part='Safe choices', slug='10-school-words', status='live', thumb='sw_hero'),
     dict(num=11, title='Right-Size Voice', line='I use the right voice for the place.',
-         part='Safe choices', slug='11-right-size-voice', status='soon', thumb=None),
+         part='Safe choices', slug='11-right-size-voice', status='live', thumb='rv_hero'),
     dict(num=12, title='I Stay With My Class', line='I stay with my class so I stay safe.',
          part='Safe choices', slug='12-i-stay-with-my-class', status='soon', thumb=None),
 ]

@@ -114,7 +114,7 @@ def resolve(topic):
     P.setdefault('choices_head', T['choices_head'])
     P.setdefault('say', T['promise'])
     P['say'] = dict(zip(LANGS, lang3(P['say'])))
-    assert len(P['panels']) == 4, 'poster.panels needs 4 panels (2 x 2 grid)'
+    assert len(P['panels']) in (4, 6), 'poster.panels needs 4 panels (2 x 2 grid) or 6 (2 x 3 grid)'
     M = T['minibook']
     assert len(M['pages']) == 6, 'minibook.pages needs 6 pages (cover + 6 + back = 4 sheets)'
     C = T['centers']
