@@ -8,9 +8,10 @@ LANG_INDEX = {'en': 1, 'es': 2, 'kr': 3}   # column of each language in a (key, 
 def half(F, d, lang):
     icons = ''.join(f'''<div class="ic"><div class="pic" style="background-image:url({img(c[0])})"></div><div class="il">{c[LANG_INDEX[lang]]}</div></div>''' for c in F['choices'])
     tips = ''.join(f'<li>{x}</li>' for x in d['tips'])
+    tsz = f' style="font-size:{d["t_size"]}px"' if d.get('t_size') else ''   # optional: shrink a long title to one line
     return f'''<div class="half paper"><div class="k kente"></div>
 <div class="row"><div class="l">
- <div class="eb">{d['eb']}</div><div class="ttl">{d['t']}</div>
+ <div class="eb">{d['eb']}</div><div class="ttl"{tsz}>{d['t']}</div>
  <p class="in">{d['intro']}</p>
  <div class="say"><span>{d['sayh']}</span> {d['say']}</div>
  <div class="th">{d['th']}</div><ul>{tips}</ul>
