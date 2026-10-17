@@ -227,7 +227,7 @@ def build_audio(s, song, bpm, out):
 
 # ---------- video ----------
 def build(slug, name, s, clips, outdir, bpm):
-    work = os.path.join(KIT, 'out', slug, '_work', 'shorts', name); os.makedirs(work, exist_ok=True)
+    work = os.path.join(KIT, 'out', '_shorts', '_work', slug, name); os.makedirs(work, exist_ok=True)
     here = os.path.join(MUSIC, slug)
     song = song_pcm(os.path.join(here, 'song-source.mp4'))
     wav = os.path.join(work, 'audio.wav'); dur = build_audio(s, song, bpm, wav)
@@ -251,7 +251,7 @@ def build(slug, name, s, clips, outdir, bpm):
         assert src + d <= 8.05, f'{name}: clip {clip} needs {src}+{d}s'
         inputs += ['-i', os.path.join(clips, f'{clip}.mp4')]
         fc.append(f'[{n + 1}:v]trim=start={src}:duration={d},setpts=PTS-STARTPTS,fps=30,'
-                  f'scale={FW}:{FH}:flags=lanczos,format=yuv420p[c{n}]')
+                  f'scale={FW}:{FH}:flags=lanczos,setsar=1,format=yuv420p[c{n}]')
     nc = len(s['clips'])
     fc.append(''.join(f'[c{n}]' for n in range(nc)) + f'concat=n={nc}:v=1:a=0[clip]')
     fc.append(f'[0:v]format=yuv420p[bg];[bg][clip]overlay={FX}:{FY}:shortest=1[v0]')
@@ -277,7 +277,7 @@ def main():
     a = ap.parse_args()
     here = os.path.join(MUSIC, a.slug)
     spec = load(os.path.join(here, 'shorts.py'), 'shorts'); mv = load(os.path.join(here, 'mv.py'), 'mv')
-    outdir = os.path.abspath(a.out or os.path.join(KIT, 'out', a.slug, 'shorts')); os.makedirs(outdir, exist_ok=True)
+    outdir = os.path.abspath(a.out or os.path.join(KIT, 'out', '_shorts', a.slug))   # outside out/<slug>, so --publish never ships shorts; os.makedirs(outdir, exist_ok=True)
     names = list(spec.SHORTS) if a.name == 'all' else [a.name]
     for n in names:
         build(a.slug, n, spec.SHORTS[n], os.path.abspath(a.clips), outdir, mv.BPM)
