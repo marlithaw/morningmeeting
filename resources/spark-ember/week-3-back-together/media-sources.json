@@ -1,9 +1,19 @@
 {
-  "clips": {
-    "sing": [
-      "RwzbFIHt6sE",
-      "We All Sing with Elmo and Friends!",
+  "videos": {
+    "rosita": [
+      "Xq3DwzX6MUw",
+      "Learn to Belly Breathe with Rosita",
       "Sesame Street"
+    ],
+    "bubble": [
+      "nCJv6zFxtQk",
+      "Bubble Breath",
+      "GoNoodle"
+    ],
+    "sky": [
+      "56c1uL_O8Jk",
+      "Remember the Blue Sky",
+      "Headspace"
     ],
     "iam": [
       "cyVzjoj96vs",
@@ -15,24 +25,9 @@
       "I Love My Hair",
       "Sesame Street"
     ],
-    "band": [
-      "syr1VL4Gzdg",
-      "Sesame Street Best Friends Band",
-      "Sesame Street"
-    ],
-    "peek": [
-      "pkGAX4ogIeA",
-      "Play Peek-A-Boo with Elmo",
-      "Sesame Street"
-    ],
-    "sky": [
-      "56c1uL_O8Jk",
-      "Remember the Blue Sky",
-      "Headspace"
-    ],
     "perspective": [
       "iN6g2mr0p3Q",
-      "Quick Meditation: Changing Perspective",
+      "Changing Perspective",
       "Headspace"
     ],
     "effort": [
@@ -40,42 +35,76 @@
       "Letting Go of Effort",
       "Headspace"
     ],
-    "pep": [
-      "l-gQLqv9f4o",
-      "A Pep Talk from Kid President to You",
-      "SoulPancake"
+    "noting": [
+      "FjI9v-VYwZY",
+      "The Noting Technique",
+      "Headspace"
+    ],
+    "kindness": [
+      "vFL5NVkn-CY",
+      "Why Focus on the Happiness of Others?",
+      "Headspace"
     ]
   },
-  "bands": {
+  "daily_sequence": {
     "k1": [
-      "sing",
-      "band",
+      "rosita",
+      "bubble",
       "sky",
       "hair",
       "iam"
     ],
     "23": [
+      "bubble",
+      "rosita",
+      "sky",
       "iam",
-      "band",
-      "perspective",
-      "sing",
       "hair"
     ],
     "45": [
       "sky",
-      "perspective",
+      "noting",
       "effort",
-      "sing",
-      "iam"
+      "perspective",
+      "kindness"
     ],
     "68": [
-      "sky",
       "perspective",
+      "noting",
       "effort",
-      "pep",
-      "iam"
+      "kindness",
+      "sky"
     ]
   },
-  "retrieved": "2026-10-16",
-  "ixl_week": 8
+  "photo_credits": [
+    [
+      "Crayon tips",
+      "chrismetcalfTV",
+      "https://commons.wikimedia.org/wiki/File:Crayon_Tips_(404298099).jpg",
+      "CC BY 2.0",
+      "https://creativecommons.org/licenses/by/2.0/"
+    ],
+    [
+      "Weathered pine cone",
+      "Mbz1",
+      "https://commons.wikimedia.org/wiki/File:Close_up_of_pine_cone_from_california_beach_3.JPG",
+      "CC BY-SA 4.0",
+      "https://creativecommons.org/licenses/by-sa/4.0/"
+    ],
+    [
+      "Bicycle gears",
+      "Alextredz / Tredz",
+      "https://commons.wikimedia.org/wiki/File:Bike_gears_shifting_gears_on_a_cassette_with_derailleur.jpg",
+      "CC BY-SA 4.0",
+      "https://creativecommons.org/licenses/by-sa/4.0/"
+    ],
+    [
+      "Skylab solar array, May 26, 1973",
+      "NASA, photo sl2-001-120",
+      "https://images.nasa.gov/details-sl2-001-120",
+      "Public domain",
+      "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+    ]
+  ],
+  "review_note": "Provider titles checked; classroom streaming depends on local network. Use seated observation or breathing fallback."
 }
