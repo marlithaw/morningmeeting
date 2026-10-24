@@ -1,0 +1,156 @@
+{
+ "videos": {
+  "julia": [
+   "dKCdV20zLMs",
+   "Meet Julia",
+   "Sesame Street"
+  ],
+  "puppy": [
+   "K7FUbTac_ds",
+   "Mini the Puppy",
+   "Cosmic Kids Zen Den"
+  ],
+  "tryagain": [
+   "mQAWSXQ1xOU",
+   "Monster Meditation: Try Try Again",
+   "Sesame Street and Headspace"
+  ],
+  "snowstorm": [
+   "nqQN4ugzj_g",
+   "Whirly Burly Snow Storm",
+   "Cosmic Kids"
+  ],
+  "wishes": [
+   "HtYIQiXyrsE",
+   "Friendly Wishes",
+   "Cosmic Kids Peace Out"
+  ],
+  "twinkle": [
+   "rIlLpwgjmXA",
+   "Twinkle Twinkle Little Star with Julia and Elmo",
+   "Sesame Street"
+  ],
+  "smbelly": [
+   "yi4aq6jCUQw",
+   "Belly Breathing",
+   "Smiling Mind"
+  ],
+  "timeout": [
+   "9_vEZTrmtyA",
+   "Time Out",
+   "Cosmic Kids Peace Out"
+  ],
+  "treasure": [
+   "Id6PeFfAmeM",
+   "Treasure Box",
+   "Cosmic Kids Peace Out"
+  ],
+  "owl": [
+   "so8QN9an3t8",
+   "The Owl and the Guard Dog",
+   "Cosmic Kids Zen Den"
+  ],
+  "snowflake": [
+   "YiIA1_lmoN4",
+   "Snowflake Breathing",
+   "Calm Classroom"
+  ],
+  "bubblejourney": [
+   "V8cKtk2nU6M",
+   "The Bubble Journey",
+   "Smiling Mind"
+  ],
+  "feelbreath": [
+   "AdJ1O2cbJ8E",
+   "Feeling the Breath",
+   "Calm Classroom"
+  ],
+  "bodyscan": [
+   "9mGNXsHg22w",
+   "Body Scan",
+   "Calm Classroom"
+  ],
+  "unwind": [
+   "OIcsUw5EZ2M",
+   "Mini Meditation: Unwind",
+   "Headspace"
+  ],
+  "deepbreath": [
+   "qPmyYahitNU",
+   "Deep Breathing",
+   "Calm Classroom"
+  ],
+  "ccmid": [
+   "1DORahLEPQQ",
+   "Calm Classroom: Middle and High School",
+   "Calm Classroom"
+  ],
+  "cchs": [
+   "6JGRhypSknA",
+   "Calm Classroom: High School",
+   "Calm Classroom"
+  ],
+  "cchs6": [
+   "MgNpxHqKFNk",
+   "Calm Classroom: High School, 6 Minutes",
+   "Calm Classroom"
+  ],
+  "bringdown": [
+   "14D26KNlCOY",
+   "Bring It Down",
+   "GoNoodle Flow"
+  ]
+ },
+ "daily_sequence": {
+  "k1": [
+   "julia",
+   "puppy",
+   "tryagain",
+   "snowstorm",
+   "wishes"
+  ],
+  "23": [
+   "twinkle",
+   "smbelly",
+   "timeout",
+   "treasure",
+   "owl"
+  ],
+  "45": [
+   "snowflake",
+   "bubblejourney",
+   "feelbreath",
+   "bodyscan",
+   "unwind"
+  ],
+  "68": [
+   "deepbreath",
+   "ccmid",
+   "cchs",
+   "cchs6",
+   "bringdown"
+  ]
+ },
+ "friday_spark_videos": {
+  "k1": [
+   "uPDhGbaR-YI",
+   "Carmen’s Corner: Kindness",
+   "PACER Center"
+  ],
+  "23": [
+   "uPDhGbaR-YI",
+   "Carmen’s Corner: Kindness",
+   "PACER Center"
+  ],
+  "45": [
+   "cS-kiM6nqco",
+   "Carmen’s Corner: Inclusion, Part B",
+   "PACER Center"
+  ],
+  "68": [
+   "EVbBDfJgbc4",
+   "What Should You Do? Ways To Be There",
+   "PACER Center"
+  ]
+ }
+}

@@ -1,0 +1,783 @@
+{
+  "math": {
+    "K": {
+      "9": {
+        "1": [
+          [
+            "Fewer, more, and same",
+            "math/kindergarten/fewer-more-and-same",
+            "FLW"
+          ],
+          [
+            "Greater and less - compare by matching up to10",
+            "math/kindergarten/greater-and-less-compare-by-matching-up-to-10",
+            "T8S"
+          ]
+        ],
+        "2": [
+          [
+            "Fewer and more - compare by counting",
+            "math/kindergarten/fewer-and-more-compare-by-counting",
+            "Y2E"
+          ]
+        ],
+        "3": [
+          [
+            "Fewer and more - compare in a mixedgroup",
+            "math/kindergarten/fewer-and-more-compare-in-a-mixed-group",
+            "7MY"
+          ]
+        ],
+        "4": [
+          [
+            "Greater than, less than, or equal to - compare bycounting up to 10",
+            "math/kindergarten/greater-than-less-than-or-equal-to-compare-by-counting-up-to-10",
+            "3X6"
+          ]
+        ],
+        "5": [
+          [
+            "Greater and less - compare two numbers up to10",
+            "math/kindergarten/greater-and-less-compare-two-numbers-up-to-10",
+            "TLP"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "9": {
+        "1": [
+          [
+            "Adding 10",
+            "math/grade-1/adding-10",
+            "Q7W"
+          ],
+          [
+            "Use ten frames to add",
+            "math/grade-1/use-ten-frames-to-add",
+            "WL5"
+          ]
+        ],
+        "2": [
+          [
+            "Make ten to add",
+            "math/grade-1/make-ten-to-add",
+            "RNZ"
+          ]
+        ],
+        "3": [
+          [
+            "Add three numbers - make ten",
+            "math/grade-1/add-three-numbers-make-ten",
+            "8B2"
+          ]
+        ],
+        "4": [
+          [
+            "Add three numbers",
+            "math/grade-1/add-three-numbers",
+            "RL2"
+          ]
+        ],
+        "5": [
+          [
+            "Add three numbers - word problems",
+            "math/grade-1/add-three-numbers-word-problems",
+            "Z7S"
+          ]
+        ]
+      }
+    },
+    "2": {
+      "9": {
+        "1": [
+          [
+            "Use place value to add two-digit numbers - with regrouping",
+            "math/grade-2/use-place-value-to-add-two-digit-numbers-with-regrouping",
+            "EMH"
+          ]
+        ],
+        "2": [
+          [
+            "Add two-digit numbers with regrouping - sums to 100",
+            "math/grade-2/add-two-digit-numbers-with-regrouping-sums-to-100",
+            "GLX"
+          ]
+        ],
+        "3": [
+          [
+            "Addition word problems - up to two digits",
+            "math/grade-2/addition-word-problems-up-to-two-digits",
+            "XAT"
+          ]
+        ],
+        "4": [
+          [
+            "Add three numbers up to two digits each",
+            "math/grade-2/add-three-numbers-up-to-two-digits-each",
+            "YTH"
+          ]
+        ],
+        "5": [
+          [
+            "Add two-digit numbers vertically - sums to 200",
+            "math/grade-2/add-two-digit-numbers-vertically-sums-to-200",
+            "ELR"
+          ]
+        ]
+      }
+    },
+    "3": {
+      "9": {
+        "1": [
+          [
+            "Multiplication facts up to 10",
+            "math/grade-3/multiplication-facts-up-to-10",
+            "PNV"
+          ],
+          [
+            "Multiplication facts up to 10: sorting",
+            "math/grade-3/multiplication-facts-up-to-10-sorting",
+            "SUJ"
+          ]
+        ],
+        "2": [
+          [
+            "Multiplication word problems with factors up to 10",
+            "math/grade-3/multiplication-word-problems-with-factors-up-to-10",
+            "9TA"
+          ],
+          [
+            "Multiplication facts up to 10: find the missing factor",
+            "math/grade-3/multiplication-facts-up-to-10-find-the-missing-factor",
+            "FZA"
+          ]
+        ],
+        "3": [
+          [
+            "Multiplication word problems with factors up to 10: find the missing number",
+            "math/grade-3/multiplication-word-problems-with-factors-up-to-10-find-the-missing-number",
+            "F6C"
+          ]
+        ],
+        "4": [
+          [
+            "Multiply three numbers",
+            "math/grade-3/multiply-3-numbers",
+            "5EC"
+          ]
+        ],
+        "5": [
+          [
+            "Multiply three numbers: word problems",
+            "math/grade-3/multiply-3-numbers-word-problems",
+            "X9H"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "9": {
+        "1": [
+          [
+            "Multiplication facts to 10: find the missing factor",
+            "math/grade-4/multiplication-facts-to-10-find-the-missing-factor",
+            "NLU"
+          ],
+          [
+            "Divisibility rules",
+            "math/grade-4/divisibility-rules",
+            "UTK"
+          ]
+        ],
+        "2": [
+          [
+            "Understand factors and factor pairs",
+            "math/grade-4/understand-factors-and-factor-pairs",
+            "8ZV"
+          ],
+          [
+            "Find all the factor pairs of a number",
+            "math/grade-4/find-all-the-factor-pairs-of-a-number",
+            "URL"
+          ]
+        ],
+        "3": [
+          [
+            "Prime and composite: up to 100",
+            "math/grade-4/prime-and-composite-up-to-100",
+            "L9R"
+          ]
+        ],
+        "4": [
+          [
+            "Choose the multiples of a given number up to 10",
+            "math/grade-4/choose-the-multiples-of-a-given-number-up-to-10",
+            "EFB"
+          ]
+        ],
+        "5": [
+          [
+            "Sort multiples into a Venn diagram",
+            "math/grade-4/sort-multiples-into-a-venn-diagram",
+            "JMX"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "9": {
+        "1": [
+          [
+            "Subtract fractions with unlike denominators using models",
+            "math/grade-5/subtract-fractions-with-unlike-denominators-using-models",
+            "QA6"
+          ],
+          [
+            "Subtract fractions with unlike denominators",
+            "math/grade-5/subtract-fractions-with-unlike-denominators",
+            "VSP"
+          ]
+        ],
+        "2": [
+          [
+            "Add and subtract fractions with unlike denominators",
+            "math/grade-5/add-and-subtract-fractions-with-unlike-denominators-no-simplify",
+            "XHE"
+          ]
+        ],
+        "3": [
+          [
+            "Add and subtract fractions with unlike denominators: word problems",
+            "math/grade-5/add-and-subtract-fractions-with-unlike-denominators-word-problems",
+            "TCD"
+          ]
+        ],
+        "4": [
+          [
+            "Add 3 or more fractions with unlike denominators",
+            "math/grade-5/add-3-or-more-fractions-with-unlike-denominators",
+            "PBF"
+          ]
+        ],
+        "5": [
+          [
+            "Add 3 or more fractions: word problems",
+            "math/grade-5/add-3-or-more-fractions-word-problems",
+            "BFQ"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "9": {
+        "1": [
+          [
+            "Put rational numbers in order",
+            "math/grade-6/put-rational-numbers-in-order",
+            "5AX"
+          ],
+          [
+            "Compare and order rational numbers: word problems",
+            "math/grade-6/compare-and-order-rational-numbers-word-problems",
+            "ETK"
+          ]
+        ],
+        "2": [
+          [
+            "Rational numbers: find the sign",
+            "math/grade-6/rational-numbers-find-the-sign",
+            "V2E"
+          ],
+          [
+            "Write a ratio using a colon",
+            "math/grade-6/write-a-ratio-using-a-colon",
+            "83K"
+          ]
+        ],
+        "3": [
+          [
+            "Write a ratio: word problems",
+            "math/grade-6/write-a-ratio-word-problems",
+            "SBQ"
+          ],
+          [
+            "Which model represents the ratio?",
+            "math/grade-6/which-model-represents-the-ratio",
+            "66V"
+          ]
+        ],
+        "4": [
+          [
+            "Identify equivalent ratios",
+            "math/grade-6/identify-equivalent-ratios",
+            "2LM"
+          ]
+        ],
+        "5": [
+          [
+            "Write an equivalent ratio",
+            "math/grade-6/write-an-equivalent-ratio",
+            "NEA"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "9": {
+        "1": [
+          [
+            "Apply addition and subtraction rules",
+            "math/grade-7/apply-addition-and-subtraction-rules",
+            "Y8T"
+          ],
+          [
+            "Checkpoint: Add and subtract rational numbers",
+            "math/grade-7/checkpoint-add-and-subtract-rational-numbers",
+            "XDG"
+          ]
+        ],
+        "2": [
+          [
+            "Apply multiplication and division rules",
+            "math/grade-7/apply-multiplication-and-division-rules",
+            "V5V"
+          ]
+        ],
+        "3": [
+          [
+            "Identify quotients of rational numbers: word problems",
+            "math/grade-7/identify-quotients-of-rational-numbers-word-problems",
+            "JT9"
+          ]
+        ],
+        "4": [
+          [
+            "Checkpoint: Multiply and divide rational numbers",
+            "math/grade-7/checkpoint-multiply-and-divide-rational-numbers",
+            "PGR"
+          ]
+        ],
+        "5": [
+          [
+            "Checkpoint: Problem solving with rational numbers",
+            "math/grade-7/checkpoint-problem-solving-with-rational-numbers",
+            "AJ9"
+          ]
+        ]
+      }
+    },
+    "8": {
+      "9": {
+        "1": [
+          [
+            "Checkpoint: Congruence transformations",
+            "math/grade-8/checkpoint-congruence-transformations",
+            "CCR"
+          ],
+          [
+            "Dilations: graph the image",
+            "math/grade-8/dilations-graph-the-image",
+            "9T4"
+          ]
+        ],
+        "2": [
+          [
+            "Dilations: find the coordinates",
+            "math/grade-8/dilations-find-the-coordinates",
+            "UV9"
+          ]
+        ],
+        "3": [
+          [
+            "Dilations: find the scale factor",
+            "math/grade-8/dilations-find-the-scale-factor",
+            "8NK"
+          ]
+        ],
+        "4": [
+          [
+            "Identify similar triangles",
+            "math/grade-8/identify-similar-triangles",
+            "6PD"
+          ]
+        ],
+        "5": [
+          [
+            "Side lengths and angle measures of similar figures",
+            "math/grade-8/side-lengths-and-angle-measures-of-similar-figures",
+            "79Y"
+          ]
+        ]
+      }
+    }
+  },
+  "ela": {
+    "K": {
+      "9": {
+        "1": [
+          [
+            "Frequently confused letters: find all the letters",
+            "ela/kindergarten/frequently-confused-letters-find-all-the-letters",
+            "99V"
+          ]
+        ],
+        "2": [
+          [
+            "How many syllables does the word have?",
+            "ela/kindergarten/how-many-syllables-does-the-word-have",
+            "GNB"
+          ]
+        ],
+        "3": [
+          [
+            "Blend each sound in a word together",
+            "ela/kindergarten/blend-each-sound-in-a-word-together",
+            "6SJ"
+          ]
+        ],
+        "4": [
+          [
+            "Identify the first, second, and last sound in a word",
+            "ela/kindergarten/identify-the-first-second-and-last-sound-in-a-word",
+            "B2Y"
+          ]
+        ],
+        "5": [
+          [
+            "What is the picture about?",
+            "ela/kindergarten/what-is-the-picture-about",
+            "UZL"
+          ]
+        ]
+      }
+    },
+    "1": {
+      "9": {
+        "1": [
+          [
+            "Complete the word with the right final consonant blend",
+            "ela/grade-1/complete-the-word-with-the-right-final-consonant-blend",
+            "5U7"
+          ]
+        ],
+        "2": [
+          [
+            "Does the word end with a consonant blend?",
+            "ela/grade-1/does-the-word-end-with-a-consonant-blend",
+            "XKE"
+          ]
+        ],
+        "3": [
+          [
+            "Read sight words set 2: after, best, gave, has, once, them, were",
+            "ela/grade-1/read-sight-words-set-2-after-best-gave-has-once-them-were",
+            "HFH"
+          ]
+        ],
+        "4": [
+          [
+            "Who is the narrator?",
+            "ela/grade-1/who-is-the-narrator",
+            "2P7"
+          ]
+        ],
+        "5": [
+          [
+            "Identify proper nouns",
+            "ela/grade-1/identify-proper-nouns",
+            "WGJ"
+          ]
+        ]
+      }
+    },
+    "2": {
+      "9": {
+        "1": [
+          [
+            "Read long vowel stories: long i, u",
+            "ela/grade-2/read-long-vowel-stories-long-i-u",
+            "RQV"
+          ]
+        ],
+        "2": [
+          [
+            "Spell the long i word: silent e, ie, y",
+            "ela/grade-2/spell-the-long-i-word-silent-e-ie-y",
+            "78Y"
+          ]
+        ],
+        "3": [
+          [
+            "Determine the order of events in informational texts",
+            "ela/grade-2/determine-the-order-of-events-in-informational-texts",
+            "NTQ"
+          ]
+        ],
+        "4": [
+          [
+            "Determine the meaning of a word with pre-, re-, or mis-",
+            "ela/grade-2/determine-the-meaning-of-a-word-with-pre-re-or-mis",
+            "KQY"
+          ]
+        ],
+        "5": [
+          [
+            "Use the prefixes pre-, re-, and mis-",
+            "ela/grade-2/use-the-prefixes-pre-re-and-mis",
+            "JBV"
+          ]
+        ]
+      }
+    },
+    "3": {
+      "9": {
+        "1": [
+          [
+            "Spell the long o word: silent e, oa, ow, old, ost, olt",
+            "ela/grade-3/spell-the-long-o-word-silent-e-oa-ow-old-ost-olt",
+            "AUD"
+          ],
+          [
+            "Determine the order of events in informational texts",
+            "ela/grade-3/determine-the-order-of-events-in-informational-texts",
+            "ZXC"
+          ]
+        ],
+        "2": [
+          [
+            "Identify homophones",
+            "ela/grade-3/identify-homophones",
+            "5GY"
+          ]
+        ],
+        "3": [
+          [
+            "Which sentence uses an antonym?",
+            "ela/grade-3/which-sentence-uses-an-antonym",
+            "XZ7"
+          ]
+        ],
+        "4": [
+          [
+            "Replace the noun with a personal pronoun",
+            "ela/grade-3/replace-the-noun-with-a-personal-pronoun",
+            "ESB"
+          ]
+        ],
+        "5": [
+          [
+            "Compound subjects and objects with \"I\" and \"me\"",
+            "ela/grade-3/compound-subjects-and-objects-with-i-and-me",
+            "Q5Z"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "9": {
+        "1": [
+          [
+            "Identify similes and metaphors",
+            "ela/grade-4/identify-similes-and-metaphors",
+            "A8M"
+          ]
+        ],
+        "2": [
+          [
+            "Draw inferences from a text",
+            "ela/grade-4/draw-inferences-from-a-text",
+            "UB2"
+          ]
+        ],
+        "3": [
+          [
+            "Organize information by topic",
+            "ela/grade-4/organize-information-by-topic",
+            "6GA"
+          ]
+        ],
+        "4": [
+          [
+            "Determine the meaning of domain-specific words with pictures",
+            "ela/grade-4/determine-the-meaning-of-domain-specific-words-with-pictures",
+            "K7J"
+          ]
+        ],
+        "5": [
+          [
+            "Identify main verbs and helping verbs",
+            "ela/grade-4/identify-main-verbs-and-helping-verbs",
+            "Y7G"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "9": {
+        "1": [
+          [
+            "Identify the author's purpose and message",
+            "ela/grade-5/identify-the-authors-purpose-and-message",
+            "ZFH"
+          ],
+          [
+            "Distinguish facts from opinions",
+            "ela/grade-5/distinguish-facts-from-opinions",
+            "7GS"
+          ]
+        ],
+        "2": [
+          [
+            "Use the meanings of words as clues to the meanings of Greek and Latin roots",
+            "ela/grade-5/use-the-meanings-of-words-as-clues-to-the-meanings-of-greek-and-latin-roots",
+            "RQX"
+          ]
+        ],
+        "3": [
+          [
+            "Use words as clues to the meanings of Greek and Latin roots",
+            "ela/grade-5/use-words-as-clues-to-the-meanings-of-greek-and-latin-roots",
+            "AF5"
+          ]
+        ],
+        "4": [
+          [
+            "Commas with compound and complex sentences",
+            "ela/grade-5/commas-with-compound-and-complex-sentences",
+            "QM9"
+          ]
+        ],
+        "5": [
+          [
+            "Use the correct pair of correlative conjunctions",
+            "ela/grade-5/use-the-correct-pair-of-correlative-conjunctions",
+            "7QW"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "9": {
+        "1": [
+          [
+            "Compare information from two texts",
+            "ela/grade-6/compare-information-from-two-texts",
+            "G7K"
+          ]
+        ],
+        "2": [
+          [
+            "Correct errors with frequently confused words",
+            "ela/grade-6/correct-errors-with-frequently-confused-words",
+            "QGB"
+          ]
+        ],
+        "3": [
+          [
+            "Find antonyms in context",
+            "ela/grade-6/find-antonyms-in-context",
+            "28D"
+          ]
+        ],
+        "4": [
+          [
+            "Commas with series, dates, and places",
+            "ela/grade-6/commas-with-series-dates-and-places",
+            "SSV"
+          ]
+        ],
+        "5": [
+          [
+            "Commas with direct addresses, introductory words, interjections, and interrupters",
+            "ela/grade-6/commas-with-direct-addresses-introductory-words-interjections-and-interrupters",
+            "KV5"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "9": {
+        "1": [
+          [
+            "Match the quotations with their themes",
+            "ela/grade-7/match-the-quotations-with-their-themes",
+            "XJK"
+          ],
+          [
+            "Remove redundant words or phrases",
+            "ela/grade-7/remove-redundant-words-or-phrases",
+            "BGN"
+          ]
+        ],
+        "2": [
+          [
+            "Describe the difference between related words",
+            "ela/grade-7/describe-the-difference-between-related-words",
+            "G57"
+          ]
+        ],
+        "3": [
+          [
+            "Identify plurals, singular possessives, and plural possessives",
+            "ela/grade-7/identify-plurals-singular-possessives-and-plural-possessives",
+            "QDE"
+          ]
+        ],
+        "4": [
+          [
+            "Form the singular or plural possessive",
+            "ela/grade-7/form-the-singular-or-plural-possessive",
+            "GWU"
+          ]
+        ],
+        "5": [
+          [
+            "Identify and correct errors with plural and possessive nouns",
+            "ela/grade-7/identify-and-correct-errors-with-plural-and-possessive-nouns",
+            "FWH"
+          ]
+        ]
+      }
+    },
+    "8": {
+      "9": {
+        "1": [
+          [
+            "Analyze passages from Narrative of the Life of Frederick Douglass: Part 1",
+            "ela/grade-8/analyze-passages-from-narrative-of-the-life-of-frederick-douglass-part-1",
+            "UJJ"
+          ]
+        ],
+        "2": [
+          [
+            "Suggest appropriate revisions",
+            "ela/grade-8/suggest-appropriate-revisions",
+            "5UK"
+          ]
+        ],
+        "3": [
+          [
+            "Use dictionary definitions",
+            "ela/grade-8/use-dictionary-definitions",
+            "LM8"
+          ]
+        ],
+        "4": [
+          [
+            "Identify plurals, singular possessives, and plural possessives",
+            "ela/grade-8/identify-plurals-singular-possessives-and-plural-possessives",
+            "JDP"
+          ]
+        ],
+        "5": [
+          [
+            "Form the singular or plural possessive",
+            "ela/grade-8/form-the-singular-or-plural-possessive",
+            "XAF"
+          ]
+        ]
+      }
+    }
+  }
+}
