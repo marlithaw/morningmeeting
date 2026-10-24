@@ -165,17 +165,15 @@ def check_recurring(fragment, label, level=fail):
 
 # ---------------------------------------------------------------- ready-to-run copy
 
-# Published pages are finished curriculum: no person is named, and no production notes
-# (where copies are, what the material was adapted from, what was made for whom).
+# Published pages are finished curriculum: no real person is credited, and no annotative notes for
+# the builder (where copies are, what the material was adapted from, what was made for whom).
+# Fictional student names in scenarios and scripts are content and are not checked.
 PLANNING = re.compile(
     r"\bmailbox(?:es)?\b|\bsource(?:’s|'s)? (?:lesson|lessons|video|videos|clip|routine|theme)s?\b"
     r"|\btranslates? the\b|\boriginal (?:artwork|materials) (?:made|created) for\b"
     r"|\bdo not have the packet\b|\bcopies are in\b|\bplaceholder\b", re.I)
 MARKERS = re.compile(r"\bTODO\b|\bTBD\b|\b(?:Mr|Ms|Mrs|Dr)\.? [A-Z][a-z]+"
                      r"|\b[A-Z][a-z]+ [A-Z][a-z]+, (?:[A-Z][a-z]+ )*(?:Coordinator|Director|Principal|Specialist|Coach|Counselor|Teacher|Dean)\b")  # case-sensitive: Spanish "todo" is fine
-NAMED = re.compile(r"“([A-Z][a-z]+), (?:you|what|which|how|who|why|can|tell|show|point|read|share)\b"
-                   r"|“(?:Respectful|Safe|Responsible): ([A-Z][a-z]+) [a-z]+")
-NOT_NAMES = {'You', 'Your', 'We', 'Our', 'Everyone', 'Today', 'Now', 'Next', 'Yes', 'No', 'Okay', 'Thank', 'Great'}
 
 
 def page_text(p):
@@ -194,13 +192,12 @@ def check_ready_to_run(folder, label):
     hits = []
     for p in sorted(list(folder.glob('*.html')) + list(folder.glob('*.pdf'))):
         t = page_text(p)
-        named = [m for m in NAMED.finditer(t) if (m.group(1) or m.group(2)) not in NOT_NAMES]
-        for m in list(PLANNING.finditer(t)) + list(MARKERS.finditer(t)) + named:
+        for m in list(PLANNING.finditer(t)) + list(MARKERS.finditer(t)):
             hits.append('%s: "%s"' % (p.name, t[max(0, m.start() - 30):m.end() + 30].strip()))
     for h in hits[:12]:
-        fail('%s: names a person or carries a production note, %s' % (label, h))
+        fail('%s: credits a real person or carries a production note, %s' % (label, h))
     if not hits:
-        ok('%s: no person named and no production notes' % label)
+        ok('%s: no real-person credits and no production notes' % label)
 
 
 # ---------------------------------------------------------------- stale text
