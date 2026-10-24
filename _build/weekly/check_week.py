@@ -163,6 +163,46 @@ def check_recurring(fragment, label, level=fail):
         ok('%s: Weekly Videos and Do Now – First 5 (Relax and Excite) present' % label)
 
 
+# ---------------------------------------------------------------- ready-to-run copy
+
+# Published pages are finished curriculum: no person is named, and no production notes
+# (where copies are, what the material was adapted from, what was made for whom).
+PLANNING = re.compile(
+    r"\bmailbox(?:es)?\b|\bsource(?:’s|'s)? (?:lesson|lessons|video|videos|clip|routine|theme)s?\b"
+    r"|\btranslates? the\b|\boriginal (?:artwork|materials) (?:made|created) for\b"
+    r"|\bdo not have the packet\b|\bcopies are in\b|\bplaceholder\b", re.I)
+MARKERS = re.compile(r"\bTODO\b|\bTBD\b|\b(?:Mr|Ms|Mrs|Dr)\.? [A-Z][a-z]+"
+                     r"|\b[A-Z][a-z]+ [A-Z][a-z]+, (?:[A-Z][a-z]+ )*(?:Coordinator|Director|Principal|Specialist|Coach|Counselor|Teacher|Dean)\b")  # case-sensitive: Spanish "todo" is fine
+NAMED = re.compile(r"“([A-Z][a-z]+), (?:you|what|which|how|who|why|can|tell|show|point|read|share)\b"
+                   r"|“(?:Respectful|Safe|Responsible): ([A-Z][a-z]+) [a-z]+")
+NOT_NAMES = {'You', 'Your', 'We', 'Our', 'Everyone', 'Today', 'Now', 'Next', 'Yes', 'No', 'Okay', 'Thank', 'Great'}
+
+
+def page_text(p):
+    if p.suffix == '.pdf':
+        try:
+            import subprocess
+            return subprocess.run(['pdftotext', str(p), '-'], capture_output=True, text=True).stdout
+        except OSError:
+            return ''
+    s = re.sub(r'<style.*?</style>|<script.*?</script>', ' ', read(p), flags=re.S)
+    attrs = ' '.join(re.findall(r'data-(?:en|es)="([^"]*)"', s))
+    return text(s) + ' ' + attrs
+
+
+def check_ready_to_run(folder, label):
+    hits = []
+    for p in sorted(list(folder.glob('*.html')) + list(folder.glob('*.pdf'))):
+        t = page_text(p)
+        named = [m for m in NAMED.finditer(t) if (m.group(1) or m.group(2)) not in NOT_NAMES]
+        for m in list(PLANNING.finditer(t)) + list(MARKERS.finditer(t)) + named:
+            hits.append('%s: "%s"' % (p.name, t[max(0, m.start() - 30):m.end() + 30].strip()))
+    for h in hits[:12]:
+        fail('%s: names a person or carries a production note, %s' % (label, h))
+    if not hits:
+        ok('%s: no person named and no production notes' % label)
+
+
 # ---------------------------------------------------------------- stale text
 
 def check_stale(folder, label, prev_week_strings):
@@ -300,6 +340,8 @@ def check_mm(n, hub):
         fail('%s: deck <title> does not start with "Week %d": %s' % (label, n, ', '.join(sorted(wrong_week))))
 
     check_weekdays(dates_in(text(sec)) + [x for d in decks for x in dates_in(text(read(d)))], label)
+
+    check_ready_to_run(folder, label)
 
     prev = mm_folder(n - 1)
     if prev:
@@ -481,6 +523,8 @@ def check_se(n, hub):
                     fail('%s: %s lost the fixed dismissal text "%s"' % (label, p.name, phrase))
 
     # Download-all ZIP must match the files on disk (the Week 3 "keep downloadable week current" fix).
+    check_ready_to_run(folder, label)
+
     zips = list(folder.glob('*.zip'))
     if not zips:
         fail('%s: no download-all ZIP' % label)

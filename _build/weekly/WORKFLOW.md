@@ -95,6 +95,18 @@ Videos play from YouTube, and the breathing circle is the fallback when YouTube 
 unless Marlitha supplies a change: seated pack-up text, Chromebook return to its numbered cart slot, the "No lining up"
 rule, release rail groups, times, and order, Practice mode, the 2:05 auto start.
 
+## Ready-to-run copy (every page, PDF, and ZIP)
+
+- Never name a person: no staff credits, no example student names in scripts, equity-stick calls, or LiveSchool praise
+  ("Pull an equity stick: “What helps…?”", "“Respectful: You gave your partner time to finish.”").
+- No production or planning notes: where copies are, what a lesson was adapted or translated from, "source" lessons,
+  "original artwork made for this week", notes about missing materials on student pages.
+- When a week comes from supplied materials (for example a schoolwide awareness week), match its daily theme, key
+  message, video, worksheet, and take-home card word for word, and check that against the file. Do not describe the
+  source on the page.
+- Special weeks may change a format on purpose (Disability Awareness Week ran the supplied Friday lesson as Spark).
+  Keep the change, label it plainly, and leave every other requirement in place.
+
 ## 4. Hub (`index.html`), four places
 
 1. **Morning Spark tab:** a new `<section aria-labelledby="spark-weekM-title">` directly under the teacher-guide
@@ -124,7 +136,7 @@ python3 _build/weekly/check_week.py --mm 12 --se 4 --quiet
 It checks: recurring links in every menu row, unit hub, and weekly section; hub order and archives; band cards;
 the six phases; weekday names against dates; band and day links in the glance tables; day buttons that match the school
 days; the IXL pin against the date; Ember video count and unchanged dismissal text and rail; the ZIP byte for byte against
-the folder; text carried over from last week; table classes that match last week; and every local link and anchor.
+the folder; person names and production notes in pages and PDFs; text carried over from last week; table classes that match last week; and every local link and anchor.
 Fix every FAIL. Read every WARN and either fix it or say why it stays.
 
 The script cannot check what the page looks like. You still need to:

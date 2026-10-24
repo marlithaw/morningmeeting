@@ -2,6 +2,8 @@
 
 Build each week by following `_build/weekly/WORKFLOW.md`, and run `python3 _build/weekly/check_week.py` before publishing.
 
+Published pages are finished, ready-to-run curriculum. Never name a person anywhere on the site: no staff credits, no example student names in scripts or praise lines. Leave out production and planning notes (where copies are, what a lesson was adapted or translated from, what was made for this week). Supplied lessons are matched to the source; the source is never described on the page.
+
 Every weekly unit must retain visible Weekly Videos (Relax and Excite) and Do Now – First 5 (Relax and Excite) sections, alongside the grade-band decks and toolkit cards. Use the established links from existing unit rows. Include both columns in every daily row of the Instructional Units menu and a visible section on the unit hub. Topic-specific clips supplement these recurring resources; they never replace them. Preserve the six-phase meeting structure and grade-band toolkit cards. Verify these sections before publishing a unit or a redesign.
 
 ## Morning Spark and Ember weekly libraries
