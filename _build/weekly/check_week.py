@@ -229,8 +229,8 @@ def check_mm(n, hub):
     sec = section(units, 'week%d-title' % n)
     if not sec:
         fail('%s: no hub section aria-labelledby="week%d-title" in Instructional Units' % (label, n))
-        return
-    newest_mm = mm_folder(n + 1) is None
+        sec = ''  # still check the unit folder
+    newest_mm = mm_folder(n + 1) is None and bool(sec)
     first = re.search(r'<section[^>]*aria-labelledby="(week\d+-title)"', units)
     if not newest_mm:
         pass  # archived week: a newer unit sits above it
@@ -253,7 +253,7 @@ def check_mm(n, hub):
     if unit_bands != sorted(MM_BANDS):
         warn('%s: deck bands %s differ from the K–2 / 3–5 / 6–8 set used since Week 10' % (label, ', '.join(unit_bands)))
     menu = rows(first_table(sec))
-    if not menu:
+    if sec and not menu:
         fail('%s: hub section has no daily menu rows' % label)
     for i, r in enumerate(menu, 1):
         cells = text(r)[:40]
@@ -266,8 +266,9 @@ def check_mm(n, hub):
     if menu and all(all(u in r for u in RECURRING.values()) for r in menu):
         ok('%s: all %d menu rows carry Videos and Do Now – First 5 (Relax and Excite)' % (label, len(menu)))
     cards = len(re.findall(r'Print toolkit', sec))
-    (ok if cards >= 3 and 'Teacher scripts' in sec else fail)(
-        '%s: hub cards: Teacher scripts %s, %d print toolkit card(s)' % (label, 'present' if 'Teacher scripts' in sec else 'MISSING', cards))
+    if sec:
+        (ok if cards >= 3 and 'Teacher scripts' in sec else fail)(
+            '%s: hub cards: Teacher scripts %s, %d print toolkit card(s)' % (label, 'present' if 'Teacher scripts' in sec else 'MISSING', cards))
 
     unit_hub = folder / 'index.html'
     if unit_hub.exists():
@@ -413,6 +414,8 @@ def check_se(n, hub):
 
     # Friday button on every deck when Friday is taught (the Week 3 "visible control" fix).
     spark_tab = section(tab(hub, 'morning-spark'), 'spark-week%d-title' % n) or ''
+    if not spark_tab and (folder / 'index.html').exists():
+        spark_tab = read(folder / 'index.html')  # hub not edited yet: use the package page's Spark glance table
     week_days = [k for k, name in zip(DAY_KEYS, DAY_NAMES) if '%s ' % name in text(first_table(spark_tab[spark_tab.find('<table'):]) if '<table' in spark_tab else '')]
     for b in SE_BANDS:
         p = folder / ('morning-spark-%s.html' % b)
@@ -441,6 +444,7 @@ def check_se(n, hub):
                 stale = re.search(r'pinned to IXL Week (\d+) for ([^*]+?)\s*\(', s)
                 if stale and int(stale.group(1)) != want:
                     warn('%s: %s comment still says "pinned to IXL Week %s for %s" (data is week %d)' % (label, p.name, stale.group(1), stale.group(2), want))
+                ok('%s: %s pins IXL week %d for %s' % (label, p.name, want, mondays[0]))
         elif not m:
             warn('%s: %s has no IXL week pin (var w = N)' % (label, p.name))
     ixl = list(folder.glob('ixl-week-*-source.json'))
