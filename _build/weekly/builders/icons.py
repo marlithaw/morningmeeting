@@ -1,0 +1,12 @@
+S='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">{}</svg>'
+P='fill="none" stroke="#232323" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"'
+ICONS={
+'walk': S.format(f'<circle cx="54" cy="14" r="8" {P}/><path d="M50 26 L40 54 L52 62 L46 90 M44 40 L28 50 M48 34 L66 44 M40 54 L28 86" {P}/>'),
+'tray': S.format(f'<path d="M8 62 H92 L84 76 H16 Z" {P}/><circle cx="34" cy="48" r="12" {P}/><path d="M58 36 V58 M66 36 V58 M74 36 V58" {P}/>'),
+'ball': S.format(f'<circle cx="50" cy="50" r="36" {P}/><path d="M14 50 H86 M50 14 V86 M24 24 Q50 50 24 76 M76 24 Q50 50 76 76" {P}/>'),
+'fix': S.format(f'<path d="M62 12 A20 20 0 0 0 46 40 L14 72 A8 8 0 0 0 26 84 L58 52 A20 20 0 0 0 86 36 L74 42 L62 36 L58 24 Z" {P}/>'),
+'own': S.format(f'<circle cx="50" cy="22" r="11" {P}/><path d="M28 90 V56 Q50 34 72 56 V90" {P}/><path d="M50 50 V72 M40 62 H60" fill="none" stroke="#E21C24" stroke-width="6" stroke-linecap="round"/>'),
+'sorry': S.format(f'<path d="M12 15 H88 V65 H48 L25 85 V65 H12 Z" {P}/><path d="M50 30 C44 22 32 26 36 36 L50 50 L64 36 C68 26 56 22 50 30Z" fill="#E21C24" stroke="none"/>'),
+'scale': S.format(f'<path d="M50 14 V86 M30 86 H70 M18 30 H82 M18 30 L8 56 H28 Z M82 30 L72 56 H92 Z" {P}/>'),
+'door': S.format(f'<path d="M22 90 V12 H70 V90 M10 90 H90 M58 52 H60" {P}/><path d="M70 12 L84 20 V82 L70 90" {P}/>'),
+}

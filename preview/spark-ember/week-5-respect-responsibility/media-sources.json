@@ -1,0 +1,118 @@
+{
+ "videos": {
+  "balloon": [
+   "ZBnPlqQFPKs",
+   "Balloon",
+   "Cosmic Kids Peace Out"
+  ],
+  "starfish": [
+   "a1dgkivX9-A",
+   "Starfish",
+   "Cosmic Kids Peace Out"
+  ],
+  "yourlittlestar": [
+   "YtmjV49YEWs",
+   "Your Little Star",
+   "Cosmic Kids Peace Out"
+  ],
+  "wiggleflop": [
+   "zPZmD3x4_Nc",
+   "Wiggleflop",
+   "Cosmic Kids Peace Out"
+  ],
+  "rainbowwaterfa": [
+   "hh58j2Yw6dg",
+   "Rainbow Waterfall",
+   "Cosmic Kids Peace Out"
+  ],
+  "mine": [
+   "VUs9WxPGoGU",
+   "Mine!",
+   "Cosmic Kids Zen Den"
+  ],
+  "cosmiccounting": [
+   "4UyPe7S0cSg",
+   "Cosmic Counting",
+   "Cosmic Kids Peace Out"
+  ],
+  "magictreehouse": [
+   "WhoIeqDJM6E",
+   "Magic Treehouse",
+   "Cosmic Kids Peace Out"
+  ],
+  "thebyebyeboat": [
+   "A0kaS7jny_I",
+   "The Bye Bye Boat",
+   "Cosmic Kids Zen Den"
+  ],
+  "moviesinmymind": [
+   "JTb1XgZ3x-w",
+   "Movies in My Mind",
+   "Cosmic Kids Zen Den"
+  ],
+  "onoff": [
+   "1ZP-TMr984s",
+   "On & Off",
+   "GoNoodle Flow"
+  ],
+  "twistandturn": [
+   "CGw0rFaMyE8",
+   "Twist and Turn",
+   "GoNoodle Flow"
+  ],
+  "learnhowtofind": [
+   "bYlRFIzl4WA",
+   "Learn How to Find Peace",
+   "GoNoodle Flow"
+  ],
+  "boxbreathing": [
+   "a7uQXDkxEtM",
+   "Box Breathing",
+   "Headspace"
+  ],
+  "findyourfocusw": [
+   "IReEu2kI6oI",
+   "Find Your Focus with this Mini Meditation",
+   "Headspace"
+  ],
+  "letsunwind": [
+   "jp7B7CEqRYk",
+   "Let’s Unwind",
+   "GoNoodle Flow"
+  ]
+ },
+ "daily_sequence": {
+  "k1": [
+   "balloon",
+   "starfish",
+   "yourlittlestar",
+   "wiggleflop"
+  ],
+  "23": [
+   "rainbowwaterfa",
+   "mine",
+   "cosmiccounting",
+   "magictreehouse"
+  ],
+  "45": [
+   "thebyebyeboat",
+   "moviesinmymind",
+   "onoff",
+   "twistandturn"
+  ],
+  "68": [
+   "learnhowtofind",
+   "boxbreathing",
+   "findyourfocusw",
+   "letsunwind"
+  ]
+ },
+ "school_days": [
+  "mon",
+  "wed",
+  "thu",
+  "fri"
+ ],
+ "photo_credits": [],
+ "review_note": "Ember videos are new for every band and day and are not used in earlier weeks. Tuesday, November 3 is not a school day."
+}

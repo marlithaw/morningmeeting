@@ -1,0 +1,798 @@
+{
+ "math": {
+  "K": {
+   "10": {
+    "1": [
+     [
+      "Same and different",
+      "math/kindergarten/same-and-different",
+      "6XZ"
+     ]
+    ],
+    "2": [
+     [
+      "Count sides and corners",
+      "math/kindergarten/count-sides-and-corners",
+      "UX9"
+     ]
+    ],
+    "3": [
+     [
+      "Circles",
+      "math/kindergarten/circles",
+      "ASA"
+     ]
+    ],
+    "4": [
+     [
+      "Curved parts",
+      "math/kindergarten/curved-parts",
+      "A6B"
+     ]
+    ],
+    "5": [
+     [
+      "Triangles",
+      "math/kindergarten/triangles",
+      "N6Y"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "10": {
+    "1": [
+     [
+      "Adding 7",
+      "math/grade-1/adding-7",
+      "BVK"
+     ],
+     [
+      "Adding 8",
+      "math/grade-1/adding-8",
+      "LTE"
+     ]
+    ],
+    "2": [
+     [
+      "Adding 9",
+      "math/grade-1/adding-9",
+      "H8F"
+     ]
+    ],
+    "3": [
+     [
+      "Addition facts - sums up to 20",
+      "math/grade-1/addition-facts-sums-up-to-20",
+      "6TM"
+     ]
+    ],
+    "4": [
+     [
+      "Addition word problems - sums up to 20",
+      "math/grade-1/addition-word-problems-sums-up-to-20",
+      "KY5"
+     ]
+    ],
+    "5": [
+     [
+      "Make a number using addition - sums up to20",
+      "math/grade-1/make-a-number-using-addition-sums-up-to-20",
+      "UMX"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "10": {
+    "1": [
+     [
+      "Use models to subtract a one-digit number from a two-digit number - without regrouping",
+      "math/grade-2/use-models-to-subtract-a-one-digit-number-from-a-two-digit-number-without-regrouping",
+      "WKG"
+     ],
+     [
+      "Subtract a one-digit number from a two-digit number - without regrouping",
+      "math/grade-2/subtract-a-one-digit-number-from-a-two-digit-number-without-regrouping",
+      "L8D"
+     ]
+    ],
+    "2": [
+     [
+      "Use models to subtract a one-digit number from a two-digit number - with regrouping",
+      "math/grade-2/use-models-to-subtract-a-one-digit-number-from-a-two-digit-number-with-regrouping",
+      "MU8"
+     ]
+    ],
+    "3": [
+     [
+      "Subtract a one-digit number from a two-digit number - with regrouping",
+      "math/grade-2/subtract-a-one-digit-number-from-a-two-digit-number-with-regrouping",
+      "P85"
+     ]
+    ],
+    "4": [
+     [
+      "Subtract a one-digit number from a two-digit number",
+      "math/grade-2/subtract-a-one-digit-number-from-a-two-digit-number",
+      "A2B"
+     ]
+    ],
+    "5": [
+     [
+      "Subtract a multiple of 10 from a two-digit number",
+      "math/grade-2/subtract-a-multiple-of-10-from-a-two-digit-number",
+      "2Q6"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "10": {
+    "1": [
+     [
+      "Find the area of figures made of unit squares",
+      "math/grade-3/find-the-area-of-figures-made-of-unit-squares",
+      "FLQ"
+     ],
+     [
+      "Select figures with a given area",
+      "math/grade-3/select-figures-with-a-given-area",
+      "XR6"
+     ]
+    ],
+    "2": [
+     [
+      "Create figures with a given area",
+      "math/grade-3/create-figures-with-a-given-area",
+      "Z2H"
+     ],
+     [
+      "Tile a rectangle and find the area",
+      "math/grade-3/tile-a-rectangle-and-find-the-area",
+      "EKK"
+     ]
+    ],
+    "3": [
+     [
+      "Select two figures with the same area",
+      "math/grade-3/select-two-figures-with-the-same-area",
+      "7GW"
+     ]
+    ],
+    "4": [
+     [
+      "Multiply to find the area of a rectangle made of unit squares",
+      "math/grade-3/multiply-to-find-the-area-of-a-rectangle-made-of-unit-squares",
+      "S7G"
+     ]
+    ],
+    "5": [
+     [
+      "Find the area of rectangles and squares",
+      "math/grade-3/find-the-area-of-rectangles-and-squares",
+      "8KJ"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "10": {
+    "1": [
+     [
+      "Use a rule to complete a number pattern",
+      "math/grade-4/use-a-rule-to-complete-a-number-pattern",
+      "5P2"
+     ],
+     [
+      "Complete an increasing number pattern",
+      "math/grade-4/complete-an-increasing-number-pattern",
+      "QHB"
+     ]
+    ],
+    "2": [
+     [
+      "What is true about the pattern made by the rule?",
+      "math/grade-4/what-is-true-about-the-pattern-made-by-the-rule",
+      "35J"
+     ]
+    ],
+    "3": [
+     [
+      "What is true about the given pattern?",
+      "math/grade-4/what-is-true-about-the-given-pattern",
+      "C9H"
+     ]
+    ],
+    "4": [
+     [
+      "Complete a multiplication number pattern",
+      "math/grade-4/complete-a-multiplication-number-pattern",
+      "SZJ"
+     ]
+    ],
+    "5": [
+     [
+      "Identify mistakes in number patterns",
+      "math/grade-4/identify-mistakes-in-number-patterns",
+      "PFV"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "10": {
+    "1": [
+     [
+      "Estimate sums and differences of mixed numbers",
+      "math/grade-5/estimate-sums-and-differences-of-mixed-numbers",
+      "HUJ"
+     ],
+     [
+      "Add and subtract mixed numbers with unlike denominators: without regrouping",
+      "math/grade-5/add-and-subtract-mixed-numbers-with-unlike-denominators-without-regrouping",
+      "HHN"
+     ]
+    ],
+    "2": [
+     [
+      "Add mixed numbers with unlike denominators",
+      "math/grade-5/add-mixed-numbers-with-unlike-denominators",
+      "FHD"
+     ]
+    ],
+    "3": [
+     [
+      "Subtract mixed numbers with unlike denominators",
+      "math/grade-5/subtract-mixed-numbers-with-unlike-denominators",
+      "FAA"
+     ]
+    ],
+    "4": [
+     [
+      "Add and subtract mixed numbers",
+      "math/grade-5/add-and-subtract-mixed-numbers",
+      "2L3"
+     ]
+    ],
+    "5": [
+     [
+      "Add and subtract mixed numbers: word problems",
+      "math/grade-5/add-and-subtract-mixed-numbers-word-problems",
+      "6BH"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "10": {
+    "1": [
+     [
+      "Equivalent ratios: word problems",
+      "math/grade-6/equivalent-ratios-word-problems",
+      "RLZ"
+     ],
+     [
+      "Compare ratios: word problems",
+      "math/grade-6/compare-ratios-word-problems",
+      "2HT"
+     ]
+    ],
+    "2": [
+     [
+      "Ratio tables",
+      "math/grade-6/ratio-tables",
+      "PPF"
+     ],
+     [
+      "Use tape diagrams to solve ratio word problems",
+      "math/grade-6/use-tape-diagrams-to-solve-ratio-word-problems",
+      "YMD"
+     ]
+    ],
+    "3": [
+     [
+      "Unit rates",
+      "math/grade-6/unit-rates",
+      "JSZ"
+     ],
+     [
+      "Unit prices",
+      "math/grade-6/unit-prices",
+      "UKD"
+     ]
+    ],
+    "4": [
+     [
+      "Rates: word problems",
+      "math/grade-6/rates-word-problems",
+      "9AF"
+     ],
+     [
+      "Compare rates: word problems",
+      "math/grade-6/compare-rates-word-problems",
+      "NAF"
+     ]
+    ],
+    "5": [
+     [
+      "Checkpoint: Unit rates",
+      "math/grade-6/checkpoint-unit-rates",
+      "KE2"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "10": {
+    "1": [
+     [
+      "Identify equivalent ratios",
+      "math/grade-7/identify-equivalent-ratios",
+      "ZFM"
+     ],
+     [
+      "Equivalent ratios: word problems",
+      "math/grade-7/equivalent-ratios-word-problems",
+      "DJ8"
+     ]
+    ],
+    "2": [
+     [
+      "Unit rates",
+      "math/grade-7/unit-rates",
+      "2NB"
+     ],
+     [
+      "Calculate unit rates with fractions",
+      "math/grade-7/calculate-unit-rates-with-fractions",
+      "57X"
+     ]
+    ],
+    "3": [
+     [
+      "Compare rates: word problems",
+      "math/grade-7/compare-rates-word-problems",
+      "VVS"
+     ],
+     [
+      "Unit prices",
+      "math/grade-7/unit-prices",
+      "N7G"
+     ]
+    ],
+    "4": [
+     [
+      "Unit prices: find the total price",
+      "math/grade-7/unit-prices-find-the-total-price",
+      "ENH"
+     ]
+    ],
+    "5": [
+     [
+      "Unit prices with unit conversions",
+      "math/grade-7/unit-prices-with-unit-conversions",
+      "KJ8"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "10": {
+    "1": [
+     [
+      "Angle-angle criterion for similar triangles",
+      "math/grade-8/angle-angle-criterion-for-similar-triangles",
+      "TYZ"
+     ],
+     [
+      "Find missing side lengths in proportional triangles",
+      "math/grade-8/find-missing-side-lengths-in-proportional-triangles",
+      "P5W"
+     ]
+    ],
+    "2": [
+     [
+      "Checkpoint: Transformations on the coordinate plane",
+      "math/grade-8/checkpoint-transformations-on-the-coordinate-plane",
+      "WPB"
+     ]
+    ],
+    "3": [
+     [
+      "Checkpoint: Similarity transformations",
+      "math/grade-8/checkpoint-similarity-transformations",
+      "DYW"
+     ]
+    ],
+    "4": [
+     [
+      "Which x satisfies an equation?",
+      "math/grade-8/which-x-satisfies-an-equation",
+      "BVQ"
+     ]
+    ],
+    "5": [
+     [
+      "Model and solve equations using algebra tiles",
+      "math/grade-8/model-and-solve-equations-using-algebra-tiles",
+      "D45"
+     ]
+    ]
+   }
+  }
+ },
+ "ela": {
+  "K": {
+   "10": {
+    "1": [
+     [
+      "Which two words end with the same sound?",
+      "ela/kindergarten/which-two-words-end-with-the-same-sound",
+      "ND6"
+     ]
+    ],
+    "2": [
+     [
+      "Which letter does the word end with?",
+      "ela/kindergarten/which-letter-does-the-word-end-with",
+      "92S"
+     ]
+    ],
+    "3": [
+     [
+      "Sort objects into categories",
+      "ela/kindergarten/sort-objects-into-categories",
+      "BWF"
+     ]
+    ],
+    "4": [
+     [
+      "Choose the two sight words that are the same",
+      "ela/kindergarten/choose-the-two-sight-words-that-are-the-same",
+      "DRT"
+     ]
+    ],
+    "5": [
+     [
+      "Choose the picture that matches the descriptive sentence",
+      "ela/kindergarten/choose-the-picture-that-matches-the-descriptive-sentence",
+      "JUC"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "10": {
+    "1": [
+     [
+      "Complete the short i words",
+      "ela/grade-1/complete-the-short-i-words",
+      "NSX"
+     ]
+    ],
+    "2": [
+     [
+      "Choose the short i sentence that matches the picture",
+      "ela/grade-1/choose-the-short-i-sentence-that-matches-the-picture",
+      "EH5"
+     ]
+    ],
+    "3": [
+     [
+      "Read short i stories",
+      "ela/grade-1/read-short-i-stories",
+      "5KE"
+     ]
+    ],
+    "4": [
+     [
+      "Identify the purpose of a text",
+      "ela/grade-1/identify-the-purpose-of-a-text",
+      "2XC"
+     ]
+    ],
+    "5": [
+     [
+      "Form regular plurals with -s and -es",
+      "ela/grade-1/form-regular-plurals-with-s-and-es",
+      "J9P"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "10": {
+    "1": [
+     [
+      "Spell the long e word: ee, ea",
+      "ela/grade-2/spell-the-long-e-word-ee-ea",
+      "78K"
+     ],
+     [
+      "Spell the long u word: silent e, ue, oo, ew",
+      "ela/grade-2/spell-the-long-u-word-silent-e-ue-oo-ew",
+      "KGG"
+     ]
+    ],
+    "2": [
+     [
+      "Read along with fantasy",
+      "ela/grade-2/read-along-with-fantasy",
+      "BHZ"
+     ]
+    ],
+    "3": [
+     [
+      "Use subordinating conjunctions",
+      "ela/grade-2/use-subordinating-conjunctions",
+      "VDJ"
+     ]
+    ],
+    "4": [
+     [
+      "Identify plurals, singular possessives, and plural possessives",
+      "ela/grade-2/identify-plurals-singular-possessives-and-plural-possessives",
+      "LQP"
+     ]
+    ],
+    "5": [
+     [
+      "Form the singular or plural possessive",
+      "ela/grade-2/form-the-singular-or-plural-possessive",
+      "D58"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "10": {
+    "1": [
+     [
+      "Identify story elements",
+      "ela/grade-3/identify-story-elements",
+      "CXN"
+     ],
+     [
+      "Revise the sentence using a stronger verb",
+      "ela/grade-3/revise-the-sentence-using-a-stronger-verb",
+      "2K7"
+     ]
+    ],
+    "2": [
+     [
+      "Multiple-meaning words with pictures",
+      "ela/grade-3/multiple-meaning-words-with-pictures",
+      "LSF"
+     ]
+    ],
+    "3": [
+     [
+      "Determine the meaning of a word with -ful or -less",
+      "ela/grade-3/determine-the-meaning-of-a-word-with-ful-or-less",
+      "SVF"
+     ]
+    ],
+    "4": [
+     [
+      "Identify possessive pronouns",
+      "ela/grade-3/identify-possessive-pronouns",
+      "DL5"
+     ]
+    ],
+    "5": [
+     [
+      "Use possessive pronouns",
+      "ela/grade-3/use-possessive-pronouns",
+      "F6X"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "10": {
+    "1": [
+     [
+      "Identify the author's purpose and message",
+      "ela/grade-4/identify-the-authors-purpose-and-message",
+      "E9T"
+     ],
+     [
+      "Determine the meaning of a word with -able or -ment",
+      "ela/grade-4/determine-the-meaning-of-a-word-with-able-or-ment",
+      "YZB"
+     ]
+    ],
+    "2": [
+     [
+      "Determine the meaning of a word with a suffix: review",
+      "ela/grade-4/determine-the-meaning-of-a-word-with-a-suffix-review",
+      "XFL"
+     ]
+    ],
+    "3": [
+     [
+      "Is the sentence simple or compound?",
+      "ela/grade-4/is-the-sentence-simple-or-compound",
+      "EV2"
+     ]
+    ],
+    "4": [
+     [
+      "Create compound sentences",
+      "ela/grade-4/create-compound-sentences",
+      "XA7"
+     ]
+    ],
+    "5": [
+     [
+      "Learn to spell common words: set 1",
+      "ela/grade-4/learn-to-spell-common-words-set-1",
+      "5AS"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "10": {
+    "1": [
+     [
+      "Draw inferences from a text",
+      "ela/grade-5/draw-inferences-from-a-text",
+      "ETU"
+     ],
+     [
+      "Identify an author's statement of opinion",
+      "ela/grade-5/identify-an-authors-statement-of-opinion",
+      "RAE"
+     ]
+    ],
+    "2": [
+     [
+      "Words with sub-",
+      "ela/grade-5/words-with-sub",
+      "YTQ"
+     ]
+    ],
+    "3": [
+     [
+      "Words with mis-",
+      "ela/grade-5/words-with-mis",
+      "GSX"
+     ]
+    ],
+    "4": [
+     [
+      "Identify plurals, singular possessives, and plural possessives",
+      "ela/grade-5/identify-plurals-singular-possessives-and-plural-possessives",
+      "D83"
+     ]
+    ],
+    "5": [
+     [
+      "Form the singular or plural possessive",
+      "ela/grade-5/form-the-singular-or-plural-possessive",
+      "BME"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "10": {
+    "1": [
+     [
+      "Trace an argument",
+      "ela/grade-6/trace-an-argument",
+      "A9H"
+     ]
+    ],
+    "2": [
+     [
+      "Use academic vocabulary in context: informational",
+      "ela/grade-6/use-academic-vocabulary-in-context-informational",
+      "U9R"
+     ]
+    ],
+    "3": [
+     [
+      "Positive and negative connotation",
+      "ela/grade-6/positive-and-negative-connotation",
+      "CMA"
+     ]
+    ],
+    "4": [
+     [
+      "Identify plurals, singular possessives, and plural possessives",
+      "ela/grade-6/identify-plurals-singular-possessives-and-plural-possessives",
+      "D9L"
+     ]
+    ],
+    "5": [
+     [
+      "Form the singular or plural possessive",
+      "ela/grade-6/form-the-singular-or-plural-possessive",
+      "7U7"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "10": {
+    "1": [
+     [
+      "Determine the themes of short stories",
+      "ela/grade-7/determine-the-themes-of-short-stories",
+      "QQS"
+     ]
+    ],
+    "2": [
+     [
+      "Alphabetical order",
+      "ela/grade-7/alphabetical-order",
+      "FXJ"
+     ]
+    ],
+    "3": [
+     [
+      "Use semicolons and commas to separate clauses",
+      "ela/grade-7/use-semicolons-and-commas-to-separate-clauses",
+      "VQC"
+     ]
+    ],
+    "4": [
+     [
+      "Commas with series, dates, and places",
+      "ela/grade-7/commas-with-series-dates-and-places",
+      "PJ5"
+     ]
+    ],
+    "5": [
+     [
+      "Commas with direct addresses, introductory words, interjections, and interrupters",
+      "ela/grade-7/commas-with-direct-addresses-introductory-words-interjections-and-interrupters",
+      "KUB"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "10": {
+    "1": [
+     [
+      "Analyze passages from Narrative of the Life of Frederick Douglass: Part 2",
+      "ela/grade-8/analyze-passages-from-narrative-of-the-life-of-frederick-douglass-part-2",
+      "XZG"
+     ]
+    ],
+    "2": [
+     [
+      "Read graphic organizers",
+      "ela/grade-8/read-graphic-organizers",
+      "2A9"
+     ]
+    ],
+    "3": [
+     [
+      "Use Greek and Latin roots as clues to the meanings of words",
+      "ela/grade-8/use-greek-and-latin-roots-as-clues-to-the-meanings-of-words",
+      "2NV"
+     ]
+    ],
+    "4": [
+     [
+      "Identify and correct errors with plural and possessive nouns",
+      "ela/grade-8/identify-and-correct-errors-with-plural-and-possessive-nouns",
+      "AAR"
+     ]
+    ],
+    "5": [
+     [
+      "Identify and correct errors with compound and joint possession",
+      "ela/grade-8/identify-and-correct-errors-with-compound-and-joint-possession",
+      "VEC"
+     ]
+    ]
+   }
+  }
+ }
+}
