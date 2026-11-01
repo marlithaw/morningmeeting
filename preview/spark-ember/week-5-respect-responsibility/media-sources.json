@@ -1,110 +1,110 @@
 {
  "videos": {
-  "balloon": [
-   "ZBnPlqQFPKs",
-   "Balloon",
-   "Cosmic Kids Peace Out"
+  "calmfulbreathi": [
+   "MHFG8JR_ueI",
+   "Calmful Breathing Exercises",
+   "Sesame Street"
   ],
-  "starfish": [
-   "a1dgkivX9-A",
-   "Starfish",
-   "Cosmic Kids Peace Out"
+  "maehacesentirt": [
+   "xROImUM-zR4",
+   "Mae hace sentir tranquilo a Elmo después de un día difícil",
+   "Plaza Sésamo"
   ],
-  "yourlittlestar": [
-   "YtmjV49YEWs",
-   "Your Little Star",
-   "Cosmic Kids Peace Out"
+  "elmocalmsdown": [
+   "_g3BKyJcwI8",
+   "Elmo Calms Down!",
+   "Sesame Street"
   ],
-  "wiggleflop": [
-   "zPZmD3x4_Nc",
-   "Wiggleflop",
-   "Cosmic Kids Peace Out"
+  "respiracindear": [
+   "KgJJRZEglHs",
+   "Respiración de Arcoíris",
+   "GoNoodle en español"
   ],
-  "rainbowwaterfa": [
-   "hh58j2Yw6dg",
-   "Rainbow Waterfall",
-   "Cosmic Kids Peace Out"
+  "bigfeelingsher": [
+   "lXPzyQpTj50",
+   "Big Feelings: Here for Each Other",
+   "Sesame Street"
   ],
-  "mine": [
-   "VUs9WxPGoGU",
-   "Mine!",
-   "Cosmic Kids Zen Den"
+  "howtobearbreat": [
+   "wgghPYRoMqE",
+   "How to Bear Breathe",
+   "GoNoodle"
   ],
-  "cosmiccounting": [
-   "4UyPe7S0cSg",
-   "Cosmic Counting",
-   "Cosmic Kids Peace Out"
+  "breathefeelsha": [
+   "2mewUHy1LtA",
+   "Breathe, Feel, Share",
+   "Sesame Street"
   ],
-  "magictreehouse": [
-   "WhoIeqDJM6E",
-   "Magic Treehouse",
-   "Cosmic Kids Peace Out"
+  "whalebreath": [
+   "zohyQQlsejA",
+   "Whale Breath",
+   "GoNoodle"
   ],
-  "thebyebyeboat": [
-   "A0kaS7jny_I",
-   "The Bye Bye Boat",
-   "Cosmic Kids Zen Den"
+  "kidpresidentsp": [
+   "zU5rhrSNItg",
+   "Kid President’s Pep Talk to Teachers and Students!",
+   "SoulPancake"
   ],
-  "moviesinmymind": [
-   "JTb1XgZ3x-w",
-   "Movies in My Mind",
-   "Cosmic Kids Zen Den"
-  ],
-  "onoff": [
-   "1ZP-TMr984s",
-   "On & Off",
-   "GoNoodle Flow"
-  ],
-  "twistandturn": [
-   "CGw0rFaMyE8",
-   "Twist and Turn",
-   "GoNoodle Flow"
+  "thecalmforyour": [
+   "Oum3rCh81kI",
+   "The Calm for Your Storm with LeBron James",
+   "Calm"
   ],
   "learnhowtofind": [
    "bYlRFIzl4WA",
    "Learn How to Find Peace",
    "GoNoodle Flow"
   ],
-  "boxbreathing": [
+  "apeptalkfromki": [
+   "l-gQLqv9f4o",
+   "A Pep Talk from Kid President to You",
+   "SoulPancake"
+  ],
+  "trainyourmindw": [
+   "q7rzz9asT7Q",
+   "Train Your Mind with LeBron James",
+   "Calm"
+  ],
+  "learnbreathing": [
    "a7uQXDkxEtM",
-   "Box Breathing",
+   "Learn Breathing Technique Box Breathing with Dora Kamau",
    "Headspace"
   ],
-  "findyourfocusw": [
-   "IReEu2kI6oI",
-   "Find Your Focus with this Mini Meditation",
-   "Headspace"
+  "donothingwithl": [
+   "LwgnzCLy8Mk",
+   "Do Nothing with LeBron James",
+   "Calm"
   ],
-  "letsunwind": [
-   "jp7B7CEqRYk",
-   "Let’s Unwind",
-   "GoNoodle Flow"
+  "aguidedmeditat": [
+   "t20y5mOCabI",
+   "A Guided Meditation with Naomi Osaka",
+   "Modern Health"
   ]
  },
  "daily_sequence": {
   "k1": [
-   "balloon",
-   "starfish",
-   "yourlittlestar",
-   "wiggleflop"
+   "calmfulbreathi",
+   "maehacesentirt",
+   "elmocalmsdown",
+   "respiracindear"
   ],
   "23": [
-   "rainbowwaterfa",
-   "mine",
-   "cosmiccounting",
-   "magictreehouse"
+   "bigfeelingsher",
+   "howtobearbreat",
+   "breathefeelsha",
+   "whalebreath"
   ],
   "45": [
-   "thebyebyeboat",
-   "moviesinmymind",
-   "onoff",
-   "twistandturn"
+   "kidpresidentsp",
+   "thecalmforyour",
+   "learnhowtofind",
+   "apeptalkfromki"
   ],
   "68": [
-   "learnhowtofind",
-   "boxbreathing",
-   "findyourfocusw",
-   "letsunwind"
+   "trainyourmindw",
+   "learnbreathing",
+   "donothingwithl",
+   "aguidedmeditat"
   ]
  },
  "school_days": [

@@ -114,3 +114,87 @@ EMBER = {
                ('What tone will you set next week, and where will people see it?', '¿Qué tono vas a marcar la próxima semana y dónde lo verán las personas?', 'Next week I will set the tone by ___ in ___.', 'La próxima semana marcaré el tono ___ en ___.')],
    'bridges': ['Follow the guided practice to find a calm place. You may simply observe.', 'Breathe in a box: in, hold, out, hold. Stay seated, then reflect.', 'Use the short practice to settle your attention. Then write.', 'Let the day unwind. Breathe comfortably or observe, then reflect.']},
 }
+
+# ================= Week 5 rebuild: school-specific activities, richer art, culturally relevant Ember =================
+WED_FROM = {'k1': '420 250 180 112', '23': '100 400 300 187', '45': '50 150 300 187', '68': '320 290 180 112'}
+WED_DO = {
+ 'k1': ('Look closely. What do you see? Point to one clue and tell a friend what is happening.', 'Mira de cerca. ¿Qué ves? Señala una pista y dile a un amigo qué está pasando.'),
+ '23': ('Zoom in on the shoes. Where are they standing? What are these students doing right?', 'Mira de cerca los zapatos. ¿Dónde están parados? ¿Qué están haciendo bien estos estudiantes?'),
+ '45': ('Zoom in. What kind of place is this? Use two clues. Then decide: what would you buy, and is there a choice that helps more people than just you?', 'Mira de cerca. ¿Qué tipo de lugar es este? Usa dos pistas. Luego decide: ¿qué comprarías y hay una opción que ayude a más personas además de ti?'),
+ '68': ('Zoom in. Make a claim about what is happening. What does this one detail tell you, and what can it not tell you yet?', 'Mira de cerca. Haz una afirmación sobre lo que está pasando. ¿Qué te dice este detalle y qué todavía no te puede decir?'),
+}
+WED_REV = {
+ 'k1': ('A friend is cleaning the lunch table! A clean spot is ready for the next class. That is responsible.', '¡Una amiga está limpiando la mesa del almuerzo! Un lugar limpio está listo para la siguiente clase. Eso es ser responsable.'),
+ '23': ('Shoes on the blue line, voices off, hands to self. This line is ready to walk. When every person is ready, the whole class gets there faster.', 'Zapatos en la línea azul, voces apagadas, manos quietas. Esta fila está lista para caminar. Cuando cada persona está lista, toda la clase llega más rápido.'),
+ '45': ('The LiveSchool Store, open November 4–6! Every point came from a Safe, Respectful, or Responsible choice. This student is asking about something for the whole class. Spending on your community is respect in action.', '¡La tienda de LiveSchool, abierta del 4 al 6 de noviembre! Cada punto vino de una decisión segura, respetuosa o responsable. Este estudiante pregunta por algo para toda la clase. Gastar en tu comunidad es respeto en acción.'),
+ '68': ('A student is recording a younger kid. A friend steps in: “Nah. Not like that.” The main office is right down the hall. Refusing to be the audience and getting an adult takes more courage than filming.', 'Un estudiante está grabando a un niño más pequeño. Una amiga interviene: “No. Así no.” La oficina principal está al final del pasillo. Negarse a ser el público y buscar a un adulto requiere más valentía que grabar.'),
+}
+WED_KEY = {
+ 'k1': ('What clue did you see?', '“I see ___.”', 'Accept crumbs, the sponge, the milk, or the trays as clues. After the reveal, act out wiping your own spot together.'),
+ '23': ('Where are their shoes, and what else are they doing right?', '“Their shoes are ___ and they are ___.”', 'Grade 2 points and says; grade 3 writes two “doing right” details. Practice a 10-second silent line-up at your door.'),
+ '45': ('Which two clues told you where this is, and what would you buy?', '“The clues ___ and ___ tell me this is ___. I would buy ___ because ___.”', 'Push for a choice that helps the class. Remind students when their homeroom visits the store this week.'),
+ '68': ('What did the crop make you think, and what changed after the reveal?', '“At first I claimed ___. After the reveal, ___.”', 'The crop shows only a phone recording. The reveal adds the younger student, the friend stepping in, and the office sign. Name “refusing to be the audience” as the responsible move.'),
+}
+THU = {
+ 'k1': ('Would you rather be line leader or door holder? Both are jobs! Point to your choice.', '¿Prefieres ser líder de la fila o quien sostiene la puerta? ¡Los dos son trabajos! Señala tu opción.'),
+ '23': ('The LiveSchool Store is open! Would you rather spend your points on something for you, or something for the whole class? Tell why.', '¡La tienda de LiveSchool está abierta! ¿Prefieres gastar tus puntos en algo para ti o en algo para toda la clase? Di por qué.'),
+ '45': ('Would you rather get a shout-out at Hallway Hollers or a positive phone call home? Which would mean more to you, and why?', '¿Prefieres un reconocimiento en Hallway Hollers o una llamada positiva a tu casa? ¿Cuál significaría más para ti y por qué?'),
+ '68': ('Would you rather drop a bar that goes viral but disrespects someone, or a bar that is respectful and only the cypher hears? Defend your choice.', '¿Prefieres una rima que se hace viral pero le falta el respeto a alguien, o una rima respetuosa que solo escucha el cypher? Defiende tu decisión.'),
+}
+THU_REV = {
+ 'k1': ('Both jobs help the class! The line leader walks safely. The door holder keeps friends safe. Responsible jobs help everyone.', '¡Los dos trabajos ayudan a la clase! El líder camina con cuidado. Quien sostiene la puerta cuida a sus amigos. Los trabajos responsables ayudan a todos.'),
+ '23': ('Both can be good choices! Spending on the class shows respect for your community. Saving for yourself is responsible too. You earned those points.', '¡Las dos pueden ser buenas decisiones! Gastar en la clase muestra respeto por tu comunidad. Ahorrar para ti también es responsable. Tú ganaste esos puntos.'),
+ '45': ('There is no wrong answer. Some people love the crowd; others love making their family proud. Both are respect you earned with your choices.', 'No hay respuesta incorrecta. A algunas personas les encanta el público; a otras les encanta enorgullecer a su familia. Los dos son respeto que ganaste con tus decisiones.'),
+ '68': ('Views fade. Your name stays on what you say. In a real cypher, respect is earned with skill, not by tearing someone down. Both sides have a point; your reasoning matters.', 'Las vistas se olvidan. Tu nombre se queda en lo que dices. En un cypher de verdad, el respeto se gana con talento, no destruyendo a alguien. Los dos lados tienen razón en algo; tu razonamiento importa.'),
+}
+THU_KEY = {
+ 'k1': ('Which job did you pick? Show me A or B.', '“I pick ___.”', 'Both answers are right. Ask: what does a good line leader do? What does a good door holder do?'),
+ '23': ('Which did you pick, and who does it help?', '“I pick ___ because it helps ___.”', 'Grade 2 points and says; grade 3 writes a reason. Count votes, then name who each choice helps.'),
+ '45': ('Which did you choose, and why would it mean more to you?', '“I would rather ___ because ___.”', 'Accept either side with a reason. Keep family details general; no one has to share about home.'),
+ '68': ('Which did you choose, and what is the strongest argument for the other side?', '“I would rather ___ because ___. The other side would say ___.”', 'Push for a counterargument. Connect to today’s Morning Meeting: the same standard online and in every space.'),
+}
+FRI = {
+ 'k1': (('I wonder: why do we cheer for each other at Hallway Hollers? Show me a cheer face and a cheer move!', 'Me pregunto: ¿por qué nos animamos unos a otros en Hallway Hollers? ¡Muéstrame una cara de ánimo y un movimiento de ánimo!'),
+        ('Cheering tells a friend: I see you working hard! Today at Friday Cypher, cheer for your friends.', 'Animar le dice a un amigo: ¡Veo que trabajas duro! Hoy en el Cypher del viernes, anima a tus amigos.')),
+ '23': (('Wonder: what makes a cheer respectful? Make up a cheer for a classmate who worked hard this week. Do not use names.', 'Pregunta: ¿qué hace que un grito de ánimo sea respetuoso? Inventa uno para un compañero que trabajó duro esta semana. No uses nombres.'),
+        ('A respectful cheer lifts someone up. It is loud for the right reasons and never makes fun. Bring your cheer to Friday Cypher!', 'Un grito de ánimo respetuoso levanta a alguien. Es fuerte por las razones correctas y nunca se burla. ¡Trae tu grito al Cypher del viernes!')),
+ '45': (('Wonder: a cypher has unwritten rules. What are they, and how does each one show respect?', 'Pregunta: un cypher tiene reglas no escritas. ¿Cuáles son y cómo muestra respeto cada una?'),
+        ('Wait your turn. Hype the person on the mic. Keep it clean: no disses about family or looks. Pass the mic. Those rules are respect in action.', 'Espera tu turno. Anima a quien tiene el micrófono. Mantenlo limpio: nada de burlas sobre la familia o la apariencia. Pasa el micrófono. Esas reglas son respeto en acción.')),
+ '68': (('Wonder: in hip-hop, respect is earned on the mic. What earns respect in a cypher, and what loses it fast?', 'Pregunta: en el hip-hop, el respeto se gana con el micrófono. ¿Qué gana respeto en un cypher y qué lo pierde rápido?'),
+        ('Earns it: skill, originality, hyping others, keeping it real without tearing people down. Loses it: copying someone’s bars, disrespecting family, cutting someone off. Today, earn it.', 'Lo gana: talento, originalidad, animar a otros, ser auténtico sin destruir a nadie. Lo pierde: copiar las rimas de otro, faltarle el respeto a la familia, interrumpir. Hoy, gánatelo.')),
+}
+FRI_KEY = {
+ 'k1': ('Show me your cheer move. Why do we cheer for friends?', '“We cheer because ___.”', 'Model a quiet clap and a big smile; both count. Practice one Hallway Hollers cheer before Cypher.'),
+ '23': ('What is your cheer, and why is it respectful?', '“My cheer is ___. It is respectful because ___.”', 'Grade 2 says the cheer; grade 3 writes it. Screen cheers for put-downs before anyone performs.'),
+ '45': ('Name one cypher rule and explain how it shows respect.', '“The rule ___ shows respect because ___.”', 'Collect rules on the board and carry them straight into Friday Cypher.'),
+ '68': ('What earns respect in a cypher, and what loses it?', '“Respect is earned by ___ and lost by ___.”', 'Keep examples general; no one names a classmate or an artist they want to diss.'),
+}
+BARS = {
+ 'mon': {'k1': ('Eyes up, hands still, kind words: I will!', 'Ojos arriba, manos quietas, palabras amables: ¡lo haré!'),
+         '23': ('Eyes up, voice right, hands to self: respect in sight!', 'Ojos arriba, voz tranquila, manos quietas: ¡respeto a la vista!'),
+         '45': ('I don’t have to agree to give respect for free.', 'No tengo que estar de acuerdo para dar respeto gratis.'),
+         '68': ('Same energy for everybody in the room. Respect isn’t a favor; it’s who I am.', 'La misma energía para todos en el salón. El respeto no es un favor; es quien soy.')},
+ 'wed': {'k1': ('Oops, my mess? I clean, no stress!', '¿Ups, mi desorden? ¡Lo limpio sin problema!'),
+         '23': ('Shoes on the line, voices off: we’re right on time!', 'Zapatos en la línea, voces apagadas: ¡llegamos a tiempo!'),
+         '45': ('Points come from the choices I make, not the shortcuts I take.', 'Los puntos vienen de las decisiones que tomo, no de los atajos.'),
+         '68': ('Camera down, step in, speak up, walk on. That’s the move.', 'Cámara abajo, intervén, habla, sigue. Esa es la jugada.')},
+ 'thu': {'k1': ('Line leader, door holder: every job makes us bolder!', 'Líder o puerta: ¡cada trabajo nos hace más valientes!'),
+         '23': ('Earned it fair, now I share!', '¡Lo gané justo, ahora lo comparto!'),
+         '45': ('Crowd or call, I earned it all.', 'Público o llamada, me lo gané todo.'),
+         '68': ('Views fade fast; my name will last.', 'Las vistas se van; mi nombre se queda.')},
+ 'fri': {'k1': ('Clap, clap, cheer: my friends are here!', '¡Aplaude, aplaude, anima: mis amigos están aquí!'),
+         '23': ('Lift them up, never down: best cheer in town!', '¡Levántalos, nunca los bajes: el mejor ánimo del pueblo!'),
+         '45': ('Wait my turn, hype my crew, pass the mic: respect, too.', 'Espero mi turno, animo a mi equipo, paso el micrófono: también es respeto.'),
+         '68': ('Earn it on the mic, not by tearing down. Respect is how we run this town.', 'Gánatelo con el micrófono, no destruyendo. El respeto es como manejamos esta ciudad.')},
+}
+for _b in SBANDS:
+    THU[_b] = (None, None, THU[_b], THU_REV[_b])
+
+EMBER['k1']['videos'] = [('MHFG8JR_ueI', 'Calmful Breathing Exercises', 'Sesame Street'), ('xROImUM-zR4', 'Mae hace sentir tranquilo a Elmo después de un día difícil', 'Plaza Sésamo'), ('_g3BKyJcwI8', 'Elmo Calms Down!', 'Sesame Street'), ('KgJJRZEglHs', 'Respiración de Arcoíris', 'GoNoodle en español')]
+EMBER['k1']['bridges'] = ['Breathe with your Sesame friends. Stay in your seat and breathe slowly.', 'Escucha cómo Mae ayuda a Elmo a calmarse después de un día difícil. Breathe with Elmo in your seat.', 'Watch how Elmo calms his body. Try it with him in your chair.', 'Respira con el arcoíris. Breathe in and out with the rainbow, then draw.']
+EMBER['23']['videos'] = [('lXPzyQpTj50', 'Big Feelings: Here for Each Other', 'Sesame Street'), ('wgghPYRoMqE', 'How to Bear Breathe', 'GoNoodle'), ('2mewUHy1LtA', 'Breathe, Feel, Share', 'Sesame Street'), ('zohyQQlsejA', 'Whale Breath', 'GoNoodle')]
+EMBER['23']['bridges'] = ['Watch how friends show up for each other. Then take three slow breaths in your seat.', 'Breathe like a big bear: slow and strong. Stay seated, then reflect.', 'Breathe, notice your feeling, then share it on your slip.', 'Take a big whale breath and let it out slowly. Then write.']
+EMBER['45']['videos'] = [('zU5rhrSNItg', 'Kid President’s Pep Talk to Teachers and Students!', 'SoulPancake'), ('Oum3rCh81kI', 'The Calm for Your Storm with LeBron James', 'Calm'), ('bYlRFIzl4WA', 'Learn How to Find Peace', 'GoNoodle Flow'), ('l-gQLqv9f4o', 'A Pep Talk from Kid President to You', 'SoulPancake')]
+EMBER['45']['bridges'] = ['Listen to Kid President’s pep talk. Then sit back, breathe, and reflect on how you treated people today.', 'Hear how LeBron James calms the storm before a big moment. Breathe with the practice, then reflect.', 'Follow the calm-down moves in your seat. Then let your body rest and write.', 'One more pep talk to end the week. Breathe, then name the choice you are proud of.']
+EMBER['68']['videos'] = [('q7rzz9asT7Q', 'Train Your Mind with LeBron James', 'Calm'), ('a7uQXDkxEtM', 'Learn Breathing Technique Box Breathing with Dora Kamau', 'Headspace'), ('LwgnzCLy8Mk', 'Do Nothing with LeBron James', 'Calm'), ('t20y5mOCabI', 'A Guided Meditation with Naomi Osaka', 'Modern Health')]
+EMBER['68']['bridges'] = ['Hear how LeBron James trains his mind like he trains his body. Follow the breath, then reflect.', 'Box breathing: in, hold, out, hold. Athletes and performers use it before big moments. Stay seated, then write.', 'Practice doing nothing for a minute. Notice what your mind does, then reflect.', 'End the week with a guided reset. Breathe or simply observe, then write your reflection.']

@@ -3,6 +3,7 @@ import os, re, json, shutil, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content_se import *
 import art
+import art2
 from icons import ICONS
 
 REPO = '/home/claude/morningmeeting'
@@ -77,6 +78,28 @@ def icon100(name):
             if os.path.exists(p): v = open(p).read(); break
     return v.replace('<svg ', '<svg aria-hidden="true" ', 1)
 
+def set_w3art(t, svgtxt):
+    i = t.find('<div class="w3art">') + len('<div class="w3art">')
+    j = t.find('</div></div><div class="w3copy', i)
+    return t[:i] + svgtxt + t[j + len('</div>'):]
+
+def add_bar(t, day, band):
+    en, es = BARS[day][band]
+    lab = 'Chant of the day · Canto del día' if band in ('k1', '23') else 'Bar of the day · Rima del día'
+    blk = f'<div class="w5bar"><span class="w5k">{lab}</span><span class="en">“{e(en)}”</span><span class="es" lang="es">“{e(es)}”</span></div>'
+    m = re.search(r'data-en="([^"]*)"', t); t = t.replace(m.group(0), f'data-en="{m.group(1)} {a(en)}"', 1)
+    m = re.search(r'data-es="([^"]*)"', t); t = t.replace(m.group(0), f'data-es="{m.group(1)} {a(es)}"', 1)
+    i = t.rfind('</main>')
+    j = t.rfind('</div>', 0, i)
+    return t[:j] + blk + t[j:]
+
+W5CSS = '<style>.w5bar{margin-top:16px;background:#232323;color:#fff;border-radius:18px;padding:14px 20px;box-shadow:6px 6px 0 #E21C24;transform:rotate(-1deg)}.w5bar .w5k{display:block;font:600 16px var(--disp);letter-spacing:.14em;text-transform:uppercase;color:#F9DC7C}.w5bar .en{color:#fff;font:700 30px var(--disp);line-height:1.15}.w5bar .es{color:#F9DC7C;font-size:20px}.w3art svg.w5art{width:100%;height:100%;max-height:none;display:block}.zoom-answer .w5bar{margin-top:12px}</style>'
+
+SCENE = {'k1': art2.cafeteria_k1, '23': art2.hallway_line, '45': art2.store, '68': art2.phone_hall}
+SCENE_LAB = {'k1': 'A lunch table with crumbs, a sponge, a milk carton, and a tray bin; a student wipes the table.', '23': 'Students stand with their shoes on a blue tape line in front of lockers under a sign: On the line, voices off, hands to self.',
+             '45': 'The LiveSchool Store table with point prices for a pencil, a snack, a front-of-line pass, and lunch with a teacher; a student asks, For the class?', '68': 'In a hallway, a student records a younger student on a phone while a friend steps in and says, Nah. Not like that. A sign points to the main office.'}
+WYR_LAB = {'k1': 'Choice A: line leader. Choice B: door holder.', '23': 'Choice A: something for me. Choice B: something for the whole class.', '45': 'Choice A: a Hallway Hollers shout-out. Choice B: a positive call home.', '68': 'Choice A: a viral bar that disrespects someone. Choice B: a respectful bar only the cypher hears.'}
+
 def set_cards(t, A, B):
     def card(m, X, letter):
         return f'<div><span class="ab">{letter}</span>{icon100(X[0])}<b>{e(X[1])}</b><span lang="es">{e(X[2])}</span></div>'
@@ -105,26 +128,28 @@ def deck(band):
     # Monday
     t = S4[('mon', 'do')]; t = set_ixl(set_theme(set_dn(t, 'mon')), 'mon'); out.append(t)
     t = S4[('mon', 'reveal')]; en, es = MON_REV[band]
-    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), artsvg(art.checkin_reveal(), 'Three students greet each other under a sign that says Safe, Respectful, Responsible.'))
+    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art2.arrival(), label='Students arrive at Room 63 under a Good Morning, Matchbook sign, waving and greeting each other in English and Spanish.', cls='w5art'))
+    t = add_bar(t, 'mon', band)
     out.append(t)
     out.append(handoff(S4[('mon', 'handoff')], 'mon', band))
     # Wednesday zoom
-    hall = art.hallway()
-    lab = 'A hallway: students walk on the right while one student holds the classroom door open.'
-    zsvg = lambda: f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{WED_FROM[band]}" role="img" aria-label="{a(lab)}"><rect width="900" height="560" fill="#f2e7cc"/>{hall}</svg>'
+    hall = SCENE[band]()
+    lab = SCENE_LAB[band]
+    zsvg = lambda: f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{WED_FROM[band]}" role="img" aria-label="{a(lab)}">{hall}</svg>'
     en, es = WED_DO[band]
     t = S4[('wed', 'do')]; t = set_zoom(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'wed')), 'wed'), en, es), en, es), WED_FROM[band], zsvg()); out.append(t)
     en, es = WED_REV[band]
-    t = S4[('wed', 'reveal')]; t = set_zoom(set_copy(set_data(set_dn(t, 'wed'), en, es), en, es), WED_FROM[band], zsvg()); out.append(t)
+    t = S4[('wed', 'reveal')]; t = add_bar(set_zoom(set_copy(set_data(set_dn(t, 'wed'), en, es), en, es), WED_FROM[band], zsvg()), 'wed', band); out.append(t)
     out.append(handoff(S4[('wed', 'handoff')], 'wed', band))
     # Thursday WYR
     A, B, do, rev = THU[band]
-    t = S4[('thu', 'do')]; t = set_cards(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), A, B); out.append(t)
-    t = S4[('thu', 'reveal')]; t = set_cards(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), A, B); out.append(t)
+    wyr = art2.svg(art2.wyr_scene(band), label=WYR_LAB[band], cls='w5art')
+    t = S4[('thu', 'do')]; t = set_w3art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), wyr); out.append(t)
+    t = S4[('thu', 'reveal')]; t = add_bar(set_w3art(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), wyr), 'thu', band); out.append(t)
     out.append(handoff(S4[('thu', 'handoff')], 'thu', band))
     # Friday Wonder (week 3 format) then Cypher (week 4)
     do, rev = FRI[band]
-    rip = artsvg(art.ripple(), 'Five students in a row with arrows passing a good choice from one student to the next.', cls='')
+    rip = art2.svg(art2.hollers() if band in ('k1', '23') else art2.cypher(), label=('Students cheer under bunting at Hallway Hollers.' if band in ('k1', '23') else 'Students stand in a Friday Cypher circle, hyping the student on the mic.'), cls='w5art')
     t = S3[('fri', 'do')]; t = set_art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'fri')), 'fri'), *do), *do), rip)
     if band == 'k1':
         t = set_frame(t, 'Record your thinking. Then read a book.', 'Anota tu idea. Luego lee un libro.')
@@ -133,11 +158,12 @@ def deck(band):
     else:
         t = set_frame(t, 'Record your thinking. Then go to IXL.', 'Anota tu idea. Luego ve a IXL.')
     out.append(t)
-    t = S3[('fri', 'reveal')]; t = set_art(set_copy(set_data(set_dn(t, 'fri'), *rev), *rev), rip); out.append(t)
+    t = S3[('fri', 'reveal')]; t = add_bar(set_art(set_copy(set_data(set_dn(t, 'fri'), *rev), *rev), rip), 'fri', band); out.append(t)
     out.append(S4[('fri', 'handoff')])
     # assemble
     first = s4.find('<section class="slide'); last = s4.rfind('</section>') + len('</section>')
     head, tail = s4[:first], s4[last:]
+    head = head.replace('</head>', W5CSS + '</head>', 1)
     head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · November 2–6 · {SBL[band]}</title>', head)
     head = re.sub(r'<button data-jump="tue">Tue</button>', '', head)
     head = head.replace('aria-label="Friday, October 30" data-jump="fri"', 'aria-label="Friday, November 6" data-jump="fri"')

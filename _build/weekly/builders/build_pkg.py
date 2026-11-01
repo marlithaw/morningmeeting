@@ -3,6 +3,8 @@ import os, re, json, html, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(__file__))
 from content_se import *
 import art
+import art2
+from build_se import SCENE
 from build_se import OUT, W4, icon100, MMREL
 e = lambda s: html.escape(s, quote=False)
 
@@ -58,12 +60,12 @@ def student_pages(band):
         if d == 'mon':
             body = checkin(band)
         else:
-            if d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art.hallway()}</svg></div>'
+            if d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{SCENE[band]()}</svg></div>'
             elif d == 'thu':
-                A, B, q, _ = THU[band]
-                vis = '<div class="cards">' + ''.join(f'<div><span class="ab">{L}</span>{icon100(X[0])}<b>{e(X[1])}</b><span>{e(X[2])}</span></div>' for L, X in (('A', A), ('B', B))) + '</div>'
-            else: q = FRI[band][0]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art.ripple()}</svg></div>'
-            body = f'<p class="q">{e(q[0])}</p><p class="qe">{e(q[1])}</p>{vis}<div class="box">My response / Mi respuesta</div><p class="opt" style="font-size:10.5px">After reveal: one clue, check, or revision / Después: una pista o cambio</p>'
+                q = THU[band][2]
+                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art2.wyr_scene(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
+            else: q = FRI[band][0]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art2.hollers() if band in ('k1', '23') else art2.cypher()}</svg></div>'
+            body = f'<p class="q">{e(q[0])}</p><p class="qe">{e(q[1])}</p>{vis}<div class="box">My response / Mi respuesta</div><p class="opt" style="font-size:11px"><b>{"Chant" if band in ("k1","23") else "Bar"} of the day / {"Canto" if band in ("k1","23") else "Rima"} del día:</b> “{e(BARS[d][band][0])}”</p>'
         pages.append(f'<div class="pg">{head("Morning Spark", band)}<div class="meta">{DATE[d][0]} | {f[0]}</div><div class="nm">Name / Nombre: ______________________</div>{body}<div class="foot"><span>{FOOT}</span><span>{n}</span></div></div>')
     return pages
 
@@ -96,7 +98,7 @@ def spark_task(band, d):
     if d == 'thu': return THU[band][2][0]
     return FRI[band][0][0]
 def spark_key(band, d):
-    return {'mon': MON_REV, 'wed': WED_REV}.get(d, {}).get(band, (THU[band][3] if d == 'thu' else FRI[band][1]))[0]
+    return {'mon': MON_REV, 'wed': WED_REV}.get(d, {}).get(band, (THU_REV[band] if d == 'thu' else FRI[band][1]))[0]
 def keyrow(band, d):
     return {'mon': MON_KEY, 'wed': WED_KEY, 'thu': THU_KEY, 'fri': FRI_KEY}[d][band]
 
@@ -135,7 +137,7 @@ def band_keys(band):
     for i, d in enumerate(SDAYS):
         q, stem, fac = keyrow(band, d)
         v = EMBER[band]['videos'][i]; p = EMBER[band]['prompts'][i]
-        arts += (f'<article><h3>{DATE[d][0]}</h3><p><strong>Spark task:</strong> {e(spark_task(band, d))}</p><p><strong>Reveal / key:</strong> {e(spark_key(band, d))}</p>'
+        arts += (f'<article><h3>{DATE[d][0]}</h3><p><strong>Spark task:</strong> {e(spark_task(band, d))}</p><p><strong>Reveal / key:</strong> {e(spark_key(band, d))}</p><p><strong>{"Chant" if band in ("k1","23") else "Bar"} of the day (on the reveal):</strong> “{e(BARS[d][band][0])}” Say it once, then the class echoes it.</p>'
                  f'<p><strong>Differentiate / facilitate:</strong> {e(fac)}</p><p><strong>Equity stick (after 10 seconds of think time):</strong> “{e(q)}” <strong>Turn-and-talk stem:</strong> {e(stem)}</p>'
                  f'{ixl_line(band, d)}<p><strong>Ember video bridge:</strong> {e(EMBER[band]["bridges"][i])} ({e(v[1])})</p><p><strong>Reflection:</strong> {e(p[0])} {e(p[2])}</p>'
                  '<p><strong>Look for:</strong> a concrete, observable choice the student made or will make. Reflections stay about the student’s own actions; no one names a classmate. If a student has no real example, the morning model is enough.</p></article>')
@@ -153,6 +155,8 @@ def package():
         '<h3>Spark leads straight into Morning Meeting</h3><p>Monday, Wednesday, and Thursday Spark end on a hand-off slide that names that day’s Morning Meeting lesson (Respect Is Something You Do, Own It, Fix It, and Respect and Responsibility Everywhere) with a button that opens your band’s Morning Meeting deck. Grades 2–3 rooms see two buttons: grade 2 uses the K–2 lesson and grade 3 uses the 3–5 lesson.</p>'
         '<h3>Preserve the daily routines</h3><p>Arrival at 7:15. Spark is a 3–5 minute independent task; then K–2 read and grades 3–8 use IXL. In the 2–3 deck, grade 2 reads and grade 3 uses IXL. The day’s IXL codes are on the slide, top right, from IXL Week 10 (November 2–6). Announcements are around 7:37, followed by a reveal of two minutes or less. Morning Meeting starts at 7:45; on Friday, advance to Time for Friday Cypher and students report to the hallway once the announcement is made.</p>'
         '<p>Use day keys 1–4 (Mon, Wed, Thu, Fri), arrows, bilingual read aloud, Repeat aloud for late arrivals, and Week view. Wednesday’s reveal zooms out before the answer appears; reduced-motion mode reveals immediately. Thursday votes start at zero; explanations matter more than vote totals.</p>'
+        '<h3>The week’s through-line: a bar a day</h3><p>Every reveal ends with a Chant of the Day (K–3) or Bar of the Day (4–8) on the day’s focus. Read it once, have the class echo it, and post it by the door. On Friday, the four lines become the class’s set for Friday Cypher. The scenes are set in places students know: arrival at Room 63, the lunch table, the hallway line, the LiveSchool Store (open November 4–6), Hallway Hollers, and the Cypher circle.</p>'
+        '<p>Ember videos feature characters and voices students see themselves in: Sesame Street and Plaza Sésamo (including Spanish-language calm-downs) for K–3, and pep talks and mindfulness practices from Kid President, LeBron James, Dora Kamau, and Naomi Osaka for 4–8. Preview each clip before 2:05; if YouTube is blocked, the board switches to the breathing circle.</p>'
         '<p>Ember: 2:05 seated pack-up, 2:08 watch and settle, 2:13 reflect, then seated waiting. Keep the existing release order and times on the rail. Chromebook stays closed on the desk until the group is called; return it to the numbered slot, then leave. No lining up. Use the board’s breathing fallback if streaming fails.</p>'
         '<h3>Equity sticks, talk moves, and LiveSchool</h3><p>Every reveal follows Show, Think (ten silent seconds), Call (one or two equity sticks), Talk (30-second turn and talk if time allows). The daily keys below give the exact cold-call question and stem for each band. Talk moves: “Say more.” “Who can add on?” “What did your partner say?” This is LiveSchool Store week: award points during the work period for the respectful and responsible choices students name, said out loud: “Respectful: Amara let her partner finish before she spoke.” “Responsible: Dante cleaned his spot without a reminder.” Never award points for being quiet or finishing first.</p>'
         '<h3>Respect and privacy</h3><p>Monday check-in slips stay private; the counselor collects them by 10:00 a.m. Feelings and readiness are information, not behavior grades. All week, students talk about their own choices or the examples on the slides, never a classmate’s behavior. If a student names a classmate, redirect in one calm sentence (“We only talk about our own choices.”), continue, and follow up privately. Any report of teasing or bullying is handled under campus reporting procedures the same day.</p>'
