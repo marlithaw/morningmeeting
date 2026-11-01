@@ -11,7 +11,10 @@ W4 = f'{REPO}/resources/spark-ember/week-4-everyone-belongs'
 W3 = f'{REPO}/resources/spark-ember/week-3-back-together'
 OUT = f'{REPO}/preview/spark-ember/{SE_SLUG}'
 MMREL = '../../week-13-respect-responsibility'
-IXL = json.load(open('/home/claude/ixlrepo/public/ixl-data.json'))
+_IXLP = '/home/claude/ixlrepo/public/ixl-data.json'
+if not os.path.exists(_IXLP):
+    _IXLP = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'resources', 'spark-ember', 'week-5-respect-responsibility', 'ixl-week-10-source.json')
+IXL = json.load(open(_IXLP)) if os.path.exists(_IXLP) else {'math': {}, 'ela': {}}
 e = lambda s: html.escape(s, quote=False)
 a = lambda s: html.escape(s, quote=True)
 
