@@ -432,9 +432,11 @@ def check_se(n, hub):
             if prefix == 'ember' and len(re.findall(r'youtube\.com/watch\?v=|youtu\.be/', r)) < 4:
                 fail('%s: row "%s" needs the actual video link for each band' % (lab, head_cell[:30]))
         if prefix == 'spark':
-            formats = ['Check-In', 'Picture of the Day', 'Zoom In', 'Would You Rather', 'Friday Wonder']
-            for r, f in zip(days, formats):
-                if f not in text(r):
+            # Formats follow the weekday (AGENTS.md), so a week without Tuesday skips Picture of the Day.
+            fmt_by_day = dict(zip(DAY_NAMES, ['Check-In', 'Picture of the Day', 'Zoom In', 'Would You Rather', 'Friday Wonder']))
+            for r in days:
+                f = next((v for k, v in fmt_by_day.items() if text(r).startswith(k)), None)
+                if f and f not in text(r):
                     fail('%s: row "%s" should be %s' % (lab, text(r)[:30], f))
         has_fri = any(day == 'Friday' for day, _ in found)
         if not has_fri and 'No school Friday' not in sec and 'no school' not in sec.lower():

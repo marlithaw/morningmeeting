@@ -1,0 +1,118 @@
+{
+ "videos": {
+  "calmfulbreathi": [
+   "MHFG8JR_ueI",
+   "Calmful Breathing Exercises",
+   "Sesame Street"
+  ],
+  "maehacesentirt": [
+   "xROImUM-zR4",
+   "Mae hace sentir tranquilo a Elmo después de un día difícil",
+   "Plaza Sésamo"
+  ],
+  "elmocalmsdown": [
+   "_g3BKyJcwI8",
+   "Elmo Calms Down!",
+   "Sesame Street"
+  ],
+  "respiracindear": [
+   "KgJJRZEglHs",
+   "Respiración de Arcoíris",
+   "GoNoodle en español"
+  ],
+  "bigfeelingsher": [
+   "lXPzyQpTj50",
+   "Big Feelings: Here for Each Other",
+   "Sesame Street"
+  ],
+  "howtobearbreat": [
+   "wgghPYRoMqE",
+   "How to Bear Breathe",
+   "GoNoodle"
+  ],
+  "breathefeelsha": [
+   "2mewUHy1LtA",
+   "Breathe, Feel, Share",
+   "Sesame Street"
+  ],
+  "whalebreath": [
+   "zohyQQlsejA",
+   "Whale Breath",
+   "GoNoodle"
+  ],
+  "kidpresidentsp": [
+   "zU5rhrSNItg",
+   "Kid President’s Pep Talk to Teachers and Students!",
+   "SoulPancake"
+  ],
+  "thecalmforyour": [
+   "Oum3rCh81kI",
+   "The Calm for Your Storm with LeBron James",
+   "Calm"
+  ],
+  "learnhowtofind": [
+   "bYlRFIzl4WA",
+   "Learn How to Find Peace",
+   "GoNoodle Flow"
+  ],
+  "apeptalkfromki": [
+   "l-gQLqv9f4o",
+   "A Pep Talk from Kid President to You",
+   "SoulPancake"
+  ],
+  "trainyourmindw": [
+   "q7rzz9asT7Q",
+   "Train Your Mind with LeBron James",
+   "Calm"
+  ],
+  "learnbreathing": [
+   "a7uQXDkxEtM",
+   "Learn Breathing Technique Box Breathing with Dora Kamau",
+   "Headspace"
+  ],
+  "donothingwithl": [
+   "LwgnzCLy8Mk",
+   "Do Nothing with LeBron James",
+   "Calm"
+  ],
+  "aguidedmeditat": [
+   "t20y5mOCabI",
+   "A Guided Meditation with Naomi Osaka",
+   "Modern Health"
+  ]
+ },
+ "daily_sequence": {
+  "k1": [
+   "calmfulbreathi",
+   "maehacesentirt",
+   "elmocalmsdown",
+   "respiracindear"
+  ],
+  "23": [
+   "bigfeelingsher",
+   "howtobearbreat",
+   "breathefeelsha",
+   "whalebreath"
+  ],
+  "45": [
+   "kidpresidentsp",
+   "thecalmforyour",
+   "learnhowtofind",
+   "apeptalkfromki"
+  ],
+  "68": [
+   "trainyourmindw",
+   "learnbreathing",
+   "donothingwithl",
+   "aguidedmeditat"
+  ]
+ },
+ "school_days": [
+  "mon",
+  "wed",
+  "thu",
+  "fri"
+ ],
+ "photo_credits": [],
+ "review_note": "Ember videos are new for every band and day and are not used in earlier weeks. Tuesday, November 3 is not a school day."
+}
