@@ -177,8 +177,9 @@ def wyr_scene(kind):
 
 def cypher():
     b = [f'<rect width="900" height="560" fill="#2A1B12"/>', f'<ellipse cx="450" cy="470" rx="420" ry="70" fill="#3D2A1E"/>']
-    b.append(f'<circle cx="450" cy="300" r="250" fill="none" stroke="{YEL}" stroke-width="6" stroke-dasharray="10 14" opacity=".8"/>')
-    ring = [(170, 0, RED, 'puffs', 'both'), (290, 3, BLUE, 'fade', 'stand'), (610, 1, GREEN, 'hijab', 'both'), (730, 4, ORNG, 'locs', 'wave')]
+    # The cypher circle is drawn on the floor behind the students, clear of the title and of every figure.
+    b.append(f'<ellipse cx="450" cy="492" rx="370" ry="44" fill="none" stroke="{YEL}" stroke-width="6" stroke-dasharray="10 14" opacity=".8"/>')
+    ring = [(150, 0, RED, 'puffs', 'both'), (280, 3, BLUE, 'fade', 'stand'), (635, 1, GREEN, 'hijab', 'both'), (760, 4, ORNG, 'locs', 'wave')]
     for x, sk, c, h, p in ring:
         b.append(kid(x, 500, .82, skin=sk, top=c, hair=h, pose=p, face='open', flip=x > 450))
     b.append(kid(450, 500, 1.05, skin=2, top=PURP, hair='braids', pose='point', face='open'))

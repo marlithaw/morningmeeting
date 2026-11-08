@@ -33,7 +33,24 @@ HEAD = HEAD[HEAD.index('<style>'):]
 TAIL = L12[167][L12[167].index('<script>'):] + '\n' + '\n'.join(L12[168:])
 # body opening line 168 contains hud+main+notes; we rebuild it.
 
+# Fit every slide to the screen: long scenario headlines get a wider, smaller line, and if a slide's
+# body is still taller than the screen (a 1280x720 projector, a Chromebook), it is scaled down to fit
+# instead of spilling over the date line, the headline, or the footer.
+FITCSS = ('<style>.body-wrap{justify-content:safe center}'
+          '.slide h2.long{max-width:none;font-size:clamp(24px,3.2vw,46px);line-height:1.08}</style>')
+FITJS = ('<script>(function(){function fit(){var s=document.querySelector(".slide.active");if(!s)return;'
+         'var b=s.querySelector(".body-wrap");if(!b||!b.children.length)return;b.style.zoom="";var z=1;'
+         'for(var k=0;k<8;k++){var r=b.getBoundingClientRect(),t=Infinity,bo=-Infinity;'
+         'for(var c of b.children){var q=c.getBoundingClientRect();if(q.height){t=Math.min(t,q.top);bo=Math.max(bo,q.bottom)}}'
+         'var need=bo-t,av=r.height-4;if(need<=av+.5)break;z=Math.max(.5,z*av/need);b.style.zoom=z}}'
+         'var d0=draw;draw=function(){d0();fit()};addEventListener("resize",fit);'
+         'addEventListener("beforeprint",function(){document.querySelectorAll(".body-wrap").forEach(function(b){b.style.zoom=""})});'
+         'addEventListener("afterprint",fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);fit()})();</script>')
+HEAD = HEAD + FITCSS
+TAIL = TAIL.replace('</body>', FITJS + '</body>', 1)
+
 def es(t): return f'<span class="es" lang="es">{e(t)}</span>'
+def LONG(t): return ' class="long"' if len(t) > 70 else ''
 
 def foot(day, band, n):
     t = DAYINFO[day]['title'][0]
@@ -107,14 +124,14 @@ def lesson(day, band):
     sh = X['share']
     if band == 'k2':
         A, B, fr = X['A'], X['B'], X['sframe']
-        body = (f'<h2>{e(sh[0])}{es(sh[1])}</h2><div class="choices2">'
+        body = (f'<h2{LONG(sh[0])}>{e(sh[0])}{es(sh[1])}</h2><div class="choices2">'
                 f'<div class="choice-big">{img(A[0])}<div><div class="ab">A</div><div class="ct">{e(A[1])}{es(A[2])}</div></div></div>'
                 f'<div class="choice-big">{img(B[0])}<div><div class="ab">B</div><div class="ct">{e(B[1])}{es(B[2])}</div></div></div></div>'
                 f'<div class="frame"><div class="flab">Think · point · share</div><div class="stem">{e(fr[0])}{es(fr[1])}</div></div>')
         en = f'{sh[0]} A: {A[1]} B: {B[1]} {fr[0]}'; es_ = f'{sh[1]} A: {A[2]} B: {B[2]} {fr[1]}'
     else:
         qs = X['qs']; co = X['callout']
-        body = (f'<h2>{e(sh[0])}{es(sh[1])}</h2><div class="qlist">' +
+        body = (f'<h2{LONG(sh[0])}>{e(sh[0])}{es(sh[1])}</h2><div class="qlist">' +
                 ''.join(f'<div class="qrow"><span class="num">{i+1}</span><span>{e(q[0])}{es(q[1])}</span></div>' for i, q in enumerate(qs)) +
                 f'</div><p class="callout">{e(co[0])}{es(co[1])}</p>')
         en = f'{sh[0]} {qs[0][0]} {qs[1][0]} {co[0]}'; es_ = f'{sh[1]} {qs[0][1]} {qs[1][1]} {co[1]}'

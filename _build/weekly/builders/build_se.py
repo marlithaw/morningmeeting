@@ -125,6 +125,14 @@ def handoff(t, day, band):
     t = re.sub(r'<span class="mmbtns">.*?</span></div>', f'<span class="mmbtns">{btn}</span></div>', t, count=1, flags=re.S)
     return t
 
+FRI_BADGE = ('<div class="badge"><svg aria-label="Friday Wonder" height="64" role="img" viewbox="0 0 100 100" width="64" xmlns="http://www.w3.org/2000/svg"><g style="color:#F9DC7C">'
+             '<circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="9"></circle>'
+             '<path d="M35 34 Q35 18 52 20 Q74 22 63 43 L50 54 V62" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="9"></path>'
+             '<circle cx="50" cy="78" fill="currentColor" r="6"></circle></g></svg></div>')
+
+def fri_badge(t):
+    return re.sub(r'<div class="badge"><svg aria-label="Would You Rather".*?</svg></div>', FRI_BADGE, t, count=1, flags=re.S)
+
 def deck(band):
     s4, S4 = secs(f'{W4}/morning-spark-{band}.html')
     _, S3 = secs(f'{W3}/morning-spark-{band}.html')
@@ -167,8 +175,8 @@ def deck(band):
         t = set_frame(t, 'Record your thinking. Grade 2: read a book. Grade 3: go to IXL.', 'Anota tu idea. Grado 2: lee un libro. Grado 3: ve a IXL.')
     else:
         t = set_frame(t, 'Record your thinking. Then go to IXL.', 'Anota tu idea. Luego ve a IXL.')
-    out.append(t)
-    t = S3[('fri', 'reveal')]; t = add_bar(set_art(set_copy(set_data(set_dn(t, 'fri'), *rev), *rev), rip), 'fri', band); out.append(t)
+    out.append(fri_badge(t))
+    t = S3[('fri', 'reveal')]; t = add_bar(set_art(set_copy(set_data(set_dn(t, 'fri'), *rev), *rev), rip), 'fri', band); out.append(fri_badge(t))
     out.append(S4[('fri', 'handoff')])
     # assemble
     first = s4.find('<section class="slide'); last = s4.rfind('</section>') + len('</section>')
@@ -204,6 +212,17 @@ def ember(band):
     for k in ('Everyone Belongs', 'Todos pertenecemos'):
         assert k not in s or True
     s = s.replace('Everyone Belongs', THEME[0]).replace('Todos pertenecemos', THEME[1])
+    s, k = re.subn(r'<div class="called">.*?</div></div>', '', s, count=1, flags=re.S)
+    assert k == 1, 'Ember called strip not found'
+    old_rule = ('<span class="en">Plug in your Chromebook at your number as you leave.</span>'
+                '<span class="es">Conecta tu Chromebook en tu número al salir.</span>')
+    assert old_rule in s, 'Ember Chromebook rule not found'
+    s = s.replace(old_rule, '<span class="en">Group called? Plug your Chromebook into your number in the cart.</span>'
+                            '<span class="es">¿Llamaron a tu grupo? Conecta tu Chromebook en tu número del carrito.</span>')
+    assert '.r .en{font-size:20px;line-height:1.1}' in s, 'Ember rule CSS not found'
+    s = s.replace('.r .en{font-size:20px;line-height:1.1}', '.r .en{font-size:20px;line-height:1.1}.r .es{line-height:1.15}.rules{grid-template-columns:.8fr 1.4fr 1fr}', 1)
+    if band == '23':  # the longest 2-3 reflection question needs a little less type to clear the panel
+        s = s.replace('.rules{grid-template-columns:.8fr 1.4fr 1fr}', '.rules{grid-template-columns:.8fr 1.4fr 1fr}.p2{gap:10px}.pq .en{font-size:27px}', 1)
     open(f'{OUT}/ember-{band}.html', 'w').write(s)
 
 if __name__ == '__main__':

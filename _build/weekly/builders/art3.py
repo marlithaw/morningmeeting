@@ -170,7 +170,7 @@ def classroom_ladder():
 def reflection_desk():
     b = [wall('#EFE2C8', '#C9A979')]
     b.append(table(80, 340, 520))
-    b.append(f'<g transform="translate(330,250) rotate(-4)"><rect x="-120" y="-150" width="240" height="230" fill="#fff" stroke="{INK}" stroke-width="4"/>' + text(0, -122, 'RESET AND RETURN', 18, RED)
+    b.append(f'<g transform="translate(330,222) rotate(-4)"><rect x="-120" y="-150" width="240" height="230" fill="#fff" stroke="{INK}" stroke-width="4"/>' + text(0, -122, 'RESET AND RETURN', 18, RED)
              + ''.join(f'<circle cx="{-84+i*42}" cy="-80" r="16" fill="{["#FC8181", "#90CDF4", "#B794F4", "#F6E05E", "#9AE6B4"][i]}" stroke="{INK}" stroke-width="2"/>' for i in range(5))
              + ''.join(f'<path d="M-100 {-40+i*26} H100" stroke="#A0AEC0" stroke-width="3"/>' for i in range(4)) + text(0, 70, 'MY NEXT MOVE', 16) + '</g>')
     b.append(kid(160, 480, .95, skin=3, top=BLUE, hair='fade', pose='hold'))
@@ -220,7 +220,7 @@ def tapin_room():
     b.append(kid(560, 480, .8, skin=4, top=YEL, hair='hijab', pose='tray'))
     b.append(kid(780, 480, 1.0, skin=1, top='#4A5568', hair='cap', pose='hold', flip=True))
     b.append(f'<rect x="700" y="330" width="40" height="54" rx="4" fill="#F6E05E" stroke="{INK}" stroke-width="3"/>')
-    b.append(bubble(560, 150, 200, 64, 'Tap In.', 26, 'right'))
+    b.append(bubble(530, 150, 200, 64, 'Tap In.', 26, 'right'))
     return ''.join(b)
 
 def wyr_rr(kind):
@@ -235,15 +235,15 @@ def wyr_rr(kind):
         b.append(panel(30, 'DEEP BREATH', a, 'A') + panel(460, 'ASK FOR HELP', bb, 'B'))
     elif kind == '23':
         a = kid(205, 390, .95, skin=1, top=ORNG, hair='braids', pose='stand') + f'<circle cx="300" cy="140" r="40" fill="#fff" stroke="{INK}" stroke-width="4"/><path d="M300 140 V112 M300 140 L320 152" stroke="{INK}" stroke-width="4"/>' + text(300, 210, '1 MIN', 22)
-        bb = kid(140, 390, .9, skin=4, top=BLUE, hair='curly', pose='stand') + kid(290, 390, 1.05, skin=2, top=RED, hair='ponytail', pose='point', flip=True)
+        bb = kid(105, 390, .9, skin=4, top=BLUE, hair='curly', pose='stand') + kid(315, 390, 1.05, skin=2, top=RED, hair='puffs', pose='point', flip=True)
         b.append(panel(30, 'ONE-MINUTE RESET', a, 'A') + panel(460, 'QUICK TEACHER CHECK', bb, 'B'))
     elif kind == '45':
         a = f'<rect x="110" y="110" width="190" height="240" fill="#fff" stroke="{INK}" stroke-width="4"/>' + ''.join(f'<path d="M130 {150+i*44} H260" stroke="#A0AEC0" stroke-width="4"/>' for i in range(5)) + text(285, 202, '●', 34, RED)
         bb = kid(205, 390, .95, skin=5, top=PURP, hair='hijab', pose='wave') + text(300, 130, '?', 60, RED)
         b.append(panel(30, 'DOT IT, GO ON', a, 'A') + panel(460, 'ASK RIGHT AWAY', bb, 'B'))
     else:
-        a = kid(140, 390, .9, skin=0, top=TEAL, hair='fade', pose='stand') + kid(280, 390, 1.0, skin=3, top=RED, hair='braids', pose='hold', flip=True) + text(205, 120, 'QUICK + PRIVATE', 26, GREEN)
-        bb = kid(140, 390, .9, skin=0, top=TEAL, hair='fade', pose='stand') + kid(280, 390, 1.0, skin=3, top=RED, hair='braids', pose='stand', flip=True) + text(205, 120, '2-MINUTE TALK', 26, BLUE)
+        a = kid(105, 390, .9, skin=0, top=TEAL, hair='fade', pose='stand') + kid(305, 390, 1.0, skin=3, top=RED, hair='puffs', pose='hold', flip=True) + text(205, 120, 'QUICK + PRIVATE', 26, GREEN)
+        bb = kid(140, 390, .9, skin=0, top=TEAL, hair='fade', pose='stand') + kid(280, 390, 1.0, skin=3, top=RED, hair='puffs', pose='stand', flip=True) + text(205, 120, '2-MINUTE TALK', 26, BLUE)
         b.append(panel(30, 'A QUICK SIGNAL', a, 'A') + panel(460, 'A SHORT TALK', bb, 'B'))
     return ''.join(b)
 
