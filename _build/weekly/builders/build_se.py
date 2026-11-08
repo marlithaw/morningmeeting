@@ -6,6 +6,7 @@ import art
 import art2
 import art3
 from icons import ICONS
+from content_mm import LEETEE
 
 REPO = '/home/claude/morningmeeting'
 W4 = f'{REPO}/resources/spark-ember/week-4-everyone-belongs'
@@ -100,6 +101,10 @@ def add_bar(t, day, band):
 
 W5CSS = '<style>.w5bar{margin-top:16px;background:#232323;color:#fff;border-radius:18px;padding:14px 20px;box-shadow:6px 6px 0 #E21C24;transform:rotate(-1deg)}.w5bar .w5k{display:block;font:600 16px var(--disp);letter-spacing:.14em;text-transform:uppercase;color:#F9DC7C}.w5bar .en{color:#fff;font:700 30px var(--disp);line-height:1.15}.w5bar .es{color:#F9DC7C;font-size:20px}.w3art svg.w5art{width:100%;height:100%;max-height:none;display:block}.zoom-answer .w5bar{margin-top:12px}</style>'
 
+LTCSS = ('<style>.mmlink{margin-top:10px;padding:12px 22px;gap:8px}.mmlink .mmt{font-size:34px}.mmbtns.mmalt{align-items:center;gap:14px}'
+         '.mmlink .mmor{font:600 16px var(--disp);letter-spacing:.12em;text-transform:uppercase;color:#F9DC7C}'
+         '.mmbtn.lt{background:transparent;color:#F9DC7C;border:3px solid #F9DC7C;padding:5px 20px}.mmbtn.lt:hover{background:#F9DC7C;color:#1A1A1A}</style>')
+
 SCENE = art3.WED_RR
 SCENE_LAB = {'k1': 'A Reset and Return reflection sheet with feeling faces and My next move lies on a desk next to a Reset 1 sign.', '23': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.',
              '45': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.', '68': 'A classroom poster shows the Reset and Return ladder with Level labels; a student says, Return is the goal.'}
@@ -122,6 +127,11 @@ def handoff(t, day, band):
     else:
         mb = {'k1': 'k2', '45': '35', '68': '68'}[band]
         btn = f'<a class="mmbtn" href="{MMREL}/lesson-{n}-{mb}.html">▶ { {"k2": "K–2", "35": "3–5", "68": "6–8"}[mb]}</a>'
+    if band in ('k1', '23'):  # K-2 classes can teach the day-matched Lee & Tee topic instead
+        slug, title = LEETEE[n]
+        who = 'K–2' if band == 'k1' else 'Grade 2'
+        btn += (f'</span><span class="mmbtns mmalt"><span class="mmor">Or for {who} · Lee &amp; Tee option</span>'
+                f'<a class="mmbtn lt" href="../../k2-behavior-toolkit/{slug}/index.html">▶ {e(title)}</a>')
     t = re.sub(r'<span class="mmbtns">.*?</span></div>', f'<span class="mmbtns">{btn}</span></div>', t, count=1, flags=re.S)
     return t
 
@@ -182,6 +192,8 @@ def deck(band):
     first = s4.find('<section class="slide'); last = s4.rfind('</section>') + len('</section>')
     head, tail = s4[:first], s4[last:]
     head = head.replace('</head>', W5CSS + '</head>', 1)
+    if band in ('k1', '23'):
+        head = head.replace('</head>', LTCSS + '</head>', 1)
     head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · {RANGE} · {SBL[band]}</title>', head)
     head = head.replace('aria-label="Friday, October 30" data-jump="fri"', 'aria-label="Friday, November 13" data-jump="fri"')
     tail = tail.replace('aria-label="Friday, October 30" class="dchip"', 'aria-label="Friday, November 13" class="dchip"')

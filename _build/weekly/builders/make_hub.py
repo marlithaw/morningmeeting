@@ -16,11 +16,10 @@ def section(hub, lab):
     j = hub.index('</section>', i) + len('</section>')
     return i, j
 
-# Day-matched Lee & Tee alternative for K-2 teachers (K-2 Behavior Toolkit), shown under the K-2 lesson button.
-LEETEE = {1: ('01-naming-my-feelings', 'Naming My Feelings'), 2: ('02-calm-corner', 'Using the Calm Corner'),
-          3: ('06-fixing-it', 'Fixing It'), 4: ('04-asking-for-a-break', 'Asking for a Break')}
+LEETEE = M.LEETEE
 
 def add_leetee(hub):
+    """Add the day-matched Lee & Tee option for K-2 to the Week 14 unit rows and the Spark K-1 and 2-3 hand-offs. Safe to run twice."""
     i, j = section(hub, f'week{M.WEEK}-title'); s = hub[i:j]
     for n, (slug, title) in LEETEE.items():
         k2 = f'href="./resources/{M.SLUG}/lesson-{n}-k2.html">K–2</a>'
@@ -29,6 +28,16 @@ def add_leetee(hub):
         if link in s: continue
         assert s.count(k2) == 1, f'K-2 button for lesson {n} not found'
         s = s.replace(k2, k2 + link)
+    hub = hub[:i] + s + hub[j:]
+    i, j = section(hub, f'spark-week{SE_WEEK}-title'); s = hub[i:j]
+    for d in ('mon', 'tue', 'wed', 'thu'):
+        n, en, _ = MM[d]; slug, title = LEETEE[n]
+        href = f'./resources/k2-behavior-toolkit/{slug}/index.html'
+        for lead, who in ((f'lesson-{n}-k2.html">K–2 · {e(en)}</a>', 'K–2'), (f'lesson-{n}-k2.html">Grade 2: K–2 · {e(en)}</a>', 'Grade 2')):
+            link = f'<br/><a href="{href}">Or {who} Lee &amp; Tee option: {title}</a>'
+            if lead + link in s: continue
+            assert s.count(lead) == 1, f'Spark hand-off {lead} not found'
+            s = s.replace(lead, lead + link)
     return hub[:i] + s + hub[j:]
 
 def make(hub):

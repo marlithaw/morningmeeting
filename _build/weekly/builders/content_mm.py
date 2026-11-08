@@ -415,3 +415,7 @@ L[(4, '68')] = dict(
 L[(3, 'k2')]['wsnote'] = 'This page uses the same questions as the Reset and Return written reflection your class uses: the Grades K–1 reflection for kindergarten and grade 1, and the Grades 2–3 reflection for grade 2. Hold up a blank written reflection next to the practice page so students recognize it.'
 L[(3, '35')]['wsnote'] = 'This page follows the five questions of the Reset and Return written reflection your class uses: the Grades 2–3 reflection for grade 3 and the Grades 4–5 reflection for grades 4–5. Hold up a blank written reflection next to the practice page so students recognize it.'
 L[(3, '68')]['wsnote'] = 'This page follows the five questions of the Grades 6–8 Reset and Return written reflection your class uses. Hold up a blank written reflection next to the practice page so students recognize it.'
+
+# Day-matched Lee & Tee alternative for K-2 (K-2 Behavior Toolkit topic folder, topic title), by lesson number.
+LEETEE = {1: ('01-naming-my-feelings', 'Naming My Feelings'), 2: ('02-calm-corner', 'Using the Calm Corner'),
+          3: ('06-fixing-it', 'Fixing It'), 4: ('04-asking-for-a-break', 'Asking for a Break')}
