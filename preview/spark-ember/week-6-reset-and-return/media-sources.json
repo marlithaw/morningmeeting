@@ -1,0 +1,143 @@
+{
+ "videos": {
+  "calmdownandthi": [
+   "3SNOQCSFpKg",
+   "Calm Down and Think, Elmo",
+   "Sesame Street"
+  ],
+  "respiracindeco": [
+   "ZxIVEo6wwcU",
+   "Respiración de Conejito",
+   "GoNoodle"
+  ],
+  "elmoreconoceem": [
+   "gga4cvAqmCw",
+   "Elmo reconoce emociones fuertes con la ayuda de su mamá",
+   "Plaza Sésamo"
+  ],
+  "countbreathere": [
+   "n66r5Y6wguc",
+   "Count, Breathe, Relax",
+   "Sesame Workshop"
+  ],
+  "johnlegendcome": [
+   "fIERyg5dYZw",
+   "John Legend: Come Together",
+   "Sesame Street"
+  ],
+  "monstermeditat": [
+   "yhRWp0wOLyo",
+   "Monster Meditation #2: Goodnight Body with Elmo and Headspace",
+   "Sesame Street"
+  ],
+  "snakebreath": [
+   "UVjrwIGxHP4",
+   "Snake Breath",
+   "GoNoodle"
+  ],
+  "seaamablemedit": [
+   "C00kRTmE25A",
+   "Sea amable: Meditaciones para niños",
+   "GoNoodle"
+  ],
+  "bigbirdsingsth": [
+   "kihZUsADQTQ",
+   "Big Bird sings “That’s Cooperation”",
+   "Sesame Street"
+  ],
+  "pufferfishbrea": [
+   "xkHaUI5kAyA",
+   "Pufferfish Breaths",
+   "NamasteInSchool"
+  ],
+  "breathingawaym": [
+   "T1P1tzR5iFA",
+   "Breathing Away My Worries",
+   "Big Life Journal"
+  ],
+  "mindfulmomentm": [
+   "Lifffq8tkSM",
+   "Mindful Moment: Mindfulness of Breath",
+   "Mindful Schools"
+  ],
+  "rainbowrelaxat": [
+   "IIbBI-BT9c4",
+   "Rainbow Relaxation: Mindfulness for Children",
+   "The Mindfulness Teacher"
+  ],
+  "coloringmyworl": [
+   "yHSH9jXvJts",
+   "Coloring My World with Kindness",
+   "Big Life Journal"
+  ],
+  "kidpresidentsp": [
+   "u1zNHoYmhUI",
+   "Kid President’s Pep Talk for the World",
+   "SoulPancake"
+  ],
+  "minimeditation": [
+   "cEqZthCaMpo",
+   "Mini Meditation: Breathe",
+   "Headspace"
+  ],
+  "breathingtechn": [
+   "GY7QJaHOnYA",
+   "Breathing Technique for Anxiety and Focus: Practice Extended Exhale with Dora Kamau",
+   "Headspace"
+  ],
+  "ashortmeditati": [
+   "tC6PzcgK370",
+   "A Short Meditation with Kessonga Giscombe",
+   "Headspace"
+  ],
+  "groundingexerc": [
+   "LgRd1Mzhb_Q",
+   "Grounding Exercise for Racing Minds with Dora Kamau",
+   "Headspace"
+  ],
+  "jointheglobald": [
+   "2CHE4nFjeC0",
+   "Join the Global Deep Breath: Together, the World Takes One Big Pause",
+   "Headspace"
+  ]
+ },
+ "daily_sequence": {
+  "k1": [
+   "calmdownandthi",
+   "respiracindeco",
+   "elmoreconoceem",
+   "countbreathere",
+   "johnlegendcome"
+  ],
+  "23": [
+   "monstermeditat",
+   "snakebreath",
+   "seaamablemedit",
+   "bigbirdsingsth",
+   "pufferfishbrea"
+  ],
+  "45": [
+   "breathingawaym",
+   "mindfulmomentm",
+   "rainbowrelaxat",
+   "coloringmyworl",
+   "kidpresidentsp"
+  ],
+  "68": [
+   "minimeditation",
+   "breathingtechn",
+   "ashortmeditati",
+   "groundingexerc",
+   "jointheglobald"
+  ]
+ },
+ "school_days": [
+  "mon",
+  "tue",
+  "wed",
+  "thu",
+  "fri"
+ ],
+ "photo_credits": [],
+ "review_note": "Ember videos are new for every band and day and are not used in earlier weeks. All five days are school days."
+}

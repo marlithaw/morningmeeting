@@ -72,7 +72,7 @@ def notes_for(day, band):
         q1, q2 = X['qs'][0][0], X['qs'][1][0]
         out.append(('Connect · Share · 1:00', f'Read the situation aloud: “{X["share"][0]}” Then read each question: {q1} {q2} Give ten seconds of silent think time. Turn and talk: “Partner A answers the first question. Partner B answers the second. Go.” After 30 seconds, say “Switch.” Equity stick: pull two sticks. Ask {n3}, “What did your partner say?” Ask {n4}, “Do you agree or want to add on? Say more.” Close with the slide line: “{X["callout"][0]}” Strong response: {X["strong"]}'))
     model = 'Model the first step on a copy under the document camera, or hold up the page and point.' if band == 'k2' else 'Model the first step in one sentence, then release.'
-    out.append(('Practice · Do It · 3:00', f'Students use the {X["ws"]} page from the {BANDLABEL[band]} toolkit. Read each step on the slide aloud and point to where it is on the page. {model} 0:00–0:30 model. 0:30–2:30 students work; circulate and read the page aloud for anyone who wants it. 2:30–3:00 two students share. LiveSchool · {X["live"]} Award points for the behavior while circulating, not for finishing first. Look for: {X["evidence"]} Access: {X["diff"]}'))
+    out.append(('Practice · Do It · 3:00', f'Students use the {X["ws"]} page from the {BANDLABEL[band]} toolkit. {X.get("wsnote", "")} Read each step on the slide aloud and point to where it is on the page. {model} 0:00–0:30 model. 0:30–2:30 students work; circulate and read the page aloud for anyone who wants it. 2:30–3:00 two students share. LiveSchool · {X["live"]} Award points for the behavior while circulating, not for finishing first. Look for: {X["evidence"]} Access: {X["diff"]}'))
     out.append(('Commit · 3:00', f'Say: “The bottom of your page is a take-home card: {X["home"][0]}. Tonight, ask your family the family chat question.” Read the family chat question and the frame aloud. Model: “{X["model"]}” Give 90 seconds to finish the frame by drawing, writing, or telling a partner. Commitments stay private unless a student chooses to share. Pull one equity stick for a volunteer share; a student may pass by saying “I am still thinking.” Students fold the page and put it in their take-home folder.'))
     out.append(('Transition · 2:00', f'Say: “{X["trans"][0]}” Name the next class task and where to start. Use your established release cue. Behavior support: {X["behavior"]}'))
     return out
@@ -123,8 +123,8 @@ def lesson(day, band):
     st = X['steps']
     stepsh = '<div class="steps">' + ''.join(f'<div class="step"><span class="n">{i+1}</span>{img(s[0])}<span class="sl">{e(s[1])}</span><span class="ss" lang="es">{e(s[2])}</span></div>' for i, s in enumerate(st)) + '</div>'
     extra = iconsrow(X['picons']) if band == 'k2' else '<div class="chips">' + ''.join(f'<span>{e(c[0])}<small lang="es">{e(c[1])}</small></span>' for c in X['chips']) + '</div>'
-    if band == '35' and day == 2:
-        extra = f'<div class="frame"><div class="flab">Story · Historia</div><div class="stem">{e(X["story"][0])}{es(X["story"][1])}</div></div>'
+    if 'story' in X:
+        extra = f'<div class="frame"><div class="flab">Story · Historia</div><div class="stem">{e(X["story"][0])}{es(X["story"][1])}</div></div>' + extra
     body = f'<h2>{e(X["ws"])}</h2><div class="wsbar"><b>Worksheet · Hoja</b><span>{BANDLABEL[band]} toolkit · {dlabel.split()[0]} page · página del {["lunes","martes","miércoles","jueves","viernes"][["Monday","Tuesday","Wednesday","Thursday","Friday"].index(dlabel.split()[0])]}</span></div>' + stepsh + extra
     S.append(slide('yellow', band, f'Practice: {X["ws"]}', f'Use your {X["ws"]} page. ' + ' '.join(s[1] for s in st), f'Usa tu hoja {X["ws"]}. ' + ' '.join(s[2] for s in st), eb('Practice · Do It · 3:00'), body, day, 6))
     # 7 Commit
@@ -168,17 +168,16 @@ def index():
         cards += (f'<article class="card"><div class="meta">{dlabel}</div><h3>{e(D["title"][0])}</h3><p>{e(D["summary"])}</p><div class="actions">'
                   + ''.join(f'<a class="btn small" href="lesson-{lnum}-{b}.html">{BANDLABEL[b]}</a>' for b in BANDS)
                   + f'</div><p><b>Worksheets:</b> {e(ws)}</p>{RECROW}</article>')
-    main = (f'<section class="section"><h2>Respect You Can See. Responsibility You Can Count On.</h2><p>This week turns belonging into everyday action. Students practice what respect looks and sounds like, how to own a mistake and repair it, and how to keep the same standard in every space at school, with every adult, and when no one is watching.</p>'
+    main = (f'<section class="section"><h2>{e(INTRO_H)}</h2><p>{e(INTRO_P)}</p>'
             '<p><b>Six phases:</b> Regulate 2 · Orient 2 · Connect 3 · Practice 3 · Commit 3 · Transition 2 minutes. Welcome is the ready screen.</p>'
-            '<p><b>Short week:</b> no school for students on Tuesday, November 3. Morning Meeting runs Monday, Wednesday, and Thursday.</p>'
-            '<p><b>Friday, November 6:</b> Friday Wonder runs as Friday’s Morning Spark on the same theme, followed by Friday Cypher.</p></section>'
+            + ''.join(f'<p>{p}</p>' for p in SCHEDULE_PS) + '</section>'
             + REC +
-            f'<section class="section"><h2>Monday, Wednesday, and Thursday lessons</h2><div class="grid two">{cards}</div></section>'
+            f'<section class="section"><h2>{CARDS_H}</h2><div class="grid two">{cards}</div></section>'
             '<section class="section"><h2>Keep the learning visible</h2><div class="grid three">'
             + ''.join(f'<article class="card"><h3>{BANDGRADES[b]}</h3><p>Show-Me response cards for the daily think-and-talk, plus the worksheet and take-home card for each day.</p><a class="btn small" href="printables-{b}.html">Open toolkit</a></article>' for b in BANDS)
             + '</div></section><section class="section"><h2>Prepare for Monday</h2><p>Print the toolkit for your band: one Show-Me card set per student (or use fingers for A and B) and one worksheet page per student for each day. Students complete the top of the page in Practice and take the bottom card home after Commit.</p>'
             '<p>Each video button opens the clip on YouTube with captions on and stops at one minute. Online video links require internet; each lesson also works by reading the key message aloud.</p><p><a href="media.html">Weekly media</a></p></section>')
-    open(f'{OUT}/index.html', 'w').write(page(THEME[0], '', THEME[0], 'Respect you can see and responsibility you can count on, in every space at school.', main))
+    open(f'{OUT}/index.html', 'w').write(page(THEME[0], '', THEME[0], SUBTITLE, main))
 
 def media():
     rows = ''
@@ -190,18 +189,17 @@ def media():
     open(f'{OUT}/media.html', 'w').write(page('Weekly Media', '', 'Weekly Media', 'Recurring resources and this week’s videos', main))
 
 def guide():
-    top = ('<section class="section"><h2>Teach Respect and Responsibility</h2><p>Monday, Wednesday, and Thursday, each grade band follows the day’s focus, key message, YouTube clip, think-and-talk prompt, toolkit worksheet, and take-home card. There is no school for students on Tuesday, November 3. Friday’s Morning Spark (Friday Wonder) carries the same theme, followed by Friday Cypher.</p>'
+    top = (f'<section class="section"><h2>{e(GUIDE_H)}</h2><p>{e(GUIDE_P)}</p>'
            '<p><b>Timing:</b> Welcome ready screen; Regulate 2, Orient 2, Connect 3 (Look 2 and Share 1), Practice 3, Commit 3, Transition 2 minutes.</p>'
-           '<p><b>Respect and privacy, every day:</b> use the fictional situations on the slides. Students talk about their own choices or the slide’s story, never a classmate’s mistakes or behavior. Self-ratings and commitments stay private unless a student chooses to share. Welcome responses by writing, drawing, speaking, pointing, signing, or a student’s usual communication tool.</p>'
+           f'<p>{PRIVACY_P}</p>'
            '<p><b>Video clips:</b> each “Watch 60 seconds” button opens the YouTube video with captions on and stops at one minute. If a video will not load, read the key message aloud a second time and continue.</p></section>'
            '<section class="section"><h2>Participation moves for every lesson</h2><p><b>Equity sticks (cold call):</b> keep one stick per student in a “not yet called” cup. Always give think time first, then say, “Everyone has an answer. I will pull a stick.” Pull, read the name, ask the question, and move the stick to the “called” cup. If a student needs a moment, say “I will come back to you,” call one more student, and return. Accept pointing, signing, or a device response. The scripts name exactly when to pull a stick.</p>'
            '<p><b>Turn and talk:</b> partners A and B. “Partner A answers first. Partner B, listen so you can repeat it.” After 30 seconds: “Switch.” Then cold call: “Tell us what your partner said.” K–2 partners sit knee to knee for 10 to 15 seconds.</p>'
            '<p><b>Talk moves:</b> “Say more.” “Who can add on?” “Do you agree or disagree? Why?” “Say it in your own words.” “What in the video or slide makes you think that?”</p>'
-           '<p><b>LiveSchool points:</b> award during the work, name the Safe, Respectful, or Responsible behavior out loud, then tap. Each lesson script includes the exact words. This week is LiveSchool Store week, so connect points to the choices students practice in every space. Never award points for being quiet or for finishing first, and never take points for Level 1 behavior during these lessons.</p>'
-           '<p><b>Behavior supports:</b> keep the lesson moving and correct privately. Use proximity, a quiet name, and a direct reminder of the expectation. Each day’s Transition note has the exact words for the most likely disruption. Follow up after the meeting through the restorative process. Any report of teasing, bullying, or recording a classmate is handled under campus reporting procedures the same day.</p></section>'
+           f'<p>{LIVESCHOOL_P}</p><p>{BEHAVIOR_P}</p></section>'
            '<section class="section"><h2>Jump to a lesson</h2>'
            + ''.join(f'<p>{dl}: ' + ' · '.join(f'<a href="#day-{n}-{b}">{BANDLABEL[b]}</a>' for b in BANDS) + '</p>' for n, dl, _ in DAYS)
-           + '<p>Tuesday November 3: no school for students.</p><p>Friday November 6: Friday Wonder runs in <b>Morning Spark</b> (Spark and Ember Week 5), then Friday Cypher.</p></section>')
+           + ''.join(f'<p>{p}</p>' for p in JUMP_EXTRA) + '</section>')
     secs = ''
     for lnum, dlabel, _ in DAYS:
         D = DAYINFO[lnum]
@@ -215,13 +213,8 @@ def guide():
                      f'<div class="keybox"><b>Answer notes:</b> {e(X["answer"])}</div>'
                      f'<p><b>Take home:</b> {e(X["home"][0])}. Family chat: {e(X["home"][1])}</p>'
                      f'<p><a href="lesson-{lnum}-{b}.html">Open the {BANDLABEL[b]} deck</a> · <a href="printables-{b}.html#day-{lnum}">Open the worksheet</a></p>{steps}</section>')
-    open(f'{OUT}/teacher-guide.html', 'w').write(page('Teacher Guide', '', 'Teacher Guide', 'Respect and Responsibility · differentiated K–8 Morning Meeting', top + secs))
+    open(f'{OUT}/teacher-guide.html', 'w').write(page('Teacher Guide', '', 'Teacher Guide', GUIDE_SUB, top + secs))
 
-SHOWME = {
- 'k2': [('A', 'hand', 'Choice A', 'Opción A'), ('B', 'stop', 'Choice B', 'Opción B'), ('', 'pictures', 'I can point', 'Puedo señalar'), ('', 'clock', 'I need more time', 'Necesito más tiempo')],
- '35': [('A', 'ear', 'Choice A', 'Opción A'), ('B', 'stop', 'Choice B', 'Opción B'), ('', 'own', 'Own it', 'Reconócelo'), ('', 'clock', 'I need more time', 'Necesito más tiempo')],
- '68': [('E', 'stop', 'Excuse', 'Excusa'), ('O', 'own', 'Ownership', 'Reconocimiento'), ('', 'scale', 'I agree', 'Estoy de acuerdo'), ('', 'ask', 'I see it differently', 'Lo veo diferente')],
-}
 
 def printables():
     for b in BANDS:
@@ -235,8 +228,6 @@ def printables():
             fields = ''
             if 'story' in X:
                 fields += f'<div class="keybox"><b>Story:</b> {e(X["story"][0])}<br><span lang="es">{e(X["story"][1])}</span></div>'
-            if b != 'k2' and lnum == 2 and b == '68':
-                fields += '<ol>' + ''.join(f'<li>E · O &nbsp; {e(c[0])}</li>' for c in X['chips']) + '</ol>'
             for i, fl in enumerate(X['pfields']):
                 draw = b == 'k2' and fl.startswith('Draw')
                 fields += f'<div class="tool-field"><b>{e(fl)}</b>' + ('<div class="drawing"></div>' if draw else '<div class="line"></div>' + ('' if b == 'k2' else '<div class="line"></div>')) + '</div>'
@@ -249,7 +240,7 @@ def printables():
                      f'<p><b>My commitment:</b> {e(X["commit"][0])}<br><span lang="es">{e(X["commit"][1])}</span></p><div class="line"></div>'
                      f'<div class="cut"><b>Take home: {e(X["home"][0])}</b><br>Family chat: {e(X["home"][1])}<br><span lang="es">Charla en familia: {e(X["home"][2])}</span></div>'
                      '<p>Point, say, draw, dictate, or write.</p></section>')
-        t = f'{BANDGRADES[b]} · Respect and Responsibility Toolkit'
+        t = f'{BANDGRADES[b]} · {TOOLKIT}'
         open(f'{OUT}/printables-{b}.html', 'w').write(page(t, '', t, 'Show-Me cards, daily worksheets, and take-home cards', main))
 
 if __name__ == '__main__':

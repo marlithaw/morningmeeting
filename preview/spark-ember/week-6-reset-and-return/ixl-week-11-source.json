@@ -1,0 +1,803 @@
+{
+ "math": {
+  "K": {
+   "11": {
+    "1": [
+     [
+      "Rectangles",
+      "math/kindergarten/rectangles",
+      "SLM"
+     ],
+     [
+      "Square corners",
+      "math/kindergarten/square-corners",
+      "6ZY"
+     ]
+    ],
+    "2": [
+     [
+      "Squares",
+      "math/kindergarten/squares",
+      "2WP"
+     ]
+    ],
+    "3": [
+     [
+      "Equal sides",
+      "math/kindergarten/equal-sides",
+      "T54"
+     ]
+    ],
+    "4": [
+     [
+      "Hexagons",
+      "math/kindergarten/hexagons",
+      "ZQE"
+     ]
+    ],
+    "5": [
+     [
+      "Select two-dimensional shapes",
+      "math/kindergarten/select-two-dimensional-shapes",
+      "QRY"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "11": {
+    "1": [
+     [
+      "Subtraction sentences using number lines - up to20",
+      "math/grade-1/subtraction-sentences-using-number-lines-up-to-20",
+      "MMS"
+     ],
+     [
+      "Subtract by counting back - up to 20",
+      "math/grade-1/subtract-by-counting-back-up-to-20",
+      "M2G"
+     ]
+    ],
+    "2": [
+     [
+      "Subtracting 1",
+      "math/grade-1/subtracting-1",
+      "HAQ"
+     ]
+    ],
+    "3": [
+     [
+      "Subtracting 2",
+      "math/grade-1/subtracting-2",
+      "FP5"
+     ]
+    ],
+    "4": [
+     [
+      "Subtracting 3",
+      "math/grade-1/subtracting-3",
+      "APQ"
+     ]
+    ],
+    "5": [
+     [
+      "Subtracting 4",
+      "math/grade-1/subtracting-4",
+      "7E7"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "11": {
+    "1": [
+     [
+      "Use number lines to subtract two-digit numbers",
+      "math/grade-2/use-number-lines-to-subtract-two-digit-numbers",
+      "BA7"
+     ],
+     [
+      "Break apart a two-digit number to subtract",
+      "math/grade-2/break-apart-a-two-digit-number-to-subtract",
+      "9WW"
+     ]
+    ],
+    "2": [
+     [
+      "Use compensation to subtract on a number line - up to two digits",
+      "math/grade-2/use-compensation-to-subtract-on-a-number-line-up-to-two-digits",
+      "NFC"
+     ]
+    ],
+    "3": [
+     [
+      "Use compensation to subtract - up to two digits",
+      "math/grade-2/use-compensation-to-subtract-up-to-two-digits",
+      "6TE"
+     ]
+    ],
+    "4": [
+     [
+      "Use models to subtract two-digit numbers - without regrouping",
+      "math/grade-2/use-models-to-subtract-two-digit-numbers-without-regrouping",
+      "SKW"
+     ]
+    ],
+    "5": [
+     [
+      "Use place value to subtract two-digit numbers - without regrouping",
+      "math/grade-2/use-place-value-to-subtract-two-digit-numbers-without-regrouping",
+      "6C6"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "11": {
+    "1": [
+     [
+      "Find the area of rectangles: word problems",
+      "math/grade-3/find-the-area-of-rectangles-word-problems",
+      "5HA"
+     ],
+     [
+      "Create rectangles with a given area",
+      "math/grade-3/create-rectangles-with-a-given-area",
+      "V73"
+     ]
+    ],
+    "2": [
+     [
+      "Find the area of complex figures by dividing them into rectangles",
+      "math/grade-3/find-the-area-of-complex-figures-by-dividing-them-into-rectangles",
+      "DVB"
+     ],
+     [
+      "Find the area of complex figures",
+      "math/grade-3/find-the-area-of-complex-figures",
+      "SGP"
+     ]
+    ],
+    "3": [
+     [
+      "Find the area of complex figures: word problems",
+      "math/grade-3/find-the-area-of-complex-figures-word-problems",
+      "D9G"
+     ]
+    ],
+    "4": [
+     [
+      "Find the missing side length of a rectangle",
+      "math/grade-3/find-the-missing-side-length-of-a-rectangle",
+      "X66"
+     ]
+    ],
+    "5": [
+     [
+      "Find the area between two rectangles",
+      "math/grade-3/find-the-area-between-two-rectangles",
+      "KH6"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "11": {
+    "1": [
+     [
+      "Extend growing shape patterns",
+      "math/grade-4/extend-growing-shape-patterns",
+      "NVV"
+     ]
+    ],
+    "2": [
+     [
+      "Extend repeating shape patterns",
+      "math/grade-4/extend-repeating-shape-patterns",
+      "AKK"
+     ]
+    ],
+    "3": [
+     [
+      "Number patterns: word problems",
+      "math/grade-4/number-patterns-word-problems",
+      "C62"
+     ]
+    ],
+    "4": [
+     [
+      "Use a rule to complete an input/output table",
+      "math/grade-4/use-a-rule-to-complete-an-input-output-table",
+      "DP8"
+     ]
+    ],
+    "5": [
+     [
+      "Input/output tables with addition, subtraction, multiplication, and division",
+      "math/grade-4/input-output-tables-with-addition-subtraction-multiplication-and-division",
+      "HDS"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "11": {
+    "1": [
+     [
+      "Multiply fractions by whole numbers using arrays",
+      "math/grade-5/multiply-fractions-by-whole-numbers-using-arrays",
+      "RB9"
+     ],
+     [
+      "Multiply fractions by whole numbers I",
+      "math/grade-5/multiply-fractions-by-whole-numbers",
+      "QFQ"
+     ]
+    ],
+    "2": [
+     [
+      "Fractions of a number: word problems",
+      "math/grade-5/fractions-of-a-number-word-problems",
+      "LPC"
+     ],
+     [
+      "Fractions of a number: model and multiply",
+      "math/grade-5/fractions-of-a-number-model-and-multiply",
+      "77G"
+     ]
+    ],
+    "3": [
+     [
+      "Multiply fractions by whole numbers II",
+      "math/grade-5/multiply-fractions-by-whole-numbers-ii",
+      "69L"
+     ]
+    ],
+    "4": [
+     [
+      "Multiply fractions by whole numbers: word problems",
+      "math/grade-5/multiply-fractions-by-whole-numbers-word-problems",
+      "U2V"
+     ]
+    ],
+    "5": [
+     [
+      "Multiply fractions and whole numbers: sorting",
+      "math/grade-5/multiply-fractions-and-whole-numbers-sorting",
+      "K69"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "11": {
+    "1": [
+     [
+      "Ratios and rates: complete a table and make a graph",
+      "math/grade-6/ratios-and-rates-complete-a-table-and-make-a-graph",
+      "6Z2"
+     ],
+     [
+      "Ratios and rates: word problems",
+      "math/grade-6/ratios-and-rates-word-problems",
+      "ZB9"
+     ]
+    ],
+    "2": [
+     [
+      "Checkpoint: Ratio concepts",
+      "math/grade-6/checkpoint-ratio-concepts",
+      "5T2"
+     ],
+     [
+      "What percentage is illustrated?",
+      "math/grade-6/what-percentage-is-illustrated",
+      "RHG"
+     ]
+    ],
+    "3": [
+     [
+      "Benchmark percents with strip models: multiples of 10, 20, 25, 33, and 50",
+      "math/grade-6/benchmark-percents-with-strip-models-multiples-of-10-20-25-33-and-50",
+      "5JV"
+     ],
+     [
+      "Convert fractions to percents using grid models",
+      "math/grade-6/convert-fractions-to-percents-using-grid-models",
+      "ZDZ"
+     ]
+    ],
+    "4": [
+     [
+      "Convert between percents, fractions, and decimals",
+      "math/grade-6/convert-between-percents-fractions-and-decimals",
+      "ZAV"
+     ],
+     [
+      "Convert between percents, fractions, and decimals: word problems",
+      "math/grade-6/convert-between-percents-fractions-and-decimals-word-problems",
+      "7CZ"
+     ]
+    ],
+    "5": [
+     [
+      "Compare percents to each other and to fractions",
+      "math/grade-6/compare-percents-to-each-other-and-to-fractions",
+      "GBY"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "11": {
+    "1": [
+     [
+      "Do the ratios form a proportion?",
+      "math/grade-7/do-the-ratios-form-a-proportion",
+      "MJQ"
+     ],
+     [
+      "Do the ratios form a proportion: word problems",
+      "math/grade-7/do-the-ratios-form-a-proportion-word-problems",
+      "SHV"
+     ]
+    ],
+    "2": [
+     [
+      "Solve proportions",
+      "math/grade-7/solve-proportions",
+      "TDA"
+     ]
+    ],
+    "3": [
+     [
+      "Solve proportions: word problems",
+      "math/grade-7/solve-proportions-word-problems",
+      "WB7"
+     ]
+    ],
+    "4": [
+     [
+      "Find the constant of proportionality from a table",
+      "math/grade-7/find-the-constant-of-proportionality-from-a-table",
+      "LKZ"
+     ]
+    ],
+    "5": [
+     [
+      "Identify proportional relationships from tables",
+      "math/grade-7/identify-proportional-relationships-from-tables",
+      "6V7"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "11": {
+    "1": [
+     [
+      "Solve two-step equations",
+      "math/grade-8/solve-two-step-equations",
+      "JXD"
+     ],
+     [
+      "Solve two-step equations: complete the solution",
+      "math/grade-8/solve-two-step-equations-complete-the-solution",
+      "GK7"
+     ]
+    ],
+    "2": [
+     [
+      "Solve one-step and two-step equations: word problems",
+      "math/grade-8/solve-one-step-and-two-step-equations-word-problems",
+      "HCP"
+     ],
+     [
+      "Identify equivalent equations",
+      "math/grade-8/identify-equivalent-equations",
+      "J48"
+     ]
+    ],
+    "3": [
+     [
+      "Solve equations involving like terms",
+      "math/grade-8/solve-equations-involving-like-terms",
+      "Q2B"
+     ]
+    ],
+    "4": [
+     [
+      "Solve equations with variables on both sides",
+      "math/grade-8/solve-equations-with-variables-on-both-sides",
+      "ZYL"
+     ]
+    ],
+    "5": [
+     [
+      "Solve equations with variables on both sides: word problems",
+      "math/grade-8/solve-equations-with-variables-on-both-sides-word-problems",
+      "BRX"
+     ]
+    ]
+   }
+  }
+ },
+ "ela": {
+  "K": {
+   "11": {
+    "1": [
+     [
+      "Find the short a word",
+      "ela/kindergarten/find-the-short-a-word",
+      "8S3"
+     ]
+    ],
+    "2": [
+     [
+      "Choose the short a word that matches the picture",
+      "ela/kindergarten/choose-the-short-a-word-that-matches-the-picture",
+      "XS9"
+     ]
+    ],
+    "3": [
+     [
+      "Read words with am and an",
+      "ela/kindergarten/read-words-with-am-and-an",
+      "ENF"
+     ]
+    ],
+    "4": [
+     [
+      "Choose the best location word to match the picture",
+      "ela/kindergarten/choose-the-best-location-word-to-match-the-picture",
+      "9GS"
+     ]
+    ],
+    "5": [
+     [
+      "Choose the picture that matches the setting or character",
+      "ela/kindergarten/choose-the-picture-that-matches-the-setting-or-character",
+      "RJ8"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "11": {
+    "1": [
+     [
+      "Complete the short u word",
+      "ela/grade-1/complete-the-short-u-word",
+      "EGH"
+     ]
+    ],
+    "2": [
+     [
+      "Choose the short u sentence that matches the picture",
+      "ela/grade-1/choose-the-short-u-sentence-that-matches-the-picture",
+      "SSP"
+     ]
+    ],
+    "3": [
+     [
+      "Read short u stories",
+      "ela/grade-1/read-short-u-stories",
+      "8XT"
+     ]
+    ],
+    "4": [
+     [
+      "Choose the picture that matches the setting or character",
+      "ela/grade-1/choose-the-picture-that-matches-the-setting-or-character",
+      "RYS"
+     ]
+    ],
+    "5": [
+     [
+      "Irregular plurals: select the word that matches the picture",
+      "ela/grade-1/irregular-plurals-select-the-word-that-matches-the-picture",
+      "B2G"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "11": {
+    "1": [
+     [
+      "Choose the vowel team sentence that matches the picture",
+      "ela/grade-2/choose-the-vowel-team-sentence-that-matches-the-picture",
+      "DJD"
+     ]
+    ],
+    "2": [
+     [
+      "Read sight words",
+      "ela/grade-2/read-sight-words",
+      "57H"
+     ]
+    ],
+    "3": [
+     [
+      "Determine the topic and purpose of informational passages",
+      "ela/grade-2/determine-the-topic-and-purpose-of-informational-passages",
+      "Y2G"
+     ]
+    ],
+    "4": [
+     [
+      "Use context to identify the meaning of a word",
+      "ela/grade-2/use-context-to-identify-the-meaning-of-a-word",
+      "TJQ"
+     ]
+    ],
+    "5": [
+     [
+      "Homophones with pictures",
+      "ela/grade-2/homophones-with-pictures",
+      "F6T"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "11": {
+    "1": [
+     [
+      "Distinguish points of view",
+      "ela/grade-3/distinguish-points-of-view",
+      "N7R"
+     ],
+     [
+      "Select the detail that does not support the topic sentence",
+      "ela/grade-3/select-the-detail-that-does-not-support-the-topic-sentence",
+      "3X2"
+     ]
+    ],
+    "2": [
+     [
+      "Determine the meaning of a word with -ly or -ness",
+      "ela/grade-3/determine-the-meaning-of-a-word-with-ly-or-ness",
+      "XPG"
+     ]
+    ],
+    "3": [
+     [
+      "Find synonyms in context",
+      "ela/grade-3/find-synonyms-in-context",
+      "5HG"
+     ]
+    ],
+    "4": [
+     [
+      "Choose between personal and reflexive pronouns",
+      "ela/grade-3/choose-between-personal-and-reflexive-pronouns",
+      "6J6"
+     ]
+    ],
+    "5": [
+     [
+      "Use reflexive pronouns",
+      "ela/grade-3/use-reflexive-pronouns",
+      "U8W"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "11": {
+    "1": [
+     [
+      "Select and use text features",
+      "ela/grade-4/select-and-use-text-features",
+      "MW8"
+     ],
+     [
+      "Compare and contrast in informational texts",
+      "ela/grade-4/compare-and-contrast-in-informational-texts",
+      "YBU"
+     ]
+    ],
+    "2": [
+     [
+      "Choose the best topic sentence",
+      "ela/grade-4/choose-the-best-topic-sentence",
+      "C5Z"
+     ]
+    ],
+    "3": [
+     [
+      "Describe the difference between related words",
+      "ela/grade-4/describe-the-difference-between-related-words",
+      "78V"
+     ]
+    ],
+    "4": [
+     [
+      "Select the words that don't belong",
+      "ela/grade-4/select-the-words-that-dont-belong",
+      "X7Z"
+     ]
+    ],
+    "5": [
+     [
+      "Is the sentence in the past, present, or future tense?",
+      "ela/grade-4/is-the-sentence-in-the-past-present-or-future-tense",
+      "YED"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "11": {
+    "1": [
+     [
+      "Determine the order of events in informational texts",
+      "ela/grade-5/determine-the-order-of-events-in-informational-texts",
+      "CQA"
+     ],
+     [
+      "Match causes and effects in informational texts",
+      "ela/grade-5/match-causes-and-effects-in-informational-texts",
+      "QTM"
+     ]
+    ],
+    "2": [
+     [
+      "Identify supporting details in informational texts",
+      "ela/grade-5/identify-supporting-details-in-informational-texts",
+      "87Z"
+     ]
+    ],
+    "3": [
+     [
+      "Words with un-, dis-, in-, im-, and non-",
+      "ela/grade-5/words-with-un-dis-in-im-and-non",
+      "RWE"
+     ]
+    ],
+    "4": [
+     [
+      "Identify personal pronouns",
+      "ela/grade-5/identify-personal-pronouns",
+      "CQC"
+     ]
+    ],
+    "5": [
+     [
+      "Compound subjects and objects with personal pronouns",
+      "ela/grade-5/compound-subjects-and-objects-with-personal-pronouns",
+      "MCF"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "11": {
+    "1": [
+     [
+      "Analyze passages from The Lightning Thief: Part 1",
+      "ela/grade-6/analyze-passages-from-the-lightning-thief-part-1",
+      "SYH"
+     ]
+    ],
+    "2": [
+     [
+      "Distinguish facts from opinions",
+      "ela/grade-6/distinguish-facts-from-opinions",
+      "F94"
+     ]
+    ],
+    "3": [
+     [
+      "Determine the meaning of words using antonyms in context",
+      "ela/grade-6/determine-the-meaning-of-words-using-antonyms-in-context",
+      "R7J"
+     ]
+    ],
+    "4": [
+     [
+      "Identify main verbs and helping verbs",
+      "ela/grade-6/identify-main-verbs-and-helping-verbs",
+      "MAL"
+     ]
+    ],
+    "5": [
+     [
+      "Identify linking verbs, predicate adjectives, and predicate nouns",
+      "ela/grade-6/identify-linking-verbs-predicate-adjectives-and-predicate-nouns",
+      "FY8"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "11": {
+    "1": [
+     [
+      "Analyze passages from Anne Frank: The Diary of a Young Girl: Part 1",
+      "ela/grade-7/analyze-passages-from-anne-frank-the-diary-of-a-young-girl-part-1",
+      "38P"
+     ],
+     [
+      "Distinguish facts from opinions",
+      "ela/grade-7/distinguish-facts-from-opinions",
+      "UVJ"
+     ]
+    ],
+    "2": [
+     [
+      "Use guide words",
+      "ela/grade-7/use-guide-words",
+      "HSM"
+     ]
+    ],
+    "3": [
+     [
+      "Identify transitive and intransitive verbs",
+      "ela/grade-7/identify-transitive-and-intransitive-verbs",
+      "ULC"
+     ]
+    ],
+    "4": [
+     [
+      "Is it a direct object or an indirect object?",
+      "ela/grade-7/is-it-a-direct-object-or-an-indirect-object",
+      "HRH"
+     ]
+    ],
+    "5": [
+     [
+      "Identify linking verbs, predicate adjectives, and predicate nouns",
+      "ela/grade-7/identify-linking-verbs-predicate-adjectives-and-predicate-nouns",
+      "ARN"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "11": {
+    "1": [
+     [
+      "Trace an argument",
+      "ela/grade-8/trace-an-argument",
+      "UNX"
+     ],
+     [
+      "Distinguish facts from opinions",
+      "ela/grade-8/distinguish-facts-from-opinions",
+      "LSW"
+     ]
+    ],
+    "2": [
+     [
+      "Use academic vocabulary in context: informational",
+      "ela/grade-8/use-academic-vocabulary-in-context-informational",
+      "LY6"
+     ]
+    ],
+    "3": [
+     [
+      "Use semicolons and commas to separate clauses",
+      "ela/grade-8/use-semicolons-and-commas-to-separate-clauses",
+      "63P"
+     ]
+    ],
+    "4": [
+     [
+      "Commas with series, dates, and places",
+      "ela/grade-8/commas-with-series-dates-and-places",
+      "5LC"
+     ]
+    ],
+    "5": [
+     [
+      "Commas with direct addresses, introductory words, interjections, and interrupters",
+      "ela/grade-8/commas-with-direct-addresses-introductory-words-interjections-and-interrupters",
+      "GMT"
+     ]
+    ]
+   }
+  }
+ }
+}

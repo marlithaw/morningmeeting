@@ -4,16 +4,18 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content_se import *
 import art
 import art2
+import art3
 from icons import ICONS
 
 REPO = '/home/claude/morningmeeting'
 W4 = f'{REPO}/resources/spark-ember/week-4-everyone-belongs'
 W3 = f'{REPO}/resources/spark-ember/week-3-back-together'
 OUT = f'{REPO}/preview/spark-ember/{SE_SLUG}'
-MMREL = '../../week-13-respect-responsibility'
+MMREL = f'../../{MMSLUG}'
 _IXLP = '/home/claude/ixlrepo/public/ixl-data.json'
 if not os.path.exists(_IXLP):
     _IXLP = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'resources', 'spark-ember', 'week-5-respect-responsibility', 'ixl-week-10-source.json')
+_IXLP = '/home/claude/Matchbook_Learning_IXL/public/ixl-data.json' if os.path.exists('/home/claude/Matchbook_Learning_IXL/public/ixl-data.json') else _IXLP
 IXL = json.load(open(_IXLP)) if os.path.exists(_IXLP) else {'math': {}, 'ela': {}}
 e = lambda s: html.escape(s, quote=False)
 a = lambda s: html.escape(s, quote=True)
@@ -38,7 +40,7 @@ def set_dn(t, day):
     return re.sub(r'<span class="dn">[^<]*</span>', f'<span class="dn">{DATE[day][0]} / {DATE[day][1]}</span>', t)
 
 def set_theme(t):
-    for en, es in (('Everyone Belongs', 'Todos pertenecemos'), ('Back Together', 'Juntos de nuevo')):
+    for en, es in (('Everyone Belongs', 'Todos pertenecemos'), ('Back Together', 'Juntos de nuevo'), ('Respect and Responsibility', 'Respeto y responsabilidad')):
         t = t.replace(f'<div><span class="en">{en}</span><span class="es">{es}</span></div>', f'<div><span class="en">{THEME[0]}</span><span class="es">{THEME[1]}</span></div>')
     return t
 
@@ -98,10 +100,9 @@ def add_bar(t, day, band):
 
 W5CSS = '<style>.w5bar{margin-top:16px;background:#232323;color:#fff;border-radius:18px;padding:14px 20px;box-shadow:6px 6px 0 #E21C24;transform:rotate(-1deg)}.w5bar .w5k{display:block;font:600 16px var(--disp);letter-spacing:.14em;text-transform:uppercase;color:#F9DC7C}.w5bar .en{color:#fff;font:700 30px var(--disp);line-height:1.15}.w5bar .es{color:#F9DC7C;font-size:20px}.w3art svg.w5art{width:100%;height:100%;max-height:none;display:block}.zoom-answer .w5bar{margin-top:12px}</style>'
 
-SCENE = {'k1': art2.cafeteria_k1, '23': art2.hallway_line, '45': art2.store, '68': art2.phone_hall}
-SCENE_LAB = {'k1': 'A lunch table with crumbs, a sponge, a milk carton, and a tray bin; a student wipes the table.', '23': 'Students stand with their shoes on a blue tape line in front of lockers under a sign: On the line, voices off, hands to self.',
-             '45': 'The LiveSchool Store table with point prices for a pencil, a snack, a front-of-line pass, and lunch with a teacher; a student asks, For the class?', '68': 'In a hallway, a student records a younger student on a phone while a friend steps in and says, Nah. Not like that. A sign points to the main office.'}
-WYR_LAB = {'k1': 'Choice A: line leader. Choice B: door holder.', '23': 'Choice A: something for me. Choice B: something for the whole class.', '45': 'Choice A: a Hallway Hollers shout-out. Choice B: a positive call home.', '68': 'Choice A: a viral bar that disrespects someone. Choice B: a respectful bar only the cypher hears.'}
+SCENE = art3.WED_RR
+SCENE_LAB = {'k1': 'A Reset and Return reflection sheet with feeling faces and My next move lies on a desk next to a Reset 1 sign.', '23': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.',
+             '45': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.', '68': 'A classroom poster shows the Reset and Return ladder with Level labels; a student says, Return is the goal.'}
 
 def set_cards(t, A, B):
     def card(m, X, letter):
@@ -131,10 +132,16 @@ def deck(band):
     # Monday
     t = S4[('mon', 'do')]; t = set_ixl(set_theme(set_dn(t, 'mon')), 'mon'); out.append(t)
     t = S4[('mon', 'reveal')]; en, es = MON_REV[band]
-    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art2.arrival(), label='Students arrive at Room 63 under a Good Morning, Matchbook sign, waving and greeting each other in English and Spanish.', cls='w5art'))
-    t = add_bar(t, 'mon', band)
-    out.append(t)
+    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art3.huddle_rr(), label='Students gather by Room 63 under a Reset and Return banner, saying Welcome back and Bienvenido.', cls='w5art'))
+    out.append(add_bar(t, 'mon', band))
     out.append(handoff(S4[('mon', 'handoff')], 'mon', band))
+    # Tuesday Picture of the Day
+    pic = art2.svg(art3.TUE_RR[band](), label=TUE_LAB[band], cls='w5art')
+    en, es = TUE_DO[band]
+    t = S4[('tue', 'do')]; t = set_art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'tue')), 'tue'), en, es), en, es), pic); out.append(t)
+    en, es = TUE_REV[band]
+    t = S4[('tue', 'reveal')]; t = add_bar(set_art(set_copy(set_data(set_dn(t, 'tue'), en, es), en, es), pic), 'tue', band); out.append(t)
+    out.append(handoff(S4[('tue', 'handoff')], 'tue', band))
     # Wednesday zoom
     hall = SCENE[band]()
     lab = SCENE_LAB[band]
@@ -145,8 +152,8 @@ def deck(band):
     t = S4[('wed', 'reveal')]; t = add_bar(set_zoom(set_copy(set_data(set_dn(t, 'wed'), en, es), en, es), WED_FROM[band], zsvg()), 'wed', band); out.append(t)
     out.append(handoff(S4[('wed', 'handoff')], 'wed', band))
     # Thursday WYR
-    A, B, do, rev = THU[band]
-    wyr = art2.svg(art2.wyr_scene(band), label=WYR_LAB[band], cls='w5art')
+    do, rev = THU[band], THU_REV[band]
+    wyr = art2.svg(art3.wyr_rr(band), label=WYR_LAB[band], cls='w5art')
     t = S4[('thu', 'do')]; t = set_w3art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), wyr); out.append(t)
     t = S4[('thu', 'reveal')]; t = add_bar(set_w3art(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), wyr), 'thu', band); out.append(t)
     out.append(handoff(S4[('thu', 'handoff')], 'thu', band))
@@ -167,25 +174,18 @@ def deck(band):
     first = s4.find('<section class="slide'); last = s4.rfind('</section>') + len('</section>')
     head, tail = s4[:first], s4[last:]
     head = head.replace('</head>', W5CSS + '</head>', 1)
-    head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · November 2–6 · {SBL[band]}</title>', head)
-    head = re.sub(r'<button data-jump="tue">Tue</button>', '', head)
-    head = head.replace('aria-label="Friday, October 30" data-jump="fri"', 'aria-label="Friday, November 6" data-jump="fri"')
-    tail = re.sub(r'<button aria-label="Tuesday" class="dchip" data-go="tue">.*?</button>', '', tail, flags=re.S)
-    tail = tail.replace('aria-label="Friday, October 30" class="dchip"', 'aria-label="Friday, November 6" class="dchip"')
-    tail = tail.replace("const DAYS = ['mon','tue','wed','thu','fri'];", "const DAYS = ['mon','wed','thu','fri'];")
-    tail = tail.replace("let day = DAYS[Math.min(Math.max(new Date().getDay(),1),5)-1] || 'mon';", "let day = ({1:'mon',3:'wed',4:'thu',5:'fri'})[new Date().getDay()] || 'mon';")
-    tail = tail.replace("if ('12345'.includes(e.key)) go(DAYS[+e.key-1]);", "if ('1234'.includes(e.key)) go(DAYS[+e.key-1]);")
-    tail = tail.replace('all 12 slides', 'all slides')
+    head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · {RANGE} · {SBL[band]}</title>', head)
+    head = head.replace('aria-label="Friday, October 30" data-jump="fri"', 'aria-label="Friday, November 13" data-jump="fri"')
+    tail = tail.replace('aria-label="Friday, October 30" class="dchip"', 'aria-label="Friday, November 13" class="dchip"')
     # IXL pin
     snap = {'math': {}, 'ela': {}}
     for subj in ('math', 'ela'):
         for g, wk in IXL[subj].items():
             snap[subj][g] = {str(IXL_WEEK): wk.get(str(IXL_WEEK), {})}
-    tail = re.sub(r'/\* IXL codes on the Do Now slides, pinned to IXL Week \d+ for [^*]*\*/', f'/* IXL codes on the Do Now slides, pinned to IXL Week {IXL_WEEK} for November 2-6, 2026 (no school Tuesday, November 3). */', tail)
+    tail = re.sub(r'/\* IXL codes on the Do Now slides, pinned to IXL Week \d+ for [^*]*\*/', f'/* IXL codes on the Do Now slides, pinned to IXL Week {IXL_WEEK} for November 9-13, 2026. */', tail)
     tail = re.sub(r'var SNAP = \{.*?\};\n', 'var SNAP = ' + json.dumps(snap, ensure_ascii=False) + ';\n', tail, count=1, flags=re.S)
     tail = tail.replace('var w = 9;', f'var w = {IXL_WEEK};')
     doc = head + ''.join(out) + tail
-    assert 'tue' not in re.findall(r'data-day="(\w+)"', doc)
     open(f'{OUT}/morning-spark-{band}.html', 'w').write(doc)
     return snap
 
@@ -199,13 +199,8 @@ def ember(band):
     new['prompts'] = [list(p) for p in E['prompts']]
     new['bridges'] = E['bridges']
     s = s[:m.start(1)] + json.dumps(new, ensure_ascii=False) + s[m.end(1):]
-    s = re.sub(r'<title>[^<]*</title>', f'<title>Ember {SBL[band]} · November 2–6 · {THEME[0]}</title>', s)
-    s = re.sub(r'<button aria-label="Tuesday" class="dchip" data-d="tue">Tue</button>', '', s)
-    s = s.replace("const DAYS=['mon','tue','wed','thu','fri'];", "const DAYS=['mon','wed','thu','fri'];")
-    s = s.replace("let day=DAYS[Math.min(Math.max(new Date().getDay(),1),5)-1];", "let day=({1:'mon',3:'wed',4:'thu',5:'fri'})[new Date().getDay()]||'mon';")
-    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' Nov '+({mon:2,wed:4,thu:5,fri:6})[d]+' / '+DN[d][1]")
-    s = s.replace("if('12345'.includes(e.key)) setDay(DAYS[+e.key-1]);", "if('1234'.includes(e.key)) setDay(DAYS[+e.key-1]);")
-    s = s.replace('d0.getDay()>=1&&d0.getDay()<=5&&', '[1,3,4,5].includes(d0.getDay())&&')
+    s = re.sub(r'<title>[^<]*</title>', f'<title>Ember {SBL[band]} · {RANGE} · {THEME[0]}</title>', s)
+    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' Nov '+(9+i)+' / '+DN[d][1]")
     for k in ('Everyone Belongs', 'Todos pertenecemos'):
         assert k not in s or True
     s = s.replace('Everyone Belongs', THEME[0]).replace('Todos pertenecemos', THEME[1])

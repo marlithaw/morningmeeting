@@ -4,12 +4,12 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content_se import *
 import art
 import art2
+import art3
 from build_se import SCENE
 from build_se import OUT, W4, icon100, MMREL
 e = lambda s: html.escape(s, quote=False)
 
-FMT = {'mon': ('Check-In', '¿Cómo estás?'), 'wed': ('Zoom In', 'De cerca'), 'thu': ('Would You Rather?', '¿Qué prefieres?'), 'fri': ('Friday Wonder', 'La pregunta del viernes')}
-FOOT = f'Week {SE_WEEK} | {THEME[0]} | November 2–6, 2026'
+FOOT = f'Week {SE_WEEK} | {THEME[0]} | {RANGE}, 2026'
 CSS = '''@font-face{font-family:Oswald;src:url(shared/c92b62da7f9d.woff2)}@font-face{font-family:Andika;src:url(shared/95ae4c899373.woff2)}@font-face{font-family:Andika;font-weight:700;src:url(shared/4591e06d5206.woff2)}
 @page{size:letter;margin:.45in}*{box-sizing:border-box}body{margin:0;font-family:Andika,sans-serif;color:#232323}
 .pg{height:10.05in;display:flex;flex-direction:column;page-break-after:always;position:relative}.pg:last-child{page-break-after:auto}
@@ -60,10 +60,11 @@ def student_pages(band):
         if d == 'mon':
             body = checkin(band)
         else:
-            if d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{SCENE[band]()}</svg></div>'
+            if d == 'tue': q = TUE_DO[band]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art3.TUE_RR[band]()}</svg></div>'
+            elif d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{SCENE[band]()}</svg></div>'
             elif d == 'thu':
-                q = THU[band][2]
-                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art2.wyr_scene(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
+                q = THU[band]
+                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art3.wyr_rr(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
             else: q = FRI[band][0]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art2.hollers() if band in ('k1', '23') else art2.cypher()}</svg></div>'
             body = f'<p class="q">{e(q[0])}</p><p class="qe">{e(q[1])}</p>{vis}<div class="box">My response / Mi respuesta</div><p class="opt" style="font-size:11px"><b>{"Chant" if band in ("k1","23") else "Bar"} of the day / {"Canto" if band in ("k1","23") else "Rima"} del día:</b> “{e(BARS[d][band][0])}”</p>'
         pages.append(f'<div class="pg">{head("Morning Spark", band)}<div class="meta">{DATE[d][0]} | {f[0]}</div><div class="nm">Name / Nombre: ______________________</div>{body}<div class="foot"><span>{FOOT}</span><span>{n}</span></div></div>')
@@ -89,18 +90,17 @@ def write_pdf(name, pages):
 RELAX_V = 'https://marlithaw.github.io/CC-Teacher_Edition/resources/videos/relax.mp4'
 EXCITE_V = 'https://marlithaw.github.io/CC-Teacher_Edition/resources/videos/excite.mp4'
 TH = 'class="px-3 py-4 text-left align-top"'
-SPARK_SUM = {
- 'mon': {'k1': 'Weather pictures; private slip; optional adult check-in. Reveal: a respectful good morning.', '23': 'Weather pictures plus one ready move; private slip. Reveal: one respectful thing to do today.', '45': 'Energy scale 1–5; one small move; optional adult check-in. Reveal: one respectful or responsible move before lunch.', '68': 'Ready level 1–5; emotion vocabulary; one controllable action. Reveal: one choice in your control that shows respect.'},
-}
+SPARK_SUM = {'mon': SPARK_MON}
 def spark_task(band, d):
     if d == 'mon': return SPARK_SUM['mon'][band]
+    if d == 'tue': return TUE_DO[band][0]
     if d == 'wed': return WED_DO[band][0]
-    if d == 'thu': return THU[band][2][0]
+    if d == 'thu': return THU[band][0]
     return FRI[band][0][0]
 def spark_key(band, d):
-    return {'mon': MON_REV, 'wed': WED_REV}.get(d, {}).get(band, (THU_REV[band] if d == 'thu' else FRI[band][1]))[0]
+    return {'mon': MON_REV, 'tue': TUE_REV, 'wed': WED_REV}.get(d, {}).get(band, (THU_REV[band] if d == 'thu' else FRI[band][1]))[0]
 def keyrow(band, d):
-    return {'mon': MON_KEY, 'wed': WED_KEY, 'thu': THU_KEY, 'fri': FRI_KEY}[d][band]
+    return {'mon': MON_KEY, 'tue': TUE_KEY, 'wed': WED_KEY, 'thu': THU_KEY, 'fri': FRI_KEY}[d][band]
 
 def mm_links(band, d):
     if d == 'fri': return '<p><strong>Then:</strong> Time for Friday Cypher.</p>'
@@ -146,22 +146,19 @@ def band_keys(band):
 def package():
     s = open(f'{W4}/index.html').read()
     headcss = s[:s.find('<body')]
-    headcss = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark + Ember · Week {SE_WEEK} · November 2–6</title>', headcss)
+    headcss = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark + Ember · Week {SE_WEEK} · {RANGE}</title>', headcss)
     files = ''.join(f'<a href="{h}">{t}</a>' for h, t in
         [('teacher-guide.html', 'Dated teacher guide'), ('teacher-guide.pdf', 'Print guide'), (f'spark-ember-week-{SE_WEEK}-all-files.zip', 'Download all files')]
         + [(f'morning-spark-{b}-student-pages.pdf', f'Spark {SBL[b]} student pages') for b in SBANDS] + [(f'ember-{b}-reflection-slips.pdf', f'Ember {SBL[b]} slips') for b in SBANDS])
-    guide = ('<section id="teacher-guide"><h2>Week 5 · Teacher delivery guide</h2>'
-        '<p>November 2–6, 2026 has four school days: Monday, Wednesday, Thursday, and Friday. There is no school for students on Tuesday, November 3, so Tuesday’s Picture of the Day does not run this week. Morning Spark and Ember carry the same through-line as Morning Meeting: respect and responsibility. Spark keeps its fixed format rotation: Monday Check-In, Wednesday Zoom In, Thursday Would You Rather, and Friday Wonder, followed by the Time for Friday Cypher slide.</p>'
-        '<h3>Spark leads straight into Morning Meeting</h3><p>Monday, Wednesday, and Thursday Spark end on a hand-off slide that names that day’s Morning Meeting lesson (Respect Is Something You Do, Own It, Fix It, and Respect and Responsibility Everywhere) with a button that opens your band’s Morning Meeting deck. Grades 2–3 rooms see two buttons: grade 2 uses the K–2 lesson and grade 3 uses the 3–5 lesson.</p>'
-        '<h3>Preserve the daily routines</h3><p>Arrival at 7:15. Spark is a 3–5 minute independent task; then K–2 read and grades 3–8 use IXL. In the 2–3 deck, grade 2 reads and grade 3 uses IXL. The day’s IXL codes are on the slide, top right, from IXL Week 10 (November 2–6). Announcements are around 7:37, followed by a reveal of two minutes or less. Morning Meeting starts at 7:45; on Friday, advance to Time for Friday Cypher and students report to the hallway once the announcement is made.</p>'
-        '<p>Use day keys 1–4 (Mon, Wed, Thu, Fri), arrows, bilingual read aloud, Repeat aloud for late arrivals, and Week view. Wednesday’s reveal zooms out before the answer appears; reduced-motion mode reveals immediately. Thursday votes start at zero; explanations matter more than vote totals.</p>'
-        '<h3>The week’s through-line: a bar a day</h3><p>Every reveal ends with a Chant of the Day (K–3) or Bar of the Day (4–8) on the day’s focus. Read it once, have the class echo it, and post it by the door. On Friday, the four lines become the class’s set for Friday Cypher. The scenes are set in places students know: arrival at Room 63, the lunch table, the hallway line, the LiveSchool Store (open November 4–6), Hallway Hollers, and the Cypher circle.</p>'
-        '<p>Ember videos feature characters and voices students see themselves in: Sesame Street and Plaza Sésamo (including Spanish-language calm-downs) for K–3, and pep talks and mindfulness practices from Kid President, LeBron James, Dora Kamau, and Naomi Osaka for 4–8. Preview each clip before 2:05; if YouTube is blocked, the board switches to the breathing circle.</p>'
+    guide = (f'<section id="teacher-guide"><h2>Week {SE_WEEK} · Teacher delivery guide</h2><p>{e(GUIDE_INTRO)}</p>'
+        f'<h3>Spark leads straight into Morning Meeting</h3><p>{e(GUIDE_MM)}</p>'
+        f'<h3>Preserve the daily routines</h3><p>{e(GUIDE_IXL)}</p><p>{e(GUIDE_KEYS)}</p>'
+        f'<h3>The week’s through-line: a bar a day</h3><p>{e(GUIDE_BARS)}</p><p>{e(GUIDE_EMBER)}</p>'
         '<p>Ember: 2:05 seated pack-up, 2:08 watch and settle, 2:13 reflect, then seated waiting. Keep the existing release order and times on the rail. Chromebook stays closed on the desk until the group is called; return it to the numbered slot, then leave. No lining up. Use the board’s breathing fallback if streaming fails.</p>'
-        '<h3>Equity sticks, talk moves, and LiveSchool</h3><p>Every reveal follows Show, Think (ten silent seconds), Call (one or two equity sticks), Talk (30-second turn and talk if time allows). The daily keys below give the exact cold-call question and stem for each band. Talk moves: “Say more.” “Who can add on?” “What did your partner say?” This is LiveSchool Store week: award points during the work period for the respectful and responsible choices students name, said out loud: “Respectful: Amara let her partner finish before she spoke.” “Responsible: Dante cleaned his spot without a reminder.” Never award points for being quiet or finishing first.</p>'
-        '<h3>Respect and privacy</h3><p>Monday check-in slips stay private; the counselor collects them by 10:00 a.m. Feelings and readiness are information, not behavior grades. All week, students talk about their own choices or the examples on the slides, never a classmate’s behavior. If a student names a classmate, redirect in one calm sentence (“We only talk about our own choices.”), continue, and follow up privately. Any report of teasing or bullying is handled under campus reporting procedures the same day.</p>'
+        f'<h3>Equity sticks, talk moves, and LiveSchool</h3><p>{e(GUIDE_LIVE)}</p>'
+        f'<h3>Respect and privacy</h3><p>{e(GUIDE_PRIV)}</p>'
         '<h3>When behavior gets in the way</h3><p>Correct privately and briefly, with proximity and the expectation: “Do Now first, then IXL.” Offer a frame instead of an explanation to a student who has not started. Do not hold a student out of the reveal or Morning Meeting to finish the Do Now, and do not use LiveSchool deductions for Level 1 behavior.</p></section>')
-    body = (f'<body><header><p>MATCHBOOK · WEEK {SE_WEEK} · NOVEMBER 2–6, 2026</p><h1>{THEME[0]}</h1><div>Four school days (no school Tuesday, November 3). Respect you can see and responsibility you can count on, in every space at school.</div></header><main>'
+    body = (f'<body><header><p>MATCHBOOK · WEEK {SE_WEEK} · {RANGE.upper()}, 2026</p><h1>{THEME[0]}</h1><div>{e(HEADER_SUB)}</div></header><main>'
             f'<section><h2>Deliver this week</h2>{files}{ember_table()}</section>'
             f'<section><h2>Weekly Videos &amp; Do Now – First 5</h2><strong>Weekly Videos:</strong> <a href="{RELAX_V}">Relax</a><a href="{EXCITE_V}">Excite</a><br/><strong>Do Now – First 5:</strong> <a href="https://canva.link/bhu6ll009tiusud">Relax</a><a href="https://canva.link/jvexkr9edw021uy">Excite</a><br/></section>'
             f'<section><h2>Morning Spark · Week at a glance</h2>{spark_table()}</section>'
@@ -180,7 +177,7 @@ def media_json():
         for v in EMBER[b]['videos']:
             key = re.sub(r'[^a-z]', '', v[1].lower())[:14] or v[0]
             vids[key] = list(v); seq[b].append(key)
-    d = {'videos': vids, 'daily_sequence': seq, 'school_days': SDAYS, 'photo_credits': [], 'review_note': 'Ember videos are new for every band and day and are not used in earlier weeks. Tuesday, November 3 is not a school day.'}
+    d = {'videos': vids, 'daily_sequence': seq, 'school_days': SDAYS, 'photo_credits': [], 'review_note': MEDIA_NOTE}
     json.dump(d, open(f'{OUT}/media-sources.json', 'w'), ensure_ascii=False, indent=1)
 
 def zipit():
