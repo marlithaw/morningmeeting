@@ -16,6 +16,21 @@ def section(hub, lab):
     j = hub.index('</section>', i) + len('</section>')
     return i, j
 
+# Day-matched Lee & Tee alternative for K-2 teachers (K-2 Behavior Toolkit), shown under the K-2 lesson button.
+LEETEE = {1: ('01-naming-my-feelings', 'Naming My Feelings'), 2: ('02-calm-corner', 'Using the Calm Corner'),
+          3: ('06-fixing-it', 'Fixing It'), 4: ('04-asking-for-a-break', 'Asking for a Break')}
+
+def add_leetee(hub):
+    i, j = section(hub, f'week{M.WEEK}-title'); s = hub[i:j]
+    for n, (slug, title) in LEETEE.items():
+        k2 = f'href="./resources/{M.SLUG}/lesson-{n}-k2.html">K–2</a>'
+        link = (f'<a class="block mt-2 text-xs font-bold underline text-[var(--spark-red)]" href="./resources/k2-behavior-toolkit/{slug}/index.html">'
+                f'Lee &amp; Tee option: {title}</a>')
+        if link in s: continue
+        assert s.count(k2) == 1, f'K-2 button for lesson {n} not found'
+        s = s.replace(k2, k2 + link)
+    return hub[:i] + s + hub[j:]
+
 def make(hub):
     SE = f'spark-ember/{SE_SLUG}'; MMS = M.SLUG
     TH = 'class="px-3 py-4 text-left align-top"'
@@ -77,9 +92,12 @@ def make(hub):
     assert 'November 2' not in s and 'Nov 2<' not in s and 'Respect Is Something' not in s, 'mm leftovers'
     hub = hub[:i] + s + hub[i:]
     hub = re.sub(r'(<p class="text-\[var\(--slate\)\] text-lg">)Week 13 · November 2–5:[^<]*', lambda m: m.group(1) + f'Week {M.WEEK} · November 9–12: {M.THEME[0]}. Lessons that introduce the levels, the written reflection, and the return to learning. Monday through Thursday instruction; Friday Wonder runs in Morning Spark before Friday Cypher.', hub, count=1)
-    return hub
+    return add_leetee(hub)
 
 if __name__ == '__main__':
-    src, dst = sys.argv[1], sys.argv[2]
-    out = make(open(src).read()); open(dst, 'w').write(out)
+    args = [x for x in sys.argv[1:] if x != '--leetee-only']
+    src, dst = args[0], args[1]
+    hub = open(src).read()
+    out = add_leetee(hub) if '--leetee-only' in sys.argv else make(hub)
+    open(dst, 'w').write(out)
     print('hub written', dst)
