@@ -5,6 +5,7 @@ from content_se import *
 import art
 import art2
 import art3
+import art4
 from icons import ICONS
 from content_mm import LEETEE
 
@@ -105,9 +106,11 @@ LTCSS = ('<style>.mmlink{margin-top:10px;padding:12px 22px;gap:8px}.mmlink .mmt{
          '.mmlink .mmor{font:600 16px var(--disp);letter-spacing:.12em;text-transform:uppercase;color:#F9DC7C}'
          '.mmbtn.lt{background:transparent;color:#F9DC7C;border:3px solid #F9DC7C;padding:5px 20px}.mmbtn.lt:hover{background:#F9DC7C;color:#1A1A1A}</style>')
 
-SCENE = art3.WED_RR
-SCENE_LAB = {'k1': 'A Reset and Return reflection sheet with feeling faces and My next move lies on a desk next to a Reset 1 sign.', '23': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.',
-             '45': 'A classroom poster shows the Reset and Return ladder: warning, seat change, written reflection, Tap In, Tap Out, with Level 1 and Level 2 labels.', '68': 'A classroom poster shows the Reset and Return ladder with Level labels; a student says, Return is the goal.'}
+SCENE = art4.WED
+SCENE_LAB = {'k1': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
+             '23': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
+             '45': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
+             '68': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.'}
 
 def set_cards(t, A, B):
     def card(m, X, letter):
@@ -150,11 +153,11 @@ def deck(band):
     # Monday
     t = S4[('mon', 'do')]; t = set_ixl(set_theme(set_dn(t, 'mon')), 'mon'); out.append(t)
     t = S4[('mon', 'reveal')]; en, es = MON_REV[band]
-    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art3.huddle_rr(), label='Students gather by Room 63 under a Reset and Return banner, saying Welcome back and Bienvenido.', cls='w5art'))
+    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art4.huddle_tt(), label='Students gather by Room 63 under a Thankful Together banner, saying Thank you and Gracias.', cls='w5art'))
     out.append(add_bar(t, 'mon', band))
     out.append(handoff(S4[('mon', 'handoff')], 'mon', band))
     # Tuesday Picture of the Day
-    pic = art2.svg(art3.TUE_RR[band](), label=TUE_LAB[band], cls='w5art')
+    pic = art2.svg(art4.TUE[band](), label=TUE_LAB[band], cls='w5art')
     en, es = TUE_DO[band]
     t = S4[('tue', 'do')]; t = set_art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'tue')), 'tue'), en, es), en, es), pic); out.append(t)
     en, es = TUE_REV[band]
@@ -171,7 +174,7 @@ def deck(band):
     out.append(handoff(S4[('wed', 'handoff')], 'wed', band))
     # Thursday WYR
     do, rev = THU[band], THU_REV[band]
-    wyr = art2.svg(art3.wyr_rr(band), label=WYR_LAB[band], cls='w5art')
+    wyr = art2.svg(art4.wyr_tt(band), label=WYR_LAB[band], cls='w5art')
     t = S4[('thu', 'do')]; t = set_w3art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), wyr); out.append(t)
     t = S4[('thu', 'reveal')]; t = add_bar(set_w3art(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), wyr), 'thu', band); out.append(t)
     out.append(handoff(S4[('thu', 'handoff')], 'thu', band))
@@ -195,14 +198,14 @@ def deck(band):
     if band in ('k1', '23'):
         head = head.replace('</head>', LTCSS + '</head>', 1)
     head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · {RANGE} · {SBL[band]}</title>', head)
-    head = head.replace('aria-label="Friday, October 30" data-jump="fri"', 'aria-label="Friday, November 13" data-jump="fri"')
-    tail = tail.replace('aria-label="Friday, October 30" class="dchip"', 'aria-label="Friday, November 13" class="dchip"')
+    head = head.replace('aria-label="Friday, October 30" data-jump="fri"', f'aria-label="{FRI_LABEL}" data-jump="fri"')
+    tail = tail.replace('aria-label="Friday, October 30" class="dchip"', f'aria-label="{FRI_LABEL}" class="dchip"')
     # IXL pin
     snap = {'math': {}, 'ela': {}}
     for subj in ('math', 'ela'):
         for g, wk in IXL[subj].items():
             snap[subj][g] = {str(IXL_WEEK): wk.get(str(IXL_WEEK), {})}
-    tail = re.sub(r'/\* IXL codes on the Do Now slides, pinned to IXL Week \d+ for [^*]*\*/', f'/* IXL codes on the Do Now slides, pinned to IXL Week {IXL_WEEK} for November 9-13, 2026. */', tail)
+    tail = re.sub(r'/\* IXL codes on the Do Now slides, pinned to IXL Week \d+ for [^*]*\*/', f'/* IXL codes on the Do Now slides, pinned to IXL Week {IXL_WEEK} for {RANGE_ASCII}, 2026. */', tail)
     tail = re.sub(r'var SNAP = \{.*?\};\n', 'var SNAP = ' + json.dumps(snap, ensure_ascii=False) + ';\n', tail, count=1, flags=re.S)
     tail = tail.replace('var w = 9;', f'var w = {IXL_WEEK};')
     doc = head + ''.join(out) + tail
@@ -220,7 +223,7 @@ def ember(band):
     new['bridges'] = E['bridges']
     s = s[:m.start(1)] + json.dumps(new, ensure_ascii=False) + s[m.end(1):]
     s = re.sub(r'<title>[^<]*</title>', f'<title>Ember {SBL[band]} · {RANGE} · {THEME[0]}</title>', s)
-    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' Nov '+(9+i)+' / '+DN[d][1]")
+    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' Nov '+(" + str(FIRST_DAY) + "+i)+' / '+DN[d][1]")
     for k in ('Everyone Belongs', 'Todos pertenecemos'):
         assert k not in s or True
     s = s.replace('Everyone Belongs', THEME[0]).replace('Todos pertenecemos', THEME[1])

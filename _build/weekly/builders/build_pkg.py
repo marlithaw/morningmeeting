@@ -5,6 +5,7 @@ from content_se import *
 import art
 import art2
 import art3
+import art4
 from build_se import SCENE
 from build_se import OUT, W4, icon100, MMREL
 e = lambda s: html.escape(s, quote=False)
@@ -60,11 +61,11 @@ def student_pages(band):
         if d == 'mon':
             body = checkin(band)
         else:
-            if d == 'tue': q = TUE_DO[band]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art3.TUE_RR[band]()}</svg></div>'
+            if d == 'tue': q = TUE_DO[band]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art4.TUE[band]()}</svg></div>'
             elif d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{SCENE[band]()}</svg></div>'
             elif d == 'thu':
                 q = THU[band]
-                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art3.wyr_rr(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
+                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art4.wyr_tt(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
             else: q = FRI[band][0]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art2.hollers() if band in ('k1', '23') else art2.cypher()}</svg></div>'
             body = f'<p class="q">{e(q[0])}</p><p class="qe">{e(q[1])}</p>{vis}<div class="box">My response / Mi respuesta</div><p class="opt" style="font-size:11px"><b>{"Chant" if band in ("k1","23") else "Bar"} of the day / {"Canto" if band in ("k1","23") else "Rima"} del día:</b> “{e(BARS[d][band][0])}”</p>'
         pages.append(f'<div class="pg">{head("Morning Spark", band)}<div class="meta">{DATE[d][0]} | {f[0]}</div><div class="nm">Name / Nombre: ______________________</div>{body}<div class="foot"><span>{FOOT}</span><span>{n}</span></div></div>')

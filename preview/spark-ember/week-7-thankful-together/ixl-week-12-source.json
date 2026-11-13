@@ -1,0 +1,783 @@
+{
+ "math": {
+  "K": {
+   "12": {
+    "1": [
+     [
+      "Name the two-dimensional shape",
+      "math/kindergarten/name-the-two-dimensional-shape",
+      "MCW"
+     ]
+    ],
+    "2": [
+     [
+      "Sort two-dimensional shapes",
+      "math/kindergarten/sort-two-dimensional-shapes",
+      "2LQ"
+     ]
+    ],
+    "3": [
+     [
+      "Compare sides and corners",
+      "math/kindergarten/compare-sides-and-corners",
+      "UXY"
+     ]
+    ],
+    "4": [
+     [
+      "Compare shapes using attributes",
+      "math/kindergarten/compare-shapes-using-attributes",
+      "SXF"
+     ]
+    ],
+    "5": [
+     [
+      "Compose simple two-dimensional shapes",
+      "math/kindergarten/compose-simple-two-dimensional-shapes",
+      "ZXE"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "12": {
+    "1": [
+     [
+      "Subtracting 10",
+      "math/grade-1/subtracting-10",
+      "M8B"
+     ],
+     [
+      "Use ten frames to subtract",
+      "math/grade-1/use-ten-frames-to-subtract",
+      "QRP"
+     ]
+    ],
+    "2": [
+     [
+      "Use ten to subtract",
+      "math/grade-1/use-ten-to-subtract",
+      "CLE"
+     ],
+     [
+      "Subtracting 5",
+      "math/grade-1/subtracting-5",
+      "U7E"
+     ]
+    ],
+    "3": [
+     [
+      "Subtracting 6",
+      "math/grade-1/subtracting-6",
+      "2S3"
+     ],
+     [
+      "Subtract by counting on - up to 20",
+      "math/grade-1/subtract-by-counting-on-up-to-20",
+      "TM2"
+     ]
+    ],
+    "4": [
+     [
+      "Count on and use ten to subtract - up to 20",
+      "math/grade-1/count-on-and-use-ten-to-subtract-up-to-20",
+      "YUY"
+     ]
+    ],
+    "5": [
+     [
+      "Subtract doubles",
+      "math/grade-1/subtract-doubles",
+      "LHZ"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "12": {
+    "1": [
+     [
+      "Subtract two-digit numbers - without regrouping",
+      "math/grade-2/subtract-two-digit-numbers-without-regrouping",
+      "R8C"
+     ]
+    ],
+    "2": [
+     [
+      "Use models to subtract two-digit numbers - with regrouping",
+      "math/grade-2/use-models-to-subtract-two-digit-numbers-with-regrouping",
+      "EVB"
+     ]
+    ],
+    "3": [
+     [
+      "Use place value to subtract two-digit numbers - with regrouping",
+      "math/grade-2/use-place-value-to-subtract-two-digit-numbers-with-regrouping",
+      "Y7U"
+     ]
+    ],
+    "4": [
+     [
+      "Subtract two-digit numbers - with regrouping",
+      "math/grade-2/subtract-two-digit-numbers-with-regrouping",
+      "TWE"
+     ]
+    ],
+    "5": [
+     [
+      "Subtract two-digit numbers",
+      "math/grade-2/subtract-two-digit-numbers-up-to-100",
+      "VM6"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "12": {
+    "1": [
+     [
+      "Divide by counting equal groups",
+      "math/grade-3/divide-by-counting-equal-groups",
+      "UYK"
+     ],
+     [
+      "Write division sentences for groups",
+      "math/grade-3/write-division-sentences-for-groups",
+      "FSX"
+     ]
+    ],
+    "2": [
+     [
+      "Use equal groups to solve division word problems",
+      "math/grade-3/use-equal-groups-to-solve-division-word-problems",
+      "NEC"
+     ]
+    ],
+    "3": [
+     [
+      "Relate multiplication and division for groups",
+      "math/grade-3/relate-multiplication-and-division-for-groups",
+      "FTU"
+     ]
+    ],
+    "4": [
+     [
+      "Division sentences with 1 and 0",
+      "math/grade-3/division-sentences-with-1-and-0",
+      "FYZ"
+     ]
+    ],
+    "5": [
+     [
+      "Use strip models to solve division word problems",
+      "math/grade-3/use-strip-models-to-solve-division-word-problems",
+      "2YL"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "12": {
+    "1": [
+     [
+      "Division facts to 10",
+      "math/grade-4/division-facts-to-10",
+      "YFU"
+     ],
+     [
+      "Divide numbers ending in zeros by 1-digit numbers",
+      "math/grade-4/divide-numbers-ending-in-zeros-by-1-digit-numbers",
+      "2K3"
+     ]
+    ],
+    "2": [
+     [
+      "Choose numbers with a particular quotient",
+      "math/grade-4/choose-numbers-with-a-particular-quotient",
+      "MYU"
+     ],
+     [
+      "Estimate quotients using compatible numbers: 1-digit divisors",
+      "math/grade-4/estimate-quotients-using-compatible-numbers-1-digit-divisors",
+      "CWE"
+     ]
+    ],
+    "3": [
+     [
+      "Divide by 1-digit numbers: pick the better estimate",
+      "math/grade-4/divide-by-1-digit-numbers-pick-the-better-estimate",
+      "2FS"
+     ]
+    ],
+    "4": [
+     [
+      "Divide 2-digit numbers by 1-digit numbers using arrays",
+      "math/grade-4/divide-2-digit-numbers-by-1-digit-numbers-using-arrays",
+      "M49"
+     ]
+    ],
+    "5": [
+     [
+      "Divide 2-digit numbers by 1-digit numbers: quotients up to 10",
+      "math/grade-4/divide-2-digit-numbers-by-1-digit-numbers-quotients-up-to-10",
+      "7BS"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "12": {
+    "1": [
+     [
+      "Multiply two fractions using models",
+      "math/grade-5/multiply-two-fractions-using-models",
+      "UAY"
+     ],
+     [
+      "Multiply two fractions",
+      "math/grade-5/multiply-two-fractions",
+      "8KV"
+     ]
+    ],
+    "2": [
+     [
+      "Multiply two fractions: word problems",
+      "math/grade-5/multiply-two-fractions-word-problems",
+      "38Y"
+     ]
+    ],
+    "3": [
+     [
+      "Understand fraction multiplication and area",
+      "math/grade-5/understand-fraction-multiplication-and-area",
+      "NFK"
+     ]
+    ],
+    "4": [
+     [
+      "Multiply fractions to find area",
+      "math/grade-5/multiply-fractions-to-find-area",
+      "SEZ"
+     ]
+    ],
+    "5": [
+     [
+      "Area of rectangles with fractions",
+      "math/grade-5/area-of-rectangles-with-fractions",
+      "64E"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "12": {
+    "1": [
+     [
+      "Solve percent problems using grid models",
+      "math/grade-6/solve-percent-problems-using-grid-models",
+      "YX6"
+     ],
+     [
+      "Solve percent problems using strip models",
+      "math/grade-6/solve-percent-problems-using-strip-models",
+      "MEA"
+     ]
+    ],
+    "2": [
+     [
+      "Percents of numbers and money amounts",
+      "math/grade-6/percents-of-numbers-and-money-amounts",
+      "8N4"
+     ]
+    ],
+    "3": [
+     [
+      "Percents of numbers: word problems",
+      "math/grade-6/percents-of-numbers-word-problems",
+      "BBY"
+     ]
+    ],
+    "4": [
+     [
+      "Percents of numbers: fractional and decimal percents",
+      "math/grade-6/percents-of-numbers-fractional-and-decimal-percents",
+      "CD5"
+     ]
+    ],
+    "5": [
+     [
+      "Find the total given a part and a percent",
+      "math/grade-6/find-the-total-given-a-part-and-a-percent",
+      "D6L"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "12": {
+    "1": [
+     [
+      "Coordinate plane review",
+      "math/grade-7/coordinate-plane-review",
+      "VXU"
+     ],
+     [
+      "Interpret graphs of proportional relationships",
+      "math/grade-7/interpret-graphs-of-proportional-relationships",
+      "RMH"
+     ]
+    ],
+    "2": [
+     [
+      "Identify proportional relationships by graphing",
+      "math/grade-7/identify-proportional-relationships-by-graphing",
+      "AAN"
+     ]
+    ],
+    "3": [
+     [
+      "Identify proportional relationships from graphs and equations",
+      "math/grade-7/identify-proportional-relationships-from-graphs-and-equations",
+      "NB5"
+     ]
+    ],
+    "4": [
+     [
+      "Complete a table and graph a proportional relationship",
+      "math/grade-7/complete-a-table-and-graph-a-proportional-relationship",
+      "5DR"
+     ]
+    ],
+    "5": [
+     [
+      "Find the constant of proportionality from a graph",
+      "math/grade-7/find-the-constant-of-proportionality-from-a-graph",
+      "ZUT"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "12": {
+    "1": [
+     [
+      "Solve equations with variables on both sides: fractional coefficients",
+      "math/grade-8/solve-equations-with-variables-on-both-sides-fractional-coefficients",
+      "UEM"
+     ],
+     [
+      "Solve equations using the distributive property",
+      "math/grade-8/solve-equations-with-the-distributive-property",
+      "8RP"
+     ]
+    ],
+    "2": [
+     [
+      "Solve multi-step equations",
+      "math/grade-8/solve-multi-step-equations",
+      "55K"
+     ]
+    ],
+    "3": [
+     [
+      "Solve multi-step equations: complete the solution",
+      "math/grade-8/solve-multi-step-equations-complete-the-solution",
+      "PGH"
+     ]
+    ],
+    "4": [
+     [
+      "Solve multi-step equations with fractional coefficients",
+      "math/grade-8/solve-multi-step-equations-with-fractional-coefficients",
+      "2AZ"
+     ]
+    ],
+    "5": [
+     [
+      "Solve equations: mixed review",
+      "math/grade-8/solve-equations-mixed-review",
+      "HZZ"
+     ]
+    ]
+   }
+  }
+ },
+ "ela": {
+  "K": {
+   "12": {
+    "1": [
+     [
+      "Complete the short a word",
+      "ela/kindergarten/complete-the-short-a-word",
+      "MB9"
+     ]
+    ],
+    "2": [
+     [
+      "Find the short o word",
+      "ela/kindergarten/find-the-short-o-word",
+      "97H"
+     ]
+    ],
+    "3": [
+     [
+      "Choose the short o word that matches the picture",
+      "ela/kindergarten/choose-the-short-o-word-that-matches-the-picture",
+      "2PD"
+     ]
+    ],
+    "4": [
+     [
+      "Which one is not like the others?",
+      "ela/kindergarten/which-one-is-not-like-the-others",
+      "CME"
+     ]
+    ],
+    "5": [
+     [
+      "Order images in a story",
+      "ela/kindergarten/order-images-in-a-story",
+      "WAA"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "12": {
+    "1": [
+     [
+      "Change one letter to make a new word",
+      "ela/grade-1/change-one-letter-to-make-a-new-word",
+      "DTD"
+     ]
+    ],
+    "2": [
+     [
+      "Spell the digraph word",
+      "ela/grade-1/spell-the-digraph-word",
+      "ZZN"
+     ]
+    ],
+    "3": [
+     [
+      "Choose the synonyms",
+      "ela/grade-1/choose-the-synonyms",
+      "8NP"
+     ]
+    ],
+    "4": [
+     [
+      "Choose the antonyms",
+      "ela/grade-1/choose-the-antonyms",
+      "9TV"
+     ]
+    ],
+    "5": [
+     [
+      "Select the possessive noun that matches the picture",
+      "ela/grade-1/select-the-possessive-noun-that-matches-the-picture",
+      "WNY"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "12": {
+    "1": [
+     [
+      "Complete the sentence with a three-letter consonant blend word",
+      "ela/grade-2/complete-the-sentence-with-a-three-letter-consonant-blend-word",
+      "QZY"
+     ],
+     [
+      "Complete the sentence with the correct closed vowel exception word",
+      "ela/grade-2/complete-the-sentence-with-the-correct-ild-ind-old-olt-or-ost-word",
+      "XMQ"
+     ]
+    ],
+    "2": [
+     [
+      "Read along with historical fiction",
+      "ela/grade-2/read-along-with-historical-fiction",
+      "FNE"
+     ]
+    ],
+    "3": [
+     [
+      "Complete the fact and opinion sentences",
+      "ela/grade-2/complete-the-fact-and-opinion-sentences",
+      "79N"
+     ]
+    ],
+    "4": [
+     [
+      "Spell words with suffixes: drop e",
+      "ela/grade-2/spell-words-with-suffixes-drop-e",
+      "6RW"
+     ]
+    ],
+    "5": [
+     [
+      "Spell words with suffixes: double the consonant",
+      "ela/grade-2/spell-words-with-suffixes-double-the-consonant",
+      "5MB"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "12": {
+    "1": [
+     [
+      "Spell the long u word: silent e, ue, oo, ew, ui",
+      "ela/grade-3/spell-the-long-u-word-silent-e-ue-oo-ew-ui",
+      "7SR"
+     ],
+     [
+      "Similes with pictures",
+      "ela/grade-3/similes-with-pictures",
+      "UVX"
+     ]
+    ],
+    "2": [
+     [
+      "Read historical fiction with illustrations",
+      "ela/grade-3/read-historical-fiction-with-illustrations",
+      "JC7"
+     ]
+    ],
+    "3": [
+     [
+      "Use the correct homophone",
+      "ela/grade-3/use-the-correct-homophone",
+      "VNC"
+     ]
+    ],
+    "4": [
+     [
+      "Spell words with suffixes: drop e",
+      "ela/grade-3/spell-words-with-suffixes-drop-e",
+      "78R"
+     ]
+    ],
+    "5": [
+     [
+      "Spell words with suffixes: double the consonant",
+      "ela/grade-3/spell-words-with-suffixes-double-the-consonant",
+      "CJ8"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "12": {
+    "1": [
+     [
+      "Identify story elements",
+      "ela/grade-4/identify-story-elements",
+      "SRQ"
+     ]
+    ],
+    "2": [
+     [
+      "Draw inferences and identify supporting details",
+      "ela/grade-4/draw-inferences-and-identify-supporting-details",
+      "SCC"
+     ]
+    ],
+    "3": [
+     [
+      "Use academic vocabulary in context",
+      "ela/grade-4/use-academic-vocabulary-in-context",
+      "QQC"
+     ]
+    ],
+    "4": [
+     [
+      "Identify possessive pronouns",
+      "ela/grade-4/identify-possessive-pronouns",
+      "CZE"
+     ]
+    ],
+    "5": [
+     [
+      "Use possessive pronouns",
+      "ela/grade-4/use-possessive-pronouns",
+      "5Y6"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "12": {
+    "1": [
+     [
+      "Draw inferences and identify supporting details",
+      "ela/grade-5/draw-inferences-and-identify-supporting-details",
+      "EY9"
+     ],
+     [
+      "Choose reasons to support an opinion",
+      "ela/grade-5/choose-reasons-to-support-an-opinion",
+      "AQK"
+     ]
+    ],
+    "2": [
+     [
+      "Multiple-meaning words with pictures",
+      "ela/grade-5/multiple-meaning-words-with-pictures",
+      "QQU"
+     ]
+    ],
+    "3": [
+     [
+      "Which definition matches the sentence?",
+      "ela/grade-5/which-definition-matches-the-sentence",
+      "SWG"
+     ]
+    ],
+    "4": [
+     [
+      "Use the correct subject or verb",
+      "ela/grade-5/use-the-correct-subject-or-verb",
+      "F5Q"
+     ]
+    ],
+    "5": [
+     [
+      "Use the correct subject or verb – with compound subjects",
+      "ela/grade-5/use-the-correct-subject-or-verb-with-compound-subjects",
+      "XGL"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "12": {
+    "1": [
+     [
+      "Analyze passages from The Lightning Thief: Part 2",
+      "ela/grade-6/analyze-passages-from-the-lightning-thief-part-2",
+      "ADP"
+     ]
+    ],
+    "2": [
+     [
+      "Alphabetical order",
+      "ela/grade-6/alphabetical-order",
+      "5HM"
+     ]
+    ],
+    "3": [
+     [
+      "Use guide words",
+      "ela/grade-6/use-guide-words",
+      "2J5"
+     ]
+    ],
+    "4": [
+     [
+      "Identify transitive and intransitive verbs",
+      "ela/grade-6/identify-transitive-and-intransitive-verbs",
+      "96N"
+     ]
+    ],
+    "5": [
+     [
+      "Is it a direct object or an indirect object?",
+      "ela/grade-6/is-it-a-direct-object-or-an-indirect-object",
+      "NZ6"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "12": {
+    "1": [
+     [
+      "Analyze passages from Anne Frank: The Diary of a Young Girl: Part 2",
+      "ela/grade-7/analyze-passages-from-anne-frank-the-diary-of-a-young-girl-part-2",
+      "BFP"
+     ],
+     [
+      "Revise the sentence using a stronger verb",
+      "ela/grade-7/revise-the-sentence-using-a-stronger-verb",
+      "PHB"
+     ]
+    ],
+    "2": [
+     [
+      "Words with -less",
+      "ela/grade-7/words-with-less",
+      "J2Y"
+     ]
+    ],
+    "3": [
+     [
+      "Correct errors with subject-verb agreement",
+      "ela/grade-7/correct-errors-with-subject-verb-agreement",
+      "94Y"
+     ]
+    ],
+    "4": [
+     [
+      "Correct errors with indefinite pronoun-verb agreement",
+      "ela/grade-7/correct-errors-with-indefinite-pronoun-verb-agreement",
+      "EWG"
+     ]
+    ],
+    "5": [
+     [
+      "Use the correct verb – with compound subjects",
+      "ela/grade-7/use-the-correct-verb-with-compound-subjects",
+      "7S6"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "12": {
+    "1": [
+     [
+      "Read about history",
+      "ela/grade-8/read-about-history",
+      "PW6"
+     ],
+     [
+      "Choose evidence to support a claim",
+      "ela/grade-8/choose-evidence-to-support-a-claim",
+      "BMP"
+     ]
+    ],
+    "2": [
+     [
+      "Words with -ful",
+      "ela/grade-8/words-with-ful",
+      "KQ2"
+     ]
+    ],
+    "3": [
+     [
+      "Words with -less",
+      "ela/grade-8/words-with-less",
+      "W9C"
+     ]
+    ],
+    "4": [
+     [
+      "Identify transitive and intransitive verbs",
+      "ela/grade-8/identify-transitive-and-intransitive-verbs",
+      "ZVG"
+     ]
+    ],
+    "5": [
+     [
+      "Is it a direct object or an indirect object?",
+      "ela/grade-8/is-it-a-direct-object-or-an-indirect-object",
+      "YH5"
+     ]
+    ]
+   }
+  }
+ }
+}
