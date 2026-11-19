@@ -64,16 +64,17 @@ def pages(T, outdir):
     # B. Sequencing (mat + cards, both landscape)
     q = C['seq']
     seq = q['cards']
+    qc = 3 if len(seq) == 6 else 2  # six-step sequences print 3 across, 2 down
     slots = ''.join(f'''<div style="border:4px dashed var(--char);border-radius:16px;background:#fff;position:relative">
  <div style="position:absolute;top:-16px;left:-12px;display:flex;align-items:center;gap:8px"><span class="badge" style="width:46px;height:46px;font-size:28px;background:var(--red)">{n}</span>
  <span style="font-family:var(--disp);font-size:24px;background:var(--paper);padding:0 6px">{w}</span></div></div>''' for n, w in [(str(i), w) for i, w in enumerate(q['slots'], 1)])
     sc = ''.join(f'<div class="card"><div class="pic" style="background-image:url({img(seq[k][0])});background-position:{q["pos"]}"></div></div>' for k in q['print_order'])
     seqp = f'''<div class="sheet land paper"><div class="top kente"></div>
 <div class="hrow"><div class="h" style="font-size:34px">{q['title']}</div>{dirs(q['dirs'])}</div>
-<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.4in .3in;padding:.25in .1in .1in">{slots}</div>{ftr('Sequencing Mat')}</div>
+<div style="flex:1;display:grid;grid-template-columns:repeat({qc},1fr);grid-template-rows:1fr 1fr;gap:.4in .3in;padding:.25in .1in .1in">{slots}</div>{ftr('Sequencing Mat')}</div>
 <div class="sheet land"><div class="top kente"></div>
 <div class="hrow"><div class="h" style="font-size:32px">{q['cards_title']}</div><div class="tag">✂ cut</div></div>
-<div class="cards" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">{sc}</div>{ftr('Sequencing Cards')}</div>'''
+<div class="cards" style="grid-template-columns:repeat({qc},1fr);grid-template-rows:1fr 1fr">{sc}</div>{ftr('Sequencing Cards')}</div>'''
 
     # C. Role-play cards
     r = C['roleplay']

@@ -72,7 +72,14 @@ def html(T, has_song=True):
     # 5 Practice
     s = D['s5']
     fit = 'background-size:contain;background-repeat:no-repeat;background-color:#fff' if s.get('choice_fit') == 'contain' else ''
-    cope = ''.join(f'''<div class="cp">{pic(c[0],'ci',s['choice_pos'],fit)}<div class="cl">{c[1]}</div></div>''' for c in s['choices'])
+    # A choice may carry a song clip (start, end) in seconds: on the projected deck the card becomes a button
+    # that plays just that part of the song, so students hear the part and then show the move.
+    def cp(c):
+        clip = c[2] if len(c) > 2 and has_song else None
+        attrs = f' role="button" tabindex="0" data-a="{clip[0]}" data-b="{clip[1]}"' if clip else ''
+        cue = '<span class="clipcue"><span class="tri"></span></span>' if clip else ''
+        return f'''<div class="cp{' clip' if clip else ''}"{attrs}>{pic(c[0],'ci',s['choice_pos'],fit)}{cue}<div class="cl">{c[1]}</div></div>'''
+    cope = ''.join(cp(c) for c in s['choices'])
     S.append(f'''<section class="slide paper">{head(s['eyebrow'],s['title'],s['color'])}
 <div class="scene"><div class="sc">{pic(s['img'],'',s['pos'])}</div>
 <div class="prompt"><div class="q">{s['q']}</div><div class="q2">{s['q2']}</div></div></div>
@@ -113,9 +120,12 @@ def html(T, has_song=True):
     if has_song:
         vid_js = '''
  var vid=document.getElementById('vid'),vp=document.getElementById('vplayer');
- function vopen(){vid.classList.add('show');try{vp.currentTime=0;vp.play();}catch(e){}}
- function vclose(){vp.pause();vid.classList.remove('show');}
- document.getElementById('songbtn').onclick=vopen;document.getElementById('vclose').onclick=vclose;'''
+ var stopAt=null;
+ function vopen(a,b){vid.classList.add('show');stopAt=(typeof b==='number')?b:null;try{vp.currentTime=(typeof a==='number')?a:0;vp.play();}catch(e){}}
+ function vclose(){vp.pause();stopAt=null;vid.classList.remove('show');}
+ vp.addEventListener('timeupdate',function(){if(stopAt!==null&&vp.currentTime>=stopAt){vclose();}});
+ [].slice.call(document.querySelectorAll('.cp.clip')).forEach(function(c){var go=function(){vopen(parseFloat(c.dataset.a),parseFloat(c.dataset.b));};c.onclick=go;c.onkeydown=function(e){if(e.key==='Enter'){go();}};});
+ document.getElementById('songbtn').onclick=function(){vopen();};document.getElementById('vclose').onclick=vclose;'''
         vid_key = '''
   if(vid.classList.contains('show')){if(e.key==='Escape'){vclose();}return;}'''
     else:
@@ -255,6 +265,9 @@ h2.ttl{font-size:92px;margin:4px 0 22px;-webkit-text-stroke:3px var(--char);text
 .hud button:hover{background:var(--red)}.hud .cnt{background:rgba(0,0,0,.62);color:#fff;border-radius:20px;padding:7px 13px}
 .song{margin-top:18px;display:inline-flex;align-items:center;gap:16px;font-family:var(--disp);font-size:34px;color:#fff;background:var(--green);border:4px solid var(--char);border-radius:999px;padding:12px 34px 12px 22px;box-shadow:5px 5px 0 var(--char);cursor:pointer}
 .song:hover{background:var(--red)}
+.cp.clip{cursor:pointer;position:relative}.cp.clip:hover .ci{outline:6px solid var(--green)}
+.clipcue{position:absolute;top:10px;right:10px;width:54px;height:54px;border-radius:50%;background:var(--green);border:4px solid var(--char);display:flex;align-items:center;justify-content:center}
+.clipcue .tri{width:0;height:0;margin-left:6px;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
 .song .tri{width:0;height:0;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent}
 .credit{position:absolute;right:64px;bottom:80px;text-align:right;font-family:var(--round);font-size:14px;color:#777}
 .vid{position:fixed;inset:0;z-index:90;background:rgba(20,20,20,.94);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px}
@@ -265,7 +278,7 @@ h2.ttl{font-size:92px;margin:4px 0 22px;-webkit-text-stroke:3px var(--char);text
   @page{size:1600px 900px;margin:0}
   html,body{background:#fff;height:auto}
   .viewport{position:static;display:block}.stage{transform:none!important;width:1600px;height:auto}
-  .hud,.notes,.vid,.song{display:none!important}
+  .hud,.notes,.vid,.song,.clipcue{display:none!important}
   .slide{display:flex!important;position:relative;width:1600px;height:900px;page-break-after:always;break-after:page}
 }
 '''
