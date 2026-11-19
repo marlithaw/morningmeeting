@@ -62,12 +62,20 @@ def topic_page(T, outdir, has_song=None):
     th = lambda f: f"thumbs/{f.rsplit('.', 1)[0]}-1.jpg"
     guide_pages = pdf_pages(os.path.join(outdir, N['guide_pdf']), 4)
     kit_pages = pdf_pages(os.path.join(outdir, N['centers']), 7)
-    meta = S.get('meta') or (f"Topic {T['num']} of the K–2 Behavior Toolkit: {'song video, ' if has_song else ''}student deck, "
+    tlabel = 'Start here' if T['num'] == 0 else f"Topic {T['num']}"
+    tof = 'Start here' if T['num'] == 0 else f"Topic {T['num']} of 12"
+    meta = S.get('meta') or (f"{tlabel} in the K–2 Behavior Toolkit: {'song video, ' if has_song else ''}student deck, "
                              'posters, center kit, Tier 2 mini book, teacher guide, and family half-sheets.')
     hero_style = f' style="object-position:{S["hero_pos"]}"' if S.get('hero_pos') else ''
     watch = ''
     if has_song:
         length = song_length(T, os.path.join(outdir, N['song']))
+        notes = S.get('song_notes') or [
+            f"Play it at the start as a preview of today's learning. It runs {length}.",
+            'Captions are on screen so students can read along. The echo parts are in yellow.',
+            'The deck has a <b>Play the song</b> button on slide 1, so you can play it from the deck.',
+            'Replay it during the week as a transition or a reminder.']
+        song_notes = ''.join(f'\n          <li>{x.format(length=length)}</li>' for x in notes) + '\n        '
         watch = f'''
   <!-- WATCH -->
   <section class="group" id="watch" aria-labelledby="watch-h">
@@ -76,12 +84,7 @@ def topic_page(T, outdir, has_song=None):
       <div class="video"><video controls preload="metadata" poster="thumbs/song-poster.jpg" src="{N['song']}"></video></div>
       <div class="note">
         <h3>How to use the song</h3>
-        <ul>
-          <li>Play it at the start as a preview of today's learning. It runs {length}.</li>
-          <li>Captions are on screen so students can read along. The echo parts are in yellow.</li>
-          <li>The deck has a <b>Play the song</b> button on slide 1, so you can play it from the deck.</li>
-          <li>Replay it during the week as a transition or a reminder.</li>
-        </ul>
+        <ul>{song_notes}</ul>
         <div class="btns" style="margin-top:12px"><a class="btn sm white" href="{N['song']}" download>Download video (MP4)</a></div>
       </div>
     </div>
@@ -104,12 +107,12 @@ def topic_page(T, outdir, has_song=None):
 <div class="wrap">
   <div class="top">
     <a class="logo" href="../../../index.html"><img src="../shared/img/flame-logo.svg" alt="">Matchbook Learning</a>
-    <div class="crumbs"><a href="../../../index.html">Morning Meeting</a><span>›</span><a href="../index.html#topics">K–2 Behavior Toolkit</a><span>›</span>Topic {T['num']}</div>
+    <div class="crumbs"><a href="../../../index.html">Morning Meeting</a><span>›</span><a href="../index.html#topics">K–2 Behavior Toolkit</a><span>›</span>{tlabel}</div>
   </div>
 
   <div class="hero">
     <div>
-      <div class="eb">K–2 Behavior Toolkit · Topic {T['num']} of 12 · {T['part']}</div>
+      <div class="eb">K–2 Behavior Toolkit · {tof}{'' if T['num'] == 0 else ' · ' + T['part']}</div>
       <h1 class="ttl">{' '.join(T['title_lines'])}</h1>
       <p class="sub">{T['subtitle']}</p>
       <div class="say">{pr['en']}</div>

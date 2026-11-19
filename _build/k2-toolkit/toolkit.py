@@ -1,4 +1,4 @@
-"""The 12 K-2 Behavior Toolkit topics in teaching order: the registry the toolkit home page is built from.
+"""The start-here topic and the 12 K-2 Behavior Toolkit topics in teaching order: the registry the toolkit home page is built from.
 
 status: 'live' shows a "Ready to teach" card linking to <slug>/index.html plus an Offline ZIP row;
         'soon' shows a "Coming soon" card. A topic whose folder has been published is shown as live
@@ -8,6 +8,8 @@ title and line must match the topic file's full_title and card_line.
 """
 
 TOPICS = [
+    dict(num=0, title='Our Morning Meeting', line='I know what to do in Morning Meeting.',
+         part='Start here', slug='00-our-morning-meeting', status='live', thumb='welcome'),
     dict(num=1, title='Naming My Feelings', line='I can name how I feel.',
          part='Skills I can use', slug='01-naming-my-feelings', status='live', thumb='ff_hero'),
     dict(num=2, title='Using the Calm Corner', line='I can use the calm corner, get calm, and come back.',
