@@ -1,0 +1,133 @@
+{
+ "videos": {
+  "snowflakebreat": [
+   "YiIA1_lmoN4",
+   "Snowflake Breathing",
+   "Calm Classroom"
+  ],
+  "monstermeditat": [
+   "T6XDe9jPfrI",
+   "Monster Meditation: Focus Rhyme with Grover",
+   "Sesame Street + Headspace"
+  ],
+  "calmfulbreathi": [
+   "MHFG8JR_ueI",
+   "Calmful Breathing Exercises",
+   "Sesame Street"
+  ],
+  "learntobellybr": [
+   "Xq3DwzX6MUw",
+   "Learn to Belly Breathe with Rosita",
+   "Sesame Street"
+  ],
+  "snowysensation": [
+   "zkm2lFVVlqE",
+   "Snowy Sensations! Calm Mindfulness for Kids",
+   "The Mindfulness Teacher"
+  ],
+  "bringitdown": [
+   "bRkILioT_NA",
+   "Bring It Down",
+   "GoNoodle Flow"
+  ],
+  "superpowerlist": [
+   "jJ9zpRAPIuI",
+   "Superpower Listening",
+   "Cosmic Kids Zen Den"
+  ],
+  "candleofconcen": [
+   "yx_8bnRYL08",
+   "Candle of Concentration",
+   "Cosmic Kids Zen Den"
+  ],
+  "rainbowbreath": [
+   "O29e4rRMrV4",
+   "Rainbow Breath",
+   "GoNoodle Flow"
+  ],
+  "theicantmonste": [
+   "jzYtNWjQiK0",
+   "The ‘I Can’t’ Monster",
+   "Cosmic Kids Zen Den"
+  ],
+  "circleofcontro": [
+   "L9zwduYp9G0",
+   "Circle of Control",
+   "Mental Health Center Kids"
+  ],
+  "thoughtbubbles": [
+   "xUUq0HuSLS0",
+   "Thought Bubbles",
+   "Cosmic Kids Zen Den"
+  ],
+  "dontgiveupwith": [
+   "pWp6kkz-pnQ",
+   "Don’t Give Up, with Bruno Mars",
+   "Sesame Street"
+  ],
+  "calmclassroomm": [
+   "1DORahLEPQQ",
+   "Calm Classroom: Middle and High School",
+   "Calm Classroom"
+  ],
+  "breathingtechn": [
+   "GY7QJaHOnYA",
+   "Breathing Technique for Anxiety and Focus",
+   "Headspace"
+  ],
+  "groundingexerc": [
+   "LgRd1Mzhb_Q",
+   "Grounding Exercise for Racing Minds",
+   "Headspace"
+  ],
+  "howtopracticee": [
+   "f2O6mQkFiiw",
+   "How to Practice Effectively, for Just About Anything",
+   "TED-Ed"
+  ],
+  "mindfulmomentf": [
+   "yKNd9FJDVis",
+   "Mindful Moment for Teens: Breath Surfing",
+   "Yoga Ed."
+  ]
+ },
+ "daily_sequence": {
+  "k1": [
+   "snowflakebreat",
+   "monstermeditat",
+   "calmfulbreathi",
+   "learntobellybr",
+   "snowysensation"
+  ],
+  "23": [
+   "bringitdown",
+   "superpowerlist",
+   "candleofconcen",
+   "rainbowbreath",
+   "theicantmonste"
+  ],
+  "45": [
+   "circleofcontro",
+   "candleofconcen",
+   "thoughtbubbles",
+   "theicantmonste",
+   "dontgiveupwith"
+  ],
+  "68": [
+   "calmclassroomm",
+   "breathingtechn",
+   "groundingexerc",
+   "howtopracticee",
+   "mindfulmomentf"
+  ]
+ },
+ "school_days": [
+  "mon",
+  "tue",
+  "wed",
+  "thu",
+  "fri"
+ ],
+ "photo_credits": [],
+ "review_note": "This week’s Ember videos bring back calming favorites from earlier weeks for a testing week, plus one new winter mindfulness clip for K–1. A few clips repeat across two bands on different days. All five days are school days."
+}

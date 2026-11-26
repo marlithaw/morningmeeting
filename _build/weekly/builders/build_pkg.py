@@ -5,7 +5,8 @@ from content_se import *
 import art
 import art2
 import art3
-import art5
+import winter
+from build_se import ARTM, WIN
 from build_se import SCENE
 from build_se import OUT, W4, icon100, MMREL
 e = lambda s: html.escape(s, quote=False)
@@ -61,11 +62,11 @@ def student_pages(band):
         if d == 'mon':
             body = checkin(band)
         else:
-            if d == 'tue': q = TUE_DO[band]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art5.TUE[band]()}</svg></div>'
+            if d == 'tue': q = TUE_DO[band]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{ARTM.TUE[band]()}</svg></div>'
             elif d == 'wed': q = WED_DO[band]; vis = f'<div class="art"><svg viewBox="{WED_FROM[band]}" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{SCENE[band]()}</svg></div>'
             elif d == 'thu':
                 q = THU[band]
-                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{art5.wyr_ch(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
+                vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">{ARTM.WYR(band)}</svg></div><p class="opt" style="text-align:center"><b>Circle one: A or B · Encierra: A o B</b></p>'
             else: q = FRI[band][0]; vis = f'<div class="art"><svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg"><rect width="900" height="560" fill="#f2e7cc"/>{art2.hollers() if band in ('k1', '23') else art2.cypher()}</svg></div>'
             body = f'<p class="q">{e(q[0])}</p><p class="qe">{e(q[1])}</p>{vis}<div class="box">My response / Mi respuesta</div><p class="opt" style="font-size:11px"><b>{"Chant" if band in ("k1","23") else "Bar"} of the day / {"Canto" if band in ("k1","23") else "Rima"} del día:</b> “{e(BARS[d][band][0])}”</p>'
         pages.append(f'<div class="pg">{head("Morning Spark", band)}<div class="meta">{DATE[d][0]} | {f[0]}</div><div class="nm">Name / Nombre: ______________________</div>{body}<div class="foot"><span>{FOOT}</span><span>{n}</span></div></div>')
@@ -83,7 +84,7 @@ def slips(band):
 
 def write_pdf(name, pages):
     src = f'{OUT}/_tmp_{name}.html'
-    open(src, 'w').write(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{"".join(pages)}</body></html>')
+    open(src, 'w').write(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}{winter.PDF_CSS if WIN else ""}</style></head><body>{"".join(pages)}</body></html>')
     subprocess.run(['node', '-e', f'''const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{src}');await p.waitForTimeout(400);await p.pdf({{path:'{OUT}/{name}',format:'Letter',printBackground:true,margin:{{top:'0.45in',bottom:'0.45in',left:'0.45in',right:'0.45in'}}}});await b.close()}})()'''], check=True)
     os.remove(src)
 
@@ -148,6 +149,7 @@ def package():
     s = open(f'{W4}/index.html').read()
     headcss = s[:s.find('<body')]
     headcss = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark + Ember · Week {SE_WEEK} · {RANGE}</title>', headcss)
+    if WIN: headcss = headcss.replace('</head>', winter.PKG_CSS + '</head>', 1)
     files = ''.join(f'<a href="{h}">{t}</a>' for h, t in
         [('teacher-guide.html', 'Dated teacher guide'), ('teacher-guide.pdf', 'Print guide'), (f'spark-ember-week-{SE_WEEK}-all-files.zip', 'Download all files')]
         + [(f'morning-spark-{b}-student-pages.pdf', f'Spark {SBL[b]} student pages') for b in SBANDS] + [(f'ember-{b}-reflection-slips.pdf', f'Ember {SBL[b]} slips') for b in SBANDS])

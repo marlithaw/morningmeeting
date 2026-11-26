@@ -5,14 +5,18 @@ from content_se import *
 import art
 import art2
 import art3
-import art5
+import importlib, winter
+ARTM = importlib.import_module(ART)
+WIN = globals().get('WINTER', False)
+PREVIEW = os.environ.get('OUTROOT', 'preview') == 'preview'
+LTREL = '../../../resources/k2-behavior-toolkit' if PREVIEW else '../../k2-behavior-toolkit'
 from icons import ICONS
 from content_mm import LEETEE
 
-REPO = '/home/claude/morningmeeting'
+REPO = os.environ.get('REPO', '/home/claude/morningmeeting')
 W4 = f'{REPO}/resources/spark-ember/week-4-everyone-belongs'
 W3 = f'{REPO}/resources/spark-ember/week-3-back-together'
-OUT = f'{REPO}/preview/spark-ember/{SE_SLUG}'
+OUT = f'{REPO}/{os.environ.get("OUTROOT", "preview")}/spark-ember/{SE_SLUG}'
 MMREL = f'../../{MMSLUG}'
 _IXLP = '/home/claude/ixlrepo/public/ixl-data.json'
 if not os.path.exists(_IXLP):
@@ -106,8 +110,8 @@ LTCSS = ('<style>.mmlink{margin-top:10px;padding:12px 22px;gap:8px}.mmlink .mmt{
          '.mmlink .mmor{font:600 16px var(--disp);letter-spacing:.12em;text-transform:uppercase;color:#F9DC7C}'
          '.mmbtn.lt{background:transparent;color:#F9DC7C;border:3px solid #F9DC7C;padding:5px 20px}.mmbtn.lt:hover{background:#F9DC7C;color:#1A1A1A}</style>')
 
-SCENE = art5.WED
-SCENE_LAB = {b: 'A Talk It Out table: two students sit across from each other using an I-statement poster that reads I feel, when, I need, with no put-downs and no cursing. One says, I feel upset when. The other says, I hear you.' for b in ('k1', '23', '45', '68')}
+SCENE = ARTM.WED
+# SCENE_LAB comes from the content file
 
 def set_cards(t, A, B):
     def card(m, X, letter):
@@ -131,7 +135,7 @@ def handoff(t, day, band):
         slug, title = LEETEE[n]
         who = 'K–2' if band == 'k1' else 'Grade 2'
         btn += (f'</span><span class="mmbtns mmalt"><span class="mmor">Or for {who} · Lee &amp; Tee option</span>'
-                f'<a class="mmbtn lt" href="../../k2-behavior-toolkit/{slug}/index.html">▶ {e(title)}</a>')
+                f'<a class="mmbtn lt" href="{LTREL}/{slug}/index.html">▶ {e(title)}</a>')
     t = re.sub(r'<span class="mmbtns">.*?</span></div>', f'<span class="mmbtns">{btn}</span></div>', t, count=1, flags=re.S)
     return t
 
@@ -150,11 +154,11 @@ def deck(band):
     # Monday
     t = S4[('mon', 'do')]; t = set_ixl(set_theme(set_dn(t, 'mon')), 'mon'); out.append(t)
     t = S4[('mon', 'reveal')]; en, es = MON_REV[band]
-    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art5.huddle_ch(), label='Students gather by Room 63 under a Cool Heads, Kind Words banner, saying Breathe first and Respira.', cls='w5art'))
+    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(ARTM.HUDDLE(), label=HUDDLE_LAB, cls='w5art'))
     out.append(add_bar(t, 'mon', band))
     out.append(handoff(S4[('mon', 'handoff')], 'mon', band))
     # Tuesday Picture of the Day
-    pic = art2.svg(art5.TUE[band](), label=TUE_LAB[band], cls='w5art')
+    pic = art2.svg(ARTM.TUE[band](), label=TUE_LAB[band], cls='w5art')
     en, es = TUE_DO[band]
     t = S4[('tue', 'do')]; t = set_art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'tue')), 'tue'), en, es), en, es), pic); out.append(t)
     en, es = TUE_REV[band]
@@ -171,7 +175,7 @@ def deck(band):
     out.append(handoff(S4[('wed', 'handoff')], 'wed', band))
     # Thursday WYR
     do, rev = THU[band], THU_REV[band]
-    wyr = art2.svg(art5.wyr_ch(band), label=WYR_LAB[band], cls='w5art')
+    wyr = art2.svg(ARTM.WYR(band), label=WYR_LAB[band], cls='w5art')
     t = S4[('thu', 'do')]; t = set_w3art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), wyr); out.append(t)
     t = S4[('thu', 'reveal')]; t = add_bar(set_w3art(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), wyr), 'thu', band); out.append(t)
     out.append(handoff(S4[('thu', 'handoff')], 'thu', band))
@@ -191,7 +195,7 @@ def deck(band):
     # assemble
     first = s4.find('<section class="slide'); last = s4.rfind('</section>') + len('</section>')
     head, tail = s4[:first], s4[last:]
-    head = head.replace('</head>', W5CSS + '</head>', 1)
+    head = head.replace('</head>', W5CSS + (winter.SPARK_CSS if WIN else '') + '</head>', 1)
     if band in ('k1', '23'):
         head = head.replace('</head>', LTCSS + '</head>', 1)
     head = re.sub(r'<title>[^<]*</title>', f'<title>Morning Spark · Week {SE_WEEK} · {RANGE} · {SBL[band]}</title>', head)
@@ -236,6 +240,7 @@ def ember(band):
     s = s.replace('.r .en{font-size:20px;line-height:1.1}', '.r .en{font-size:20px;line-height:1.1}.r .es{line-height:1.15}.rules{grid-template-columns:.8fr 1.4fr 1fr}', 1)
     if band == '23':  # the longest 2-3 reflection question needs a little less type to clear the panel
         s = s.replace('.rules{grid-template-columns:.8fr 1.4fr 1fr}', '.rules{grid-template-columns:.8fr 1.4fr 1fr}.p2{gap:10px}.pq .en{font-size:27px}', 1)
+    if WIN: s = s.replace('</head>', winter.EMBER_CSS + '</head>', 1)
     open(f'{OUT}/ember-{band}.html', 'w').write(s)
 
 if __name__ == '__main__':

@@ -4,10 +4,12 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content_mm import *
 from icons import ICONS
 
-REPO = '/home/claude/morningmeeting'
+REPO = os.environ.get('REPO', '/home/claude/morningmeeting')
 T12 = f'{REPO}/resources/week-12-everyone-belongs'
 T11 = f'{REPO}/resources/week-11-back-on-the-one'
-OUT = f'{REPO}/preview/{SLUG}'
+OUT = f'{REPO}/{os.environ.get("OUTROOT", "preview")}/{SLUG}'
+import winter
+WIN = globals().get('WINTER', False)
 FIRST5 = 'https://canva.link/bhu6ll009tiusud'
 RELAX_V = 'https://marlithaw.github.io/CC-Teacher_Edition/resources/videos/relax.mp4'
 EXCITE_V = 'https://marlithaw.github.io/CC-Teacher_Edition/resources/videos/excite.mp4'
@@ -158,14 +160,14 @@ def lesson(day, band):
            f'<a href="teacher-guide.html#day-{lnum}-{band}">Guide</a><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button>'
            '<button id="nbtn" aria-controls="notes" aria-expanded="false">Notes (N)</button><span class="cnt" id="cnt" aria-live="polite"></span></nav>')
     doc = (f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week {WEEK} · {e(title_en)} · {BANDLABEL[band]}</title>'
-           + HEAD + '\n<body>' + hud + '<main class="deck">' + ''.join(S) + '</main><aside class="notes" id="notes" aria-label="Teacher notes">' + notes + '</aside>' + TAIL)
+           + HEAD + (winter.DECK_CSS if WIN else '') + '\n<body>' + hud + '<main class="deck">' + ''.join(S) + '</main><aside class="notes" id="notes" aria-label="Teacher notes">' + notes + '</aside>' + TAIL)
     open(f'{OUT}/lesson-{lnum}-{band}.html', 'w').write(doc)
 
 # ---------- site pages ----------
 PAGEHEAD = open(f'{T12}/teacher-guide.html').read()
 PAGEHEAD = PAGEHEAD[PAGEHEAD.index('<link rel="stylesheet"'):PAGEHEAD.index('</head>')]
 def page(title, kicker_sub, h1, sub, main):
-    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title>{PAGEHEAD}</head><body>'
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title>{PAGEHEAD}{winter.PAGE_CSS if WIN else ""}</head><body>'
             f'<header class="hero"><div class="shell"><div class="brand"><img src="shared/matchbook-flame.png" alt="Matchbook flame">MATCHBOOK LEARNING · MORNING MEETING</div>'
             f'<div class="kicker">Week {WEEK} · {DATES}</div><h1>{e(h1)}</h1><p>{e(sub)}</p><div class="actions"><a class="btn small" href="index.html">Week hub</a>'
             f'<a class="btn small light" href="teacher-guide.html">Teacher guide</a><button class="btn small yellow" onclick="window.print()">Print</button></div></div></header>'

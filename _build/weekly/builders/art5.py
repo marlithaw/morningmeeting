@@ -121,3 +121,6 @@ def wyr_ch(kind):
 
 TUE = {'k1': blocks_down, '23': line_bump, '45': cool_plan, '68': phone_down}
 WED = {'k1': talk_table, '23': talk_table, '45': talk_table, '68': talk_table}
+
+HUDDLE = huddle_ch
+WYR = wyr_ch
