@@ -1,0 +1,771 @@
+{
+ "math": {
+  "K": {
+   "14": {
+    "1": [
+     [
+      "Add with pictures - sums up to 5",
+      "math/kindergarten/add-with-pictures-sums-up-to-5",
+      "LZY"
+     ],
+     [
+      "Addition word problems with pictures - sums upto 5",
+      "math/kindergarten/addition-word-problems-with-pictures-sums-up-to-5",
+      "W5C"
+     ]
+    ],
+    "2": [
+     [
+      "Add two numbers - sums up to 5",
+      "math/kindergarten/add-two-numbers-sums-up-to-5",
+      "YAX"
+     ]
+    ],
+    "3": [
+     [
+      "Addition word problems - sums up to 5",
+      "math/kindergarten/addition-word-problems-sums-up-to-5",
+      "QDH"
+     ]
+    ],
+    "4": [
+     [
+      "Take apart numbers up to 5 - additionsentences",
+      "math/kindergarten/take-apart-numbers-up-to-5-addition-sentences",
+      "9E2"
+     ]
+    ],
+    "5": [
+     [
+      "Make a number using addition - sums up to5",
+      "math/kindergarten/make-a-number-using-addition-sums-up-to-5",
+      "B2L"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "14": {
+    "1": [
+     [
+      "Word problems with change unknown - up to20",
+      "math/grade-1/word-problems-with-change-unknown-up-to-20",
+      "REU"
+     ]
+    ],
+    "2": [
+     [
+      "Word problems with start unknown - up to20",
+      "math/grade-1/word-problems-with-start-unknown-up-to-20",
+      "FCG"
+     ]
+    ],
+    "3": [
+     [
+      "Word problems with one addend unknown - upto 20",
+      "math/grade-1/word-problems-with-one-addend-unknown-up-to-20",
+      "AS7"
+     ]
+    ],
+    "4": [
+     [
+      "Word problems with both addends unknown - upto 20",
+      "math/grade-1/word-problems-with-both-addends-unknown-up-to-20",
+      "ULJ"
+     ]
+    ],
+    "5": [
+     [
+      "Addition and subtraction facts - up to 20",
+      "math/grade-1/addition-and-subtraction-facts-up-to-20",
+      "C78"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "14": {
+    "1": [
+     [
+      "Ways to make a number using addition and subtraction - up to 100",
+      "math/grade-2/ways-to-make-a-number-using-addition-and-subtraction-up-to-100",
+      "8WA"
+     ]
+    ],
+    "2": [
+     [
+      "Addition word problems - three numbers up to two digits each",
+      "math/grade-2/addition-word-problems-three-numbers-up-to-two-digits-each",
+      "52T"
+     ]
+    ],
+    "3": [
+     [
+      "Add four numbers up to two digits each",
+      "math/grade-2/add-four-numbers-up-to-two-digits-each",
+      "DP6"
+     ]
+    ],
+    "4": [
+     [
+      "Addition word problems - four numbers up to two digits each",
+      "math/grade-2/addition-word-problems-four-numbers-up-to-two-digits-each",
+      "YSX"
+     ]
+    ],
+    "5": [
+     [
+      "Two-step addition and subtraction word problems - up to 100",
+      "math/grade-2/two-step-addition-and-subtraction-word-problems-up-to-100",
+      "7P8"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "14": {
+    "1": [
+     [
+      "Relate multiplication and division",
+      "math/grade-3/relate-multiplication-and-division",
+      "67L"
+     ],
+     [
+      "Divide by 2: quotients up to 10",
+      "math/grade-3/divide-by-2-quotients-up-to-10",
+      "ANU"
+     ]
+    ],
+    "2": [
+     [
+      "Divide by 5: quotients up to 10",
+      "math/grade-3/divide-by-5-quotients-up-to-10",
+      "C9M"
+     ]
+    ],
+    "3": [
+     [
+      "Divide by 10: quotients up to 10",
+      "math/grade-3/divide-by-10-quotients-up-to-10",
+      "YRG"
+     ]
+    ],
+    "4": [
+     [
+      "Divide by 3: quotients up to 10",
+      "math/grade-3/divide-by-3-quotients-up-to-10",
+      "PCL"
+     ]
+    ],
+    "5": [
+     [
+      "Divide by 4: quotients up to 10",
+      "math/grade-3/divide-by-4-quotients-up-to-10",
+      "QGT"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "14": {
+    "1": [
+     [
+      "Divisibility rules: word problems",
+      "math/grade-4/divisibility-rules-word-problems",
+      "ZG8"
+     ],
+     [
+      "Divide 2-digit numbers by 1-digit numbers: interpret remainders",
+      "math/grade-4/divide-2-digit-numbers-by-1-digit-numbers-interpret-remainders",
+      "5WV"
+     ]
+    ],
+    "2": [
+     [
+      "Divide larger numbers by 1-digit numbers: interpret remainders",
+      "math/grade-4/divide-larger-numbers-by-1-digit-numbers-interpret-remainders",
+      "J8D"
+     ]
+    ],
+    "3": [
+     [
+      "Divide larger numbers by 1-digit numbers: word problems",
+      "math/grade-4/divide-larger-numbers-by-1-digit-numbers-word-problems",
+      "DKK"
+     ]
+    ],
+    "4": [
+     [
+      "Comparison word problems with multiplication and division: larger numbers",
+      "math/grade-4/comparison-word-problems-with-multiplication-and-division-larger-numbers",
+      "AH8"
+     ]
+    ],
+    "5": [
+     [
+      "Multi-step word problems involving remainders",
+      "math/grade-4/multi-step-word-problems-involving-remainders",
+      "SLS"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "14": {
+    "1": [
+     [
+      "Multiply mixed numbers, fractions, and whole numbers",
+      "math/grade-5/multiply-mixed-numbers-fractions-and-whole-numbers",
+      "XSE"
+     ],
+     [
+      "Multiply three mixed numbers, fractions, and whole numbers",
+      "math/grade-5/multiply-three-mixed-numbers-fractions-and-whole-numbers",
+      "BMU"
+     ]
+    ],
+    "2": [
+     [
+      "Area of rectangles with fractions and mixed numbers",
+      "math/grade-5/area-of-rectangles-with-fractions-and-mixed-numbers",
+      "PMV"
+     ],
+     [
+      "Multiplication with mixed numbers: word problems",
+      "math/grade-5/multiplication-with-mixed-numbers-word-problems",
+      "5W6"
+     ]
+    ],
+    "3": [
+     [
+      "Multiply fractions and mixed numbers in recipes",
+      "math/grade-5/multiply-fractions-and-mixed-numbers-in-recipes",
+      "QHN"
+     ]
+    ],
+    "4": [
+     [
+      "Scaling whole numbers by fractions: justify your answer",
+      "math/grade-5/scaling-whole-numbers-by-fractions-justify-your-answer",
+      "Q7M"
+     ]
+    ],
+    "5": [
+     [
+      "Scaling by fractions and mixed numbers",
+      "math/grade-5/scaling-by-fractions",
+      "6NW"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "14": {
+    "1": [
+     [
+      "Convert between customary and metric systems",
+      "math/grade-6/convert-between-customary-and-metric-systems",
+      "5CF"
+     ],
+     [
+      "Write multiplication expressions using exponents",
+      "math/grade-6/write-multiplication-expressions-using-exponents",
+      "TY5"
+     ]
+    ],
+    "2": [
+     [
+      "Evaluate powers with whole number bases",
+      "math/grade-6/evaluate-powers",
+      "XDA"
+     ]
+    ],
+    "3": [
+     [
+      "Write powers of ten with exponents",
+      "math/grade-6/write-powers-of-ten-with-exponents",
+      "DLL"
+     ]
+    ],
+    "4": [
+     [
+      "Find the missing exponent or base",
+      "math/grade-6/find-the-missing-exponent-or-base",
+      "HC5"
+     ]
+    ],
+    "5": [
+     [
+      "Evaluate numerical expressions one step at a time",
+      "math/grade-6/evaluate-whole-number-numerical-expressions-one-step-at-a-time",
+      "XCQ"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "14": {
+    "1": [
+     [
+      "Percents of numbers and money amounts",
+      "math/grade-7/percents-of-numbers-and-money-amounts",
+      "93K"
+     ],
+     [
+      "Percents of numbers: word problems",
+      "math/grade-7/percents-of-numbers-word-problems",
+      "EXE"
+     ]
+    ],
+    "2": [
+     [
+      "Solve percent problems using strip models",
+      "math/grade-7/solve-percent-problems-using-strip-models",
+      "9XC"
+     ]
+    ],
+    "3": [
+     [
+      "Solve percent equations",
+      "math/grade-7/solve-percent-equations",
+      "67F"
+     ]
+    ],
+    "4": [
+     [
+      "Solve percent equations: word problems",
+      "math/grade-7/solve-percent-equations-word-problems",
+      "JS6"
+     ]
+    ],
+    "5": [
+     [
+      "Percent of change",
+      "math/grade-7/percent-of-change",
+      "BL7"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "14": {
+    "1": [
+     [
+      "Find the constant of proportionality from a graph",
+      "math/grade-8/find-the-constant-of-proportionality-from-a-graph",
+      "YMH"
+     ],
+     [
+      "Interpret graphs of proportional relationships",
+      "math/grade-8/interpret-graphs-of-proportional-relationships",
+      "Q96"
+     ]
+    ],
+    "2": [
+     [
+      "Identify proportional relationships by graphing",
+      "math/grade-8/identify-proportional-relationships-by-graphing",
+      "RXD"
+     ],
+     [
+      "Write equations for proportional relationships from graphs",
+      "math/grade-8/write-equations-for-proportional-relationships-from-graphs",
+      "G7N"
+     ]
+    ],
+    "3": [
+     [
+      "Write and solve equations for proportional relationships",
+      "math/grade-8/write-and-solve-equations-for-proportional-relationships",
+      "HPM"
+     ]
+    ],
+    "4": [
+     [
+      "Compare proportional relationships represented in different ways",
+      "math/grade-8/compare-proportional-relationships-represented-in-different-ways",
+      "LLL"
+     ]
+    ],
+    "5": [
+     [
+      "Checkpoint: Proportional relationships",
+      "math/grade-8/checkpoint-proportional-relationships",
+      "58H"
+     ]
+    ]
+   }
+  }
+ },
+ "ela": {
+  "K": {
+   "14": {
+    "1": [
+     [
+      "Find the short u word",
+      "ela/kindergarten/find-the-short-u-word",
+      "G7Q"
+     ]
+    ],
+    "2": [
+     [
+      "Choose the picture that matches the short u word",
+      "ela/kindergarten/choose-the-picture-that-matches-the-short-u-word",
+      "9XY"
+     ]
+    ],
+    "3": [
+     [
+      "Put the sounds in order",
+      "ela/kindergarten/put-the-sounds-in-order",
+      "9SW"
+     ]
+    ],
+    "4": [
+     [
+      "Read sight words set 1: ate, he, of, that, was",
+      "ela/kindergarten/read-sight-words-set-1-ate-he-of-that-was",
+      "UJ5"
+     ]
+    ],
+    "5": [
+     [
+      "Identify the purpose of a text",
+      "ela/kindergarten/identify-the-purpose-of-a-text",
+      "RBN"
+     ]
+    ]
+   }
+  },
+  "1": {
+   "14": {
+    "1": [
+     [
+      "Read short vowel words: set 2",
+      "ela/grade-1/read-short-vowel-words-set-2",
+      "N63"
+     ]
+    ],
+    "2": [
+     [
+      "Read short e stories",
+      "ela/grade-1/read-short-e-stories",
+      "QLE"
+     ]
+    ],
+    "3": [
+     [
+      "Read along with fantasy",
+      "ela/grade-1/read-along-with-fantasy",
+      "Z6B"
+     ]
+    ],
+    "4": [
+     [
+      "Choose the correct personal pronoun",
+      "ela/grade-1/choose-the-correct-personal-pronoun",
+      "JPT"
+     ]
+    ]
+   }
+  },
+  "2": {
+   "14": {
+    "1": [
+     [
+      "Read long vowel stories",
+      "ela/grade-2/read-long-vowel-stories",
+      "S2G"
+     ],
+     [
+      "Complete the word with the correct r-controlled vowel: ar, er, ir, or, ur",
+      "ela/grade-2/complete-the-word-with-the-correct-r-controlled-vowel-ar-er-ir-or-ur",
+      "PLR"
+     ]
+    ],
+    "2": [
+     [
+      "Complete the opinion passage with an example",
+      "ela/grade-2/complete-the-opinion-passage-with-an-example",
+      "GF5"
+     ]
+    ],
+    "3": [
+     [
+      "Complete the opinion passage with a reason",
+      "ela/grade-2/complete-the-opinion-passage-with-a-reason",
+      "5UN"
+     ]
+    ],
+    "4": [
+     [
+      "Choose between personal and reflexive pronouns",
+      "ela/grade-2/choose-between-personal-and-reflexive-pronouns",
+      "MWE"
+     ]
+    ],
+    "5": [
+     [
+      "Spell words with suffixes: change y to i",
+      "ela/grade-2/spell-words-with-suffixes-change-y-to-i",
+      "25L"
+     ]
+    ]
+   }
+  },
+  "3": {
+   "14": {
+    "1": [
+     [
+      "Determine the meanings of similes",
+      "ela/grade-3/determine-the-meanings-of-similes",
+      "Z59"
+     ],
+     [
+      "Determine the themes of myths, fables, and folktales",
+      "ela/grade-3/determine-the-themes-of-myths-fables-and-folktales",
+      "7T9"
+     ]
+    ],
+    "2": [
+     [
+      "Choose topic sentences for narrative paragraphs",
+      "ela/grade-3/choose-topic-sentences-for-narrative-paragraphs",
+      "SJM"
+     ]
+    ],
+    "3": [
+     [
+      "Determine the meaning of a word with -able or -ment",
+      "ela/grade-3/determine-the-meaning-of-a-word-with-able-or-ment",
+      "8L8"
+     ]
+    ],
+    "4": [
+     [
+      "Use the correct subject or verb",
+      "ela/grade-3/use-the-correct-subject-or-verb",
+      "FZR"
+     ]
+    ],
+    "5": [
+     [
+      "Pronoun-verb agreement",
+      "ela/grade-3/pronoun-verb-agreement",
+      "DBY"
+     ]
+    ]
+   }
+  },
+  "4": {
+   "14": {
+    "1": [
+     [
+      "Read graphic organizers",
+      "ela/grade-4/read-graphic-organizers",
+      "DH7"
+     ]
+    ],
+    "2": [
+     [
+      "Read science fiction with illustrations",
+      "ela/grade-4/read-science-fiction-with-illustrations",
+      "DFJ"
+     ]
+    ],
+    "3": [
+     [
+      "Which sentence has the same meaning?",
+      "ela/grade-4/which-sentence-has-the-same-meaning",
+      "B6G"
+     ]
+    ],
+    "4": [
+     [
+      "Form the singular or plural possessive",
+      "ela/grade-4/form-the-singular-or-plural-possessive",
+      "BRH"
+     ]
+    ],
+    "5": [
+     [
+      "Identify and correct errors with plural and possessive nouns",
+      "ela/grade-4/identify-and-correct-errors-with-plural-and-possessive-nouns",
+      "WMN"
+     ]
+    ]
+   }
+  },
+  "5": {
+   "14": {
+    "1": [
+     [
+      "Read about sports and hobbies",
+      "ela/grade-5/read-about-sports-and-hobbies",
+      "GDH"
+     ]
+    ],
+    "2": [
+     [
+      "Revise the sentence using a stronger verb",
+      "ela/grade-5/revise-the-sentence-using-a-stronger-verb",
+      "ALY"
+     ]
+    ],
+    "3": [
+     [
+      "Determine the meanings of words with Greek and Latin roots",
+      "ela/grade-5/determine-the-meanings-of-words-with-greek-and-latin-roots",
+      "PDL"
+     ]
+    ],
+    "4": [
+     [
+      "Abbreviate people's titles",
+      "ela/grade-5/abbreviate-peoples-titles",
+      "ZMP"
+     ]
+    ],
+    "5": [
+     [
+      "Abbreviate units of measurement",
+      "ela/grade-5/abbreviate-units-of-measurement",
+      "76T"
+     ]
+    ]
+   }
+  },
+  "6": {
+   "14": {
+    "1": [
+     [
+      "Analyze passages from Harriet Tubman: Conductor on the Underground Railroad: Part 2",
+      "ela/grade-6/analyze-passages-from-harriet-tubman-conductor-on-the-underground-railroad-part-2",
+      "VKZ"
+     ],
+     [
+      "Evaluate newspaper headlines for bias",
+      "ela/grade-6/evaluate-newspaper-headlines-for-bias",
+      "2CH"
+     ]
+    ],
+    "2": [
+     [
+      "Use dictionary definitions",
+      "ela/grade-6/use-dictionary-definitions",
+      "RLF"
+     ]
+    ],
+    "3": [
+     [
+      "Use thesaurus entries",
+      "ela/grade-6/use-thesaurus-entries",
+      "7NK"
+     ]
+    ],
+    "4": [
+     [
+      "Use the correct subject or verb",
+      "ela/grade-6/use-the-correct-subject-or-verb",
+      "UZN"
+     ]
+    ],
+    "5": [
+     [
+      "Use the correct verb – with compound subjects",
+      "ela/grade-6/use-the-correct-verb-with-compound-subjects",
+      "8XP"
+     ]
+    ]
+   }
+  },
+  "7": {
+   "14": {
+    "1": [
+     [
+      "Draw inferences from literary texts",
+      "ela/grade-7/draw-inferences-from-literary-texts",
+      "UVZ"
+     ],
+     [
+      "Identify counterclaims",
+      "ela/grade-7/identify-counterclaims",
+      "PXT"
+     ]
+    ],
+    "2": [
+     [
+      "Use dictionary definitions",
+      "ela/grade-7/use-dictionary-definitions",
+      "AYU"
+     ]
+    ],
+    "3": [
+     [
+      "Spell common words: sets 1 and 2",
+      "ela/grade-7/spell-common-words-sets-1-and-2",
+      "R6X"
+     ]
+    ],
+    "4": [
+     [
+      "Identify vague pronoun references",
+      "ela/grade-7/identify-vague-pronoun-references",
+      "26T"
+     ]
+    ],
+    "5": [
+     [
+      "Correct inappropriate shifts in pronoun number and person",
+      "ela/grade-7/correct-inappropriate-shifts-in-pronoun-number-and-person",
+      "MSZ"
+     ]
+    ]
+   }
+  },
+  "8": {
+   "14": {
+    "1": [
+     [
+      "Read about science and nature",
+      "ela/grade-8/read-about-science-and-nature",
+      "QDX"
+     ],
+     [
+      "Classify logical fallacies",
+      "ela/grade-8/classify-logical-fallacies",
+      "FZ9"
+     ]
+    ],
+    "2": [
+     [
+      "Find words using context",
+      "ela/grade-8/find-words-using-context",
+      "J8G"
+     ]
+    ],
+    "3": [
+     [
+      "Spell common words: sets 3 and 4",
+      "ela/grade-8/spell-common-words-sets-3-and-4",
+      "UXP"
+     ]
+    ],
+    "4": [
+     [
+      "Correct errors with indefinite pronoun-verb agreement",
+      "ela/grade-8/correct-errors-with-indefinite-pronoun-verb-agreement",
+      "CTT"
+     ]
+    ],
+    "5": [
+     [
+      "Use the correct verb – with compound subjects",
+      "ela/grade-8/use-the-correct-verb-with-compound-subjects",
+      "3W6"
+     ]
+    ]
+   }
+  }
+ }
+}

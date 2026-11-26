@@ -5,7 +5,7 @@ from content_se import *
 import art
 import art2
 import art3
-import art4
+import art5
 from icons import ICONS
 from content_mm import LEETEE
 
@@ -106,11 +106,8 @@ LTCSS = ('<style>.mmlink{margin-top:10px;padding:12px 22px;gap:8px}.mmlink .mmt{
          '.mmlink .mmor{font:600 16px var(--disp);letter-spacing:.12em;text-transform:uppercase;color:#F9DC7C}'
          '.mmbtn.lt{background:transparent;color:#F9DC7C;border:3px solid #F9DC7C;padding:5px 20px}.mmbtn.lt:hover{background:#F9DC7C;color:#1A1A1A}</style>')
 
-SCENE = art4.WED
-SCENE_LAB = {'k1': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
-             '23': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
-             '45': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.',
-             '68': 'A gratitude wall of sticky notes with hearts thanks school helpers: bus drivers, the cafeteria team, custodians, a reading buddy, the nurse, the front office, and a coach.'}
+SCENE = art5.WED
+SCENE_LAB = {b: 'A Talk It Out table: two students sit across from each other using an I-statement poster that reads I feel, when, I need, with no put-downs and no cursing. One says, I feel upset when. The other says, I hear you.' for b in ('k1', '23', '45', '68')}
 
 def set_cards(t, A, B):
     def card(m, X, letter):
@@ -153,11 +150,11 @@ def deck(band):
     # Monday
     t = S4[('mon', 'do')]; t = set_ixl(set_theme(set_dn(t, 'mon')), 'mon'); out.append(t)
     t = S4[('mon', 'reveal')]; en, es = MON_REV[band]
-    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art4.huddle_tt(), label='Students gather by Room 63 under a Thankful Together banner, saying Thank you and Gracias.', cls='w5art'))
+    t = set_art(set_copy(set_data(set_dn(t, 'mon'), en, es), en, es), art2.svg(art5.huddle_ch(), label='Students gather by Room 63 under a Cool Heads, Kind Words banner, saying Breathe first and Respira.', cls='w5art'))
     out.append(add_bar(t, 'mon', band))
     out.append(handoff(S4[('mon', 'handoff')], 'mon', band))
     # Tuesday Picture of the Day
-    pic = art2.svg(art4.TUE[band](), label=TUE_LAB[band], cls='w5art')
+    pic = art2.svg(art5.TUE[band](), label=TUE_LAB[band], cls='w5art')
     en, es = TUE_DO[band]
     t = S4[('tue', 'do')]; t = set_art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'tue')), 'tue'), en, es), en, es), pic); out.append(t)
     en, es = TUE_REV[band]
@@ -174,7 +171,7 @@ def deck(band):
     out.append(handoff(S4[('wed', 'handoff')], 'wed', band))
     # Thursday WYR
     do, rev = THU[band], THU_REV[band]
-    wyr = art2.svg(art4.wyr_tt(band), label=WYR_LAB[band], cls='w5art')
+    wyr = art2.svg(art5.wyr_ch(band), label=WYR_LAB[band], cls='w5art')
     t = S4[('thu', 'do')]; t = set_w3art(set_copy(set_data(set_ixl(set_theme(set_dn(t, 'thu')), 'thu'), *do), *do), wyr); out.append(t)
     t = S4[('thu', 'reveal')]; t = add_bar(set_w3art(set_copy(set_data(set_dn(t, 'thu'), *rev), *rev), wyr), 'thu', band); out.append(t)
     out.append(handoff(S4[('thu', 'handoff')], 'thu', band))
@@ -223,7 +220,8 @@ def ember(band):
     new['bridges'] = E['bridges']
     s = s[:m.start(1)] + json.dumps(new, ensure_ascii=False) + s[m.end(1):]
     s = re.sub(r'<title>[^<]*</title>', f'<title>Ember {SBL[band]} · {RANGE} · {THEME[0]}</title>', s)
-    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' Nov '+(" + str(FIRST_DAY) + "+i)+' / '+DN[d][1]")
+    s = s.replace("DN[d][0]+' Oct '+(26+i)+' / '+DN[d][1]", "DN[d][0]+' '+" + json.dumps([SHORT[d][0].split(', ')[1] for d in SDAYS]) + "[i]+' / '+DN[d][1]")
+    assert "' Oct '" not in s, 'Ember date line not replaced'
     for k in ('Everyone Belongs', 'Todos pertenecemos'):
         assert k not in s or True
     s = s.replace('Everyone Belongs', THEME[0]).replace('Todos pertenecemos', THEME[1])
